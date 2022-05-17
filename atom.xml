@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-17T16:09:42.329Z</updated>
+    <updated>2022-05-17T18:45:06.776Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -94,6 +94,7 @@
 <hr/>
 <p>写在后面的吐槽：排版这种事情 <strong>Layout + 组件化</strong> 不香吗！PPT  的样式复用实在太局限了。看祖传的 PPT 排版看得我脑壳疼，每一页的小标题位置都不一样，字体也是用得乱七八糟的。排版的四原则，“亲密”“对齐”“对比”“重复”，每一项都很重要。但一项都不满足这是怎么做到的！强迫症（伪）哭晕在厕所。</p>
 <p>其实还是祖传的习惯问题。比如 Word，小时候我也是有过一段时间空格排版居中……现在谁还空格排版居中，我见一个打一个（狗头）</p>]]></content>
+        <category label="折腾"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[纯函数与算法]]></title>
@@ -173,6 +174,7 @@ function DFStraverse(index: number, map: { point: string[], side: number[][] }) 
 <hr/>
 <p>状态其实在各种算法里挺重要的。不少空间换时间的极限操作都要用到。</p>
 <p>算法注定是“不纯”的，能做的也不过是用闭包来保存状态。有时候觉得，纯不纯的也没有这么重要。</p>]]></content>
+        <category label="折腾"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Github hosts 更新脚本(MAC)]]></title>
@@ -325,6 +327,7 @@ $ sudo chown root:admin /Library/LaunchDaemons/hoststool.plist
 $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 </code></pre>
 <p>执行完就会立刻运行一次脚本。由于定时任务是 root 用户不是个人用户，不会有通知，可以去 Console 看 log。</p>]]></content>
+        <category label="折腾"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[网盘目录程序比较]]></title>
@@ -371,6 +374,7 @@ $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/top-homeimage@2x.png" alt="nextcloud"/></p>
 <p>个人网盘程序，和Cloudreve一个性质的。很多插件，交互是最好的，也比较耗资源，适合家里获团队用。</p>
 <p>external storage 装起来复杂，不好白嫖资本家。</p>]]></content>
+        <category label="折腾"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[m3u8直播流实时录屏小记]]></title>
@@ -474,6 +478,7 @@ https://website/xxx-00003.ts
 <hr/>
 <p>PS：目前风气真的太严了，如果不是发现片段被删减，也不会想到去研究怎么录屏。既然花了钱买了相应的单场直播，也说明了会提供回放，要求拥有一个和直播时相同的回放个人觉得并不过分。最终给一个删减版，感觉这服务有些不值得，即便直播和录屏混剪都得给剪出来一个完整的版本。</p>
 <p>PPS：明白大环境，没有全指责流媒体平台的意思。</p>]]></content>
+        <category label="折腾"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[记一次被骗388巨款的理发经历]]></title>
@@ -600,6 +605,7 @@ https://website/xxx-00003.ts
 <p>但希望主演人可以改进一下，对一般女性能有点常识，用力过猛了。群演的年纪普遍偏小，就按规矩说话不怎么能自由发挥，需要再练下演技。</p>
 <p>对于我这种容易被忽悠的人，解决方法也很简单，足够穷就不会被骗钱了。</p>
 <p>PS：我觉得我写得好开心…………</p>]]></content>
+        <category label="Diary"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[看看是谁在D我]]></title>
@@ -701,6 +707,7 @@ https://website/xxx-00003.ts
 <p>而且每次防火墙每次更新过滤的ip都是那么40个左右，Challenge通过率是0.5%。</p>
 <p>40ip个会不会有点多？是不是程序有问题？我开始也这么想过，但我自己也设置有定时更新，还设置了三份，都没见把我自己ban掉。</p>
 <p>累了，感觉不再爱了。</p>]]></content>
+        <category label="折腾"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[关于指针与Golang的结构体]]></title>
@@ -778,6 +785,7 @@ e = interfacelist[0]
 <pre><code class="language-go">e_ptr = e.(*Extend) // 从Interface类型返回一个Extend类型的指针
 e_ptr.Base // 等于(*e_ptr).Base
 </code></pre>]]></content>
+        <category label="学习"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac上如何开机与关机时自动运行Shell脚本]]></title>
@@ -864,6 +872,7 @@ startup;
 <ul>
 <li><a href="https://stackoverflow.com/questions/24200924/run-a-script-only-at-shutdown-not-log-off-or-restart-on-mac-os-x">Run a script only at shutdown (not log off or restart) on Mac OS X</a></li>
 </ul>]]></content>
+        <category label="折腾"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[关于Golang程序的内存占用过大的问题]]></title>
@@ -881,5 +890,6 @@ startup;
 <p>后来我也去查看了服务器的内存情况，发现，在一个小时后（程序这期间一直是空闲状态），内存终于降了100M，变得和之间相同了。确实是没有内存泄漏，纯属服务器闲的。</p>
 <p>知道这一点后我的内存洁癖也算是消失了。因为一直非常讨厌高内存占用的应用，觉得是没有优化好。现在看来，这也能有泡沫，反倒是没事就去清一下内存没有必要，重新申请又是额外的开销。从前的（静态）语言确实需要程序员手动管理内存，而go语言在这一点上又帮程序员做了。</p>
 <p>“手动强迫系统释放内存的行为都是耍流氓。”</p>]]></content>
+        <category label="学习"/>
     </entry>
 </feed>

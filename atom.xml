@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-19T08:40:45.719Z</updated>
+    <updated>2022-05-19T11:51:25.415Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -15,9 +15,9 @@
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
     <entry>
-        <title type="html"><![CDATA[PPT 母版的制作/使用方法]]></title>
-        <id>https://sansui233.com/posts/母版</id>
-        <link href="https://sansui233.com/posts/母版"/>
+        <title type="html"><![CDATA[PPT母版的制作与使用方法]]></title>
+        <id>https://sansui233.com/posts/PPT母版的制作与使用方法</id>
+        <link href="https://sansui233.com/posts/PPT母版的制作与使用方法"/>
         <updated>2021-11-12T00:08:55.000Z</updated>
         <content type="html"><![CDATA[<p>由于我需要批量编辑 PPT 的样式，但 PPT 没有组件化样式的概念，所以开始学习用母版。虽然之前也用过，但始终不明白 PPT 的迷之逻辑，有时候是调整了母版但不生效，或者调整了局部结果别的地方也被影响了……今天才大概明白了一点（还是 Figma 和 Sketch 的逻辑好懂……）所以从我的角度说一下对 PPT 的模版理解。</p>
 <p>这个问题明显视频解释更好，但不太想做视频（躺）因为每次做视频前写大纲都要写好久……</p>
@@ -31,7 +31,7 @@
 <p>一个正常的母版包含着一个“<strong>幻灯片母版</strong>”和多个“<strong>版式</strong>”。</p>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/Screen%20Shot%202021-11-11%20at%207.03.24%20PM.png" alt="母版结构"/></p>
 <h3>样式继承</h3>
-<p>“<strong>版式</strong>” 会继承 “<strong>幻灯片母版</strong>”（以下简称为 <strong>母版</strong> ）中的一些元素的样式（包括位置、字体、大小、颜色等）。也就是说，只要更改 <strong>母版</strong> 里的样式，**版式 **也会自动更新。</p>
+<p>“<strong>版式</strong>” 会继承 “<strong>幻灯片母版</strong>”（以下简称为 <strong>母版</strong> ）中的一些元素的样式（包括位置、字体、大小、颜色等）。也就是说，只要更改 <strong>母版</strong> 里的样式，<strong>版式</strong>也会自动更新。</p>
 <p>所以是哪些元素可以被继承呢？在菜单栏里的“母版版式”中，有五个选项分别是</p>
 <ul>
 <li>标题</li>
@@ -772,9 +772,9 @@ func (e Extend) Interb() {}
 </ul>
 <p>这个时候，请问有谁实现了Interface？</p>
 <p>答案是：<strong>Base和Extend本身都没有实现Interface</strong>。但是上述代码中完全没有出现的*<strong>Extend（Extend的指针）实现了Interface</strong>。</p>
-<p>为什么呢？虽然***Extend<strong>并没有实现第二个方法，但</strong>Extend<strong>实现了，所以</strong>*Extend**是也是可以直接访问第二个方法的（参考上面的(*p).x的解释）。</p>
-<p>而***Base<strong>实现了第一个方法（Base没有实现），而</strong>Extend<strong>组合了</strong>Base**。因此第一个方法可以也通过***Extend**访问（Extend无法访问）。</p>
-<p>所以***Extend<strong>两个方法都能访问，因此实现了Interface。而</strong>Extend**只能访问第二个方法，因此没有实现Interface。</p>
+<p>为什么呢？虽然*<strong>Extend</strong>并没有实现第二个方法，但<strong>Extend</strong>实现了，所以*<strong>Extend</strong>是也是可以直接访问第二个方法的（参考上面的(*p).x的解释）。</p>
+<p>而*<strong>Base</strong>实现了第一个方法（Base没有实现），而<strong>Extend</strong>组合了<strong>Base</strong>。因此第一个方法可以也通过*<strong>Extend</strong>访问（Extend无法访问）。</p>
+<p>所以*<strong>Extend</strong>两个方法都能访问，因此实现了Interface。而<strong>Extend</strong>只能访问第二个方法，因此没有实现Interface。</p>
 <p>然后日常使用<strong>Extend</strong>的时候，为了能使用Interface的方法，需要使用*<strong>Extend</strong>：</p>
 <pre><code class="language-go">interfacelist := make([]Interface, 0)
 interfacelist = append(interfacelist, &amp;Extend{}) // 因为是指针实现Interface，需要传入地址

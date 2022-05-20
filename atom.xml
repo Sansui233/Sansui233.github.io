@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-20T03:17:41.214Z</updated>
+    <updated>2022-05-20T19:46:47.490Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,65 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[杂谈20220516-20220521]]></title>
+        <id>https://sansui233.com/memos</id>
+        <link href="https://sansui233.com/memos"/>
+        <updated>2022-05-21T03:27:00.000Z</updated>
+        <summary type="html"><![CDATA[一些可能不正经的碎碎念]]></summary>
+        <content type="html"><![CDATA[<h2>2022-05-21</h2>
+<p>博客重构记录：由于吐槽写得太长加了 memo 分页逻辑，使用了首屏静态页面分页前端 query CSR 的方式，以减少 FCP 时间。但这样的问题是即便是带 query 的链接，首屏也是会要先闪一下，再替换掉内容，毕竟是静态页面。 这有点难解决。</p>
+<p>有一个非常 tricky 的办法，在样式做上欺骗，把字号换成和背景一个色（或者加遮罩），在 CSR 逻辑处理完后再显示。但这样的弊端是 FCP 时间会相对比较长，特别是网不好的情况下。本来分页就是用来减少 FCP 时间的。这么做虽然流量减少了，但又很难说到底能减少多少 FCP 时间。</p>
+<p>另外 Link 由于路由处理有延迟，导致换页时体感有延迟，中途没反馈如果网不好可能会以为是页面有 Bug。果然 CSR 异步请求还是得加数据切换时的交互提示……啊烦，设计好难。后续还想抠动画，但就是体力活，纯抠……</p>
+<h2>2022-05-20</h2>
+<p>关于 Next.js 的容易造成的误区和目前吸引我的点。先说误区。</p>
+<ol>
+<li>SSG（静态站点生成）这名字取得有误导性，并不是真正完全的静态站点。</li>
+</ol>
+<p>一般对于 <strong>静态站点</strong> 是指 build 预渲染后的纯前端页面，直接出现最终结果，不需要任何服务器，给一个 index.html 点开就能用。但 SSG 实际做的只有 “可以获取预渲染所需数据”，但有的渲染 Feature 仍然需要用到服务器处理，其 build 结果并不是静态站点，也没有做任何预渲染，export 才是。因此即便没有用到任何的 SSR，也会有 feature 在 export 中不支持。纯 React 客户端的 build 阶段相当于 Next.js 的 export 阶段。</p>
+<ol start="2">
+<li>SSR（服务端渲染）字面上更容易造成误解，和传统的服务端渲染有区别</li>
+</ol>
+<p>首先要理解 CSR 的对立面是 Pre-render，而不是 SSR。SSR 只是一种 pre-render 的方法，SSG 也是一种 pre-render 的方法。</p>
+<p>其次要理解，<strong>SSG 也运行在服务端</strong>。更准确的说法是 SSG 是“服务端 build 时预渲染”，SSR 是“服务端运行时预渲染”。但是 Server-side rendering 字面上把 SSG 也概括进去了。</p>
+<p>Next.js 对 SSG 和 SSR 的定义。</p>
+<blockquote>
+<h3><a href="https://nextjs.org/docs/basic-features/pages#two-forms-of-pre-rendering">Two forms of Pre-rendering</a></h3>
+<ul>
+<li>
+<p><a href="https://nextjs.org/docs/basic-features/pages#static-generation-recommended"><strong>Static Generation (Recommended)</strong></a>: The HTML is generated at <strong>build time</strong> and will be reused on each request.</p>
+</li>
+</ul>
+<ul>
+<li><a href="https://nextjs.org/docs/basic-features/pages#server-side-rendering"><strong>Server-side Rendering</strong></a>: The HTML is generated on <strong>each request</strong>.</li>
+</ul>
+</blockquote>
+<p>而传统说的服务端渲染，其实是同时包含了 Next.js 的 SSG 渲染与 SSR 渲染。</p>
+<p>那么问题是，按照 Next.js 的 SSR 定义，SSR 是不是无法 export 成静态页面？</p>
+<p>这其实要看有没有对 http request 进行处理，或者有别的要和 server 打交道的代码。 即便你用 SSR，但每次都是在做一些和 http request 无关的事情，那这不会对 export 造成影响。这也是为什么 <code>getInitialProps</code> 支持 export 但又支持得不太完全。</p>
+<p>比如 styled-components 可以预渲染时注入 style，但这个有两种写法，第一种是 styled-components <a href="https://styled-components.com/docs/advanced#server-side-rendering">官方文档</a>，用的标准 SSR，无法 export。第二种写法在 <a href="https://github.com/vercel/next.js/tree/canary/examples/with-styled-components">Next.js 仓库</a>，用的了服务端做预渲染，但又不像一般的 SSR，可以 export，只不过 req 和 res 为空，概念上可以说就是个 SSG。</p>
+<p>再说吸引我的点</p>
+<ol>
+<li>SSR 和 CSR 同构，可以看成 CSR 基础上增强首屏 SEO 能力，也可以看成传统 SSR 基础上加入 CSR 的优点（节省服务器资源bla），这样小型页面生成不用分开做数据 mock，直接一把唆。</li>
+<li>CSR 和 build 时预渲染都算是纯前端，能完全生成静态页面的。而 Next.js 依靠 Node 拥有一定的后端处理能力（虽然我用不上）</li>
+</ol>
+<h2>2022-05-18</h2>
+<p>今晚先把 Issue 修了，然后把分类页写完吧，现在和我想象的还是有差别。由于没有提前做界面设计，写起来十分痛苦……做设计真的太费时间了，下次再也不要推着写了。</p>
+<h2>2022-05-17</h2>
+<p>今天早上起床，醒之前是真实的恶梦。梦到我在家里睡觉，一觉醒来，父母都去世了，尸体就躲在我的身旁，就在床上，在睡梦中。</p>
+<hr/>
+<p>また自殺したいと思った</p>
+<p>役に立たない。ただのクソ製造機。生きてる意味もない</p>
+<p>母は偉いです、それに対して、僕はただのクソなんです。いや、母だけではなく、人一倍ゴミクズです</p>
+<p>ただの普段の生活もできないし</p>
+<p>连续一周每天睡 4 小时左右了。主要是因为我睡得晚，室友起得早。基本我睡 4 小时左右就会听到他们开始活动了。我真的不明白我为什么要睡那么晚，真的，心情会很差，但依然睡不着。之前有天晚上强制自己 2 点睡觉强制得我要疯了，最后是看了三集柯南才能稳定睡觉。</p>
+<p>从来没有完成自己的计划这么困难过。虽然从读研起就越来越困难了。但没有什么时候比现在更难。长期无法做自己想做的事情，所做的一切对我和对周围的人没有任何价值可言，只是个单纯的累赘。有很多人羡慕我因为有兴趣而有很强的自驱力，但其实为此我已经牺牲掉了赖以生存的所有，至少我目前是这么觉得的。</p>
+<p>我无法控制我写代码的时间，吃饭的时间，睡觉的时间，也无法控制我看两行论文就会分神。这些似乎都是随缘。这意味，我无法控制我的工作，无法精确计划，无法和他人长期有规律地合作。很可能今天专注了 24 小时，明天精神不好一整天都无法专注。</p>
+<p>我只能控制我画画的时间、打游戏的时间、看剧的时间。这些休闲的时间就可以控制。我不明白。我并无焦虑，我从不为正在做的事情焦虑，因为焦虑会导致完全无法投入。现在看来更像是一种 ADHD，但也无心诊断，就医这些日常都太麻烦了。我总是觉得日常生活太麻烦，以至于无法好好过每一天的日常，注定不会活太久。</p>
+<h2>2022-05-16</h2>
+<p>博客已重写，遇到不少问题，有机会写点文章。</p>]]></content>
+        <category label="Diary"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PPT母版的制作与使用方法]]></title>
         <id>https://sansui233.com/posts/PPT母版的制作与使用方法</id>
@@ -94,7 +153,7 @@
 <hr/>
 <p>写在后面的吐槽：排版这种事情 <strong>Layout + 组件化</strong> 不香吗！PPT  的样式复用实在太局限了。看祖传的 PPT 排版看得我脑壳疼，每一页的小标题位置都不一样，字体也是用得乱七八糟的。排版的四原则，“亲密”“对齐”“对比”“重复”，每一项都很重要。但一项都不满足这是怎么做到的！强迫症（伪）哭晕在厕所。</p>
 <p>其实还是祖传的习惯问题。比如 Word，小时候我也是有过一段时间空格排版居中……现在谁还空格排版居中，我见一个打一个（狗头）</p>]]></content>
-        <category label="折腾"/>
+        <category label="摸鱼"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[纯函数与算法]]></title>
@@ -174,7 +233,7 @@ function DFStraverse(index: number, map: { point: string[], side: number[][] }) 
 <hr/>
 <p>状态其实在各种算法里挺重要的。不少空间换时间的极限操作都要用到。</p>
 <p>算法注定是“不纯”的，能做的也不过是用闭包来保存状态。有时候觉得，纯不纯的也没有这么重要。</p>]]></content>
-        <category label="折腾"/>
+        <category label="学习"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Github hosts 更新脚本(MAC)]]></title>
@@ -327,7 +386,7 @@ $ sudo chown root:admin /Library/LaunchDaemons/hoststool.plist
 $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 </code></pre>
 <p>执行完就会立刻运行一次脚本。由于定时任务是 root 用户不是个人用户，不会有通知，可以去 Console 看 log。</p>]]></content>
-        <category label="折腾"/>
+        <category label="摸鱼"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[网盘目录程序比较]]></title>
@@ -352,7 +411,7 @@ $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 </ul>
 <h2>2. One-manager</h2>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/herooneindex.herokuapp.com_Ali_.png" alt="one manager"/></p>
-<p>网盘列表程序，阿里云或者Onedrive的网盘里的文件列出来，便于集中分享。单纯是个人分享站。</p>
+<p>网盘列表程序，阿里云或者 Onedrive 的网盘里的文件列出来，便于集中分享。单纯是个人分享站。</p>
 <ul>
 <li>serverless，不需要服务器和域名，可白嫖资本家的服务</li>
 <li>README 即文档，issue 即社区。README写得像随便记的笔记，好在也不复杂都有引导</li>
@@ -362,9 +421,9 @@ $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 </ul>
 <h2>3. zfile</h2>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/zfile.jun6.net_.png" alt="zfile"/></p>
-<p>是网盘列表程序，同One Manager。</p>
+<p>是网盘列表程序，同 One Manager。</p>
 <ul>
-<li>需要服务器和域名。但看情况也许可以Serverless？不清楚Java</li>
+<li>需要服务器和域名。但看情况也许可以 Serverless ？不清楚Java</li>
 <li>有文档，README说得很清楚，不用一脸懵逼找社区</li>
 <li>功能不多，基础的分享、预览、下载功能，前端好，交互体验好</li>
 <li>文件预览有Bug，OneDrive的视频流经常加载不出来，FLV会一直加载失败。但，好看是真的</li>
@@ -374,7 +433,7 @@ $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/top-homeimage@2x.png" alt="nextcloud"/></p>
 <p>个人网盘程序，和Cloudreve一个性质的。很多插件，交互是最好的，也比较耗资源，适合家里获团队用。</p>
 <p>external storage 装起来复杂，不好白嫖资本家。</p>]]></content>
-        <category label="折腾"/>
+        <category label="摸鱼"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[m3u8直播流实时录屏小记]]></title>
@@ -478,7 +537,7 @@ https://website/xxx-00003.ts
 <hr/>
 <p>PS：目前风气真的太严了，如果不是发现片段被删减，也不会想到去研究怎么录屏。既然花了钱买了相应的单场直播，也说明了会提供回放，要求拥有一个和直播时相同的回放个人觉得并不过分。最终给一个删减版，感觉这服务有些不值得，即便直播和录屏混剪都得给剪出来一个完整的版本。</p>
 <p>PPS：明白大环境，没有全指责流媒体平台的意思。</p>]]></content>
-        <category label="折腾"/>
+        <category label="摸鱼"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[记一次被骗388巨款的理发经历]]></title>
@@ -615,7 +674,7 @@ https://website/xxx-00003.ts
         <content type="html"><![CDATA[<p>自从部署了服务器，一直都觉得访问量不太正常。但我也仅仅是对IP做了防护，CDN防火墙也没怎么设置。</p>
 <p>直到最近觉得，天天访问上万，唯一IP数却一千不到，cache率更是一直都在1%以下。决定看看是哪些人（IP）干的事，服务器实在不值得。</p>
 <h2>查看ip访问行为</h2>
-<p>web服务器使用的nginx，由于CDN的关系，nginx需要有http-realip的模块才能查看CDN前的ip。找了不少资料就只觉得这个文章不错，废话少过程清晰，还很贴心给了生成脚本（和我流爱说废话自言自语的风格完全不同）</p>
+<p>web服务器使用的nginx，由于CDN的关系，nginx需要有http-realip的模块才能查看CDN前的ip。找了不少资料就只觉得这个文章不错，废话少过程清晰，还很贴心给了生成脚本。</p>
 <blockquote>
 <p><a href="https://www.nenew.net/cloudflare-cdn-nginx-get-real-ip-tutorial.html">CloudFlare CDN下Nginx正确获取真实IP教程</a></p>
 </blockquote>
@@ -677,14 +736,14 @@ https://website/xxx-00003.ts
 <p>再加上gin的静态cache本身就不太稳。之前使用css的时候基本运行3天就外链请求不出来了，最后也是用nginx挂的静态文件。</p>
 <p>第7名到第10名，很明显，同类程序的爬虫。Duang地一下请求几个一般人不用的链接。对于这些爬虫我觉得倒还行，请求频率并不会太高。但非常不喜欢直接伸手全爬别人爬好的，这是极其恶劣的生态与shame的想法。爬虫的理想的状态是网状分布式的部署，而不是树。</p>
 <h2>防护措施</h2>
-<p>由于挂了CloudFlare，iptables自然没什么用，还容易不小心把CF的IP ban掉（虽然在发现这一点之前我折腾了快一下午的iptables）。直接去配置CF的防火墙。</p>
+<p>由于挂了 CloudFlare，iptables 自然没什么用，还容易不小心把 CF 的 IP ban 掉（虽然在发现这一点之前我折腾了快一下午的 iptables ）。直接去配置CF的防火墙。</p>
 <p>我需要应对的情况主要就这一个：</p>
 <ul>
 <li>一分钟更新一次配置文件的ip，给他们一个小小的JS Chanllenge</li>
 </ul>
 <p>（突然有点后悔写了JS Chanllenge的破解是什么回事……）</p>
 <p>但是啊，这些ip还是不少活人的，长期都Chanllenge没有必要。而且我也不能天天都像今天这么看log，实在是消耗时间，消耗时间就是生命。</p>
-<p>而Nginx和CloudFlare的rate limit都是防止CC，限制的每秒或者每分钟的请求数。但这恰恰是我不能做的，默认的配置文件的写法1s内会请求十几次，多请求几次就一分钟就几十次了（配置文件该改改了）。我需要处理的是过于规律且相对频繁的请求，而非CC。</p>
+<p>而 Nginx 和 CloudFlare 的rate limit 都是防止CC，限制的每秒或者每分钟的请求数。但这恰恰是我不能做的，默认的配置文件的写法1s内会请求十几次，多请求几次就一分钟就几十次了（配置文件该改改了）。我需要处理的是过于规律且相对频繁的请求，而非CC。</p>
 <p>于是连夜写了个分析log的程序，主要是以下功能：</p>
 <ul>
 <li>根据请求间隔的规律判断是否为需要处理的ip
@@ -694,11 +753,11 @@ https://website/xxx-00003.ts
 <li>不计算大于 <code>threshold</code> 分钟的间隔与等于0分钟的间隔。</li>
 </ul>
 </li>
-<li>排除CloudFlare子网下的IP。CloudFlare的ip网段在线获取。</li>
-<li>使用CloudFlare Api更新JS Chanllenge的filter，给需要过滤的ip加上Challenge</li>
+<li>排除 CloudFlare 子网下的IP。CloudFlare 的 ip 网段在线获取。</li>
+<li>使用 CloudFlare Api 更新 JS Chanllenge 的 filter，给需要过滤的 ip 加上 Challenge</li>
 </ul>
-<p>然后用cron定时执行。常驻后台没必要，也没想做实时监控，</p>
-<p>把恶意IP和常见的IP过滤掉后，最新的就只剩下CloudFlare的请求了，终于干净了……但好寂寞啊…………看来是真的没什么活人用呢。</p>
+<p>然后用 cron 定时执行。常驻后台没必要，也没想做实时监控。</p>
+<p>把恶意 IP 和常见的 IP 过滤掉后，最新的就只剩下 CloudFlare 的请求了，终于干净了……但好寂寞啊…………看来是真的没什么活人用呢。</p>
 <h2>一天后</h2>
 <p>今天的Requests数是17435。</p>
 <p>Unique Request是1188。</p>
@@ -707,7 +766,7 @@ https://website/xxx-00003.ts
 <p>而且每次防火墙每次更新过滤的ip都是那么40个左右，Challenge通过率是0.5%。</p>
 <p>40ip个会不会有点多？是不是程序有问题？我开始也这么想过，但我自己也设置有定时更新，还设置了三份，都没见把我自己ban掉。</p>
 <p>累了，感觉不再爱了。</p>]]></content>
-        <category label="折腾"/>
+        <category label="摸鱼"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[关于指针与Golang的结构体]]></title>
@@ -872,24 +931,6 @@ startup;
 <ul>
 <li><a href="https://stackoverflow.com/questions/24200924/run-a-script-only-at-shutdown-not-log-off-or-restart-on-mac-os-x">Run a script only at shutdown (not log off or restart) on Mac OS X</a></li>
 </ul>]]></content>
-        <category label="折腾"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于Golang程序的内存占用过大的问题]]></title>
-        <id>https://sansui233.com/posts/关于Golang程序的内存占用过大的问题</id>
-        <link href="https://sansui233.com/posts/关于Golang程序的内存占用过大的问题"/>
-        <updated>2020-11-19T23:14:47.000Z</updated>
-        <content type="html"><![CDATA[<p>之前看Mastering Go 2nd Edition，说到Golang的垃圾回收机制，说垃圾回收器(GC)每5分钟会调用一次。然而我观察服务器内存占用时，发现程序后的空闲器5分钟后，使用top查看内存占用并没有减少，大小是200M。因此开始怀疑起了是否有内存泄漏问题。</p>
-<p>然而在使用pprof分析后，发现其报告的常驻内存占用只有10M，inuse_objects相对更多，也不过40M。goroutine没有泄漏，makeslice确实调用得非常多，但也仅仅是当时占用一下内存后来都释放了。有时候会有空闲的TCP连接，最后也被关闭了。可疑的代码都检查了一遍，最后认为只可能给内存造成压力但不应该内存泄漏。所以top查看的200M是怎么来的？</p>
-<p>在我再也挖不出任何可能性时，直到看到这篇文章，经历几乎一模一样。并且写得非常清楚有逻辑，以至于我没有想再完整记录一遍我的经历的想法。这篇文章甚至详细到了解释每一步的pprof的操作和术语，调试过程非常值得学习。</p>
-<ul>
-<li><a href="https://blog.detectify.com/2019/09/05/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/">How we tracked down (what seemed like) a memory leak in one of our Go microservices</a></li>
-</ul>
-<p>最后结论就是，<strong>没有内存泄漏</strong>。Golang的垃圾回收机制在1.12后变了，不再是5分钟机制(每5分钟发送<code>MADV_DONTNEED</code>信号)，而变成Go会告诉系统有空闲的内存可以回收(发送<code>MADV_FREE</code>信号)，但什么时候把内存还给系统是需要系统决定。如果系统内存一直有空闲就可能一直不会还系统，导致top显示出的内存占用一直很大。</p>
-<p>文章中还指出，如果想用之前那样的5分钟回收机制，运行时可以加上flag<code>GODEBUG=madvdontneed=1</code>。像之前那样使用<code>runtime.GC</code>与<code>runtime/debug</code>中的<code>FreeOSMemory</code>都没有效果，也就是不会发送<code>MADV_DONTNEED</code>信号。</p>
-<p>后来我也去查看了服务器的内存情况，发现，在一个小时后（程序这期间一直是空闲状态），内存终于降了100M，变得和之间相同了。确实是没有内存泄漏，纯属服务器闲的。</p>
-<p>知道这一点后我的内存洁癖也算是消失了。因为一直非常讨厌高内存占用的应用，觉得是没有优化好。现在看来，这也能有泡沫，反倒是没事就去清一下内存没有必要，重新申请又是额外的开销。从前的（静态）语言确实需要程序员手动管理内存，而go语言在这一点上又帮程序员做了。</p>
-<p>“手动强迫系统释放内存的行为都是耍流氓。”</p>]]></content>
-        <category label="学习"/>
+        <category label="摸鱼"/>
     </entry>
 </feed>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-26T09:11:56.983Z</updated>
+    <updated>2022-05-26T11:24:32.038Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -20,7 +20,12 @@
         <link href="https://sansui233.com/memos"/>
         <updated>2022-05-21T03:27:00.000Z</updated>
         <summary type="html"><![CDATA[一些可能不正经的碎碎念]]></summary>
-        <content type="html"><![CDATA[<h2>2022-05-25</h2>
+        <content type="html"><![CDATA[<h2>2022-05-26</h2>
+<p>前天看完了博人转主线，导致昨天开始没有火影主线看了，于是莫名 emo，反复回看疾风传，岸本齐史你没有心（开玩笑的）。</p>
+<p>emo 了就摸了两张鱼，反而比平时睡得早一点。</p>
+<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/2022-05-26-2.jpg" alt="2022-05-26-2"/></p>
+<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/2022-05-26-1.jpg" alt="2022-05-26-1"/></p>
+<h2>2022-05-25</h2>
 <p>今天实现动画 Mount when scroll into view port，用了一个特别简单有意思的方式做了首屏列表 trail 渲染，通俗说就是元素依次显示出来，每一条有点时间差。</p>
 <p>挂载动画还是用的 css animation，主要是 css 做挂载动画还是很好写的，效率也比 JS 高。重点是在如何给元素的挂载加上时间差。我在这里没有用任何 setTimeout 一类的控制时间的方式。</p>
 <p>做 scroll into viewport 要用到 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API">Intersection Observer API</a>，但如果仅仅是判断 scroll into view 再进行挂载，尽管后续元素的是按动画依次挂载上来的，但首屏的各个条目仍然是一起出现的，没有任何时间差。于是我将 List Item 的占位高度设置为 100vh, 第一个就能挤掉所有后续元素，挂载后回归正常高度，第二个元素进入 viewport；第二个元素高度仍为 100vh，同样挤掉后续的所有元素，挂载后回归正常高度。</p>
@@ -85,9 +90,7 @@
 <ol>
 <li>SSR 和 CSR 同构，可以看成 CSR 基础上增强首屏 SEO 能力，也可以看成传统 SSR 基础上加入 CSR 的优点（节省服务器资源bla），这样小型页面生成不用分开做数据 mock，直接一把唆。</li>
 <li>CSR 和 build 时预渲染都算是纯前端，能完全生成静态页面的。而 Next.js 依靠 Node 拥有一定的后端处理能力（虽然我用不上）</li>
-</ol>
-<h2>2022-05-18</h2>
-<p>今晚先把 Issue 修了，然后把分类页写完吧，现在和我想象的还是有差别。由于没有提前做界面设计，写起来十分痛苦……做设计真的太费时间了，下次再也不要推着写了。</p>]]></content>
+</ol>]]></content>
         <category label="Diary"/>
     </entry>
     <entry>

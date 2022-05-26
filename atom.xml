@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-26T11:24:32.038Z</updated>
+    <updated>2022-05-26T11:27:02.528Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -15,12 +15,14 @@
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
     <entry>
-        <title type="html"><![CDATA[杂谈20220516-20220521]]></title>
+        <title type="html"><![CDATA[杂谈20220516-20220526]]></title>
         <id>https://sansui233.com/memos</id>
         <link href="https://sansui233.com/memos"/>
-        <updated>2022-05-21T03:27:00.000Z</updated>
+        <updated>2022-05-26T19:25:00.000Z</updated>
         <summary type="html"><![CDATA[一些可能不正经的碎碎念]]></summary>
         <content type="html"><![CDATA[<h2>2022-05-26</h2>
+<p>推荐一个网页版<a href="https://imagestool.com/zh_CN/">图片处理 app</a>，目前最全的没有之一。</p>
+<hr/>
 <p>前天看完了博人转主线，导致昨天开始没有火影主线看了，于是莫名 emo，反复回看疾风传，岸本齐史你没有心（开玩笑的）。</p>
 <p>emo 了就摸了两张鱼，反而比平时睡得早一点。</p>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/2022-05-26-2.jpg" alt="2022-05-26-2"/></p>

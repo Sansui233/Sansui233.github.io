@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-28T12:00:11.692Z</updated>
+    <updated>2022-05-28T13:37:54.779Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -23,15 +23,41 @@
         <content type="html"><![CDATA[<h2>2022-05-28</h2>
 <p>今日读文章笔记</p>
 <ul>
-<li><a href="https://jesseduffield.com/Testing-Private-Methods/">是否测试私有方法？</a> 看完之后我的观点是不测试私有方法。如果需要测试私有方法，那说明着类设计得太复杂，违反了单一责任原则。</li>
-<li><a href="https://q.shanyue.tech/deploy/">前端部署 15 章</a>，适合没有实践过的新手看，都是教怎么搬砖，换言之是查文档的经验积累，对我个人来说没什么收获。好的地方是还有很多的面试题可以看。毕竟这两年闲得我差不多把有需求也有条件的折腾的东西全折腾了个遍，这之后才能体会到折腾真的不重要，工程的终点是个设计问题，而设计是个哲学问题 ……哦，对于找工作还是重要的，只有想法没有动手能力也不行。</li>
-<li>还有人吐槽 <a href="https://neverworkintheory.org/2022/03/18/python-3-types-in-the-wild.html">python3 的类型标注</a> 。没有类型标注我不理解，这么喜欢<strong>面向记忆/面向文档编程</strong>吗？</li>
-<li><a href="https://iconmap.io/blog">iconmap.io 分析 favicon 的统计数据</a>，还蛮有趣的。</li>
-<li><a href="https://jamstack.org/">Jamstack</a> 可以了解到一些当下的流行 Web 技术栈，比如 Headless CMS。我觉得后面那些本质上还是 CURD 那一套，只是换成了前端能直接用的 API，抢一下后端 CURD 搬砖人员的工作可还行。不过服务解耦带来了无代码可能性非常棒，但也真的不一定有好的应用场景。并且动态内容的SEO 还是问题很大，必须 SSR 渲染。</li>
-<li><a href="https://refactoringguru.cn/design-patterns/catalog">关于设计模式的介绍大全</a>，这个算后端面试必备吧，前端我没见几个人问过，本质也算是哲学♂</li>
-<li>ORM：GraphQL 是一个 API 标准，不用 SQL 进行 CURD。为什么好像近几年的前端对 CURD 这么执着啊，我对这就是库能用，高效，好用，就行了。不过出标准倒也有出标准的好处，服务能分层就是依靠着各种标准联系。</li>
+<li>
+<p><a href="https://jesseduffield.com/Testing-Private-Methods/">是否测试私有方法？</a> 看完之后我的观点是不测试私有方法。如果需要测试私有方法，那说明着类设计得太复杂，违反了单一责任原则。</p>
+</li>
+<li>
+<p><a href="https://q.shanyue.tech/deploy/">前端部署 15 章</a>，适合没有实践过的新手看，都是教怎么搬砖，换言之是查文档的经验积累，对我个人来说没什么收获。好的地方是还有很多的面试题可以看。毕竟这两年闲得我差不多把有需求也有条件的折腾的东西全折腾了个遍，这之后才能体会到折腾真的不重要，工程的终点是个设计问题，而设计是个哲学问题 ……哦，对于找工作还是重要的，只有想法没有动手能力也不行。</p>
+</li>
+<li>
+<p>还有人吐槽 <a href="https://neverworkintheory.org/2022/03/18/python-3-types-in-the-wild.html">python3 的类型标注</a> 。没有类型标注我不理解，这么喜欢<strong>面向记忆/面向文档编程</strong>吗？</p>
+</li>
+<li>
+<p><a href="https://iconmap.io/blog">iconmap.io 分析 favicon 的统计数据</a>，还蛮有趣的。</p>
+</li>
+<li>
+<p><a href="https://jamstack.org/">Jamstack</a> 可以了解到一些当下的流行 Web 技术栈，比如 Headless CMS。我觉得后面那些本质上还是 CURD 那一套，只是换成了前端能直接用的 API，抢一下后端 CURD 搬砖人员的工作可还行。不过服务解耦带来了无代码可能性非常棒，但也真的不一定有好的应用场景。并且动态内容的SEO 还是问题很大，必须 SSR 渲染。</p>
+</li>
+<li>
+<p><a href="https://refactoringguru.cn/design-patterns/catalog">关于设计模式的介绍大全</a>，这个算后端面试必备吧，前端我没见几个人问过，本质也算是哲学♂</p>
+</li>
+<li>
+<p>ORM：GraphQL 是一个 API 标准，不用 SQL 进行 CURD。为什么好像近几年的前端对 CURD 这么执着啊，我对这就是库能用，高效，好用，就行了。不过出标准倒也有出标准的好处，服务能分层就是依靠着各种标准联系。</p>
+</li>
+<li>
+<p>低代码 电商平台： <a href="https://selldone.com/">https://selldone.com/</a></p>
+</li>
+<li>
+<p><a href="https://www.bramadams.dev/projects/invest-in-lights#light-mode-and-dark-mode-on-websites">为什么需要黑暗模式</a>？觉得不需要设计黑暗模式的人，大概是工作环境都太稳定了。</p>
+<blockquote>
+<p>I generally clowned on developers putting so much into building dark modes instead of critical features that prevent their apps from working, until I was working on this site on a red eye flight. The whites were blinding and the websites/apps that had dark mode were comforting.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://www.matuzo.at/blog/building-the-most-inaccessible-site-possible-with-a-perfect-lighthouse-score/">完美的可访问性网站</a> 笑死了，行为艺术</p>
+</li>
 </ul>
-<p>突然觉得，这些没太多意思，大家只是在不断追求更好更方便的架构，以适应商业的发展。做的事情还都是这点东西。好的工程师太难了，需要极强的抽象思维，某种程度上可以说是需要哲学天赋。所以到后期不转管理或不做研究几乎不可能……</p>
+<p>突然觉得，没太多意思，大家只是在不断追求更好更方便的架构，以适应商业的发展。做的事情还都是这点东西。好的工程师太难了，需要极强的抽象思维，某种程度上可以说是需要哲学天赋。所以到后期不转管理或不做研究几乎不可能……</p>
 <h2>2022-05-26</h2>
 <p>推荐一个网页版<a href="https://imagestool.com/zh_CN/">图片处理 app</a>，目前最全的没有之一。</p>
 <hr/>

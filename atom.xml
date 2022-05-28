@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-28T10:50:59.719Z</updated>
+    <updated>2022-05-28T10:58:55.524Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -10,7 +10,7 @@
         <uri>https://sansui233.com/about.ico</uri>
     </author>
     <link rel="alternate" href="https://sansui233.com"/>
-    <link rel="self" href="https://sansui233.com/rss"/>
+    <link rel="self" href="https://sansui233.com/atom.xml"/>
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>

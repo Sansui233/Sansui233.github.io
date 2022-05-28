@@ -2,6 +2,7 @@
     "version": "https://jsonfeed.org/version/1",
     "title": "Sansui's blog",
     "home_page_url": "https://sansui233.com",
+    "feed_url": "https://sansui233.com/feed.json",
     "description": "记录学习和生活的个人博客",
     "author": {
         "name": "Sansui",

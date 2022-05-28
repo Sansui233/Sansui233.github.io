@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://sansui233.com</id>
-    <title>Sansui's blog</title>
-    <updated>2022-05-28T10:41:20.469Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <author>
-        <name>Sansui</name>
-        <email>sansuilnm@gmail.com</email>
-        <uri>https://sansui233.com/about.ico</uri>
-    </author>
-    <link rel="alternate" href="https://sansui233.com"/>
-    <link rel="self" href="https://sansui233.com/atom.xml"/>
-    <subtitle>记录学习和生活的个人博客</subtitle>
-    <icon>https://sansui233.com/favicon.ico</icon>
-    <rights>All rights reserved 2022, Sansui</rights>
-    <entry>
-        <title type="html"><![CDATA[杂谈20220516-20220528]]></title>
-        <id>https://sansui233.com/memos?id=2022-05-29</id>
-        <link href="https://sansui233.com/memos"/>
-        <updated>2022-05-28T17:44:00.000Z</updated>
-        <summary type="html"><![CDATA[六条不正经的碎碎念]]></summary>
-        <content type="html"><![CDATA[<h2>2022-05-28</h2>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Sansui's blog</title>
+        <link>https://sansui233.com</link>
+        <description>记录学习和生活的个人博客</description>
+        <lastBuildDate>Sat, 28 May 2022 10:41:20 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>zh-CN</language>
+        <copyright>All rights reserved 2022, Sansui</copyright>
+        <item>
+            <title><![CDATA[杂谈20220516-20220528]]></title>
+            <link>https://sansui233.com/memos</link>
+            <guid>https://sansui233.com/memos?id=2022-05-29</guid>
+            <pubDate>Sat, 28 May 2022 17:44:00 GMT</pubDate>
+            <description><![CDATA[六条不正经的碎碎念]]></description>
+            <content:encoded><![CDATA[<h2>2022-05-28</h2>
 <p>今日读文章笔记</p>
 <ul>
 <li><a href="https://jesseduffield.com/Testing-Private-Methods/">是否测试私有方法？</a> 看完之后我的观点是不测试私有方法。如果需要测试私有方法，那说明着类设计得太复杂，违反了单一责任原则。</li>
@@ -103,15 +98,15 @@
 <ol>
 <li>SSR 和 CSR 同构，可以看成 CSR 基础上增强首屏 SEO 能力，也可以看成传统 SSR 基础上加入 CSR 的优点（节省服务器资源bla），这样小型页面生成不用分开做数据 mock，直接一把唆。</li>
 <li>CSR 和 build 时预渲染都算是纯前端，能完全生成静态页面的。而 Next.js 依靠 Node 拥有一定的后端处理能力（虽然我用不上）</li>
-</ol>]]></content>
-        <category label="Diary"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[PPT母版的制作与使用方法]]></title>
-        <id>https://sansui233.com/posts/PPT母版的制作与使用方法</id>
-        <link href="https://sansui233.com/posts/PPT母版的制作与使用方法"/>
-        <updated>2021-11-12T00:08:55.000Z</updated>
-        <content type="html"><![CDATA[<p>由于我需要批量编辑 PPT 的样式，但 PPT 没有组件化样式的概念，所以开始学习用母版。虽然之前也用过，但始终不明白 PPT 的迷之逻辑，有时候是调整了母版但不生效，或者调整了局部结果别的地方也被影响了……今天才大概明白了一点（还是 Figma 和 Sketch 的逻辑好懂……）所以从我的角度说一下对 PPT 的模版理解。</p>
+</ol>]]></content:encoded>
+            <category>Diary</category>
+        </item>
+        <item>
+            <title><![CDATA[PPT母版的制作与使用方法]]></title>
+            <link>https://sansui233.com/posts/PPT母版的制作与使用方法</link>
+            <guid>https://sansui233.com/posts/PPT母版的制作与使用方法</guid>
+            <pubDate>Fri, 12 Nov 2021 00:08:55 GMT</pubDate>
+            <content:encoded><![CDATA[<p>由于我需要批量编辑 PPT 的样式，但 PPT 没有组件化样式的概念，所以开始学习用母版。虽然之前也用过，但始终不明白 PPT 的迷之逻辑，有时候是调整了母版但不生效，或者调整了局部结果别的地方也被影响了……今天才大概明白了一点（还是 Figma 和 Sketch 的逻辑好懂……）所以从我的角度说一下对 PPT 的模版理解。</p>
 <p>这个问题明显视频解释更好，但不太想做视频（躺）因为每次做视频前写大纲都要写好久……</p>
 <p>图源 Github，图片不显示挂代理 Please。</p>
 <h2>概念解释（母版/版式/主题）</h2>
@@ -185,15 +180,15 @@
 <p>这会导致已经被应用了版式的内容格式被清除……你需要去重新应用版式。</p>
 <hr/>
 <p>写在后面的吐槽：排版这种事情 <strong>Layout + 组件化</strong> 不香吗！PPT  的样式复用实在太局限了。看祖传的 PPT 排版看得我脑壳疼，每一页的小标题位置都不一样，字体也是用得乱七八糟的。排版的四原则，“亲密”“对齐”“对比”“重复”，每一项都很重要。但一项都不满足这是怎么做到的！强迫症（伪）哭晕在厕所。</p>
-<p>其实还是祖传的习惯问题。比如 Word，小时候我也是有过一段时间空格排版居中……现在谁还空格排版居中，我见一个打一个（狗头）</p>]]></content>
-        <category label="摸鱼"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[纯函数与算法]]></title>
-        <id>https://sansui233.com/posts/pure-function</id>
-        <link href="https://sansui233.com/posts/pure-function"/>
-        <updated>2021-09-25T12:00:00.000Z</updated>
-        <content type="html"><![CDATA[<p>自从接触了纯函数，刷算法题刷得举步维艰。</p>
+<p>其实还是祖传的习惯问题。比如 Word，小时候我也是有过一段时间空格排版居中……现在谁还空格排版居中，我见一个打一个（狗头）</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
+        </item>
+        <item>
+            <title><![CDATA[纯函数与算法]]></title>
+            <link>https://sansui233.com/posts/pure-function</link>
+            <guid>https://sansui233.com/posts/pure-function</guid>
+            <pubDate>Sat, 25 Sep 2021 12:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>自从接触了纯函数，刷算法题刷得举步维艰。</p>
 <blockquote>
 <p>什么是纯函数：同样的传入参数，一定可以得到相同的输出</p>
 </blockquote>
@@ -265,15 +260,15 @@ function DFStraverse(index: number, map: { point: string[], side: number[][] }) 
 <p>使用闭包，把共用的 visited 固定为状态。内部再定义函数作递归。 map 也作为外层的参数传入，里面不去修改。</p>
 <hr/>
 <p>状态其实在各种算法里挺重要的。不少空间换时间的极限操作都要用到。</p>
-<p>算法注定是“不纯”的，能做的也不过是用闭包来保存状态。有时候觉得，纯不纯的也没有这么重要。</p>]]></content>
-        <category label="学习"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Github hosts 更新脚本(MAC)]]></title>
-        <id>https://sansui233.com/posts/github-hosttools</id>
-        <link href="https://sansui233.com/posts/github-hosttools"/>
-        <updated>2021-08-07T04:08:55.000Z</updated>
-        <content type="html"><![CDATA[<p>此工具已更新至 <a href="https://github.com/Sansui233/mac-githubhosts-autoupdate">Github</a>。</p>
+<p>算法注定是“不纯”的，能做的也不过是用闭包来保存状态。有时候觉得，纯不纯的也没有这么重要。</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/学习">学习</category>
+        </item>
+        <item>
+            <title><![CDATA[Github hosts 更新脚本(MAC)]]></title>
+            <link>https://sansui233.com/posts/github-hosttools</link>
+            <guid>https://sansui233.com/posts/github-hosttools</guid>
+            <pubDate>Sat, 07 Aug 2021 04:08:55 GMT</pubDate>
+            <content:encoded><![CDATA[<p>此工具已更新至 <a href="https://github.com/Sansui233/mac-githubhosts-autoupdate">Github</a>。</p>
 <ul>
 <li>安装卸载脚本</li>
 <li>自动定时运行</li>
@@ -418,15 +413,15 @@ esac
 $ sudo chown root:admin /Library/LaunchDaemons/hoststool.plist
 $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 </code></pre>
-<p>执行完就会立刻运行一次脚本。由于定时任务是 root 用户不是个人用户，不会有通知，可以去 Console 看 log。</p>]]></content>
-        <category label="摸鱼"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[网盘目录程序比较]]></title>
-        <id>https://sansui233.com/posts/网盘目录程序比较</id>
-        <link href="https://sansui233.com/posts/网盘目录程序比较"/>
-        <updated>2021-05-26T01:15:45.000Z</updated>
-        <content type="html"><![CDATA[<p>比较一下私人网盘有关的程序</p>
+<p>执行完就会立刻运行一次脚本。由于定时任务是 root 用户不是个人用户，不会有通知，可以去 Console 看 log。</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
+        </item>
+        <item>
+            <title><![CDATA[网盘目录程序比较]]></title>
+            <link>https://sansui233.com/posts/网盘目录程序比较</link>
+            <guid>https://sansui233.com/posts/网盘目录程序比较</guid>
+            <pubDate>Wed, 26 May 2021 01:15:45 GMT</pubDate>
+            <content:encoded><![CDATA[<p>比较一下私人网盘有关的程序</p>
 <ul>
 <li>cloudreve</li>
 <li>onemanager</li>
@@ -465,15 +460,15 @@ $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 <h2>4. nextcloud</h2>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/top-homeimage@2x.png" alt="nextcloud"/></p>
 <p>个人网盘程序，和Cloudreve一个性质的。很多插件，交互是最好的，也比较耗资源，适合家里获团队用。</p>
-<p>external storage 装起来复杂，不好白嫖资本家。</p>]]></content>
-        <category label="摸鱼"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[m3u8直播流实时录屏小记]]></title>
-        <id>https://sansui233.com/posts/hslrecord</id>
-        <link href="https://sansui233.com/posts/hslrecord"/>
-        <updated>2021-05-12T15:16:44.000Z</updated>
-        <content type="html"><![CDATA[<p>最近由于发现自己想回看的直播会被剪镜头，所以下定决心以后要学会录屏。但本人有强迫症，一般的录屏软件满足不了我的需要，主要是：</p>
+<p>external storage 装起来复杂，不好白嫖资本家。</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
+        </item>
+        <item>
+            <title><![CDATA[m3u8直播流实时录屏小记]]></title>
+            <link>https://sansui233.com/posts/hslrecord</link>
+            <guid>https://sansui233.com/posts/hslrecord</guid>
+            <pubDate>Wed, 12 May 2021 15:16:44 GMT</pubDate>
+            <content:encoded><![CDATA[<p>最近由于发现自己想回看的直播会被剪镜头，所以下定决心以后要学会录屏。但本人有强迫症，一般的录屏软件满足不了我的需要，主要是：</p>
 <ol>
 <li>会录出鼠标操作、网络卡顿、水印等影响观感的画面</li>
 <li>由于显示器和录屏软件的和原视频帧数可能不同步的问题，非常容易造成画面卡顿</li>
@@ -569,15 +564,15 @@ https://website/xxx-00003.ts
 <p>解密不在讨论范围内（我也不会），总得来说还是尽量支持正版。</p>
 <hr/>
 <p>PS：目前风气真的太严了，如果不是发现片段被删减，也不会想到去研究怎么录屏。既然花了钱买了相应的单场直播，也说明了会提供回放，要求拥有一个和直播时相同的回放个人觉得并不过分。最终给一个删减版，感觉这服务有些不值得，即便直播和录屏混剪都得给剪出来一个完整的版本。</p>
-<p>PPS：明白大环境，没有全指责流媒体平台的意思。</p>]]></content>
-        <category label="摸鱼"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[记一次被骗388巨款的理发经历]]></title>
-        <id>https://sansui233.com/posts/记录一次被骗388巨款的经历</id>
-        <link href="https://sansui233.com/posts/记录一次被骗388巨款的经历"/>
-        <updated>2021-04-18T21:59:11.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
+<p>PPS：明白大环境，没有全指责流媒体平台的意思。</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
+        </item>
+        <item>
+            <title><![CDATA[记一次被骗388巨款的理发经历]]></title>
+            <link>https://sansui233.com/posts/记录一次被骗388巨款的经历</link>
+            <guid>https://sansui233.com/posts/记录一次被骗388巨款的经历</guid>
+            <pubDate>Sun, 18 Apr 2021 21:59:11 GMT</pubDate>
+            <content:encoded><![CDATA[<blockquote>
 <p>我原本以为是只是一场诱导式的恶意营销，细想来竟是一个彻头彻尾的楚门的世界。</p>
 </blockquote>
 <h1>1 拉人</h1>
@@ -696,15 +691,15 @@ https://website/xxx-00003.ts
 <p>另外这个诈骗集团应该不只有一个地点，因为他们问过我住哪，和我讲最近的连锁店是哪，那个地方应该也很偏僻，没有我熟悉的地标，我也记不住。另外，他说烫发根全北京只有两家能做，还把另一家的名字说出来了，推测也应该是同伙（谁会主动推荐自己的竞争对手），但我也没记住。如果要深入调查，应该会是个人不少的组织，干的事也不只表面理发这么简单。整个流程策划也挺全面的，绝非一时半会儿兴起的骗子能办出来的。</p>
 <p>但希望主演人可以改进一下，对一般女性能有点常识，用力过猛了。群演的年纪普遍偏小，就按规矩说话不怎么能自由发挥，需要再练下演技。</p>
 <p>对于我这种容易被忽悠的人，解决方法也很简单，足够穷就不会被骗钱了。</p>
-<p>PS：我觉得我写得好开心…………</p>]]></content>
-        <category label="Diary"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[看看是谁在D我]]></title>
-        <id>https://sansui233.com/posts/看看是谁在D我</id>
-        <link href="https://sansui233.com/posts/看看是谁在D我"/>
-        <updated>2020-12-12T02:45:46.000Z</updated>
-        <content type="html"><![CDATA[<p>自从部署了服务器，一直都觉得访问量不太正常。但我也仅仅是对IP做了防护，CDN防火墙也没怎么设置。</p>
+<p>PS：我觉得我写得好开心…………</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/Diary">Diary</category>
+        </item>
+        <item>
+            <title><![CDATA[看看是谁在D我]]></title>
+            <link>https://sansui233.com/posts/看看是谁在D我</link>
+            <guid>https://sansui233.com/posts/看看是谁在D我</guid>
+            <pubDate>Sat, 12 Dec 2020 02:45:46 GMT</pubDate>
+            <content:encoded><![CDATA[<p>自从部署了服务器，一直都觉得访问量不太正常。但我也仅仅是对IP做了防护，CDN防火墙也没怎么设置。</p>
 <p>直到最近觉得，天天访问上万，唯一IP数却一千不到，cache率更是一直都在1%以下。决定看看是哪些人（IP）干的事，服务器实在不值得。</p>
 <h2>查看ip访问行为</h2>
 <p>web服务器使用的nginx，由于CDN的关系，nginx需要有http-realip的模块才能查看CDN前的ip。找了不少资料就只觉得这个文章不错，废话少过程清晰，还很贴心给了生成脚本。</p>
@@ -798,15 +793,15 @@ https://website/xxx-00003.ts
 <p>你妹啊，Bot一样的自动更新占了快一半啊！摔！</p>
 <p>而且每次防火墙每次更新过滤的ip都是那么40个左右，Challenge通过率是0.5%。</p>
 <p>40ip个会不会有点多？是不是程序有问题？我开始也这么想过，但我自己也设置有定时更新，还设置了三份，都没见把我自己ban掉。</p>
-<p>累了，感觉不再爱了。</p>]]></content>
-        <category label="摸鱼"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于指针与Golang的结构体]]></title>
-        <id>https://sansui233.com/posts/关于指针与Golang的结构体</id>
-        <link href="https://sansui233.com/posts/关于指针与Golang的结构体"/>
-        <updated>2020-11-26T23:14:47.000Z</updated>
-        <content type="html"><![CDATA[<p>之前在学C++的时候，指针的用法就困惑了很久。后来有了计算机体系结构基础后，再加上Golang的一些说明，就突然明白了，之前为什么不理解指针。纠结的点在哪里。</p>
+<p>累了，感觉不再爱了。</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
+        </item>
+        <item>
+            <title><![CDATA[关于指针与Golang的结构体]]></title>
+            <link>https://sansui233.com/posts/关于指针与Golang的结构体</link>
+            <guid>https://sansui233.com/posts/关于指针与Golang的结构体</guid>
+            <pubDate>Thu, 26 Nov 2020 23:14:47 GMT</pubDate>
+            <content:encoded><![CDATA[<p>之前在学C++的时候，指针的用法就困惑了很久。后来有了计算机体系结构基础后，再加上Golang的一些说明，就突然明白了，之前为什么不理解指针。纠结的点在哪里。</p>
 <h2>指针的概念</h2>
 <p>(学的语言太多语法有些混了，看个意思就好，代码是四不像并不可以运行)</p>
 <ul>
@@ -876,15 +871,15 @@ e = interfacelist[0]
 <p>对e的type assertion也应该这么写：</p>
 <pre><code class="language-go">e_ptr = e.(*Extend) // 从Interface类型返回一个Extend类型的指针
 e_ptr.Base // 等于(*e_ptr).Base
-</code></pre>]]></content>
-        <category label="学习"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mac上如何开机与关机时自动运行Shell脚本]]></title>
-        <id>https://sansui233.com/posts/Mac上如何开机与关机时自动运行Shell脚本</id>
-        <link href="https://sansui233.com/posts/Mac上如何开机与关机时自动运行Shell脚本"/>
-        <updated>2020-11-24T01:15:45.000Z</updated>
-        <content type="html"><![CDATA[<p>网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。</p>
+</code></pre>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/学习">学习</category>
+        </item>
+        <item>
+            <title><![CDATA[Mac上如何开机与关机时自动运行Shell脚本]]></title>
+            <link>https://sansui233.com/posts/Mac上如何开机与关机时自动运行Shell脚本</link>
+            <guid>https://sansui233.com/posts/Mac上如何开机与关机时自动运行Shell脚本</guid>
+            <pubDate>Tue, 24 Nov 2020 01:15:45 GMT</pubDate>
+            <content:encoded><![CDATA[<p>网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。</p>
 <h2>新建一个shell文件</h2>
 <p>这个shell中包含了你需要开机关机时运行的脚本。</p>
 <pre><code class="language-bash">#!/bin/bash
@@ -963,7 +958,8 @@ startup;
 <p>参考：</p>
 <ul>
 <li><a href="https://stackoverflow.com/questions/24200924/run-a-script-only-at-shutdown-not-log-off-or-restart-on-mac-os-x">Run a script only at shutdown (not log off or restart) on Mac OS X</a></li>
-</ul>]]></content>
-        <category label="摸鱼"/>
-    </entry>
-</feed>
+</ul>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
+        </item>
+    </channel>
+</rss>

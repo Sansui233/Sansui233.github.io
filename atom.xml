@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-28T11:46:47.970Z</updated>
+    <updated>2022-05-28T12:00:11.692Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -105,6 +105,7 @@
 <li>CSR 和 build 时预渲染都算是纯前端，能完全生成静态页面的。而 Next.js 依靠 Node 拥有一定的后端处理能力（虽然我用不上）</li>
 </ol>]]></content>
         <category label="Diary"/>
+        <published>2022-05-28T17:44:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[PPT母版的制作与使用方法]]></title>
@@ -187,6 +188,7 @@
 <p>写在后面的吐槽：排版这种事情 <strong>Layout + 组件化</strong> 不香吗！PPT  的样式复用实在太局限了。看祖传的 PPT 排版看得我脑壳疼，每一页的小标题位置都不一样，字体也是用得乱七八糟的。排版的四原则，“亲密”“对齐”“对比”“重复”，每一项都很重要。但一项都不满足这是怎么做到的！强迫症（伪）哭晕在厕所。</p>
 <p>其实还是祖传的习惯问题。比如 Word，小时候我也是有过一段时间空格排版居中……现在谁还空格排版居中，我见一个打一个（狗头）</p>]]></content>
         <category label="摸鱼"/>
+        <published>2021-11-12T00:08:55.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[纯函数与算法]]></title>
@@ -267,6 +269,7 @@ function DFStraverse(index: number, map: { point: string[], side: number[][] }) 
 <p>状态其实在各种算法里挺重要的。不少空间换时间的极限操作都要用到。</p>
 <p>算法注定是“不纯”的，能做的也不过是用闭包来保存状态。有时候觉得，纯不纯的也没有这么重要。</p>]]></content>
         <category label="学习"/>
+        <published>2021-09-25T12:00:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[Github hosts 更新脚本(MAC)]]></title>
@@ -420,6 +423,7 @@ $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 </code></pre>
 <p>执行完就会立刻运行一次脚本。由于定时任务是 root 用户不是个人用户，不会有通知，可以去 Console 看 log。</p>]]></content>
         <category label="摸鱼"/>
+        <published>2021-08-07T04:08:55.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[网盘目录程序比较]]></title>
@@ -467,6 +471,7 @@ $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 <p>个人网盘程序，和Cloudreve一个性质的。很多插件，交互是最好的，也比较耗资源，适合家里获团队用。</p>
 <p>external storage 装起来复杂，不好白嫖资本家。</p>]]></content>
         <category label="摸鱼"/>
+        <published>2021-05-26T01:15:45.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[m3u8直播流实时录屏小记]]></title>
@@ -571,6 +576,7 @@ https://website/xxx-00003.ts
 <p>PS：目前风气真的太严了，如果不是发现片段被删减，也不会想到去研究怎么录屏。既然花了钱买了相应的单场直播，也说明了会提供回放，要求拥有一个和直播时相同的回放个人觉得并不过分。最终给一个删减版，感觉这服务有些不值得，即便直播和录屏混剪都得给剪出来一个完整的版本。</p>
 <p>PPS：明白大环境，没有全指责流媒体平台的意思。</p>]]></content>
         <category label="摸鱼"/>
+        <published>2021-05-12T15:16:44.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[记一次被骗388巨款的理发经历]]></title>
@@ -698,6 +704,7 @@ https://website/xxx-00003.ts
 <p>对于我这种容易被忽悠的人，解决方法也很简单，足够穷就不会被骗钱了。</p>
 <p>PS：我觉得我写得好开心…………</p>]]></content>
         <category label="Diary"/>
+        <published>2021-04-18T21:59:11.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[看看是谁在D我]]></title>
@@ -800,6 +807,7 @@ https://website/xxx-00003.ts
 <p>40ip个会不会有点多？是不是程序有问题？我开始也这么想过，但我自己也设置有定时更新，还设置了三份，都没见把我自己ban掉。</p>
 <p>累了，感觉不再爱了。</p>]]></content>
         <category label="摸鱼"/>
+        <published>2020-12-12T02:45:46.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[关于指针与Golang的结构体]]></title>
@@ -878,6 +886,7 @@ e = interfacelist[0]
 e_ptr.Base // 等于(*e_ptr).Base
 </code></pre>]]></content>
         <category label="学习"/>
+        <published>2020-11-26T23:14:47.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac上如何开机与关机时自动运行Shell脚本]]></title>
@@ -965,5 +974,6 @@ startup;
 <li><a href="https://stackoverflow.com/questions/24200924/run-a-script-only-at-shutdown-not-log-off-or-restart-on-mac-os-x">Run a script only at shutdown (not log off or restart) on Mac OS X</a></li>
 </ul>]]></content>
         <category label="摸鱼"/>
+        <published>2020-11-24T01:15:45.000Z</published>
     </entry>
 </feed>

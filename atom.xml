@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-05-28T13:37:54.779Z</updated>
+    <updated>2022-06-06T10:58:42.613Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -20,7 +20,9 @@
         <link href="https://sansui233.com/memos"/>
         <updated>2022-05-28T17:44:00.000Z</updated>
         <summary type="html"><![CDATA[六条不正经的碎碎念]]></summary>
-        <content type="html"><![CDATA[<h2>2022-05-28</h2>
+        <content type="html"><![CDATA[<h2>2022-06-06</h2>
+<p>喜欢白纸一样的东西，比如洁白无瑕的瓷砖，白纸黑字的书籍，电子屏幕与排版也喜欢有白纸印刷的感觉，比如 iPad 上的微信读书。“白纸”的不只是色彩上的简单，更多是排版上考究，细说内容就有些多了。电脑上白底黑字的网页也一样。每每感觉页面不像白纸了，大概率是屏幕又花了，我会用酒精擦屏幕，擦到屏幕重新成为白纸。</p>
+<h2>2022-05-28</h2>
 <p>今日读文章笔记</p>
 <ul>
 <li>
@@ -97,39 +99,7 @@
 <h2>2022-05-21</h2>
 <p>博客重构记录：由于吐槽写得太长加了 memo 分页逻辑，使用了首屏静态页面分页前端 query CSR 的方式，以减少 FCP 时间。但这样的问题是即便是带 query 的链接，首屏也是会要先闪一下，再替换掉内容，毕竟是静态页面。 这有点难解决。</p>
 <p>有一个非常 tricky 的办法，在样式做上欺骗，把字号换成和背景一个色（或者加遮罩），在 CSR 逻辑处理完后再显示。但这样的弊端是 FCP 时间会相对比较长，特别是网不好的情况下。本来分页就是用来减少 FCP 时间的。这么做虽然流量减少了，但又很难说到底能减少多少 FCP 时间。</p>
-<p>另外 Link 由于路由处理有延迟，导致换页时体感有延迟，中途没反馈如果网不好可能会以为是页面有 Bug。果然 CSR 异步请求还是得加数据切换时的交互提示……啊烦，设计好难。后续还想抠动画，但就是体力活，纯抠……</p>
-<h2>2022-05-20</h2>
-<p>关于 Next.js 的容易造成的误区和目前吸引我的点。先说误区。</p>
-<ol>
-<li>SSG（静态站点生成）这名字取得有误导性，并不是真正完全的静态站点。</li>
-</ol>
-<p>一般对于 <strong>静态站点</strong> 是指 build 预渲染后的纯前端页面，直接出现最终结果，不需要任何服务器，给一个 index.html 点开就能用。但 SSG 实际做的只有 “可以获取预渲染所需数据”，但有的渲染 Feature 仍然需要用到服务器处理，其 build 结果并不是静态站点，也没有做任何预渲染，export 才是。因此即便没有用到任何的 SSR，也会有 feature 在 export 中不支持。纯 React 客户端的 build 阶段相当于 Next.js 的 export 阶段。</p>
-<ol start="2">
-<li>SSR（服务端渲染）字面上更容易造成误解，和传统的服务端渲染有区别</li>
-</ol>
-<p>首先要理解 CSR 的对立面是 Pre-render，而不是 SSR。SSR 只是一种 pre-render 的方法，SSG 也是一种 pre-render 的方法。</p>
-<p>其次要理解，<strong>SSG 也运行在服务端</strong>。更准确的说法是 SSG 是“服务端 build 时预渲染”，SSR 是“服务端运行时预渲染”。但是 Server-side rendering 字面上把 SSG 也概括进去了。</p>
-<p>Next.js 对 SSG 和 SSR 的定义。</p>
-<blockquote>
-<h3><a href="https://nextjs.org/docs/basic-features/pages#two-forms-of-pre-rendering">Two forms of Pre-rendering</a></h3>
-<ul>
-<li>
-<p><a href="https://nextjs.org/docs/basic-features/pages#static-generation-recommended"><strong>Static Generation (Recommended)</strong></a>: The HTML is generated at <strong>build time</strong> and will be reused on each request.</p>
-</li>
-</ul>
-<ul>
-<li><a href="https://nextjs.org/docs/basic-features/pages#server-side-rendering"><strong>Server-side Rendering</strong></a>: The HTML is generated on <strong>each request</strong>.</li>
-</ul>
-</blockquote>
-<p>而传统说的服务端渲染，其实是同时包含了 Next.js 的 SSG 渲染与 SSR 渲染。</p>
-<p>那么问题是，按照 Next.js 的 SSR 定义，SSR 是不是无法 export 成静态页面？</p>
-<p>这其实要看有没有对 http request 进行处理，或者有别的要和 server 打交道的代码。 即便你用 SSR，但每次都是在做一些和 http request 无关的事情，那这不会对 export 造成影响。这也是为什么 <code>getInitialProps</code> 支持 export 但又支持得不太完全。</p>
-<p>比如 styled-components 可以预渲染时注入 style，但这个有两种写法，第一种是 styled-components <a href="https://styled-components.com/docs/advanced#server-side-rendering">官方文档</a>，用的标准 SSR，无法 export。第二种写法在 <a href="https://github.com/vercel/next.js/tree/canary/examples/with-styled-components">Next.js 仓库</a>，用的了服务端做预渲染，但又不像一般的 SSR，可以 export，只不过 req 和 res 为空，概念上可以说就是个 SSG。</p>
-<p>再说吸引我的点</p>
-<ol>
-<li>SSR 和 CSR 同构，可以看成 CSR 基础上增强首屏 SEO 能力，也可以看成传统 SSR 基础上加入 CSR 的优点（节省服务器资源bla），这样小型页面生成不用分开做数据 mock，直接一把唆。</li>
-<li>CSR 和 build 时预渲染都算是纯前端，能完全生成静态页面的。而 Next.js 依靠 Node 拥有一定的后端处理能力（虽然我用不上）</li>
-</ol>]]></content>
+<p>另外 Link 由于路由处理有延迟，导致换页时体感有延迟，中途没反馈如果网不好可能会以为是页面有 Bug。果然 CSR 异步请求还是得加数据切换时的交互提示……啊烦，设计好难。后续还想抠动画，但就是体力活，纯抠……</p>]]></content>
         <category label="Diary"/>
         <published>2022-05-28T17:44:00.000Z</published>
     </entry>

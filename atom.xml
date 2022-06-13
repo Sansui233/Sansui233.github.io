@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-06-10T17:34:20.047Z</updated>
+    <updated>2022-06-13T17:53:04.400Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,206 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[理解 Rust 闭包与环境变量所有权]]></title>
+        <id>https://sansui233.com/posts/rust-closure-and-ownership</id>
+        <link href="https://sansui233.com/posts/rust-closure-and-ownership"/>
+        <updated>2022-06-14T01:51:30.000Z</updated>
+        <summary type="html"><![CDATA[本文将以最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系]]></summary>
+        <content type="html"><![CDATA[<p>本文将以（自认为）最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系。在现存的类似中文教程中，要么语言表述歧义太大，逻辑上难以理清；要么试图把事情总结得过于复杂。实际上闭包对于环境变量所有权的处理规则是非常简单的。</p>
+<p>阅读本文需要的基础： Rust 变量的所有权、引用与借用、函数。</p>
+<h2>什么是 Rust 的闭包</h2>
+<p>Rust 中的闭包是<strong>一种函数</strong>。与 Rust 普通函数不同，它可以<strong>捕获函数外部的变量并使用</strong>。</p>
+<p>基本语法：<code>|参数列表| {函数体}</code></p>
+<pre><code class="language-rust">fn main() {
+    let x = 1;
+    let sum = |y: i32| { x + y }; // 说明： 闭包 sum 接收一个参数 y，且捕获前面的 x = 1, 返回 x + y
+		println!(&quot;{}&quot;, sum(99)); // 输出 100
+
+    let sum2 = |y :i32| x + y + 1; // 也可以省略花括号
+    println!(&quot;{}&quot;, sum2(99)); // 输出 101
+}
+</code></pre>
+<blockquote>
+<p>说明： 闭包 sum 接收一个参数 y，返回 x + y。其中 x 是第一行定义的 <code>let x = 1;</code> ，为闭包外部的变量。</p>
+</blockquote>
+<p>像 <code>x</code> 这样在闭包外部可访问的变量，我们称为“<strong>环境变量</strong>”。</p>
+<h2>闭包中环境变量的所有权</h2>
+<p>有 rust 基础的人应该知道，普通的 rust 函数的传入参数有三种形式</p>
+<ol>
+<li>所有权 move（默认行为）。</li>
+<li>可变借用，形式为 <code>&amp;mut param</code></li>
+<li>不可变借用 ，形式为 <code>&amp; param</code></li>
+</ol>
+<blockquote>
+<p>上述为 rust 所有权基础知识，不再赘述。</p>
+</blockquote>
+<p>但是普通的 rust 函数无法使用环境变量。闭包则加上了 <strong>捕获当前环境变量</strong> 的功能。</p>
+<p><strong>捕获当前环境变量</strong> 仅仅是指闭包 “知道有哪些环境变量”，但在使用环境变量时，闭包依然可能会对环境变量执行三种操作：</p>
+<ol>
+<li>所有权 move</li>
+<li>可变借用</li>
+<li>不可变借用</li>
+</ol>
+<p>具体是执行了哪种操作呢？这个问题就比较复杂了，我们可以从上面的例子出发。</p>
+<p>回顾上面的例子，对于环境变量 <code>x</code> ，首先排除没有进行所有权 move。</p>
+<pre><code class="language-rust">    let x = 1;
+    let sum = |y: i32| { x + y }; // 使用了 x
+    println!(&quot;{}&quot;, sum(99)); // 输出 100
+
+    let sum2 = |y :i32| x + y + 1; // 再次使用了 x
+    println!(&quot;{}&quot;, sum2(99)); // 输出 101
+</code></pre>
+<blockquote>
+<p>说明： <code>x</code> 在 sum1 中使用后，还能在 sum2 中再次使用，说明 <code>x</code> 所有权没有 move。</p>
+</blockquote>
+<p>实际上，上述例子的 <code>x</code> 在闭包中是作为 <strong>不可变借用</strong> 使用的，因为这个闭包实现了 <code>Fn</code> trait.</p>
+<h2>闭包的三种 traits</h2>
+<p>闭包是一种函数，它的三种 traits 恰好对应了三种处理所有权的方式。</p>
+<p>三种 traits 如下：</p>
+<ol>
+<li><code>FnOnce</code>：表示此闭包调用时会获取环境变量所有权（<strong>所有权 move</strong>)。因此取名 FnOnce，表示此闭包只能执行一次。</li>
+<li><code>FnMut</code>  ：表示此闭包调用时会对环境变量进行<strong>可变借用</strong>，可能会修改环境变量</li>
+<li><code>Fn</code> ： 表示此闭包调用时会对环境变量进行<strong>不可变借用</strong>，不会修改环境变量</li>
+</ol>
+<p>并且，<strong>一个闭包可以同时实现多个 traits</strong>。比如实现了 <code>Fn</code> 的闭包也一定实现了 <code>FnOnce</code> （后续解释）。</p>
+<p>上面是从“对环境变量如何处理所有权” 来解释三个 traits，大部分教程也是这么写，但个人并不推荐完全按这样去理解。因为上述表述中，三个 traits 看起来是互不重叠的（实际并非如此），导致可能会出现这样的疑问：</p>
+<blockquote>
+<p>“实现了 <code>Fn</code> 的闭包说是对环境变量进行了不可变借用，那怎么还能同时实现 <code>FnOnce</code> ，去获取环境变量的所有权呢？到底是仅仅借用了，还是获取了所有权呢？”</p>
+</blockquote>
+<p>但是看三个 traits 的源代码，可以直接回答上述问题：是不可变借用。虽然确实也实现了 <code>FnOnce</code> ，但并没有调用 <code>FnOnce</code> 的 call 函数，而是调用了 <code>Fn</code> 的 call 函数。</p>
+<pre><code class="language-rust">pub trait Fn&lt;Args&gt; : FnMut&lt;Args&gt; {
+    extern &quot;rust-call&quot; fn call(&amp;self, args: Args) -&gt; Self::Output;
+}
+
+pub trait FnMut&lt;Args&gt; : FnOnce&lt;Args&gt; {
+    extern &quot;rust-call&quot; fn call_mut(&amp;mut self, args: Args) -&gt; Self::Output;
+}
+
+pub trait FnOnce&lt;Args&gt; {
+    type Output;
+
+    extern &quot;rust-call&quot; fn call_once(self, args: Args) -&gt; Self::Output;
+}
+</code></pre>
+<blockquote>
+<p>分析：如果 <code>FnOnce</code> 的 call 函数被调用，则直接传入了 <code>self</code> ，也就是获取了当前的环境变量的所有权，自然运行一次后回被销毁。而 <code>Fn</code> 的 call 函数传入的是不可变借用 <code>&amp;self</code>。</p>
+</blockquote>
+<p>并且会发现， <code>Fn</code> 的前提是实现了 <code>FnMut</code> ,  <code>FnMut</code> 的前提是实现了 <code>FnOnce</code> 。</p>
+<ul>
+<li>从继承关系来讲： <code>Fn</code> 继承 <code>FnMut</code> 继承 <code>FnOnce</code></li>
+<li>从访问变量的权限范围来讲： <code>Fn</code> &lt; <code>FnMut</code> &lt; <code>FnOnce</code></li>
+</ul>
+<p>也可以说，<strong>闭包就算实现了 <code>FnOnce</code> 也不一定会用到所有权 move，因为可能还实现了 <code>Fn</code> ，那么环境变量的所有权会按 <code>Fn</code> 处理</strong>。</p>
+<hr/>
+<p>由于上述继承关系，即便一个函数的参数需要传入 <code>FnOnce</code> ，你也可以传入 <code>Fn</code> 。</p>
+<pre><code class="language-rust">fn fn_once&lt;F&gt;(func: F)
+where
+    F: FnOnce(usize) -&gt; bool, // 传入闭包
+{
+    println!(&quot;{}&quot;, func(3));
+}
+
+fn main() {
+    let x = vec![1, 2, 3];
+    let closure = |z|{z == x.len()}; // 此闭包实现了 Fn、 FnMut 和 FnOnce
+    fn_once(closure); // Fn 可传入标注为 FnOnce 的参数
+    println!(&quot;{:?}&quot;, x); // x 还能用，所有权没转移
+
+    let closure2 = move |z|{z == x.len()}; //  此闭包只实现了 FnOnce，因为 x 被强制转移所有权到闭包内部
+    fn_once(closure2); // 传入 FnOnce
+    println!(&quot;{:?}&quot;, x); // 报错，x 已经没了
+}
+</code></pre>
+<blockquote>
+<p>说明：fn_once 需要接收 <code>FnOnce</code> 的闭包作为参数，但传入 <code>Fn</code> 也是合理的，编译器也会按照 <code>Fn</code> 的调用方式处理为不可变借用，并不会因为标注着 <code>FnOnce</code> 而变成所有权 move。</p>
+</blockquote>
+<blockquote>
+<p>闭包对所有权的处理并不会随着标注改变，标注仅仅是为了取悦编译器  ——鲁迅</p>
+</blockquote>
+<h2>闭包实现三种 traits</h2>
+<p>1. <code>FnOnce</code></p>
+<p>所有的闭包都自动实现了 <code>FnOnce</code> 。不用特别做什么。</p>
+<p>但更普遍的情况是，定义闭包时会顺带实现 <code>Fn</code> 或者 <code>FnMut</code> 。如果想要只实现 <code>FnOnce</code>，不要实现另外两个，需要用 <code>move</code> 。这个关键字会强制转移所有权，使闭包无法满足 <code>FnMut</code> 和 <code>Fn</code> 的条件。</p>
+<ul>
+<li>例：只实现了 <code>FnOnce</code> 的闭包</li>
+</ul>
+<pre><code class="language-rust">fn main() {
+    let x = [1,2,3];
+    
+    let closure2 = move |z|{z == x.len()}; // 只实现了 FnOnce，所有权转移
+    closure2(2);
+    
+    println!(&quot;{:?}&quot;, x); // 报错，x 所有权被转移
+}
+</code></pre>
+<p>2. <code>FnMut</code></p>
+<p>在闭包中修改外部变量，即实现了 <code>FnMut</code> （自然也实现了 <code>FnOnce</code> ），同时没有实现 <code>Fn</code> 。</p>
+<pre><code class="language-rust">fn main() {
+    let mut x = vec![1,2,3];
+
+    let mut closure = ||{x.push(4);}; // 修改了外部的 x, 实现了 FnMut， x 所有权没有转移
+    closure();
+    
+    println!(&quot;{:?}&quot;, x);
+}
+</code></pre>
+<p>3. <code>Fn</code></p>
+<p>在闭包中访问外部变量，不做任何修改，即实现了 <code>Fn</code> （自然也实现了 <code>FnMut</code>  和 <code>FnOnce</code>）。</p>
+<pre><code class="language-rust">fn main() {
+    let s = String::new();
+
+    let update_string =  || println!(&quot;{}&quot;,s); // 访问外部的 s, 实现了 Fn
+
+    exec(update_string);
+    exec1(update_string);
+    exec2(update_string);
+}
+
+fn exec&lt;F: FnOnce()&gt;(f: F)  { // Fn 也可以传到 FnOnce 类型
+    f() // 调用的是 Fn，所有权不会转移
+}
+
+fn exec1&lt;F: FnMut()&gt;(mut f: F)  { // Fn 也可以传到 FnMut 类型
+    f()
+}
+
+fn exec2&lt;F: Fn()&gt;(f: F)  {
+    f()
+}
+</code></pre>
+<h2>闭包自身的所有权</h2>
+<p>上述讨论的是闭包对于环境变量的所有权处理。那闭包自己呢？当闭包自己作为变量被传来传去时，是 Copy 还是所有权 Move？</p>
+<p>答案是，<code>Fn</code> 是 Copy，<code>FnMut</code> 和 <code>FnOnce</code> 是所有权 Move。</p>
+<pre><code class="language-rust">fn main() {
+    let x = vec![1,2,3];
+
+    let closure = |z:usize|{ z == x.len()}; // 实现了 Fn
+    outter(closure); // 通过
+    outter(closure); // 通过
+
+    let closure2 = |z:usize|{ x.push(4);z == x.len()}; // 实现了 FnMut
+    outter(closure2); // 通过
+    outter(closure2); // 报错, closure2 的所有权已被转移
+}
+
+fn outter&lt;T&gt;(mut func: T)
+where T: FnMut(usize) -&gt; bool { // Fn 可以传到 FnMut 标注的参数上
+    let a = func;
+}
+</code></pre>
+<p>这是非常合理的，对应着借用的规则</p>
+<blockquote>
+<p>在同一时间点，对于同一个变量，<strong>要么</strong>只能有一个可变借用(FnMut)，<strong>要么</strong>只能有<strong>多个不可变借用</strong>(Fn)。</p>
+</blockquote>
+<p>至于 <code>FnOnce</code>，访问权限这么大，还想 Copy？</p>
+<h2>一些建议</h2>
+<p>如果不知道到底应该标注哪一个 trait，建议先标注 Fn ( 权限最小的 trait)，由编译器提示后再进行修改。</p>
+<p>另外，闭包的所有权部分并不推荐背书，尤其不推荐总结为正交规则。三个 traits 的区别与联系在代码层面非常简单且容易分析，总结为正交规则反而是把简单的事情复杂化，而且难记。</p>
+<p>如果仍然难懂，可评论提出，后续改进。</p>]]></content>
+        <category label="学习"/>
+        <published>2022-06-14T01:51:30.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[杂谈20220516-20220528]]></title>
         <id>https://sansui233.com/memos?id=2022-05-29</id>
@@ -879,93 +1079,5 @@ e_ptr.Base // 等于(*e_ptr).Base
 </code></pre>]]></content>
         <category label="学习"/>
         <published>2020-11-26T23:14:47.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mac上如何开机与关机时自动运行Shell脚本]]></title>
-        <id>https://sansui233.com/posts/Mac上如何开机与关机时自动运行Shell脚本</id>
-        <link href="https://sansui233.com/posts/Mac上如何开机与关机时自动运行Shell脚本"/>
-        <updated>2020-11-24T01:15:45.000Z</updated>
-        <content type="html"><![CDATA[<p>网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。</p>
-<h2>新建一个shell文件</h2>
-<p>这个shell中包含了你需要开机关机时运行的脚本。</p>
-<pre><code class="language-bash">#!/bin/bash
-function shutdown()
-{
-
-  # 关机用的脚本放这里
-
-  exit 0
-}
-
-function startup()
-{
-
-  # 开机用的脚本放这里
-
-  tail -f /dev/null &amp;
-  wait $!
-}
-
-trap shutdown SIGTERM
-trap shutdown SIGKILL
-
-startup;
-</code></pre>
-<p>以上文件我取名为launchdeamon，赋予了当前用户的执行权限。</p>
-<pre><code class="language-shell">chmod 755 launchdaemon
-</code></pre>
-<h2>新建plist文件</h2>
-<p>为了让launchdeamon能在开机时自动运行，需要编写一个相应plist文件，使用launctl做到开机启动。关于launchctl和plist的作用，请先查看这篇文章：<a href="https://www.jianshu.com/p/b65c1d339eec">Mac执行定时任务之launchctl</a>。</p>
-<p>plist文件的内容如下：</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
-&lt;dict&gt;
-&lt;key&gt;Label&lt;/key&gt;&lt;string&gt;boot-shutdown&lt;/string&gt;
-
-&lt;key&gt;ProgramArguments&lt;/key&gt;
-&lt;array&gt;
-  &lt;string&gt;$SCRIPT_PATH/launchdaemon&lt;/string&gt;
-&lt;/array&gt;
-
-&lt;key&gt;RunAtLoad&lt;/key&gt;
-&lt;true/&gt;
-
-&lt;key&gt;StandardOutPath&lt;/key&gt;
-&lt;string&gt;$LOG_PATH/boot-shutdown.log&lt;/string&gt;
-
-&lt;key&gt;StandardErrorPath&lt;/key&gt;
-&lt;string&gt;$PLOG_PATH/boot-shutdown.err&lt;/string&gt;
-
-&lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre>
-<p>plist文件以键值对的形式存储信息。以上文件的字段解释：</p>
-<ul>
-<li><code>Label</code>：标签，也就是运行该plist显示的名字。这里为boot-shutdown</li>
-<li><code>ProgramArguments</code>：<code>array</code>里可以存放多个需要运行程序。这里的<code>$SCRIPT_PATH</code>请自己修改。</li>
-<li><code>RunAtLoad</code>：开机自启，为<code>true</code></li>
-<li><code>StandardOutPath</code>：打印标准输出到某个文件，方便查看程序后台运行的结果，<code>$LOG_PATH</code>自行修改。</li>
-<li><code>StandardErrorPath</code>：打印标准错误到某个文件，同上。</li>
-</ul>
-<p>以上文件我取名为 boot-shutdown-script.plist 。</p>
-<p>由于shell脚本的执行权限是当前用户，以上文件需要放入当前用户的开机启动文件夹，即为  ~/Library/LaunchAgents 。</p>
-<p>然后将plist文件加入开启启动：</p>
-<pre><code>launchctl load ~/Library/LaunchAgents/boot-shutdown-script.plist
-</code></pre>
-<p>此时重启后，可以使用以下命令查看脚本运行状态</p>
-<pre><code class="language-shell">launchctl list | grep boot
-</code></pre>
-<p>输出为</p>
-<pre><code>438	0	boot-shutdown
-</code></pre>
-<p>第一个是pid。第二个为状态码，为0说明正常运行中。</p>
-<hr/>
-<p>参考：</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/24200924/run-a-script-only-at-shutdown-not-log-off-or-restart-on-mac-os-x">Run a script only at shutdown (not log off or restart) on Mac OS X</a></li>
-</ul>]]></content>
-        <category label="摸鱼"/>
-        <published>2020-11-24T01:15:45.000Z</published>
     </entry>
 </feed>

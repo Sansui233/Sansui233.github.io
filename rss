@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 29 Jun 2022 14:51:47 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 29 Jun 2022 14:54:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -100,7 +100,7 @@
             <pubDate>Tue, 14 Jun 2022 01:51:30 GMT</pubDate>
             <description><![CDATA[本文将以最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系]]></description>
             <content:encoded><![CDATA[<p>本文将以（自认为）最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系。在现存的类似中文教程中，要么语言表述歧义太大，逻辑上难以理清；要么试图把事情总结得过于复杂。实际上闭包对于环境变量所有权的处理规则是非常简单的。</p>
-<p>阅读本文需要的基础： Rust 变量的所有权、引用与借用、函数。</p>
+<p>阅读本文需要的基础： Rust 变量的所有权、引用与借用、函数、traits。</p>
 <h2>什么是 Rust 的闭包</h2>
 <p>Rust 中的闭包是<strong>一种函数</strong>。与 Rust 普通函数不同，它可以<strong>捕获函数外部的变量并使用</strong>。</p>
 <p>基本语法：<code>|参数列表| {函数体}</code></p>

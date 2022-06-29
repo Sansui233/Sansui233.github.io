@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-06-29T14:54:13.754Z</updated>
+    <updated>2022-06-29T15:01:01.564Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -216,7 +216,7 @@ fn main() {
 <p>闭包对所有权的处理并不会随着标注改变，标注仅仅是为了取悦编译器  ——鲁迅</p>
 </blockquote>
 <h2>闭包实现三种 traits</h2>
-<p>上述例子中例子，直接标注了闭包实现了三种 traits，但并没有具体说明为什么这么写就是实现了三种 traits。这是本节需要说明的内容。</p>
+<p>上述例子中，直接标注了闭包实现了三种 traits，但并没有具体说明为什么这么写就是实现了三种 traits。这是本节需要说明的内容。</p>
 <p>闭包实现 traits 是<strong>隐式</strong>的。也就是说，你不用（也没法）标注这个闭包是实现的哪个 traits。具体实现了哪些 traits 是根据你的闭包写法决定的。</p>
 <p>1. 实现<code>FnOnce</code></p>
 <p>所有的闭包都自动实现了 <code>FnOnce</code> 。不用特别做什么。</p>

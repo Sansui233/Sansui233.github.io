@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2022-06-29T15:01:01.564Z</updated>
+    <updated>2022-07-06T08:50:22.309Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -20,9 +20,17 @@
         <link href="https://sansui233.com/memos"/>
         <updated>2022-06-16T22:05:00.000Z</updated>
         <summary type="html"><![CDATA[INFP 的无趣生活]]></summary>
-        <content type="html"><![CDATA[<h2>2022-06-23</h2>
+        <content type="html"><![CDATA[<h2>2022-07-06</h2>
+<p>旧文推荐: <a href="https://www.pingwest.com/a/213990"><strong>谁也成为不了中国的 YouTube</strong></a>。讲述了 Google 是如何通过骚操作，将 Youtube 的带宽成本变得接近于 0 的。这个操作大部分的视频网站都是学不来的。</p>
+<h2>2022-07-05</h2>
+<p>最近打通了几次 Hades，没了。事情太杂了，没什么可以学习和工作的时间。</p>
+<p>反复看了好多次 eva 的真心为你结局，那一段意识流太爽了，看起来很解压。Eva 于我而言吸引力的并不是外在的设定，至少在我看来，让没有任何训练的小孩子驾驶 Eva 的离谱远远超过了视觉上冲击，不管 Eva 多帅，情况有多紧急，这都不应该是让小孩子去驾驭的东西。但以此为载体的情感表达是无言的。</p>
+<p>真嗣对于他人情感的渴求与拒绝，对于亲手杀死了かおり绝望，最终的精神上的混乱，一句一句乞求式地重复着 あすか助けてよ，却下意识让意识中的明日香拒绝了自己。直至到达了他的理想精神世界，全部人类合为一体后，他才发现，对于真实的人和事，他害怕，但又渴望着那一切。</p>
+<p>意识流蒙太奇开始时的几张手绘儿童蜡笔画也非常喜欢，非常有灵性（虽然有人会说什么也看不清楚）。乱线下的脸、乱线下的人、不知道哪里的景色、路灯、睡着的猫咪，一如真嗣残缺混乱真又天真美好的内心。</p>
+<p>拖延症又犯了，应该去做核酸的，过了 6 个小时了还没出门……</p>
+<h2>2022-06-23</h2>
 <p>前天发现 mac 的电池严重鼓包，盖都合不上，吓得不敢用了，于是京东下了个单自己换了个电池。</p>
-<p>在这期间看完了 eva，有人是因为机甲喜欢的，我也以为是机甲番，没想到其实是个心理哲学番。对于绝望的表现力非常强，旧剧场版结局最后的抽泣太真实了。我挺喜欢看男主绝望到发疯的，大概是绝望到发疯因为这是现实中不被允许的事，但我内心有这个需求。</p>
+<p>在这期间看完了 eva，有人是因为机甲喜欢的，我也以为是机甲番，没想到其实是个心理哲学番。对于绝望的表现力非常强，旧剧场版结局最后的抽泣太真实了。我挺喜欢看男主绝望到发疯的，大概是绝望到发疯因为这是现实中不被允许的事。</p>
 <p>前段时间无意中说了街舞不想去，跆拳道还行，于是天天唠叨着去学跆拳道。天啦，我真的很想出去工作，当学生当久了真的令人抓狂，比起有没有时间玩，更在意会不会受人控制。尽管社会之间的约束是无法避免的，但“受控”和“约束”是不同的感觉，后者多多少少知道是一种共识。有钱出去真的不用再听这些有的没的了，想换数码设备也不会被骂了。</p>
 <p>和留学的朋友聊了，可以有条件后就再去读学位然后 run 掉。比起考虑起哪里工作好哪里怎么样，可能更会考虑什么工作好 run 吧。但我现在什么都做不了，看论文实在太痛苦，远比熬夜赶 DDL 写代码痛苦。后者的结果是可以预见的，无非就那些情况，做完或者没做完，没想法或卡壳就找人聊一聊方案。但看论文的结果是无法预见的，没有方向也无人可问，如果问导师的那已经换过两次题目了，不会做就换题目呗……不是不是，不是，不是不会，是切入点不对，根本是在乱找，找些与题目根本无关的东西。记性不好，FSL 和 meta-learning 的概念系统学了三次，还是在忘，还是理清楚，逻辑还是无法正确的归类和分析。全是虚无的概念，什么任务，任务是什么数据集，系统长什么样，每个环节什么输入什么输出，记不清，记性真的不好，我的记性不好是老依靠抽象能力的代价……说白了只是为了做而做，根本没有也不完全理解需求，无法抽象，自然也无法对要做的任务建立框架……写到现在已经有点混乱了</p>
 <h2>2022-06-16</h2>
@@ -50,51 +58,7 @@
 <hr/>
 <p>脑子要炸了，作为一个偏工程型的 INTP（F 多还是 T 多看情况），全家都是 NT 型，但是专业又互不了解八竿子打不着，只能用最最抽象的语言去描述各自的专业问题，根本具体不下去，吵一两个小时还是没什么用。</p>
 <p>至于什么是偏工程型的 INTP，这算是个人用词，大致是说：INTP 会从抽象（而非具象）的角度思考/总结问题，善于寻找不同事物之间的共同抽象关系（Ne+Ti 特质）。有的 INTP 可以直接通过抽象推断抽象，直观例子是数学定理证明，大家对 INTP 的印象可能也是这类。但实际上，有的 INTP 难以从抽象再次推断抽象，而更善于从不同具体事物中总结出同一抽象规律，直观例子比如面向对象的系统设计，像是热衷于研究设计模式的一群人，我个人把此类 INTP 称为工程型 INTP。 INTP 之间出现这种差异，个人认为主要是第三功能和劣势功能造成的（没有说别的功能没有影响的意思）。</p>
-<p>NT 的特质大概是全家唯一的共同点了，只有在 NT 方面吵架才会发现自己好像是亲生的。</p>
-<h2>2022-05-28</h2>
-<p>今日读文章笔记</p>
-<ul>
-<li>
-<p><a href="https://jesseduffield.com/Testing-Private-Methods/">是否测试私有方法？</a> 看完之后我的观点是不测试私有方法。如果需要测试私有方法，那说明着类设计得太复杂，违反了单一责任原则。</p>
-</li>
-<li>
-<p><a href="https://q.shanyue.tech/deploy/">前端部署 15 章</a>，适合没有实践过的新手看，都是教怎么搬砖，换言之是查文档的经验积累，对我个人来说没什么收获。好的地方是还有很多的面试题可以看。毕竟这两年闲得我差不多把有需求也有条件的折腾的东西全折腾了个遍，这之后才能体会到折腾真的不重要，工程的终点是个设计问题，而设计是个哲学问题 ……哦，对于找工作还是重要的，只有想法没有动手能力也不行。</p>
-</li>
-<li>
-<p>还有人吐槽 <a href="https://neverworkintheory.org/2022/03/18/python-3-types-in-the-wild.html">python3 的类型标注</a> 。没有类型标注我不理解，这么喜欢<strong>面向记忆/面向文档编程</strong>吗？</p>
-</li>
-<li>
-<p><a href="https://iconmap.io/blog">iconmap.io 分析 favicon 的统计数据</a>，还蛮有趣的。</p>
-</li>
-<li>
-<p><a href="https://jamstack.org/">Jamstack</a> 可以了解到一些当下的流行 Web 技术栈，比如 Headless CMS。我觉得后面那些本质上还是 CURD 那一套，只是换成了前端能直接用的 API，抢一下后端 CURD 搬砖人员的工作可还行。不过服务解耦带来了无代码可能性非常棒，但也真的不一定有好的应用场景。并且动态内容的SEO 还是问题很大，必须 SSR 渲染。</p>
-</li>
-<li>
-<p><a href="https://refactoringguru.cn/design-patterns/catalog">关于设计模式的介绍大全</a>，这个算后端面试必备吧，前端我没见几个人问过，本质也算是哲学♂</p>
-</li>
-<li>
-<p>ORM：GraphQL 是一个 API 标准，不用 SQL 进行 CURD。为什么好像近几年的前端对 CURD 这么执着啊，我对这就是库能用，高效，好用，就行了。不过出标准倒也有出标准的好处，服务能分层就是依靠着各种标准联系。</p>
-</li>
-<li>
-<p>低代码 电商平台： <a href="https://selldone.com/">https://selldone.com/</a></p>
-</li>
-<li>
-<p><a href="https://www.bramadams.dev/projects/invest-in-lights#light-mode-and-dark-mode-on-websites">为什么需要黑暗模式</a>？觉得不需要设计黑暗模式的人，大概是工作环境都太稳定了。</p>
-<blockquote>
-<p>I generally clowned on developers putting so much into building dark modes instead of critical features that prevent their apps from working, until I was working on this site on a red eye flight. The whites were blinding and the websites/apps that had dark mode were comforting.</p>
-</blockquote>
-</li>
-<li>
-<p><a href="https://www.matuzo.at/blog/building-the-most-inaccessible-site-possible-with-a-perfect-lighthouse-score/">完美的可访问性网站</a> 笑死了，行为艺术</p>
-</li>
-</ul>
-<p>突然觉得，没太多意思，大家只是在不断追求更好更方便的架构，以适应商业的发展。做的事情还都是这点东西。好的工程师太难了，需要极强的抽象思维，某种程度上可以说是需要哲学天赋。所以到后期不转管理或不做研究几乎不可能……</p>
-<h2>2022-05-26</h2>
-<p>推荐一个网页版<a href="https://imagestool.com/zh_CN/">图片处理 app</a>，目前最全的没有之一。</p>
-<hr/>
-<p>前天看完了博人转主线，导致昨天开始没有火影主线看了，于是莫名 emo。emo 了就摸了两张鱼，反而比平时睡得早一点。</p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/2022-05-26-2.jpg" alt="2022-05-26-2"/></p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/2022-05-26-1.jpg" alt="2022-05-26-1"/></p>]]></content>
+<p>NT 的特质大概是全家唯一的共同点了，只有在 NT 方面吵架才会发现自己好像是亲生的。</p>]]></content>
         <category label="Diary"/>
         <published>2022-06-16T22:05:00.000Z</published>
     </entry>

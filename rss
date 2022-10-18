@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sun, 16 Oct 2022 06:37:29 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 18 Oct 2022 06:01:04 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -97,7 +97,7 @@
 <pre><code class="language-rust">fn main() {
     let x = 1;
     let sum = |y: i32| { x + y }; // 说明： 闭包 sum 接收一个参数 y，且捕获前面的 x = 1, 返回 x + y
-		println!(&quot;{}&quot;, sum(99)); // 输出 100
+    println!(&quot;{}&quot;, sum(99)); // 输出 100
 
     let sum2 = |y :i32| x + y + 1; // 也可以省略花括号
     println!(&quot;{}&quot;, sum2(99)); // 输出 101

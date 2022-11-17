@@ -4,12 +4,84 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 17 Nov 2022 10:31:01 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 17 Nov 2022 19:37:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[记一道题排列组合题解]]></title>
+            <link>https://sansui233.com/posts/记一道题排列组合题解</link>
+            <guid>https://sansui233.com/posts/记一道题排列组合题解</guid>
+            <pubDate>Fri, 18 Nov 2022 03:25:07 GMT</pubDate>
+            <description><![CDATA[难得在网上遇到有认真在做题的人，在此表示深深的感谢。]]></description>
+            <content:encoded><![CDATA[<p>难得在网上遇到有认真在做题的人，在此表示深深的感谢。另外个人不太会写题解类的文，权当一个记事了。</p>
+<h2>题目</h2>
+<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/8B414946-F4D4-479C-9092-9AEA8EC26FA3.jpeg" alt="8B414946-F4D4-479C-9092-9AEA8EC26FA3.jpeg"/></p>
+<p>题来自 tg 里玩 ai 的小水群，很多人第一眼是想全排列剪枝……阶乘的复杂度得瞎了。</p>
+<p>不过看到求方案数，帮人面试时被动态规划虐过的直觉在告诉我，凡事让写方案数不枚举方案的，很可能能写动态规划。</p>
+<p>于是从动态规划的方面想去了。</p>
+<h2>关于素数</h2>
+<p>这个题有一个非常奇怪的地方，就是要和为素数。我不禁想，和为素数是对解题方法有什么加成吗？</p>
+<p>（其实因为我最初看走眼了，以为是子集里所有数为素数，且和为素数，还以为素数和有什么定理）</p>
+<p>素数的特殊点在于乘法分解，至于加法上与一般数有什么不同，以凡人视角未曾听说。并且这题还并不限于子集中取用什么数。</p>
+<p>综上，和为素数对解题方法不仅没有什么加成，反而是多了个如何判断一个数是不是素数的问题。</p>
+<p>至于如何判断素数，在 Leetcode 204，略，也没什么很省时间的方法，就是筛，不算简单。</p>
+<h2>子集动态规划</h2>
+<p>既然素数对于解题思路没有加成，就按一般数处理，很快写出了下面的思路：</p>
+<ol>
+<li>一维dp中存下和为当前数的方案数</li>
+<li>遍历更新dp，把新数n拆分成已有数+余数，按余数从大到小（已有数从小到大），把所有已有数的拆分方案加起来，再+1，即可得到当前数的子集数。
+<ol>
+<li>需要注意的是，为了保证不重复，也就是保证子集序列递增，已有数不会超过n/2（余数不会小于n/2）</li>
+</ol>
+</li>
+<li>更新dp时，也要计算新数n是否为质数，是的话把其子集数加入最终结果（算质数见leetcode 204）</li>
+<li>由于取值范围1-2000，最大和为1000^2，100w，也是dp要遍历的次数。</li>
+</ol>
+<p>下面的图是在解释什么叫“遍历但不用枚举子集”时写的，也是上述dp的步骤。</p>
+<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/2E06B8C3-1DF4-492D-A009-55F4D7A041CE.jpeg" alt=""/></p>
+<p>发题人仔细看了，并且手动枚举了10个数后，指出，我这会漏掉10=1+2+3+4。（后面自己发现这样还漏了145和235，后面越漏越多）</p>
+<p>仔细回顾了一下之前的思路，发现我的问题出在递增的判断上。我当时认为保证递增序列，只要保证已有数小于余数就行，所以余数&gt;2/n。</p>
+<p>但不是的，比如n=10时，已有数为6，余数为4，6拆分为1+2+3就行，1234还是序列递增的。6拆分为2+4、1+5就不行。</p>
+<p>归根结底就是我只把余数算了较大的一半，因为余数较大的一半肯定能保证序列递增。如果不想漏情况，余数要全部遍历，但怎么保证序列递增呢？比如6+4，如何只拆到1+2+3+4，不算1+5+4和2+4+4呢？</p>
+<p>于是更新了一下递增的条件：</p>
+<ul>
+<li>已有数的拆分的子序列最大数小于余数，则拆分方案合法</li>
+</ul>
+<p>再更新dp时余数范围：</p>
+<ul>
+<li>余数从n取到1，分别计算子集数后再sum。</li>
+</ul>
+<p>这样可以保证思路没问题了，但这个“已有数的拆分的子序列最大数小于余数”，明显当前dp只统计了子集数，根本不知道各个子集中具体最大数的情况。因此，我改成了个二维dp，含义和过程如下图：</p>
+<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/6D139DD5-A95F-4467-BA58-3B5E61D9207D.jpeg" alt=""/></p>
+<p>简单总结一下，整个问题我简化到了求“和为 n 的子集数”，并利用二维动规从 1 求到 n。 n 是不是素数单独算的。</p>
+<p>并且发现，其实更新每一行时，都是把上一行为止的方阵以“/”方向45度拆开，mask掉右边部分，按行求和后，从右往左地写进下一行，还能用gpu加个速（不是）。</p>
+<h2>另一种解法</h2>
+<p>发题人在看了我的新方案后，说在上面看到了类似杨辉三角之类的东西。并且得出了另一个方案：</p>
+<blockquote>
+<p>和为 n 的子集组合数，为多项式 (x^n+1)(x^(n-1)+1)(x^(n-2)+1)…(x+1) 的 x^n 项系数</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/IMG_5434.JPG" alt="多项式展开"/></p>
+<p>（我本来没理解，是死缠烂打地问才知道他在说什么）</p>
+<p>仔细一想真的是这个理， x^n 对应的多项式系数就是排列组合到 n 的所有方案数了，也天然没有重复用数的问题。怎么想到的，神。</p>
+<p>所以现在问题是：怎么求 (x^n+1)(x^(n-1)+1)(x^(n-2)+1)…(x+1)的多项式系数。</p>
+<p>（当时已经不想动脑了，又是死缠烂打地问）</p>
+<p>其实迭代就能算，因为 F(n) = x^n • F(n-1) + F(n-1)，对应系数直接挪位置后复制粘贴再相加就好了。</p>
+<h2>空间复杂度</h2>
+<p>这里有点难以定义 n 具体指哪个，默认 n = 2000 。</p>
+<p>我的解法是要 1000^4 的空间去存方案数，矩阵中有很多地方是空的，有点浪费。</p>
+<p>后者的解法要1000^2 空间去存多项式系数。省很多。</p>
+<h2>时间复杂度</h2>
+<p>以我的动规方法，时间复杂度为在 O(n^6)，准确说是O(n^2(n^2+1)(2n^2+1)/6)，因为要算到 (n/2)^2，且内部还有已填矩阵按行遍历。</p>
+<p>以后者的的解法，时间复杂度为 O(n^3)，因为多项式的 n 需要到 (n/2)^2。</p>
+<p>线性筛到 (n/2)^2 的素数, 时间复杂度为 O(n^2)。</p>
+<hr/>
+<p>总得来说还是数学好的强啊。</p>
+<p>另外还有一个人非让我看完一个 30 分钟的高斯素数判断法，结果我一直在想 dp，搞得他怨念深重 hh</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/学习">学习</category>
+        </item>
         <item>
             <title><![CDATA[杂谈20220516-20220726]]></title>
             <link>https://sansui233.com/memos</link>
@@ -940,84 +1012,6 @@ https://website/xxx-00003.ts
 <p>40ip个会不会有点多？是不是程序有问题？我开始也这么想过，但我自己也设置有定时更新，还设置了三份，都没见把我自己ban掉。</p>
 <p>累了，感觉不再爱了。</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
-        </item>
-        <item>
-            <title><![CDATA[关于指针与Golang的结构体]]></title>
-            <link>https://sansui233.com/posts/关于指针与Golang的结构体</link>
-            <guid>https://sansui233.com/posts/关于指针与Golang的结构体</guid>
-            <pubDate>Thu, 26 Nov 2020 23:14:47 GMT</pubDate>
-            <content:encoded><![CDATA[<p>之前在学C++的时候，指针的用法就困惑了很久。后来有了计算机体系结构基础后，再加上Golang的一些说明，就突然明白了，之前为什么不理解指针。纠结的点在哪里。</p>
-<h2>指针的概念</h2>
-<p>(学的语言太多语法有些混了，看个意思就好，代码是四不像并不可以运行)</p>
-<ul>
-<li><strong>地址</strong>：一个变量在内存中的存储形式是 <strong>地址 + value</strong>，地址是在指内存中的地址。</li>
-</ul>
-<p>比如 <code>int a = 3</code>，意思是变量 a 在内存中有一个地址，<strong>这个地址储存的 value 为 3</strong>。</p>
-<ul>
-<li><strong>指针 (pointer)</strong> ：是一种变量，<strong>它的 value 仍然是一个地址</strong>。常用<code>*</code>定义指针变量。</li>
-</ul>
-<p>比如 <code>int *b = &amp;a</code>，意思是 <strong>指针变量</strong> b 在内存中有一个地址，<strong>这个地址储存的 value 为 a 的地址</strong>。</p>
-<p>在使用变量（而不是声明或定义变量）时，<code>&amp;</code> 为取地址符。对应的还有一个<code>*</code>为取内容符。比如</p>
-<pre><code class="language-c++">int a = 3
-int *b = &amp;a // 将 a 的地址作为 b 的 value
-print(b) // 输出 b 的 value，结果为一个地址，等于 a 的地址(&amp;a)
-print(*b) //将 b 的 value 作为地址，输出地址中存的值，结果为 3
-</code></pre>
-<p>上面仅是个人的概念解释，尽量少地引入新概念。以上概念有更通俗的叫法。</p>
-<p>比如<code>int *b = &amp;a</code>，通常会叫做“变量 b 持有 a 的引用”。个人觉得虽然直观，但对于初学者并不友好。首先，“变量 b”就没有说清楚指针变量的特殊性。然后“a 的引用”，倒是说清楚什么叫做 a 的引用啊……尤其是一些语言没有指针的概念，但引用是随处可见的（比如 Javascript 的 Object 类型）</p>
-<h2>Golang Struct 与 指针的访问</h2>
-<p>其实让我明白的只是因为<a href="https://tour.golang.org/moretypes/4">Go tour</a>中的两句话：</p>
-<blockquote>
-<p>Struct fields can be accessed through a struct pointer.<br/>
-结构体字段可以使用结构体指针获取。</p>
-</blockquote>
-<blockquote>
-<p>To access the field X of a struct when we have the struct pointer p we could write <code>(*p).X</code>. However, that notation is cumbersome, so the language permits us instead to write just <code>p.X</code>, without the explicit dereference.<br/>
-结构体指针访问字段本来应该写成<code>(*p).x</code>，但是由于这么写太蠢了，所以允许直接写成<code>p.x</code>。</p>
-</blockquote>
-<p>也就是说，如果见到类似<code>T.x</code>的结构体访问，T有可能是结构体本身，也可能是指针……需要自行区分。仅此而已。</p>
-<p>而我之前一直以为 T 只能是结构体本身= =，所以对于指针一直头大……</p>
-<p>但由于存在指针这种特殊的访问方式，在结构体的组合与接口实现中会有一些想不到的情况：</p>
-<ul>
-<li>
-<p>定义了一个接口Interface，方法有Intera()，Interb()</p>
-<pre><code class="language-go">type Interface interface{
-	Intera()
-	Interb()
-}
-</code></pre>
-</li>
-<li>
-<p>定义了一个结构体Base，用结构体指针的方式实现了Intera()</p>
-<pre><code class="language-go">type Base struct {}
-func (b *Base) Intera() {}
-</code></pre>
-</li>
-<li>
-<p>定义了一个结构体Extend，匿名组合了Base，用正常结构体的方式实现了Interb()</p>
-<pre><code class="language-go">type Extend struct {
-  	Base
-}
-func (e Extend) Interb() {}
-</code></pre>
-</li>
-</ul>
-<p>这个时候，请问有谁实现了Interface？</p>
-<p>答案是：<strong>Base和Extend本身都没有实现Interface</strong>。但是上述代码中完全没有出现的*<strong>Extend（Extend的指针）实现了Interface</strong>。</p>
-<p>为什么呢？虽然*<strong>Extend</strong>并没有实现第二个方法，但<strong>Extend</strong>实现了，所以*<strong>Extend</strong>是也是可以直接访问第二个方法的（参考上面的(*p).x的解释）。</p>
-<p>而*<strong>Base</strong>实现了第一个方法（Base没有实现），而<strong>Extend</strong>组合了<strong>Base</strong>。因此第一个方法可以也通过*<strong>Extend</strong>访问（Extend无法访问）。</p>
-<p>所以*<strong>Extend</strong>两个方法都能访问，因此实现了Interface。而<strong>Extend</strong>只能访问第二个方法，因此没有实现Interface。</p>
-<p>然后日常使用<strong>Extend</strong>的时候，为了能使用Interface的方法，需要使用*<strong>Extend</strong>：</p>
-<pre><code class="language-go">interfacelist := make([]Interface, 0)
-interfacelist = append(interfacelist, &amp;Extend{}) // 因为是指针实现Interface，需要传入地址
-e = interfacelist[0]
-</code></pre>
-<p>在goland对e按下F1时，只会显示，这是个Interface，不会告诉你这是*<strong>Extend</strong>。如果不是自己从头写的代码，你可能很久都无法发现，是个指针类型实现了Interface。你必须在层层组合中，找到是哪一层（这里是Base）让Extend变成了Interface的指针实现。</p>
-<p>对e的type assertion也应该这么写：</p>
-<pre><code class="language-go">e_ptr = e.(*Extend) // 从Interface类型返回一个Extend类型的指针
-e_ptr.Base // 等于(*e_ptr).Base
-</code></pre>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/学习">学习</category>
         </item>
     </channel>
 </rss>

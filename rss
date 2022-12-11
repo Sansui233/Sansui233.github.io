@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 03 Dec 2022 06:33:12 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 11 Dec 2022 01:31:56 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -88,7 +88,9 @@
             <guid>https://sansui233.com/memos?id=2022-07-27</guid>
             <pubDate>Tue, 26 Jul 2022 22:05:00 GMT</pubDate>
             <description><![CDATA[INFP 的无趣生活]]></description>
-            <content:encoded><![CDATA[<h2>2022-12-03</h2>
+            <content:encoded><![CDATA[<h2>2022-12-11</h2>
+<p>人固有一阳，但为什么要阳在体检之前？</p>
+<h2>2022-12-03</h2>
 <p>之前有妖气要关停，写脚本下了个漫画来看，当时就想着测试一下，其他漫画之后再下。结果后面给忙忘了，直到昨天微博有人戳我说前端页面里没东西了，才发现已经关停了，啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！但 oss 其实还在的啊！但是服务端渲染已经爬虫不了了啊啊啊啊啊啊啊！</p>
 <p>上面有一些作者是从小关注到大的，还有一些冷门但好看非商业漫画的作者，作品就没发布过别的地方，之后也不会迁，永远都看不了。我之间下好的是一个话数很多，但不算很冷门、别的站也还能看的漫画。以后先下冷门的。</p>
 <h2>2022-12-03 01:19:24</h2>
@@ -104,9 +106,7 @@
 <h2>2022-10-27</h2>
 <p>首页：樱井孝宏出轨十年。哦又是什么不认识的娱乐圈……啊谁？？ 555梅林你怎么这么惨，被削弱后还拿出来抽，现在声优也塌了😭</p>
 <h2>2022-10-19</h2>
-<p>刚用 Rust 起一个简单的 webserver 服务器用……麻了，好麻烦。交叉编译都有 rustup 了，为啥还要自己手动配置 linker ……自带库都偏底层，封装得比较好的库都在社区需要一定程度熟悉，还有很多轮子没有。</p>
-<h2>2022-10-15</h2>
-<p>昨天在 Reddit 上吃完了 Stable Diffusion 社区的瓜……好……好精彩……真是抓马……很难说谁对谁错，站的角度都是自身的利益相关，对于想创业的人遇到AUTO这样的黑客（广义）自然会非常讨厌，但在普通人角度肯定会更喜欢AUTO这样的人。</p>]]></content:encoded>
+<p>刚用 Rust 起一个简单的 webserver 服务器用……麻了，好麻烦。交叉编译都有 rustup 了，为啥还要自己手动配置 linker ……自带库都偏底层，封装得比较好的库都在社区需要一定程度熟悉，还有很多轮子没有。</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

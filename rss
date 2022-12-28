@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 28 Dec 2022 07:04:30 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Dec 2022 14:01:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -134,7 +134,7 @@ tar Cluster_1.tar.gz
 <li><a href="https://hub.docker.com/r/jamesits/dst-server">jamesits/dst-server</a></li>
 <li><a href="https://github.com/Jamesits/docker-dst-server/issues">docker-dst-server issue</a></li>
 <li><a href="https://www.roci.ltd/dstserver/">饥荒独立服务器入门级快速搭建</a></li>
-<li>[Guides/Don&#x27;t Starve Together Dedicated Servers - Fandom](</li>
+<li><a href="https://dontstarve.fandom.com/wiki/Guides/Don%E2%80%99t_Starve_Together_Dedicated_Servers">Guides/Don&#x27;t Starve Together Dedicated Servers - Fandom</a></li>
 </ul>]]></content:encoded>
             <category domain="https://sansui233.com/categories/摸鱼">摸鱼</category>
         </item>

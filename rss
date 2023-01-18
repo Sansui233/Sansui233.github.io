@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 28 Dec 2022 14:01:53 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Jan 2023 04:18:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -44,12 +44,12 @@
 </ul>
 <h2>Docker的安装</h2>
 <p>由于涉及到Docker镜像和Dockerhub加速的问题，具体安装步骤建议看docker的文档和各个云平台。</p>
-<p>我使用的腾讯云，见**<a href="https://cloud.tencent.com/document/product/1207/45596">安装 Docker 并配置镜像加速源</a>**，大约花费2分钟。</p>
+<p>我使用的腾讯云，见<a href="https://cloud.tencent.com/document/product/1207/45596">安装 Docker 并配置镜像加速源</a>，大约花费2分钟。</p>
 <h2>服务器防火墙设置</h2>
 <p>需要放行 10999，11000，12346，12347 这四个端口的UDP流量。</p>
 <ul>
 <li>在国内云平台的控制台-防火墙中，放行服务器的这四个端口</li>
-<li>如果服务器上iptables有流量拦截，也需要更新这几个端口以放行</li>
+<li>如果服务器上iptables有流量拦截，也需要放行</li>
 </ul>
 <h2>饥荒服务器镜像的启动</h2>
 <pre><code class="language-bash">mkdir ${HOME}/Klei # 创建存放数据有文件夹
@@ -114,7 +114,7 @@ scp Cluster_1.tar.gz root@myserver:/Klei/
 <p><strong>转移游戏存档时，需要注意有两种情况（来自<a href="https://hub.docker.com/r/jamesits/dst-server">文档</a>）</strong></p>
 <p>第一种情况是，如果自己的存档开启了洞穴，把自己的存档覆盖过去即可。</p>
 <pre><code class="language-bash">rm -rf Cluster_1
-tar Cluster_1.tar.gz
+tar -xvf Cluster_1.tar.gz
 </code></pre>
 <p>第二种情况是，自己的存档没有开启洞穴，需要</p>
 <ol>

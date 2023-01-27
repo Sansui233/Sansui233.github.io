@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-01-18T04:18:05.165Z</updated>
+    <updated>2023-01-27T10:39:25.361Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -222,7 +222,16 @@ tar -xvf Cluster_1.tar.gz
         <link href="https://sansui233.com/memos"/>
         <updated>2022-07-26T22:05:00.000Z</updated>
         <summary type="html"><![CDATA[INFP 的无趣生活]]></summary>
-        <content type="html"><![CDATA[<h2>2022-12-27</h2>
+        <content type="html"><![CDATA[<h2>2023-01-27</h2>
+<p>我爱上网冲浪，被迫营业一个多月了终于可以静下来，还是冲浪看 Tech News 比较放松，不管是多无聊的新闻都觉得很好看。RSS 攒了很多没看，看的太多了列举不完，印象最深的还是 2022 年前端生态圈的统计数据。</p>
+<ul>
+<li><a href="https://2022.stateofjs.com/">State of JS 2022</a></li>
+</ul>
+<p>再关注一下裁员问题</p>
+<ul>
+<li><a href="https://blog.pragmaticengineer.com/apple-job-cuts-tide/">Apple: The Only Big Tech Giant Going Against the Job Cuts Tide</a></li>
+</ul>
+<h2>2022-12-27</h2>
 <p>Mac鼠标软件推荐：Mac Mouse Fix。主要是解决接鼠标的体检问题。</p>
 <ul>
 <li>最开始用的Scroll Reverser解决鼠标滚轮方向问题（是的2202了mac还是不能单独改鼠标滚动方向）发现无法控制滑动距离，也没有平滑滚动，VSCode里看文档时滚一次都不知道滚到哪里去了。</li>
@@ -247,10 +256,7 @@ tar -xvf Cluster_1.tar.gz
 <p>室友在打地下骰子城，一个 rough-like 的棋牌游戏。类似的我之前打过月圆之夜，小时候还挺喜欢打算的，但目前来说对小游戏不太感兴趣了，还是喜欢 RPG，所谓的“大作”。明天应该便携基座能到，两个人的宿舍简直是游戏快乐屋。但是我也没见过比我还能宅和熬夜的（如果不是写文章我也熬不过她），而且微软现在是居家办公，她现在还没办入职约等于放假……</p>
 <p>明天……啊不今天是周六来着……最近两个周根本没休息过好吧，面如土色。</p>
 <h2>2022-12-01 06:19:08</h2>
-<p>写完了一版。</p>
-<h2>2022-11-24</h2>
-<p>真他妈烦，400 字不到就可以说清楚的架构，为什么要用 1400 字写？多出一堆废话有意思吗？难道答辩组老师会没学过 ML 基础吗？知道的人都知道是怎么回事，能简明的大白话说的非得说成任谁看了都得吓一跳的诘屈聱牙的文字，淦。</p>
-<p>一个小时过去了，用尽全力编了 400 个字。还剩 2500 字和 5 张图，ddl 还剩一天，时间效率为 50%。熬夜吧，熬夜也不一定有用，狗屎写不成金子。</p>]]></content>
+<p>写完了一版。</p>]]></content>
         <category label="Diary"/>
         <published>2022-07-26T22:05:00.000Z</published>
     </entry>

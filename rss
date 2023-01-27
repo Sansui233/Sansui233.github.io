@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Fri, 27 Jan 2023 10:39:25 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 27 Jan 2023 10:40:36 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -226,7 +226,7 @@ tar -xvf Cluster_1.tar.gz
 <li><a href="https://blog.pragmaticengineer.com/apple-job-cuts-tide/">Apple: The Only Big Tech Giant Going Against the Job Cuts Tide</a></li>
 </ul>
 <h2>2022-12-27</h2>
-<p>Mac鼠标软件推荐：Mac Mouse Fix。主要是解决接鼠标的体检问题。</p>
+<p>Mac鼠标软件推荐：Mac Mouse Fix。主要是解决接鼠标的体验问题。</p>
 <ul>
 <li>最开始用的Scroll Reverser解决鼠标滚轮方向问题（是的2202了mac还是不能单独改鼠标滚动方向）发现无法控制滑动距离，也没有平滑滚动，VSCode里看文档时滚一次都不知道滚到哪里去了。</li>
 <li>后面用的Mos，加入了滑动距离控制与平滑滑动，但似乎平滑曲线得有点太过，游戏时切物品栏滑一次切好几样。</li>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-01-27T10:40:36.234Z</updated>
+    <updated>2023-01-30T14:28:07.839Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -222,7 +222,9 @@ tar -xvf Cluster_1.tar.gz
         <link href="https://sansui233.com/memos"/>
         <updated>2022-07-26T22:05:00.000Z</updated>
         <summary type="html"><![CDATA[INFP 的无趣生活]]></summary>
-        <content type="html"><![CDATA[<h2>2023-01-27</h2>
+        <content type="html"><![CDATA[<h2>2023-01-30</h2>
+<p>自从谷歌翻译退出中国，Chrome 自带的翻译不开全局代理就没法用了。一直没有管，因为要翻译的场景比较少，遇到真的需要翻译/懒得看长文的时候就用 Bob 划词翻译了。今天有需要又研究了下，发现还挺怪的。只要开一次全局代理，后续 api 走的还是 SwitchyOmega。看了一下 v2ex，有人测试说只有第一次会强制直连，后续的 API 请求是走代理的。好怪，不知道什么原理。</p>
+<h2>2023-01-27</h2>
 <p>我爱上网冲浪，被迫营业一个多月了终于可以静下来，还是冲浪看 Tech News 比较放松，不管是多无聊的新闻都觉得很好看。RSS 攒了很多没看，看的太多了列举不完，印象最深的还是 2022 年前端生态圈的统计数据。</p>
 <ul>
 <li><a href="https://2022.stateofjs.com/">State of JS 2022</a></li>
@@ -254,9 +256,7 @@ tar -xvf Cluster_1.tar.gz
 <p>通宵了两天了。 今天是第三天。</p>
 <p>对于写文章，要是我不了解，字数往往是不够的；要是我很了解，字数往往也是不够的，因为“连这种基础中的基础也要讲？”；只有当半了解半不了解的时候，字数才往往是会超过规定的。但一天也是写 600 字就差不多了，又不是文学或者纪实，600 字已经足够说明很多东西了，一页 ppt 的 80 个字很可能是我看了四五篇论文和无数网站才写出来的。</p>
 <p>室友在打地下骰子城，一个 rough-like 的棋牌游戏。类似的我之前打过月圆之夜，小时候还挺喜欢打算的，但目前来说对小游戏不太感兴趣了，还是喜欢 RPG，所谓的“大作”。明天应该便携基座能到，两个人的宿舍简直是游戏快乐屋。但是我也没见过比我还能宅和熬夜的（如果不是写文章我也熬不过她），而且微软现在是居家办公，她现在还没办入职约等于放假……</p>
-<p>明天……啊不今天是周六来着……最近两个周根本没休息过好吧，面如土色。</p>
-<h2>2022-12-01 06:19:08</h2>
-<p>写完了一版。</p>]]></content>
+<p>明天……啊不今天是周六来着……最近两个周根本没休息过好吧，面如土色。</p>]]></content>
         <category label="Diary"/>
         <published>2022-07-26T22:05:00.000Z</published>
     </entry>

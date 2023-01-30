@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 30 Jan 2023 14:28:07 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 30 Jan 2023 14:45:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -217,7 +217,9 @@ tar -xvf Cluster_1.tar.gz
             <pubDate>Tue, 26 Jul 2022 22:05:00 GMT</pubDate>
             <description><![CDATA[INFP 的无趣生活]]></description>
             <content:encoded><![CDATA[<h2>2023-01-30</h2>
-<p>自从谷歌翻译退出中国，Chrome 自带的翻译不开全局代理就没法用了。一直没有管，因为要翻译的场景比较少，遇到真的需要翻译/懒得看长文的时候就用 Bob 划词翻译了。今天有需要又研究了下，发现还挺怪的。只要开一次全局代理，后续 api 走的还是 SwitchyOmega。看了一下 v2ex，有人测试说只有第一次会强制直连，后续的 API 请求是走代理的。好怪，不知道什么原理。</p>
+<p>自从谷歌翻译退出中国，Chrome 自带的翻译不开全局代理就没法用了。一直没有管，因为要翻译的场景比较少，遇到真的需要翻译/懒得看长文的时候就用 Bob 划词翻译了。今天有需要又看了下，发现还挺怪的。只要开一次全局代理，后续翻译走的就是 SwitchyOmega。看了一下 v2ex，有人测试说只有第一次会强制直连，后续的 API 请求是走代理的。好怪，不知道什么原理。</p>
+<p>经常看到有人把博客背景色设成黄色，说是白色太刺眼了，为了护眼。我寻思着白色的书也没人说刺眼，你们就不能把显示器的亮度调低点？舒适的白色应该和你在当前环境下翻开一本白色的书差不多，略微亮一点。我一直都习惯比较低的亮度，亮度稍微一高就觉得晃眼睛，不拉窗帘睡觉到早上绝对是蒙着头的，晚上手机亮度调到最低后还要降低 50%的白点值才会比较舒服……除非是有专门设计夜间模式的应用。要是问“你为什么想到设计夜间模式”，我还蛮想说 Why not，晚上的这些电子设备真的是很刺眼，久了容易青光眼。而且，比较暗的环境光会更容易集中注意力。</p>
+<p>类似于我爸每次看我拉上窗帘都要打开，说眼睛看不到对视力不好。得了吧，让我看屏幕反光吗？</p>
 <h2>2023-01-27</h2>
 <p>我爱上网冲浪，被迫营业一个多月了终于可以静下来，还是冲浪看 Tech News 比较放松，不管是多无聊的新闻都觉得很好看。RSS 攒了很多没看，看的太多了列举不完，印象最深的还是 2022 年前端生态圈的统计数据。</p>
 <ul>

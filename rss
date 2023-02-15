@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 15 Feb 2023 14:12:19 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Feb 2023 14:29:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -17,7 +17,10 @@
             <pubDate>Wed, 08 Feb 2023 00:27:03 GMT</pubDate>
             <description><![CDATA[INFP 的无趣生活]]></description>
             <content:encoded><![CDATA[<h2>2023-02-15</h2>
-<p>被踢了，那安心写论文吧！本来也是因为不想写论文所以想找别的东西写写，但是又因为必须写论文很多事情只能列计划和看看。我 Debug 时说了两次源代码没有 Debug log 合作不方便，有人觉得打断点就挺好是我管太多，于是我被踢了，好认真= =可能互联网只能用客服语气说话比较能正确表达情感程度。行，咱不 Debug了，该干啥干啥吧。之前还想测测 API 看更具体怎么传参会出岔子， postman 先设定一堆情况放着，现在觉得自己修修能用就 OK 了。真对不起主播，用你的项目也没法再给你及时反馈和 debug 了，除了 star 也没别的了。可能有空会在 issue 提，但其实平时没有那么频繁地关注项目，不写代码的时候极少开 github。我还是先写论文吧。</p>
+<p>被踢了，那安心写论文吧！本来也是因为不想写论文所以想找别的东西写写，但是又因为必须写论文很多事情只能列计划和看看。我 Debug 时说了两次源代码没有 Debug log 合作不方便，有人觉得打断点就挺好是我管太多，于是我被踢了= =我：？？至于吗，多大点事？可能互联网只能用同事的语气说话比较能正确表达情感程度。行，咱不 Debug了，该干啥干啥吧。之前还想测测 API 看更具体怎么传参会出岔子， postman 先设定一堆情况放着，现在觉得自己修修能用就 OK 了。真对不起主播，用你的项目也没法再给你及时反馈和 debug 了，除了 star 也没别的了。可能有空会在 issue 提，但其实平时没有那么频繁地关注项目，不写代码的时候极少开 github。我还是先写论文吧。</p>
+<hr/>
+<p>说来我上一次差点被踢，是我在画接龙的时候，用 AI 绘图 img2img 看了一下……然后哇，我发誓那次我真的是什么都没说，仅仅是因为有人问起了 AI，我就顺便说了下用 AI 跑的结果，结果群里有小朋友（初中生）反感 AI，碰巧也是个管理员……突然又被骂，麻了。不过那个群比较公开的，没有说意气踢人，后面我道歉说我不该用 AI 跑这个就完事了。面子说不要可以不要的，留着脸皮能吃饭吗？不破原则就行。</p>
+<p>确实 INTP 的时候没 Fi 和 Fe 什么事。这种意义上我这个 INFP 也够人格分裂的。</p>
 <h2>2023-02-14</h2>
 <p>配置了 neovim，十几天下来感觉算是没太大问题了，只是split的终端没有 filetype 还是有点瑕疵，导致 Lualine 不能忽略终端窗口。float term 不太喜欢用。不过 lsp-formatter也还有点 Bug，有的语言就是不 format 也不知道什么情况，主要是还不知道怎么看 Log。大杀器是异步，还有 LSP 和 Mason 做 LSP 的包管理。果然是能颠覆 vim 的存在。不过没有一个中心化的 GUI Package MarketPlace 还是挺烦的， 幸好网上有整合包这种东西，可以一键开箱用了。</p>
 <p>之后就是 Debug，我还没试过 Debug 怎么样，我觉得这点是很难做到 vscode 那样的集成度。 但前端的 Debug 基本上是在浏览器里进行了，后端的话就测测 python 和 go。Java 还是不推荐用这类，直接 IDEA 吧。</p>

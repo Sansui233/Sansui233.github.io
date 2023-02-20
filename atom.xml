@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-02-20T09:53:35.388Z</updated>
+    <updated>2023-02-20T09:57:24.903Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -74,7 +74,7 @@
 </ul>
 <p>细化风格（画风）由模型决定，不由你的草稿决定。模型风格对于画风影响非常关键。Prompt 也可以影响画风。</p>
 <p>细化内容（画的具体是什么）由 Prompt 、草稿、模型共同决定，调整 CFG、Denoise 、 ControlNet 的 Weight 可改变三者比例。</p>
-<p>下图为自己的线稿使用 ControlNet 与 Anything V3.0 上色：</p>
+<p>下图为自己的较草的线稿使用 ControlNet 与 Anything V3.0 上色：</p>
 <p>![Control-Net](https://raw.githubusercontent.com/NamiLing/upic/master/uPic/00275-3225619170-masterpiece, best quality, illustration,face, right hand, atomespheric, cold, sunshine, sky,, high detail, flowers and leafs.jpg)</p>
 <p>（这个东西出名是因为某博说 ControlNet 初衷是洗稿……之前 Pixiv 也出过线稿上色的 AI，只是效果好和不好的差别，怎么没人说是搭配 PS 的线稿提取功能洗稿）</p>
 <h2>五、Lora</h2>

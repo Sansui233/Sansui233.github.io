@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 20 Feb 2023 09:52:07 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 20 Feb 2023 09:53:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -74,7 +74,7 @@
 <p>![Control-Net](https://raw.githubusercontent.com/NamiLing/upic/master/uPic/00275-3225619170-masterpiece, best quality, illustration,face, right hand, atomespheric, cold, sunshine, sky,, high detail, flowers and leafs.jpg)</p>
 <p>（这个东西出名是因为某博说 ControlNet 初衷是洗稿……之前 Pixiv 也出过线稿上色的 AI，只是效果好和不好的差别，怎么没人说是搭配 PS 的线稿提取功能洗稿）</p>
 <h2>五、Lora</h2>
-<p>Lora 是一种训练小模型的方法，可以在 15 张图左右生成稳定的单个角色图。</p>
+<p>Lora 是一种训练小模型的方法，可以在 15 张图以上生成稳定的单个角色图。</p>
 <p>已有大量角色图积累的流水线漫画苦力会比较省事，搭配 ControlNet 可生成固定姿势，或者使用线稿稳定地上色。但对于连续动作的细微差别不太行，细节演出表现依旧需要依赖线稿，或手动重绘</p>
 <p>训练过程分为裁剪、自动打标、训练，最终生成约 100M 左右的 Lora 网络。Web-ui 已自带。</p>
 <h2>写在后面</h2>

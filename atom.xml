@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-03-02T19:56:51.590Z</updated>
+    <updated>2023-03-03T09:10:26.821Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -20,7 +20,9 @@
         <link href="https://sansui233.com/posts/2023-02-20-stable-diffusion-AI-experience"/>
         <updated>2023-02-20T18:10:04.000Z</updated>
         <summary type="html"><![CDATA[高强度冲浪三天的AI绘图总结。进阶经验，非科普，基本是名词与对应的画面效果的解释、作为辅助的可能性探索。]]></summary>
-        <content type="html"><![CDATA[<p>进阶经验，非科普。分为五个部分：模型选择，分辨率调整，采样方法，ControlNet，Lora概述。</p>
+        <content type="html"><![CDATA[<p>2023-03-03：待大量补充和修订。</p>
+<hr/>
+<p>进阶经验，非科普。分为五个部分：模型选择，分辨率调整，采样方法，ControlNet，Lora概述。</p>
 <p>此文章涉及多平台发布，由于生成类 AI 的争议，文中无外链推荐。</p>
 <h2>一、模型选择</h2>
 <p>模型影响构图和笔触和色彩，决定成图的平均水平。社区经常都在换流行的模型，还是根据需求定，huggingface 和 civitai 上很多。</p>

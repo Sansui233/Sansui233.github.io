@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-08-22T18:18:44.037Z</updated>
+    <updated>2023-08-22T19:09:18.200Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -20,7 +20,7 @@
         <link href="https://sansui233.com/posts/20230822-Super_resolution_models_and_tools"/>
         <updated>2023-08-22T22:20:54.000Z</updated>
         <summary type="html"><![CDATA[AI图像放大模型+工具推荐]]></summary>
-        <content type="html"><![CDATA[<p>推特，啊不，X.com，是我的桌面壁纸来源，但是推特的图压缩得非常糊，喜欢的动画人基本也只传 1080p 图，导致壁纸糊上加糊。因此需要使用 AI 放大模型进行图像处理。</p>
+        <content type="html"><![CDATA[<p><del>推特</del>，现在叫X.com，是我的桌面壁纸来源，但是推特的图压缩得非常糊，喜欢的动画人基本也只传 1080p 图，导致壁纸糊上加糊。因此需要使用 AI 放大模型进行图像处理。</p>
 <ul>
 <li>
 <p>放大效果外链预览：<a href="https://imgsli.com/MjAwMDcx">Comparison</a></p>
@@ -67,9 +67,9 @@
 <ul>
 <li>下载链接：<a href="https://openmodeldb.info/models/4x-AnimeSharp">AnimeSharp - OpenModelDB</a></li>
 </ul>
-<p>OpenModelDB.info 上有更多的微调模型，可以试试。总体来说，AI 放大的图像质量目前来说还是乍一看可以，涉及商用美术的话质量仍然不过关。~~如果商用美术能过关，岂不是能画糊图然后丢AI出高精图了。~~ 作为壁纸放大非常合适，即便是补充的细节不能推敲，但把像素精度补齐到屏幕分辨率带来的视觉提升也是非常大的。4k壁纸就是比1080p看起来舒服。</p>
+<p>OpenModelDB.info 上有更多的微调模型，可以试试。总体来说，AI 放大的图像质量目前来说还是乍一看可以，涉及商用美术的话质量仍然不过关。<del>如果商用美术能过关，岂不是能画糊图然后丢AI出高精图了。</del> 作为壁纸放大非常合适，即便是补充的细节不能推敲，但把像素精度补齐到屏幕分辨率带来的视觉提升也是非常大的。4k壁纸就是比1080p看起来舒服。</p>
 <h2>如何使用</h2>
-<p>使用 chaiNNer 时可照抄下图结构，使用 4x-AnimeSharp 模型放大原图后、重命名保存。</p>
+<p>使用 chaiNNer 时可照抄下图结构，使用 4x-AnimeSharp 模型放大原图、重命名图片并保存。</p>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/picgo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-22%20213633.jpg" alt="chaiNNer"/></p>
 <p>如果使用的是 <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui</a> ，Extra Network 选项卡中也有预置模型，可以使用 SwinIR 和 ESRGAN。</p>
 <hr/>

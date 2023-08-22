@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-08-22T19:09:18.200Z</updated>
+    <updated>2023-08-22T19:28:25.921Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -63,7 +63,7 @@
 <p>下载链接：<a href="https://github.com/xinntao/Real-ESRGAN/releases">Releases · xinntao/Real-ESRGAN</a></p>
 <p>依旧版本很多，不知道下哪个的下载 <a href="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.1/RealESRNet_x4plus.pth">RealESRNet_x4plus.pth</a> 即可。</p>
 <h3>3. 4x-AnimeSharp</h3>
-<p>基于 ESRGAN 架构的动漫类放大，~~可能由于训练集选得好，~~在众多动漫类放大中它可以很好地处理景深，其他的Anime模型多少在景深部分会有一些清晰过度的问题，包括著名的 <a href="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth">RealESRGAN 动漫模型</a></p>
+<p>基于 ESRGAN 架构的动漫类放大，<del>可能由于训练集选得好</del>，在众多动漫类放大中它可以很好地处理景深，其他的Anime模型多少在景深部分会有一些清晰过度的问题，包括著名的 <a href="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth">RealESRGAN 动漫模型</a></p>
 <ul>
 <li>下载链接：<a href="https://openmodeldb.info/models/4x-AnimeSharp">AnimeSharp - OpenModelDB</a></li>
 </ul>
@@ -75,12 +75,8 @@
 <hr/>
 <p>可能对您有用的资料：</p>
 <ul>
-<li>
-<p><a href="https://openmodeldb.info/models/4x-AnimeSharp">4x-AnimeSharp</a></p>
-</li>
-<li>
-<p><a href="https://phhofm.github.io/upscale/">Interactive Visual Comparison of Upscaling Models</a></p>
-</li>
+<li><a href="https://openmodeldb.info/models/4x-AnimeSharp">4x-AnimeSharp</a></li>
+<li><a href="https://phhofm.github.io/upscale/">Interactive Visual Comparison of Upscaling Models</a></li>
 </ul>
 <hr/>
 <p>PS：我在尽力不要让语句变得不要和写论文一样啰嗦，但总是难以避免……以及我原本想写个内置的交互式组件来演示图像前后的区别，这也是我最初架构博客时选用 mdx 的原因，但真的开始写的时候……怎么还要多写一个东西？好麻烦！还要考虑 rss 兼容的问题，之后再补吧，现在写什么都像坐牢。</p>

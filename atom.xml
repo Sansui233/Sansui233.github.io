@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-08-22T19:28:25.921Z</updated>
+    <updated>2023-08-23T08:11:12.601Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -22,12 +22,8 @@
         <summary type="html"><![CDATA[AI图像放大模型+工具推荐]]></summary>
         <content type="html"><![CDATA[<p><del>推特</del>，现在叫X.com，是我的桌面壁纸来源，但是推特的图压缩得非常糊，喜欢的动画人基本也只传 1080p 图，导致壁纸糊上加糊。因此需要使用 AI 放大模型进行图像处理。</p>
 <ul>
-<li>
-<p>放大效果外链预览：<a href="https://imgsli.com/MjAwMDcx">Comparison</a></p>
-</li>
-<li>
-<p>细节对比：</p>
-</li>
+<li>放大效果外链预览：<a href="https://imgsli.com/MjAwMDcx">Comparison</a></li>
+<li>细节对比：</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/picgo/comparison.jpg" alt=""/></p>
 <p>文章分为三个部分：</p>

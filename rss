@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 28 Aug 2023 18:16:54 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 29 Aug 2023 01:53:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -92,15 +92,9 @@
             <content:encoded><![CDATA[<p>这个文件记录了此博客的外观变化。从2016年开始，使用 hexo 建立博客。</p>
 <h2>2019-03-24</h2>
 <ul>
-<li>
-<p><a href="https://github.com/litten/hexo-theme-yilia">yilia</a>，一个hexo官网没有的但很多人都知道的主题。移动端的优化很好。偏重于内容，挺生活化的，搜索也很全。</p>
-</li>
-<li>
-<p><a href="https://cloudy-liu.github.io/2018/07/14/Hexo%E6%9B%B4%E6%8D%A2%E4%B8%BAGitTalk%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">yilia接入gittalks评论</a>。</p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/lynnbest/article/details/79845944">Hexo yilia 主题一揽子使用方案</a></p>
-</li>
+<li><a href="https://github.com/litten/hexo-theme-yilia">yilia</a>，一个hexo官网没有的但很多人都知道的主题。移动端的优化很好。偏重于内容，挺生活化的，搜索也很全。</li>
+<li><a href="https://cloudy-liu.github.io/2018/07/14/Hexo%E6%9B%B4%E6%8D%A2%E4%B8%BAGitTalk%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">yilia接入gittalks评论</a>。</li>
+<li><a href="https://blog.csdn.net/lynnbest/article/details/79845944">Hexo yilia 主题一揽子使用方案</a></li>
 </ul>
 <h2>2020-11</h2>
 <p>换成了 Hugo 的 Loveit。</p>

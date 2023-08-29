@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 29 Aug 2023 02:38:43 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 29 Aug 2023 16:10:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -80,7 +80,9 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-08-21</guid>
             <pubDate>Mon, 21 Aug 2023 00:48:28 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-08-21</h2>
+            <content:encoded><![CDATA[<h2>2023-08-30</h2>
+<p>强烈推荐 Chrome 的这个<a href="https://chrome.google.com/webstore/detail/vertical-tabs-in-side-pan/akahnknmcbmgodngfjcflnaljdbhnlfo?hl=zh-CN">侧边标签页</a>插件，得益于 Chrome 新版自带的侧边栏，这个插件比之前用过的所有页面内/外的侧边栏都稳定，当查文档几十个窗口时太有用了，看得全标题也方便随时关。有 Arc 的布局那味了。</p>
+<h2>2023-08-21</h2>
 <p>由于之前的电脑接近丢失状态，找不回之前的文件，博客也停止活动了相当长的一段时间。嗯。现在决定清空，回到我的快乐小窝。还是需要一个没有任何人看的地方来吐槽的。推特吐槽着吐槽着就渐渐有人看，可能是整天中二精神病非主流言论过于显眼，吓得我现在只点赞……我都忘了我的第一个互关是怎么来的。微博倒是没有什么人看，但微博，额，各种东西都很难发出去，总觉得有人在监视你，和平台去斗智斗勇太累了。</p>]]></content:encoded>
             <category>Diary</category>
         </item>

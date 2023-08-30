@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 30 Aug 2023 02:04:53 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 30 Aug 2023 18:51:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -154,7 +154,15 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-08-21</guid>
             <pubDate>Mon, 21 Aug 2023 00:48:28 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-08-30</h2>
+            <content:encoded><![CDATA[<h2>2023-08-31</h2>
+<p>又写到了 Promise，感觉快忘完了汗，还是 chatgpt 教我转换写法。形式上的区别大概是</p>
+<ul>
+<li>需要包一层 Promise 的异步方法需要一个回调函数，大部分时候参数是 err 和 data。而能使用 await 的方法无回调函数，直接返回 data。对于 err，使用 try catch 处理。</li>
+</ul>
+<p>在 fs 中的 fs.readFile 是基于回调函数的，只能在外面包一层 Promise，但是 Promise 写起来很长，并且不是人读的顺序。可以使用 <code>fs.promises.readFile</code> ，直接包好了一层promise，然后可以await 写了。</p>
+<p>我当时学 Promise 也挺痛苦面具的。JS 这一语言抽象方式不知道算不算是独一无二另辟蹊径格格不入个性十足……但由于是浏览器的唯一指定语言嘛，嗯大家都在用就不显得小众了。真的是纯拍脑袋做的抽象，和现实哲学抽象没有毛联系，生态决定一切</p>
+<p>另外chatgpt 感觉比bing好用，不得不说 bing 的实时检索反而是拉垮了回答质量。不相关的检索回答相比迭代了这么多次逻辑清晰的 chatgpt 的生成，哒咩哒咩。外部知识库看来有时候不一定是好事，还是得看怎么用吧。</p>
+<h2>2023-08-30</h2>
 <p>强烈推荐 Chrome 的这个<a href="https://chrome.google.com/webstore/detail/vertical-tabs-in-side-pan/akahnknmcbmgodngfjcflnaljdbhnlfo?hl=zh-CN">侧边标签页</a>插件，得益于 Chrome 新版自带的侧边栏，这个插件比之前用过的所有页面内/外的侧边栏都稳定，当查文档几十个窗口时太有用了，看得全标题也方便随时关。有 Arc 的布局那味了。</p>
 <p>改东西改智障了，居然忘了 JSX 转 JS 是 React.createElement。我直接调用函数，汗，还在想怎么改个语法就没法使用 ServerSide Rendering……最后居然是做最小复现时用 Next.js 的组件发现这个弱智问题的。好想有大佬交流哇，好想去能问问题的环境。虽然自己的犯问题似乎都很傻逼……</p>
 <h2>2023-08-21</h2>

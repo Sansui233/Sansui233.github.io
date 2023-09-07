@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>关于Golang程序的内存占用过大的问题</title><meta name="description" content="关于Golang程序的内存占用过大的问题 之前看Mastering Go 2nd Edition，说到Golang的垃圾回收机制，说垃圾回收器(GC)每5分钟会调用一次。然而我观察服务器内存占用时，发现程序后的空闲器5分钟后，使用top查看内存占用并没有减少，大小是200M。因此开始怀疑起了是否有内存泄漏问题。  然而在使"/><meta name="keywords" content="Golang,后端, Golang, 垃圾回收, 内存"/><meta name="description" content="A personal blog about work and life"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="6"/><link rel="preload" href="/_next/static/css/4fc5399b2c6d82d0.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4fc5399b2c6d82d0.css" data-n-g=""/><link rel="preload" href="/_next/static/css/dff1bccf68b12a76.css" as="style"/><link rel="stylesheet" href="/_next/static/css/dff1bccf68b12a76.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script><script src="/_next/static/chunks/webpack-f164db4954bac6ec.js" defer=""></script><script src="/_next/static/chunks/framework-560fb66cbb55e75e.js" defer=""></script><script src="/_next/static/chunks/main-6314e1a2f07f53b5.js" defer=""></script><script src="/_next/static/chunks/pages/_app-642ad64577678b01.js" defer=""></script><script src="/_next/static/chunks/ab88915f-f825823ee17e896c.js" defer=""></script><script src="/_next/static/chunks/f32efb27-c3f613ce4c9d79d8.js" defer=""></script><script src="/_next/static/chunks/811-bf66e7ab0ab14f1d.js" defer=""></script><script src="/_next/static/chunks/26-6a6d6859a2cbdbf9.js" defer=""></script><script src="/_next/static/chunks/499-31520d6949137b90.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-7d66c866ee552925.js" defer=""></script><script src="/_next/static/QGdiKFW0SldeFnBx2ogTE/_buildManifest.js" defer=""></script><script src="/_next/static/QGdiKFW0SldeFnBx2ogTE/_ssgManifest.js" defer=""></script><style data-styled="" data-styled-version="6.0.7">body{background:white;color:black;}/*!sc*/
+data-styled.g1[id="sc-global-PuglZ1"]{content:"sc-global-PuglZ1,"}/*!sc*/
+.kuolET{padding:24px 0 10px 0;text-align:center;font-size:0.625rem;}/*!sc*/
+.kuolET div{margin:1rem auto;}/*!sc*/
+.kuolET a{transition:color .5s;}/*!sc*/
+.kuolET a:hover{color:#e0c56e;}/*!sc*/
+.kuolET i{font-size:1.5rem;margin:0 0.5rem;}/*!sc*/
+data-styled.g2[id="sc-9b286a0d-0"]{content:"kuolET,"}/*!sc*/
+.gyoJCg{width:1em;height:1em;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}/*!sc*/
+.eNBuIX{width:100%;height:21px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}/*!sc*/
+data-styled.g3[id="sc-6db262c7-0"]{content:"gyoJCg,eNBuIX,"}/*!sc*/
+.gUHHsO{background:black;height:2px;transition:all .3s;}/*!sc*/
+.gUHHsO.is-close{opacity:0;}/*!sc*/
+data-styled.g4[id="sc-6db262c7-1"]{content:"gUHHsO,"}/*!sc*/
+.hhWThY{height:2px;position:relative;}/*!sc*/
+.hhWThY::before,.hhWThY::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:black;transition:all .3s;}/*!sc*/
+.hhWThY::before{transform:rotate(45deg);}/*!sc*/
+.hhWThY::after{transform:rotate(-45deg);}/*!sc*/
+.dtuNhN{height:2px;position:relative;}/*!sc*/
+.dtuNhN::before,.dtuNhN::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:black;transition:all .3s;}/*!sc*/
+data-styled.g5[id="sc-6db262c7-2"]{content:"hhWThY,dtuNhN,"}/*!sc*/
+.iZgfEl{min-width:60px;min-height:60px;z-index:20;background:white;border:1px solid #a2a2a280;border-radius:5px;transform:scale3d(1, 1, 1);box-shadow:rgb(0 0 0 / 5%) 0px 0.5rem 2rem;}/*!sc*/
+data-styled.g6[id="sc-bcPKhP"]{content:"iZgfEl,"}/*!sc*/
+.ijPvgl{overflow-y:scroll;max-height:60vh;}/*!sc*/
+data-styled.g7[id="sc-b614f13c-0"]{content:"ijPvgl,"}/*!sc*/
+.gUArue{position:sticky;top:0;background:white;}/*!sc*/
+data-styled.g8[id="sc-b614f13c-1"]{content:"gUArue,"}/*!sc*/
+.eFZTst{border:none;border-radius:0;background:white;width:100%;color:black;}/*!sc*/
+.eFZTst:focus,.eFZTst:focus-visible{outline:none;}/*!sc*/
+data-styled.g9[id="sc-b614f13c-2"]{content:"eFZTst,"}/*!sc*/
+.ewQHdz{font-size:0.875rem;color:#666666;overflow:hidden;white-space:nowrap;wrap:no-wrap;}/*!sc*/
+data-styled.g11[id="sc-b614f13c-4"]{content:"ewQHdz,"}/*!sc*/
+.xQOOU{min-height:unset;position:fixed;top:55px;right:0px;width:24rem;overflow:hidden;margin:0 10px;}/*!sc*/
+.xQOOU.hidden{display:none;}/*!sc*/
+.xQOOU mark{background:none;color:#ae8d0b;}/*!sc*/
+@media screen and (max-width: 580px){.xQOOU{width:96%;max-height:50%;}}/*!sc*/
+data-styled.g12[id="sc-b614f13c-5"]{content:"xQOOU,"}/*!sc*/
+.hBbWJ{width:24px;height:20px;position:fixed;top:22px;right:20px;}/*!sc*/
+data-styled.g13[id="sc-999ff2a7-0"]{content:"hBbWJ,"}/*!sc*/
+.gzHnjq{font-weight:400;padding-top:4rem;font-size:0.625rem;}/*!sc*/
+data-styled.g14[id="sc-999ff2a7-1"]{content:"gzHnjq,"}/*!sc*/
+.eBGEYA{margin:0.5rem 0;}/*!sc*/
+.eBGEYA a{transition:color .5s;}/*!sc*/
+.eBGEYA a:hover{color:#ae8d0b;}/*!sc*/
+.eBGEYA i{font-size:1.5rem;margin:0 0.5rem;}/*!sc*/
+data-styled.g15[id="sc-999ff2a7-2"]{content:"eBGEYA,"}/*!sc*/
+.kgGIvw{background:white;overflow:auto;position:fixed;width:100%;height:100%;z-index:10;transform:translateY(0);transition:transform 1s cubic-bezier(0.46, 0, 0.08, 1.11);}/*!sc*/
+.kgGIvw.hidden{transform:translateY(-100%);}/*!sc*/
+.kgGIvw h1{-webkit-text-stroke:1px;-webkit-text-fill-color:transparent;}/*!sc*/
+.kgGIvw h1 span{position:relative;}/*!sc*/
+.kgGIvw h1 span::after{content:'';position:absolute;left:0;bottom:-1rem;width:100%;height:1px;background:#ae8d0b;}/*!sc*/
+data-styled.g16[id="sc-999ff2a7-3"]{content:"kgGIvw,"}/*!sc*/
+.gpQSEj{margin:0 auto;padding:92px 0px;text-align:center;font-weight:bold;}/*!sc*/
+data-styled.g17[id="sc-999ff2a7-4"]{content:"gpQSEj,"}/*!sc*/
+.esShyj{font-size:1.625rem;line-height:2.75rem;position:relative;transition:box-shadow .3s ease;cursor:pointer;}/*!sc*/
+.esShyj:hover{box-shadow:inset 0 -0.5em 0 #ffffff55;transform:scale(1.2);}/*!sc*/
+data-styled.g18[id="sc-999ff2a7-5"]{content:"esShyj,"}/*!sc*/
+.kJucHj{transform:translateY(0.145rem);transition:color 0.3s ease;}/*!sc*/
+.kJucHj:hover{color:#e0c56e;}/*!sc*/
+data-styled.g19[id="sc-d08d0a03-0"]{content:"kJucHj,"}/*!sc*/
+.beeUbY{height:63px;width:100%;text-align:center;padding-top:0.625rem;font-size:0.625rem;font-style:italic;color:#ae8d0b;font-family:'Times New Roman',STSong,'宋体',serif;opacity:.6;}/*!sc*/
+data-styled.g20[id="sc-d08d0a03-1"]{content:"beeUbY,"}/*!sc*/
+.kNqFbH{height:63px;width:100%;display:flex;justify-content:space-between;align-items:center;position:fixed;background-color:white;z-index:10;transform:translateY(0);transition:transform .5s ease;}/*!sc*/
+data-styled.g21[id="sc-d08d0a03-2"]{content:"kNqFbH,"}/*!sc*/
+.bzdjAY{flex:1 1 auto;display:flex;align-items:center;height:100%;justify-content:flex-end;}/*!sc*/
+data-styled.g22[id="sc-d08d0a03-3"]{content:"bzdjAY,"}/*!sc*/
+.jkueqD{flex:1 1 auto;display:flex;justify-content:flex-start;}/*!sc*/
+.jkueqD img{margin-left:10px;z-index:11;width:63px;height:63px;float:left;cursor:pointer;}/*!sc*/
+@media screen and (max-width: 580px){.jkueqD img{width:48px;height:48px;}}/*!sc*/
+@media screen and (max-width: 350px){.jkueqD{display:none;}}/*!sc*/
+data-styled.g23[id="sc-d08d0a03-4"]{content:"jkueqD,"}/*!sc*/
+.GLIMX{text-align:right;font-size:0.875em;cursor:pointer;}/*!sc*/
+.GLIMX>div{display:inline-block;margin-right:15px;}/*!sc*/
+@media screen and (max-width: 580px){.GLIMX>div{margin-right:16px;padding:1px 0;}}/*!sc*/
+data-styled.g24[id="sc-d08d0a03-5"]{content:"GLIMX,"}/*!sc*/
+.lkWGoW{flex:2 1 auto;display:flex;justify-content:space-evenly;align-items:center;}/*!sc*/
+@media screen and (min-width: 780px){.lkWGoW{max-width:50%;}}/*!sc*/
+@media screen and (min-width: 580px){.lkWGoW{max-width:390px;}}/*!sc*/
+@media screen and (max-width: 580px){.lkWGoW{max-width:290px;}}/*!sc*/
+.lkWGoW ol{padding:0 .5em;padding-top:2px;}/*!sc*/
+.lkWGoW a{position:relative;font-weight:500;}/*!sc*/
+.lkWGoW a::before{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
+.lkWGoW a:hover::before{width:100%;}/*!sc*/
+.lkWGoW ol.current a{color:#ae8d0b;}/*!sc*/
+data-styled.g25[id="sc-d08d0a03-6"]{content:"lkWGoW,"}/*!sc*/
+.fRBXJf{text-align:justify;}/*!sc*/
+@media screen and (max-width: 580px){.fRBXJf{text-align:unset;}}/*!sc*/
+.fRBXJf img,.fRBXJf picture,.fRBXJf video,.fRBXJf canvas,.fRBXJf svg,.fRBXJf pre{margin:1.625rem auto;display:block;}/*!sc*/
+.fRBXJf p,.fRBXJf ul,.fRBXJf ol{line-height:1.8rem;margin:1.5rem 0;}/*!sc*/
+.fRBXJf blockquote{margin:1.625rem 0;}/*!sc*/
+.fRBXJf a{position:relative;font-weight:500;border-bottom:1px solid #ae8d0b;transition:box-shadow .5s;}/*!sc*/
+.fRBXJf a:hover{box-shadow:inset 0 -0.5em 0 #e0c56e;}/*!sc*/
+.fRBXJf code{background-color:#eeeeee;font-size:0.95rem;border-radius:3px;padding:0 0.25rem;margin:0 1px;}/*!sc*/
+.fRBXJf pre code{font-size:0.875rem;border-radius:unset;padding:1rem 2rem;margin:unset;overflow:auto;}/*!sc*/
+.fRBXJf blockquote{border-left:solid 2px;padding-left:1.875em;color:#666666;}/*!sc*/
+.fRBXJf del{opacity:.33;}/*!sc*/
+.fRBXJf ul li{display:block;position:relative;}/*!sc*/
+.fRBXJf ul li::before{content:'';position:absolute;top:.6em;height:.4em;width:.4em;border-radius:1em;border:solid 1px #ae8d0b;left:-1.5rem;}/*!sc*/
+data-styled.g31[id="sc-389d00ff-0"]{content:"fRBXJf,"}/*!sc*/
+.doZKbU{margin:64px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;}/*!sc*/
+.doZKbU>span{color:#666666;font-size:0.875rem;}/*!sc*/
+data-styled.g32[id="sc-54a30f6f-0"]{content:"doZKbU,"}/*!sc*/
+.eZZwgr{padding:.2em 0;display:flex;align-items:center;position:relative;}/*!sc*/
+.eZZwgr i{transform:translateY(-0.1em);}/*!sc*/
+.eZZwgr span{position:relative;}/*!sc*/
+.eZZwgr span::before{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
+.eZZwgr span:hover::before{width:100%;}/*!sc*/
+data-styled.g33[id="sc-54a30f6f-1"]{content:"eZZwgr,"}/*!sc*/
+.cikFIu{max-width:780px;margin:0 auto;padding:0px 48px 48px 48px;}/*!sc*/
+@media screen and (max-width: 780px){.cikFIu{max-width:580px;}}/*!sc*/
+@media screen and (max-width: 580px){.cikFIu{padding:0 20px 48px 20px;}}/*!sc*/
+data-styled.g34[id="sc-5735a324-0"]{content:"cikFIu,"}/*!sc*/
+.IDbQZ{position:relative;--waline-theme-color:#292929;--waline-bgcolor:white;--waline-color:#666666;--waline-active-color:#ae8d0b;--waline-bgcolor-light:#99999915;--waline-border:1px solid #99999966;--waline-border-color:#99999966;--waline-info-bgcolor:#99999915;}/*!sc*/
+.IDbQZ .wl-avatar{margin:0 .5rem;}/*!sc*/
+.IDbQZ .wl-card .wl-meta{display:none;}/*!sc*/
+.IDbQZ .wl-btn.primary{background:#292929;color:white;}/*!sc*/
+.IDbQZ .wl-gif-popup .wl-gallery-column{display:grid!important;grid-template-columns:1fr 1fr;max-height:200px;}/*!sc*/
+.IDbQZ .wl-gif-popup img{width:unset!important;height:unset!important;border-color:white;}/*!sc*/
+.IDbQZ .wl-gif-popup input{background:white;color:black;}/*!sc*/
+data-styled.g39[id="sc-da8d0803-0"]{content:"IDbQZ,"}/*!sc*/
+.iAqViG{max-width:750px;margin-top:72px;animation:gWOUmS 1s ease;}/*!sc*/
+@media screen and (max-width: 580px){.iAqViG{margin-top:20px;}}/*!sc*/
+data-styled.g40[id="sc-6c4d66fc-0"]{content:"iAqViG,"}/*!sc*/
+.ivJsMD{max-width:15em;flex:1 1 0;margin-top:calc(1.375*1em + 72px);position:sticky;align-self:flex-start;top:63px;animation:hBXrSV 1s ease;}/*!sc*/
+@media screen and (max-width: 780px){.ivJsMD{max-width:10em;}}/*!sc*/
+@media screen and (max-width: 580px){.ivJsMD{display:none;}}/*!sc*/
+data-styled.g41[id="sc-6c4d66fc-1"]{content:"ivJsMD,"}/*!sc*/
+.kMWneV{margin-bottom:3rem;}/*!sc*/
+.kMWneV h1{margin-top:.3rem;margin-bottom:0.5rem;}/*!sc*/
+data-styled.g42[id="sc-6c4d66fc-2"]{content:"kMWneV,"}/*!sc*/
+.ebiTpc{font-size:0.875rem;position:relative;}/*!sc*/
+.ebiTpc::before{content:'';position:absolute;top:-.8em;left:0;height:1px;width:100%;background:#ae8d0b;}/*!sc*/
+data-styled.g43[id="sc-6c4d66fc-3"]{content:"ebiTpc,"}/*!sc*/
+.dqzVln{transition:opacity .3s,color .3s;}/*!sc*/
+.dqzVln:hover{color:#ae8d0b;}/*!sc*/
+data-styled.g44[id="sc-6c4d66fc-4"]{content:"dqzVln,"}/*!sc*/
+@keyframes gWOUmS{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}/*!sc*/
+data-styled.g52[id="sc-keyframes-gWOUmS"]{content:"gWOUmS,"}/*!sc*/
+@keyframes hBXrSV{0%{-webkit-transform:translateX(50px);transform:translateX(50px);opacity:0;}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1;}}/*!sc*/
+data-styled.g53[id="sc-keyframes-hBXrSV"]{content:"hBXrSV,"}/*!sc*/
+</style></head><body><div id="__next"><div class="sc-bcPKhP sc-b614f13c-5 iZgfEl xQOOU hidden"><div style="padding:1rem 1rem 0 1rem" class="sc-b614f13c-1 gUArue"><input type="text" placeholder="搜索你感兴趣的内容，以空格分词" class="sc-b614f13c-2 eFZTst"/></div><div style="padding:0.5rem 1rem" class="sc-b614f13c-0 ijPvgl"><div style="font-size:0.875rem;opacity:0.5"><div class="sc-b614f13c-4 ewQHdz">搜索初始化中……</div></div></div></div><div class="sc-999ff2a7-3 kgGIvw hidden"><div style="padding-top:8rem" class="sc-999ff2a7-4 gpQSEj"><h1><span>SANSUI&#x27;S BLOG</span></h1><div><span style="font-size:1.625rem" class="sc-999ff2a7-5 esShyj">日间模式</span></div><div><span class="sc-999ff2a7-5 esShyj"><a href="/categories">分类</a></span></div><div><span class="sc-999ff2a7-5 esShyj"><a href="/atom.xml">RSS</a></span></div><div class="sc-999ff2a7-1 gzHnjq"><div class="sc-999ff2a7-2 eBGEYA"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a></div><div>Sansui 2022 All rights reserved</div></div></div><div class="sc-999ff2a7-0 hBbWJ"><div width="1em" height="1em" class="sc-6db262c7-0 gyoJCg"><div class="sc-6db262c7-1 gUHHsO is-close"></div><div class="sc-6db262c7-2 hhWThY"></div><div class="sc-6db262c7-1 gUHHsO is-close"></div></div></div></div><header class="sc-d08d0a03-2 kNqFbH"><div class="sc-d08d0a03-3 sc-d08d0a03-4 bzdjAY jkueqD"><a href="/"><img src="/avatar-white.png" alt="Sansui"/></a></div><nav class="sc-d08d0a03-6 lkWGoW"><ol class=""><a href="/">Posts</a></ol><ol class=""><a href="/memos">Memos</a></ol><ol class=""><a href="/about">About</a></ol></nav><div class="sc-d08d0a03-3 sc-d08d0a03-5 bzdjAY GLIMX"><div class="sc-d08d0a03-0 kJucHj"><i class="icon-search" style="font-size:1.725rem"></i></div><div style="margin-right:20px;width:22px"><div width="100%" height="21px" class="sc-6db262c7-0 eNBuIX"><div class="sc-6db262c7-1 gUHHsO"></div><div class="sc-6db262c7-2 dtuNhN"></div><div class="sc-6db262c7-1 gUHHsO"></div></div></div></div></header><div class="sc-d08d0a03-1 beeUbY">人活着就是为了卡卡西</div><main><div style="display:flex;margin:auto"><div style="flex:2 1 0"><div class="sc-5735a324-0 sc-6c4d66fc-0 cikFIu iAqViG"><div class="sc-6c4d66fc-2 kMWneV"><h1>关于Golang程序的内存占用过大的问题</h1><div style="display:flex"><div style="flex:1 1 0"><span style="flex:1 1 0" class="sc-6c4d66fc-3 ebiTpc">2020-11-20<!-- --> | <a class="sc-6c4d66fc-4 dqzVln" href="/tags/Golang">#Golang </a><a class="sc-6c4d66fc-4 dqzVln" href="/tags/%E5%90%8E%E7%AB%AF">#后端 </a> in <a class="sc-6c4d66fc-4 dqzVln" href="/categories/%E5%AD%A6%E4%B9%A0"><i style="padding-right:0.15em" class="icon-material-folder_open"></i>学习</a></span></div><div style="flex:0 0 0;font-size:0.875rem"><i style="padding-left:0.5em;padding-right:0.3em" class="icon-material-eye"></i><span class="waline-pageview-count" data-path=""></span></div></div></div><div class="sc-389d00ff-0 fRBXJf"><p>之前看Mastering Go 2nd Edition，说到Golang的垃圾回收机制，说垃圾回收器(GC)每5分钟会调用一次。然而我观察服务器内存占用时，发现程序后的空闲器5分钟后，使用top查看内存占用并没有减少，大小是200M。因此开始怀疑起了是否有内存泄漏问题。</p>
+<p>然而在使用pprof分析后，发现其报告的常驻内存占用只有10M，inuse_objects相对更多，也不过40M。goroutine没有泄漏，makeslice确实调用得非常多，但也仅仅是当时占用一下内存后来都释放了。有时候会有空闲的TCP连接，最后也被关闭了。可疑的代码都检查了一遍，最后认为只可能给内存造成压力但不应该内存泄漏。所以top查看的200M是怎么来的？</p>
+<p>在我再也挖不出任何可能性时，直到看到这篇文章，经历几乎一模一样。并且写得非常清楚有逻辑，以至于我没有想再完整记录一遍我的经历的想法。这篇文章甚至详细到了解释每一步的pprof的操作和术语，调试过程非常值得学习。</p>
+<ul>
+<li><a href="https://blog.detectify.com/2019/09/05/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/">How we tracked down (what seemed like) a memory leak in one of our Go microservices</a></li>
+</ul>
+<p>最后结论就是，<strong>没有内存泄漏</strong>。Golang的垃圾回收机制在1.12后变了，不再是5分钟机制(每5分钟发送<code>MADV_DONTNEED</code>信号)，而变成Go会告诉系统有空闲的内存可以回收(发送<code>MADV_FREE</code>信号)，但什么时候把内存还给系统是需要系统决定。如果系统内存一直有空闲就可能一直不会还系统，导致top显示出的内存占用一直很大。</p>
+<p>文章中还指出，如果想用之前那样的5分钟回收机制，运行时可以加上flag<code>GODEBUG=madvdontneed=1</code>。像之前那样使用<code>runtime.GC</code>与<code>runtime/debug</code>中的<code>FreeOSMemory</code>都没有效果，也就是不会发送<code>MADV_DONTNEED</code>信号。</p>
+<p>后来我也去查看了服务器的内存情况，发现，在一个小时后（程序这期间一直是空闲状态），内存终于降了100M，变得和之间相同了。确实是没有内存泄漏，纯属服务器闲的。</p>
+<p>知道这一点后我的内存洁癖也算是消失了。因为一直非常讨厌高内存占用的应用，觉得是没有优化好。现在看来，这也能有泡沫，反倒是没事就去清一下内存没有必要，重新申请又是额外的开销。从前的（静态）语言确实需要程序员手动管理内存，而go语言在这一点上又帮程序员做了。</p>
+<p>“手动强迫系统释放内存的行为都是耍流氓。”</p></div><div style="text-align:right;opacity:0.5;font-size:0.875rem;margin:4rem 0 2rem 0">更新于 <!-- -->2020-11-20</div><div class="sc-54a30f6f-0 doZKbU"><div style="flex:1 1 auto"><a style="justify-content:flex-start" class="sc-54a30f6f-1 eZZwgr" href="/posts/Mac%E4%B8%8A%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E4%B8%8E%E5%85%B3%E6%9C%BA%E6%97%B6%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8CShell%E8%84%9A%E6%9C%AC"><span><i class="icon-arrow-left2"></i> <!-- -->Mac上如何开机与关机时自动运行Shell脚本</span></a></div><span></span><div style="flex:1 1 auto"><a style="justify-content:flex-end" class="sc-54a30f6f-1 eZZwgr" href="/posts/gwf-law"><span>关于GFW的法律相关定罪之“非法获取计算机系统数据、非法控制计算机信息系统罪”<!-- --> <i class="icon-arrow-right2"></i></span></a></div></div><div id="waline" class="sc-da8d0803-0 IDbQZ">Waline</div></div></div><div class="sc-6c4d66fc-1 ivJsMD"><nav><div style="font-size:1.25rem;font-weight:bold;padding-bottom:0.5rem;margin-bottom:0.5rem;border-bottom:solid 1px #ae8d0b">目录</div></nav></div></div></main><div class="sc-9b286a0d-0 kuolET"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a><div>Code &amp; Design by Sansui 2022<!-- --> <br/> <!-- -->All rights reserved</div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"mdxSource":{"compiledSource":"/*@jsxRuntime automatic @jsxImportSource react*/\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction _createMdxContent(props) {\n  const _components = Object.assign({\n    p: \"p\",\n    ul: \"ul\",\n    li: \"li\",\n    a: \"a\",\n    strong: \"strong\",\n    code: \"code\"\n  }, _provideComponents(), props.components);\n  return _jsxs(_Fragment, {\n    children: [_jsx(_components.p, {\n      children: \"之前看Mastering Go 2nd Edition，说到Golang的垃圾回收机制，说垃圾回收器(GC)每5分钟会调用一次。然而我观察服务器内存占用时，发现程序后的空闲器5分钟后，使用top查看内存占用并没有减少，大小是200M。因此开始怀疑起了是否有内存泄漏问题。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"然而在使用pprof分析后，发现其报告的常驻内存占用只有10M，inuse_objects相对更多，也不过40M。goroutine没有泄漏，makeslice确实调用得非常多，但也仅仅是当时占用一下内存后来都释放了。有时候会有空闲的TCP连接，最后也被关闭了。可疑的代码都检查了一遍，最后认为只可能给内存造成压力但不应该内存泄漏。所以top查看的200M是怎么来的？\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"在我再也挖不出任何可能性时，直到看到这篇文章，经历几乎一模一样。并且写得非常清楚有逻辑，以至于我没有想再完整记录一遍我的经历的想法。这篇文章甚至详细到了解释每一步的pprof的操作和术语，调试过程非常值得学习。\"\n    }), \"\\n\", _jsxs(_components.ul, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: _jsx(_components.a, {\n          href: \"https://blog.detectify.com/2019/09/05/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/\",\n          children: \"How we tracked down (what seemed like) a memory leak in one of our Go microservices\"\n        })\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"最后结论就是，\", _jsx(_components.strong, {\n        children: \"没有内存泄漏\"\n      }), \"。Golang的垃圾回收机制在1.12后变了，不再是5分钟机制(每5分钟发送\", _jsx(_components.code, {\n        children: \"MADV_DONTNEED\"\n      }), \"信号)，而变成Go会告诉系统有空闲的内存可以回收(发送\", _jsx(_components.code, {\n        children: \"MADV_FREE\"\n      }), \"信号)，但什么时候把内存还给系统是需要系统决定。如果系统内存一直有空闲就可能一直不会还系统，导致top显示出的内存占用一直很大。\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"文章中还指出，如果想用之前那样的5分钟回收机制，运行时可以加上flag\", _jsx(_components.code, {\n        children: \"GODEBUG=madvdontneed=1\"\n      }), \"。像之前那样使用\", _jsx(_components.code, {\n        children: \"runtime.GC\"\n      }), \"与\", _jsx(_components.code, {\n        children: \"runtime/debug\"\n      }), \"中的\", _jsx(_components.code, {\n        children: \"FreeOSMemory\"\n      }), \"都没有效果，也就是不会发送\", _jsx(_components.code, {\n        children: \"MADV_DONTNEED\"\n      }), \"信号。\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"后来我也去查看了服务器的内存情况，发现，在一个小时后（程序这期间一直是空闲状态），内存终于降了100M，变得和之间相同了。确实是没有内存泄漏，纯属服务器闲的。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"知道这一点后我的内存洁癖也算是消失了。因为一直非常讨厌高内存占用的应用，觉得是没有优化好。现在看来，这也能有泡沫，反倒是没事就去清一下内存没有必要，重新申请又是额外的开销。从前的（静态）语言确实需要程序员手动管理内存，而go语言在这一点上又帮程序员做了。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"“手动强迫系统释放内存的行为都是耍流氓。”\"\n    })]\n  });\n}\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);\n  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {\n    children: _jsx(_createMdxContent, props)\n  })) : _createMdxContent(props);\n}\nreturn {\n  default: MDXContent\n};\n","frontmatter":{"title":"关于Golang程序的内存占用过大的问题","date":"2020-11-20","categories":"学习","description":"关于Golang程序的内存占用过大的问题","tags":["Golang","后端"],"keywords":"Golang, 垃圾回收, 内存"},"scope":{}},"prevPost":{"title":"Mac上如何开机与关机时自动运行Shell脚本","link":"/posts/Mac上如何开机与关机时自动运行Shell脚本"},"nextPost":{"title":"关于GFW的法律相关定罪之“非法获取计算机系统数据、非法控制计算机信息系统罪”","link":"/posts/gwf-law"},"excerpt":" 之前看Mastering Go 2nd Edition，说到Golang的垃圾回收机制，说垃圾回收器(GC)每5分钟会调用一次。然而我观察服务器内存占用时，发现程序后的空闲器5分钟后，使用top查看内存占用并没有减少，大小是200M。因此开始怀疑起了是否有内存泄漏问题。\r \r 然而在使","headings":[]},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"关于Golang程序的内存占用过大的问题"},"buildId":"QGdiKFW0SldeFnBx2ogTE","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

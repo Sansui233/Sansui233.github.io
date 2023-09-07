@@ -1,0 +1,343 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>理解 Rust 闭包与环境变量所有权</title><meta name="description" content="B站反查用户弹幕小记 本文将以（自认为）最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系。在现存的类似中文教程中，要么语言表述歧义太大，逻辑上难以理清；要么试图把事情总结得过于复杂。实际上闭包对于环境变量所有权的处理规则是非常简单的。  阅读本文需要的基础： Rust 变量的所有权、引用与"/><meta name="keywords" content="Rust, Rust, 闭包, Closure, 所有权"/><meta name="description" content="A personal blog about work and life"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="6"/><link rel="preload" href="/_next/static/css/4fc5399b2c6d82d0.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4fc5399b2c6d82d0.css" data-n-g=""/><link rel="preload" href="/_next/static/css/dff1bccf68b12a76.css" as="style"/><link rel="stylesheet" href="/_next/static/css/dff1bccf68b12a76.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script><script src="/_next/static/chunks/webpack-f164db4954bac6ec.js" defer=""></script><script src="/_next/static/chunks/framework-560fb66cbb55e75e.js" defer=""></script><script src="/_next/static/chunks/main-6314e1a2f07f53b5.js" defer=""></script><script src="/_next/static/chunks/pages/_app-642ad64577678b01.js" defer=""></script><script src="/_next/static/chunks/ab88915f-f825823ee17e896c.js" defer=""></script><script src="/_next/static/chunks/f32efb27-c3f613ce4c9d79d8.js" defer=""></script><script src="/_next/static/chunks/811-bf66e7ab0ab14f1d.js" defer=""></script><script src="/_next/static/chunks/26-6a6d6859a2cbdbf9.js" defer=""></script><script src="/_next/static/chunks/499-31520d6949137b90.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-7d66c866ee552925.js" defer=""></script><script src="/_next/static/QGdiKFW0SldeFnBx2ogTE/_buildManifest.js" defer=""></script><script src="/_next/static/QGdiKFW0SldeFnBx2ogTE/_ssgManifest.js" defer=""></script><style data-styled="" data-styled-version="6.0.7">body{background:white;color:black;}/*!sc*/
+data-styled.g1[id="sc-global-PuglZ1"]{content:"sc-global-PuglZ1,"}/*!sc*/
+.kuolET{padding:24px 0 10px 0;text-align:center;font-size:0.625rem;}/*!sc*/
+.kuolET div{margin:1rem auto;}/*!sc*/
+.kuolET a{transition:color .5s;}/*!sc*/
+.kuolET a:hover{color:#e0c56e;}/*!sc*/
+.kuolET i{font-size:1.5rem;margin:0 0.5rem;}/*!sc*/
+data-styled.g2[id="sc-9b286a0d-0"]{content:"kuolET,"}/*!sc*/
+.gyoJCg{width:1em;height:1em;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}/*!sc*/
+.eNBuIX{width:100%;height:21px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}/*!sc*/
+data-styled.g3[id="sc-6db262c7-0"]{content:"gyoJCg,eNBuIX,"}/*!sc*/
+.gUHHsO{background:black;height:2px;transition:all .3s;}/*!sc*/
+.gUHHsO.is-close{opacity:0;}/*!sc*/
+data-styled.g4[id="sc-6db262c7-1"]{content:"gUHHsO,"}/*!sc*/
+.hhWThY{height:2px;position:relative;}/*!sc*/
+.hhWThY::before,.hhWThY::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:black;transition:all .3s;}/*!sc*/
+.hhWThY::before{transform:rotate(45deg);}/*!sc*/
+.hhWThY::after{transform:rotate(-45deg);}/*!sc*/
+.dtuNhN{height:2px;position:relative;}/*!sc*/
+.dtuNhN::before,.dtuNhN::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:black;transition:all .3s;}/*!sc*/
+data-styled.g5[id="sc-6db262c7-2"]{content:"hhWThY,dtuNhN,"}/*!sc*/
+.iZgfEl{min-width:60px;min-height:60px;z-index:20;background:white;border:1px solid #a2a2a280;border-radius:5px;transform:scale3d(1, 1, 1);box-shadow:rgb(0 0 0 / 5%) 0px 0.5rem 2rem;}/*!sc*/
+data-styled.g6[id="sc-bcPKhP"]{content:"iZgfEl,"}/*!sc*/
+.ijPvgl{overflow-y:scroll;max-height:60vh;}/*!sc*/
+data-styled.g7[id="sc-b614f13c-0"]{content:"ijPvgl,"}/*!sc*/
+.gUArue{position:sticky;top:0;background:white;}/*!sc*/
+data-styled.g8[id="sc-b614f13c-1"]{content:"gUArue,"}/*!sc*/
+.eFZTst{border:none;border-radius:0;background:white;width:100%;color:black;}/*!sc*/
+.eFZTst:focus,.eFZTst:focus-visible{outline:none;}/*!sc*/
+data-styled.g9[id="sc-b614f13c-2"]{content:"eFZTst,"}/*!sc*/
+.ewQHdz{font-size:0.875rem;color:#666666;overflow:hidden;white-space:nowrap;wrap:no-wrap;}/*!sc*/
+data-styled.g11[id="sc-b614f13c-4"]{content:"ewQHdz,"}/*!sc*/
+.xQOOU{min-height:unset;position:fixed;top:55px;right:0px;width:24rem;overflow:hidden;margin:0 10px;}/*!sc*/
+.xQOOU.hidden{display:none;}/*!sc*/
+.xQOOU mark{background:none;color:#ae8d0b;}/*!sc*/
+@media screen and (max-width: 580px){.xQOOU{width:96%;max-height:50%;}}/*!sc*/
+data-styled.g12[id="sc-b614f13c-5"]{content:"xQOOU,"}/*!sc*/
+.hBbWJ{width:24px;height:20px;position:fixed;top:22px;right:20px;}/*!sc*/
+data-styled.g13[id="sc-999ff2a7-0"]{content:"hBbWJ,"}/*!sc*/
+.gzHnjq{font-weight:400;padding-top:4rem;font-size:0.625rem;}/*!sc*/
+data-styled.g14[id="sc-999ff2a7-1"]{content:"gzHnjq,"}/*!sc*/
+.eBGEYA{margin:0.5rem 0;}/*!sc*/
+.eBGEYA a{transition:color .5s;}/*!sc*/
+.eBGEYA a:hover{color:#ae8d0b;}/*!sc*/
+.eBGEYA i{font-size:1.5rem;margin:0 0.5rem;}/*!sc*/
+data-styled.g15[id="sc-999ff2a7-2"]{content:"eBGEYA,"}/*!sc*/
+.kgGIvw{background:white;overflow:auto;position:fixed;width:100%;height:100%;z-index:10;transform:translateY(0);transition:transform 1s cubic-bezier(0.46, 0, 0.08, 1.11);}/*!sc*/
+.kgGIvw.hidden{transform:translateY(-100%);}/*!sc*/
+.kgGIvw h1{-webkit-text-stroke:1px;-webkit-text-fill-color:transparent;}/*!sc*/
+.kgGIvw h1 span{position:relative;}/*!sc*/
+.kgGIvw h1 span::after{content:'';position:absolute;left:0;bottom:-1rem;width:100%;height:1px;background:#ae8d0b;}/*!sc*/
+data-styled.g16[id="sc-999ff2a7-3"]{content:"kgGIvw,"}/*!sc*/
+.gpQSEj{margin:0 auto;padding:92px 0px;text-align:center;font-weight:bold;}/*!sc*/
+data-styled.g17[id="sc-999ff2a7-4"]{content:"gpQSEj,"}/*!sc*/
+.esShyj{font-size:1.625rem;line-height:2.75rem;position:relative;transition:box-shadow .3s ease;cursor:pointer;}/*!sc*/
+.esShyj:hover{box-shadow:inset 0 -0.5em 0 #ffffff55;transform:scale(1.2);}/*!sc*/
+data-styled.g18[id="sc-999ff2a7-5"]{content:"esShyj,"}/*!sc*/
+.kJucHj{transform:translateY(0.145rem);transition:color 0.3s ease;}/*!sc*/
+.kJucHj:hover{color:#e0c56e;}/*!sc*/
+data-styled.g19[id="sc-d08d0a03-0"]{content:"kJucHj,"}/*!sc*/
+.beeUbY{height:63px;width:100%;text-align:center;padding-top:0.625rem;font-size:0.625rem;font-style:italic;color:#ae8d0b;font-family:'Times New Roman',STSong,'宋体',serif;opacity:.6;}/*!sc*/
+data-styled.g20[id="sc-d08d0a03-1"]{content:"beeUbY,"}/*!sc*/
+.kNqFbH{height:63px;width:100%;display:flex;justify-content:space-between;align-items:center;position:fixed;background-color:white;z-index:10;transform:translateY(0);transition:transform .5s ease;}/*!sc*/
+data-styled.g21[id="sc-d08d0a03-2"]{content:"kNqFbH,"}/*!sc*/
+.bzdjAY{flex:1 1 auto;display:flex;align-items:center;height:100%;justify-content:flex-end;}/*!sc*/
+data-styled.g22[id="sc-d08d0a03-3"]{content:"bzdjAY,"}/*!sc*/
+.jkueqD{flex:1 1 auto;display:flex;justify-content:flex-start;}/*!sc*/
+.jkueqD img{margin-left:10px;z-index:11;width:63px;height:63px;float:left;cursor:pointer;}/*!sc*/
+@media screen and (max-width: 580px){.jkueqD img{width:48px;height:48px;}}/*!sc*/
+@media screen and (max-width: 350px){.jkueqD{display:none;}}/*!sc*/
+data-styled.g23[id="sc-d08d0a03-4"]{content:"jkueqD,"}/*!sc*/
+.GLIMX{text-align:right;font-size:0.875em;cursor:pointer;}/*!sc*/
+.GLIMX>div{display:inline-block;margin-right:15px;}/*!sc*/
+@media screen and (max-width: 580px){.GLIMX>div{margin-right:16px;padding:1px 0;}}/*!sc*/
+data-styled.g24[id="sc-d08d0a03-5"]{content:"GLIMX,"}/*!sc*/
+.lkWGoW{flex:2 1 auto;display:flex;justify-content:space-evenly;align-items:center;}/*!sc*/
+@media screen and (min-width: 780px){.lkWGoW{max-width:50%;}}/*!sc*/
+@media screen and (min-width: 580px){.lkWGoW{max-width:390px;}}/*!sc*/
+@media screen and (max-width: 580px){.lkWGoW{max-width:290px;}}/*!sc*/
+.lkWGoW ol{padding:0 .5em;padding-top:2px;}/*!sc*/
+.lkWGoW a{position:relative;font-weight:500;}/*!sc*/
+.lkWGoW a::before{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
+.lkWGoW a:hover::before{width:100%;}/*!sc*/
+.lkWGoW ol.current a{color:#ae8d0b;}/*!sc*/
+data-styled.g25[id="sc-d08d0a03-6"]{content:"lkWGoW,"}/*!sc*/
+.fRBXJf{text-align:justify;}/*!sc*/
+@media screen and (max-width: 580px){.fRBXJf{text-align:unset;}}/*!sc*/
+.fRBXJf img,.fRBXJf picture,.fRBXJf video,.fRBXJf canvas,.fRBXJf svg,.fRBXJf pre{margin:1.625rem auto;display:block;}/*!sc*/
+.fRBXJf p,.fRBXJf ul,.fRBXJf ol{line-height:1.8rem;margin:1.5rem 0;}/*!sc*/
+.fRBXJf blockquote{margin:1.625rem 0;}/*!sc*/
+.fRBXJf a{position:relative;font-weight:500;border-bottom:1px solid #ae8d0b;transition:box-shadow .5s;}/*!sc*/
+.fRBXJf a:hover{box-shadow:inset 0 -0.5em 0 #e0c56e;}/*!sc*/
+.fRBXJf code{background-color:#eeeeee;font-size:0.95rem;border-radius:3px;padding:0 0.25rem;margin:0 1px;}/*!sc*/
+.fRBXJf pre code{font-size:0.875rem;border-radius:unset;padding:1rem 2rem;margin:unset;overflow:auto;}/*!sc*/
+.fRBXJf blockquote{border-left:solid 2px;padding-left:1.875em;color:#666666;}/*!sc*/
+.fRBXJf del{opacity:.33;}/*!sc*/
+.fRBXJf ul li{display:block;position:relative;}/*!sc*/
+.fRBXJf ul li::before{content:'';position:absolute;top:.6em;height:.4em;width:.4em;border-radius:1em;border:solid 1px #ae8d0b;left:-1.5rem;}/*!sc*/
+data-styled.g31[id="sc-389d00ff-0"]{content:"fRBXJf,"}/*!sc*/
+.doZKbU{margin:64px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;}/*!sc*/
+.doZKbU>span{color:#666666;font-size:0.875rem;}/*!sc*/
+data-styled.g32[id="sc-54a30f6f-0"]{content:"doZKbU,"}/*!sc*/
+.eZZwgr{padding:.2em 0;display:flex;align-items:center;position:relative;}/*!sc*/
+.eZZwgr i{transform:translateY(-0.1em);}/*!sc*/
+.eZZwgr span{position:relative;}/*!sc*/
+.eZZwgr span::before{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
+.eZZwgr span:hover::before{width:100%;}/*!sc*/
+data-styled.g33[id="sc-54a30f6f-1"]{content:"eZZwgr,"}/*!sc*/
+.cikFIu{max-width:780px;margin:0 auto;padding:0px 48px 48px 48px;}/*!sc*/
+@media screen and (max-width: 780px){.cikFIu{max-width:580px;}}/*!sc*/
+@media screen and (max-width: 580px){.cikFIu{padding:0 20px 48px 20px;}}/*!sc*/
+data-styled.g34[id="sc-5735a324-0"]{content:"cikFIu,"}/*!sc*/
+.IDbQZ{position:relative;--waline-theme-color:#292929;--waline-bgcolor:white;--waline-color:#666666;--waline-active-color:#ae8d0b;--waline-bgcolor-light:#99999915;--waline-border:1px solid #99999966;--waline-border-color:#99999966;--waline-info-bgcolor:#99999915;}/*!sc*/
+.IDbQZ .wl-avatar{margin:0 .5rem;}/*!sc*/
+.IDbQZ .wl-card .wl-meta{display:none;}/*!sc*/
+.IDbQZ .wl-btn.primary{background:#292929;color:white;}/*!sc*/
+.IDbQZ .wl-gif-popup .wl-gallery-column{display:grid!important;grid-template-columns:1fr 1fr;max-height:200px;}/*!sc*/
+.IDbQZ .wl-gif-popup img{width:unset!important;height:unset!important;border-color:white;}/*!sc*/
+.IDbQZ .wl-gif-popup input{background:white;color:black;}/*!sc*/
+data-styled.g39[id="sc-da8d0803-0"]{content:"IDbQZ,"}/*!sc*/
+.iAqViG{max-width:750px;margin-top:72px;animation:gWOUmS 1s ease;}/*!sc*/
+@media screen and (max-width: 580px){.iAqViG{margin-top:20px;}}/*!sc*/
+data-styled.g40[id="sc-6c4d66fc-0"]{content:"iAqViG,"}/*!sc*/
+.ivJsMD{max-width:15em;flex:1 1 0;margin-top:calc(1.375*1em + 72px);position:sticky;align-self:flex-start;top:63px;animation:hBXrSV 1s ease;}/*!sc*/
+@media screen and (max-width: 780px){.ivJsMD{max-width:10em;}}/*!sc*/
+@media screen and (max-width: 580px){.ivJsMD{display:none;}}/*!sc*/
+data-styled.g41[id="sc-6c4d66fc-1"]{content:"ivJsMD,"}/*!sc*/
+.kMWneV{margin-bottom:3rem;}/*!sc*/
+.kMWneV h1{margin-top:.3rem;margin-bottom:0.5rem;}/*!sc*/
+data-styled.g42[id="sc-6c4d66fc-2"]{content:"kMWneV,"}/*!sc*/
+.ebiTpc{font-size:0.875rem;position:relative;}/*!sc*/
+.ebiTpc::before{content:'';position:absolute;top:-.8em;left:0;height:1px;width:100%;background:#ae8d0b;}/*!sc*/
+data-styled.g43[id="sc-6c4d66fc-3"]{content:"ebiTpc,"}/*!sc*/
+.dqzVln{transition:opacity .3s,color .3s;}/*!sc*/
+.dqzVln:hover{color:#ae8d0b;}/*!sc*/
+data-styled.g44[id="sc-6c4d66fc-4"]{content:"dqzVln,"}/*!sc*/
+.GoISI{display:block;padding-left:0em;line-height:1.8em;}/*!sc*/
+.GoISI span{transition:box-shadow .5s;}/*!sc*/
+.GoISI:hover span{box-shadow:inset 0 -0.5em 0 #e0c56e;}/*!sc*/
+data-styled.g45[id="sc-6c4d66fc-5"]{content:"GoISI,"}/*!sc*/
+@keyframes gWOUmS{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}/*!sc*/
+data-styled.g52[id="sc-keyframes-gWOUmS"]{content:"gWOUmS,"}/*!sc*/
+@keyframes hBXrSV{0%{-webkit-transform:translateX(50px);transform:translateX(50px);opacity:0;}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1;}}/*!sc*/
+data-styled.g53[id="sc-keyframes-hBXrSV"]{content:"hBXrSV,"}/*!sc*/
+</style></head><body><div id="__next"><div class="sc-bcPKhP sc-b614f13c-5 iZgfEl xQOOU hidden"><div style="padding:1rem 1rem 0 1rem" class="sc-b614f13c-1 gUArue"><input type="text" placeholder="搜索你感兴趣的内容，以空格分词" class="sc-b614f13c-2 eFZTst"/></div><div style="padding:0.5rem 1rem" class="sc-b614f13c-0 ijPvgl"><div style="font-size:0.875rem;opacity:0.5"><div class="sc-b614f13c-4 ewQHdz">搜索初始化中……</div></div></div></div><div class="sc-999ff2a7-3 kgGIvw hidden"><div style="padding-top:8rem" class="sc-999ff2a7-4 gpQSEj"><h1><span>SANSUI&#x27;S BLOG</span></h1><div><span style="font-size:1.625rem" class="sc-999ff2a7-5 esShyj">日间模式</span></div><div><span class="sc-999ff2a7-5 esShyj"><a href="/categories">分类</a></span></div><div><span class="sc-999ff2a7-5 esShyj"><a href="/atom.xml">RSS</a></span></div><div class="sc-999ff2a7-1 gzHnjq"><div class="sc-999ff2a7-2 eBGEYA"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a></div><div>Sansui 2022 All rights reserved</div></div></div><div class="sc-999ff2a7-0 hBbWJ"><div width="1em" height="1em" class="sc-6db262c7-0 gyoJCg"><div class="sc-6db262c7-1 gUHHsO is-close"></div><div class="sc-6db262c7-2 hhWThY"></div><div class="sc-6db262c7-1 gUHHsO is-close"></div></div></div></div><header class="sc-d08d0a03-2 kNqFbH"><div class="sc-d08d0a03-3 sc-d08d0a03-4 bzdjAY jkueqD"><a href="/"><img src="/avatar-white.png" alt="Sansui"/></a></div><nav class="sc-d08d0a03-6 lkWGoW"><ol class=""><a href="/">Posts</a></ol><ol class=""><a href="/memos">Memos</a></ol><ol class=""><a href="/about">About</a></ol></nav><div class="sc-d08d0a03-3 sc-d08d0a03-5 bzdjAY GLIMX"><div class="sc-d08d0a03-0 kJucHj"><i class="icon-search" style="font-size:1.725rem"></i></div><div style="margin-right:20px;width:22px"><div width="100%" height="21px" class="sc-6db262c7-0 eNBuIX"><div class="sc-6db262c7-1 gUHHsO"></div><div class="sc-6db262c7-2 dtuNhN"></div><div class="sc-6db262c7-1 gUHHsO"></div></div></div></div></header><div class="sc-d08d0a03-1 beeUbY">人活着就是为了卡卡西</div><main><div style="display:flex;margin:auto"><div style="flex:2 1 0"><div class="sc-5735a324-0 sc-6c4d66fc-0 cikFIu iAqViG"><div class="sc-6c4d66fc-2 kMWneV"><h1>理解 Rust 闭包与环境变量所有权</h1><div style="display:flex"><div style="flex:1 1 0"><span style="flex:1 1 0" class="sc-6c4d66fc-3 ebiTpc">2022-06-14<!-- --> | <a class="sc-6c4d66fc-4 dqzVln" href="/tags/Rust">#Rust </a> in <a class="sc-6c4d66fc-4 dqzVln" href="/categories/%E5%AD%A6%E4%B9%A0"><i style="padding-right:0.15em" class="icon-material-folder_open"></i>学习</a></span></div><div style="flex:0 0 0;font-size:0.875rem"><i style="padding-left:0.5em;padding-right:0.3em" class="icon-material-eye"></i><span class="waline-pageview-count" data-path=""></span></div></div></div><div class="sc-389d00ff-0 fRBXJf"><p>本文将以（自认为）最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系。在现存的类似中文教程中，要么语言表述歧义太大，逻辑上难以理清；要么试图把事情总结得过于复杂。实际上闭包对于环境变量所有权的处理规则是非常简单的。</p>
+<p>阅读本文需要的基础： Rust 变量的所有权、引用与借用、函数、traits。</p>
+<h2 id="什么是-rust-的闭包">什么是 Rust 的闭包</h2>
+<p>Rust 中的闭包是<strong>一种函数</strong>。与 Rust 普通函数不同，它可以<strong>捕获函数外部的变量并使用</strong>。</p>
+<p>基本语法：<code>|参数列表| {函数体}</code></p>
+<pre><code class="language-rust">fn main() {
+    let x = 1;
+    let sum = |y: i32| { x + y }; // 说明： 闭包 sum 接收一个参数 y，且捕获前面的 x = 1, 返回 x + y
+    println!(&quot;{}&quot;, sum(99)); // 输出 100
+
+    let sum2 = |y :i32| x + y + 1; // 也可以省略花括号
+    println!(&quot;{}&quot;, sum2(99)); // 输出 101
+}
+</code></pre>
+<blockquote>
+<p>说明： 闭包 sum 接收一个参数 y，返回 x + y。其中 x 是第一行定义的 <code>let x = 1;</code> ，为闭包外部的变量。</p>
+</blockquote>
+<p>像 <code>x</code> 这样在定义在闭包外部、可被闭包直接访问的变量，我们称为“<strong>环境变量</strong>”。</p>
+<h2 id="闭包中环境变量的所有权">闭包中环境变量的所有权</h2>
+<p>有 rust 基础的人应该知道，普通的 rust 函数的传入参数有三种形式</p>
+<ol>
+<li>所有权 move（默认行为）。</li>
+<li>可变借用，形式为 <code>&amp;mut param</code></li>
+<li>不可变借用 ，形式为 <code>&amp;param</code></li>
+</ol>
+<blockquote>
+<p>上述为 rust 所有权基础知识，不再赘述。</p>
+</blockquote>
+<p>普通的 rust 函数可以使用参数，但无法使用环境变量。闭包则加上了 <strong>捕获当前环境变量</strong> 的功能。</p>
+<p><strong>捕获当前环境变量</strong> 仅仅是指闭包 “知道有哪些环境变量”。闭包在使用环境变量时，依然可能会对环境变量执行三种操作：</p>
+<ol>
+<li>所有权 move</li>
+<li>可变借用</li>
+<li>不可变借用</li>
+</ol>
+<p>具体是执行了哪种操作呢？这个问题就比较复杂了，我们可以从上面的例子出发。</p>
+<p>回顾上面的例子，对于环境变量 <code>x</code> ，首先排除了所有权 move。</p>
+<pre><code class="language-rust">    let x = 1;
+    let sum = |y: i32| { x + y }; // 使用了 x
+    println!(&quot;{}&quot;, sum(99)); // 输出 100
+
+    let sum2 = |y :i32| x + y + 1; // 再次使用了 x
+    println!(&quot;{}&quot;, sum2(99)); // 输出 101
+</code></pre>
+<blockquote>
+<p>说明： <code>x</code> 在 sum1 中使用后，还能在 sum2 中再次使用，说明 <code>x</code> 所有权没有 move。</p>
+</blockquote>
+<p>实际上，上述例子的 <code>x</code> 在闭包中是作为 <strong>不可变借用</strong> 使用的，<strong>因为这个闭包实现了 <code>Fn</code> trait</strong>。</p>
+<h2 id="闭包的三种-traits">闭包的三种 traits</h2>
+<p>闭包是一种函数，它的三种 traits 恰好对应了三种处理所有权的方式。</p>
+<p>三种 traits 如下（划重点，请背下来）：</p>
+<ol>
+<li><code>FnOnce</code>：表示此闭包调用时会获取环境变量所有权（<strong>所有权 move</strong>)。因此取名 <code>FnOnce</code>，表示此闭包只能执行一次，因为再次执行时，环境变量可能由于之前所有权 move 过，已经没法用了。</li>
+<li><code>FnMut</code> ：表示此闭包调用时会对环境变量进行<strong>可变借用</strong>，可能会修改环境变量</li>
+<li><code>Fn</code> ： 表示此闭包调用时会对环境变量进行<strong>不可变借用</strong>，不会修改环境变量</li>
+</ol>
+<p>并且，<strong>一个闭包可以同时实现多个 traits</strong>。比如实现了 <code>Fn</code> 的闭包也一定实现了 <code>FnOnce</code> （后续解释）。</p>
+<p>上面是从“对环境变量如何处理所有权” 来解释三个 traits，大部分教程也是这么写，但个人并不推荐完全按这样去理解。因为上述表述中，三个 traits 看起来是互不重叠的（实际并非如此），导致可能会出现这样的疑问：</p>
+<blockquote>
+<p>“实现了 <code>Fn</code> 的闭包说是对环境变量进行了不可变借用，那怎么还能同时实现 <code>FnOnce</code> ，去获取环境变量的所有权呢？到底是仅仅进行不可变借用，还是获取了所有权呢？”</p>
+</blockquote>
+<p>但是看三个 traits 的源代码，可以直接回答上述问题：是不可变借用。虽然确实也实现了 <code>FnOnce</code>（所有权 move） ，但并没有调用 <code>FnOnce</code> 的 call 函数，而是调用了 <code>Fn</code>(不可变借用) 的 call 函数。</p>
+<pre><code class="language-rust">pub trait Fn&lt;Args&gt; : FnMut&lt;Args&gt; {
+    extern &quot;rust-call&quot; fn call(&amp;self, args: Args) -&gt; Self::Output;
+}
+
+pub trait FnMut&lt;Args&gt; : FnOnce&lt;Args&gt; {
+    extern &quot;rust-call&quot; fn call_mut(&amp;mut self, args: Args) -&gt; Self::Output;
+}
+
+pub trait FnOnce&lt;Args&gt; {
+    type Output;
+
+    extern &quot;rust-call&quot; fn call_once(self, args: Args) -&gt; Self::Output;
+}
+</code></pre>
+<blockquote>
+<p>分析：如果 <code>FnOnce</code> 的 call 函数被调用，则直接传入了 <code>self</code> ，也就是获取了当前的环境变量的所有权，自然运行一次后回被销毁。而 <code>Fn</code> 的 call 函数传入的是不可变借用 <code>&amp;self</code>。</p>
+</blockquote>
+<p>并且会发现， <code>Fn</code> 的前提是实现了 <code>FnMut</code> , <code>FnMut</code> 的前提是实现了 <code>FnOnce</code> 。</p>
+<ul>
+<li>从继承关系来讲： <code>Fn</code> 继承 <code>FnMut</code> 继承 <code>FnOnce</code></li>
+<li>从访问变量的权限范围来讲： <code>Fn</code> &lt; <code>FnMut</code> &lt; <code>FnOnce</code></li>
+</ul>
+<p>也可以说，<strong>闭包就算实现了 <code>FnOnce</code> 也不一定会用到所有权 move，因为可能还实现了 <code>Fn</code> ，那么环境变量的所有权会按 <code>Fn</code> 处理</strong>。</p>
+<hr/>
+<p>由于上述继承关系，如果定义一个普通函数，参数需要传入 <code>FnOnce</code> ，实际上也可以传入 <code>Fn</code> 。</p>
+<pre><code class="language-rust">fn fn_once&lt;F&gt;(func: F)
+where
+    F: FnOnce(usize) -&gt; bool, // 传入闭包
+{
+    println!(&quot;{}&quot;, func(3));
+}
+
+fn main() {
+    let x = vec![1, 2, 3];
+    let closure = |z|{z == x.len()}; // 此闭包实现了 Fn、 FnMut 和 FnOnce
+    fn_once(closure); // Fn 可传入标注为 FnOnce 的参数
+    println!(&quot;{:?}&quot;, x); // x 还能用，所有权没转移
+
+    let closure2 = move |z|{z == x.len()}; //  此闭包只实现了 FnOnce，因为 x 被强制转移所有权到闭包内部
+    fn_once(closure2); // 传入 FnOnce
+    println!(&quot;{:?}&quot;, x); // 报错，x 已经没了
+}
+</code></pre>
+<blockquote>
+<p>说明：fn_once 需要接收 <code>FnOnce</code> 的闭包作为参数，但传入 <code>Fn</code> 也是合理的，编译器也会按照 <code>Fn</code> 的调用方式处理为不可变借用，并不会因为标注着 <code>FnOnce</code> 而变成所有权 move。</p>
+</blockquote>
+<blockquote>
+<p>闭包对所有权的处理并不会随着标注改变，标注仅仅是为了取悦编译器 ——鲁迅</p>
+</blockquote>
+<h2 id="闭包实现三种-traits">闭包实现三种 traits</h2>
+<p>上述例子中，直接标注了闭包实现了三种 traits，但并没有具体说明为什么这么写就是实现了三种 traits。这是本节需要说明的内容。</p>
+<p>闭包实现 traits 是<strong>隐式</strong>的。也就是说，你不用（也没法）标注这个闭包是实现的哪个 traits。具体实现了哪些 traits 是根据你的闭包写法决定的。</p>
+<ol>
+<li>实现<code>FnOnce</code></li>
+</ol>
+<p>所有的闭包都自动实现了 <code>FnOnce</code> 。不用特别做什么。</p>
+<p>但更普遍的情况是，定义闭包时会顺带实现 <code>Fn</code> 或者 <code>FnMut</code> 。如果想要只实现 <code>FnOnce</code>，不要实现另外两个，需要用 <code>move</code> 。这个关键字会强制转移所有权，使闭包无法满足 <code>FnMut</code> 和 <code>Fn</code> 的条件。</p>
+<ul>
+<li>例：只实现了 <code>FnOnce</code> 的闭包</li>
+</ul>
+<pre><code class="language-rust">fn main() {
+    let x = [1,2,3];
+    
+    let closure2 = move |z|{z == x.len()}; // 只实现了 FnOnce，所有权转移
+    closure2(2);
+    
+    println!(&quot;{:?}&quot;, x); // 报错，x 所有权被转移
+}
+</code></pre>
+<ol start="2">
+<li>实现<code>FnMut</code></li>
+</ol>
+<p>在闭包中修改外部变量，即实现了 <code>FnMut</code> （自然也实现了 <code>FnOnce</code> ），同时没有实现 <code>Fn</code> 。</p>
+<pre><code class="language-rust">fn main() {
+    let mut x = vec![1,2,3];
+
+    let mut closure = ||{x.push(4);}; // 修改了外部的 x, 实现了 FnMut， x 所有权没有转移
+    closure();
+    
+    println!(&quot;{:?}&quot;, x);
+}
+</code></pre>
+<ol start="3">
+<li>实现<code>Fn</code></li>
+</ol>
+<p>在闭包中访问外部变量，不做任何修改，即实现了 <code>Fn</code> （自然也实现了 <code>FnMut</code> 和 <code>FnOnce</code>）。</p>
+<pre><code class="language-rust">fn main() {
+    let s = String::new();
+
+    let update_string =  || println!(&quot;{}&quot;,s); // 访问外部的 s, 实现了 Fn
+
+    exec(update_string);
+    exec1(update_string);
+    exec2(update_string);
+}
+
+fn exec&lt;F: FnOnce()&gt;(f: F)  { // Fn 也可以传到 FnOnce 类型
+    f() // 调用的是 Fn，所有权不会转移
+}
+
+fn exec1&lt;F: FnMut()&gt;(mut f: F)  { // Fn 也可以传到 FnMut 类型
+    f()
+}
+
+fn exec2&lt;F: Fn()&gt;(f: F)  {
+    f()
+}
+</code></pre>
+<h2 id="闭包自身的所有权">闭包自身的所有权</h2>
+<p>上述讨论的是闭包对于环境变量的所有权处理。那闭包自己呢？当闭包自己作为变量被传来传去时，是 Copy 还是所有权 Move？</p>
+<p>答案是，<code>Fn</code> 是 Copy，<code>FnMut</code> 和 <code>FnOnce</code> 是所有权 Move。</p>
+<pre><code class="language-rust">fn main() {
+    let x = vec![1,2,3];
+
+    let closure = |z:usize|{ z == x.len()}; // 实现了 Fn
+    outter(closure); // 通过
+    outter(closure); // 通过
+
+    let closure2 = |z:usize|{ x.push(4);z == x.len()}; // 实现了 FnMut
+    outter(closure2); // 通过
+    outter(closure2); // 报错, closure2 的所有权已被转移
+}
+
+fn outter&lt;T&gt;(mut func: T)
+where T: FnMut(usize) -&gt; bool { // Fn 可以传到 FnMut 标注的参数上
+    let a = func;
+}
+</code></pre>
+<p>这是非常合理的，对应着 Rust 借用的规则</p>
+<blockquote>
+<p>在同一时间点，对于同一个变量，<strong>要么</strong>只能有一个可变借用(FnMut)，<strong>要么</strong>只能有<strong>多个不可变借用</strong>(Fn)。</p>
+</blockquote>
+<p>至于 <code>FnOnce</code>，对环境变量的访问权限这么大，还想 Copy？只能是所有权 move。</p>
+<h2 id="一些建议">一些建议</h2>
+<p>如果遇到函数的参数也是一个函数，需要标注 trait 的场景，又不知道到底应该标注哪一个 trait，建议先标注 Fn ( 权限最小的 trait)，由编译器提示后再进行修改。</p>
+<p>另外，闭包的所有权部分并不推荐背书，尤其不推荐总结为正交规则。三个 traits 的区别与联系在代码层面非常简单且容易分析，总结为正交规则反而是把简单的事情复杂化，而且难记。</p>
+<p>如果仍然难懂，可评论提出，后续改进。</p></div><div style="text-align:right;opacity:0.5;font-size:0.875rem;margin:4rem 0 2rem 0">更新于 <!-- -->2022-06-14</div><div class="sc-54a30f6f-0 doZKbU"><div style="flex:1 1 auto"><a style="justify-content:flex-start" class="sc-54a30f6f-1 eZZwgr" href="/posts/%E8%AE%B0%E4%B8%80%E9%81%93%E9%A2%98%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E9%A2%98%E8%A7%A3"><span><i class="icon-arrow-left2"></i> <!-- -->记一道题排列组合题解</span></a></div><span></span><div style="flex:1 1 auto"><a style="justify-content:flex-end" class="sc-54a30f6f-1 eZZwgr" href="/posts/PPT%E6%AF%8D%E7%89%88%E7%9A%84%E5%88%B6%E4%BD%9C%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span>PPT母版的制作与使用方法<!-- --> <i class="icon-arrow-right2"></i></span></a></div></div><div id="waline" class="sc-da8d0803-0 IDbQZ">Waline</div></div></div><div class="sc-6c4d66fc-1 ivJsMD"><nav><div style="font-size:1.25rem;font-weight:bold;padding-bottom:0.5rem;margin-bottom:0.5rem;border-bottom:solid 1px #ae8d0b">目录</div><a class="sc-6c4d66fc-5 GoISI" href="/posts/rust-closure-and-ownership#%E4%BB%80%E4%B9%88%E6%98%AF-rust-%E7%9A%84%E9%97%AD%E5%8C%85"><span>什么是 Rust 的闭包</span></a><a class="sc-6c4d66fc-5 GoISI" href="/posts/rust-closure-and-ownership#%E9%97%AD%E5%8C%85%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%89%80%E6%9C%89%E6%9D%83"><span>闭包中环境变量的所有权</span></a><a class="sc-6c4d66fc-5 GoISI" href="/posts/rust-closure-and-ownership#%E9%97%AD%E5%8C%85%E7%9A%84%E4%B8%89%E7%A7%8D-traits"><span>闭包的三种 traits</span></a><a class="sc-6c4d66fc-5 GoISI" href="/posts/rust-closure-and-ownership#%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E4%B8%89%E7%A7%8D-traits"><span>闭包实现三种 traits</span></a><a class="sc-6c4d66fc-5 GoISI" href="/posts/rust-closure-and-ownership#%E9%97%AD%E5%8C%85%E8%87%AA%E8%BA%AB%E7%9A%84%E6%89%80%E6%9C%89%E6%9D%83"><span>闭包自身的所有权</span></a><a class="sc-6c4d66fc-5 GoISI" href="/posts/rust-closure-and-ownership#%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE"><span>一些建议</span></a></nav></div></div></main><div class="sc-9b286a0d-0 kuolET"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a><div>Code &amp; Design by Sansui 2022<!-- --> <br/> <!-- -->All rights reserved</div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"mdxSource":{"compiledSource":"/*@jsxRuntime automatic @jsxImportSource react*/\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction _createMdxContent(props) {\n  const _components = Object.assign({\n    p: \"p\",\n    h2: \"h2\",\n    strong: \"strong\",\n    code: \"code\",\n    pre: \"pre\",\n    blockquote: \"blockquote\",\n    ol: \"ol\",\n    li: \"li\",\n    ul: \"ul\",\n    hr: \"hr\"\n  }, _provideComponents(), props.components);\n  return _jsxs(_Fragment, {\n    children: [_jsx(_components.p, {\n      children: \"本文将以（自认为）最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系。在现存的类似中文教程中，要么语言表述歧义太大，逻辑上难以理清；要么试图把事情总结得过于复杂。实际上闭包对于环境变量所有权的处理规则是非常简单的。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"阅读本文需要的基础： Rust 变量的所有权、引用与借用、函数、traits。\"\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"什么是-rust-的闭包\",\n      children: \"什么是 Rust 的闭包\"\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"Rust 中的闭包是\", _jsx(_components.strong, {\n        children: \"一种函数\"\n      }), \"。与 Rust 普通函数不同，它可以\", _jsx(_components.strong, {\n        children: \"捕获函数外部的变量并使用\"\n      }), \"。\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"基本语法：\", _jsx(_components.code, {\n        children: \"|参数列表| {函数体}\"\n      })]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"fn main() {\\r\\n    let x = 1;\\r\\n    let sum = |y: i32| { x + y }; // 说明： 闭包 sum 接收一个参数 y，且捕获前面的 x = 1, 返回 x + y\\r\\n    println!(\\\"{}\\\", sum(99)); // 输出 100\\r\\n\\r\\n    let sum2 = |y :i32| x + y + 1; // 也可以省略花括号\\r\\n    println!(\\\"{}\\\", sum2(99)); // 输出 101\\r\\n}\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsxs(_components.p, {\n        children: [\"说明： 闭包 sum 接收一个参数 y，返回 x + y。其中 x 是第一行定义的 \", _jsx(_components.code, {\n          children: \"let x = 1;\"\n        }), \" ，为闭包外部的变量。\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"像 \", _jsx(_components.code, {\n        children: \"x\"\n      }), \" 这样在定义在闭包外部、可被闭包直接访问的变量，我们称为“\", _jsx(_components.strong, {\n        children: \"环境变量\"\n      }), \"”。\"]\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"闭包中环境变量的所有权\",\n      children: \"闭包中环境变量的所有权\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"有 rust 基础的人应该知道，普通的 rust 函数的传入参数有三种形式\"\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: \"所有权 move（默认行为）。\"\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [\"可变借用，形式为 \", _jsx(_components.code, {\n          children: \"\u0026mut param\"\n        })]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [\"不可变借用 ，形式为 \", _jsx(_components.code, {\n          children: \"\u0026param\"\n        })]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsx(_components.p, {\n        children: \"上述为 rust 所有权基础知识，不再赘述。\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"普通的 rust 函数可以使用参数，但无法使用环境变量。闭包则加上了 \", _jsx(_components.strong, {\n        children: \"捕获当前环境变量\"\n      }), \" 的功能。\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [_jsx(_components.strong, {\n        children: \"捕获当前环境变量\"\n      }), \" 仅仅是指闭包 “知道有哪些环境变量”。闭包在使用环境变量时，依然可能会对环境变量执行三种操作：\"]\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: \"所有权 move\"\n      }), \"\\n\", _jsx(_components.li, {\n        children: \"可变借用\"\n      }), \"\\n\", _jsx(_components.li, {\n        children: \"不可变借用\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"具体是执行了哪种操作呢？这个问题就比较复杂了，我们可以从上面的例子出发。\"\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"回顾上面的例子，对于环境变量 \", _jsx(_components.code, {\n        children: \"x\"\n      }), \" ，首先排除了所有权 move。\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"    let x = 1;\\r\\n    let sum = |y: i32| { x + y }; // 使用了 x\\r\\n    println!(\\\"{}\\\", sum(99)); // 输出 100\\r\\n\\r\\n    let sum2 = |y :i32| x + y + 1; // 再次使用了 x\\r\\n    println!(\\\"{}\\\", sum2(99)); // 输出 101\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsxs(_components.p, {\n        children: [\"说明： \", _jsx(_components.code, {\n          children: \"x\"\n        }), \" 在 sum1 中使用后，还能在 sum2 中再次使用，说明 \", _jsx(_components.code, {\n          children: \"x\"\n        }), \" 所有权没有 move。\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"实际上，上述例子的 \", _jsx(_components.code, {\n        children: \"x\"\n      }), \" 在闭包中是作为 \", _jsx(_components.strong, {\n        children: \"不可变借用\"\n      }), \" 使用的，\", _jsxs(_components.strong, {\n        children: [\"因为这个闭包实现了 \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" trait\"]\n      }), \"。\"]\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"闭包的三种-traits\",\n      children: \"闭包的三种 traits\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"闭包是一种函数，它的三种 traits 恰好对应了三种处理所有权的方式。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"三种 traits 如下（划重点，请背下来）：\"\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \"：表示此闭包调用时会获取环境变量所有权（\", _jsx(_components.strong, {\n          children: \"所有权 move\"\n        }), \")。因此取名 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \"，表示此闭包只能执行一次，因为再次执行时，环境变量可能由于之前所有权 move 过，已经没法用了。\"]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"FnMut\"\n        }), \" ：表示此闭包调用时会对环境变量进行\", _jsx(_components.strong, {\n          children: \"可变借用\"\n        }), \"，可能会修改环境变量\"]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"Fn\"\n        }), \" ： 表示此闭包调用时会对环境变量进行\", _jsx(_components.strong, {\n          children: \"不可变借用\"\n        }), \"，不会修改环境变量\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"并且，\", _jsx(_components.strong, {\n        children: \"一个闭包可以同时实现多个 traits\"\n      }), \"。比如实现了 \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" 的闭包也一定实现了 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \" （后续解释）。\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"上面是从“对环境变量如何处理所有权” 来解释三个 traits，大部分教程也是这么写，但个人并不推荐完全按这样去理解。因为上述表述中，三个 traits 看起来是互不重叠的（实际并非如此），导致可能会出现这样的疑问：\"\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsxs(_components.p, {\n        children: [\"“实现了 \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" 的闭包说是对环境变量进行了不可变借用，那怎么还能同时实现 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \" ，去获取环境变量的所有权呢？到底是仅仅进行不可变借用，还是获取了所有权呢？”\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"但是看三个 traits 的源代码，可以直接回答上述问题：是不可变借用。虽然确实也实现了 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \"（所有权 move） ，但并没有调用 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \" 的 call 函数，而是调用了 \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \"(不可变借用) 的 call 函数。\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"pub trait Fn\u003cArgs\u003e : FnMut\u003cArgs\u003e {\\r\\n    extern \\\"rust-call\\\" fn call(\u0026self, args: Args) -\u003e Self::Output;\\r\\n}\\r\\n\\r\\npub trait FnMut\u003cArgs\u003e : FnOnce\u003cArgs\u003e {\\r\\n    extern \\\"rust-call\\\" fn call_mut(\u0026mut self, args: Args) -\u003e Self::Output;\\r\\n}\\r\\n\\r\\npub trait FnOnce\u003cArgs\u003e {\\r\\n    type Output;\\r\\n\\r\\n    extern \\\"rust-call\\\" fn call_once(self, args: Args) -\u003e Self::Output;\\r\\n}\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsxs(_components.p, {\n        children: [\"分析：如果 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \" 的 call 函数被调用，则直接传入了 \", _jsx(_components.code, {\n          children: \"self\"\n        }), \" ，也就是获取了当前的环境变量的所有权，自然运行一次后回被销毁。而 \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" 的 call 函数传入的是不可变借用 \", _jsx(_components.code, {\n          children: \"\u0026self\"\n        }), \"。\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"并且会发现， \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" 的前提是实现了 \", _jsx(_components.code, {\n        children: \"FnMut\"\n      }), \" , \", _jsx(_components.code, {\n        children: \"FnMut\"\n      }), \" 的前提是实现了 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \" 。\"]\n    }), \"\\n\", _jsxs(_components.ul, {\n      children: [\"\\n\", _jsxs(_components.li, {\n        children: [\"从继承关系来讲： \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" 继承 \", _jsx(_components.code, {\n          children: \"FnMut\"\n        }), \" 继承 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        })]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [\"从访问变量的权限范围来讲： \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" \u003c \", _jsx(_components.code, {\n          children: \"FnMut\"\n        }), \" \u003c \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        })]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"也可以说，\", _jsxs(_components.strong, {\n        children: [\"闭包就算实现了 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \" 也不一定会用到所有权 move，因为可能还实现了 \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" ，那么环境变量的所有权会按 \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" 处理\"]\n      }), \"。\"]\n    }), \"\\n\", _jsx(_components.hr, {}), \"\\n\", _jsxs(_components.p, {\n      children: [\"由于上述继承关系，如果定义一个普通函数，参数需要传入 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \" ，实际上也可以传入 \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" 。\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"fn fn_once\u003cF\u003e(func: F)\\r\\nwhere\\r\\n    F: FnOnce(usize) -\u003e bool, // 传入闭包\\r\\n{\\r\\n    println!(\\\"{}\\\", func(3));\\r\\n}\\r\\n\\r\\nfn main() {\\r\\n    let x = vec![1, 2, 3];\\r\\n    let closure = |z|{z == x.len()}; // 此闭包实现了 Fn、 FnMut 和 FnOnce\\r\\n    fn_once(closure); // Fn 可传入标注为 FnOnce 的参数\\r\\n    println!(\\\"{:?}\\\", x); // x 还能用，所有权没转移\\r\\n\\r\\n    let closure2 = move |z|{z == x.len()}; //  此闭包只实现了 FnOnce，因为 x 被强制转移所有权到闭包内部\\r\\n    fn_once(closure2); // 传入 FnOnce\\r\\n    println!(\\\"{:?}\\\", x); // 报错，x 已经没了\\r\\n}\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsxs(_components.p, {\n        children: [\"说明：fn_once 需要接收 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \" 的闭包作为参数，但传入 \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" 也是合理的，编译器也会按照 \", _jsx(_components.code, {\n          children: \"Fn\"\n        }), \" 的调用方式处理为不可变借用，并不会因为标注着 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \" 而变成所有权 move。\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsx(_components.p, {\n        children: \"闭包对所有权的处理并不会随着标注改变，标注仅仅是为了取悦编译器 ——鲁迅\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"闭包实现三种-traits\",\n      children: \"闭包实现三种 traits\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"上述例子中，直接标注了闭包实现了三种 traits，但并没有具体说明为什么这么写就是实现了三种 traits。这是本节需要说明的内容。\"\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"闭包实现 traits 是\", _jsx(_components.strong, {\n        children: \"隐式\"\n      }), \"的。也就是说，你不用（也没法）标注这个闭包是实现的哪个 traits。具体实现了哪些 traits 是根据你的闭包写法决定的。\"]\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsxs(_components.li, {\n        children: [\"实现\", _jsx(_components.code, {\n          children: \"FnOnce\"\n        })]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"所有的闭包都自动实现了 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \" 。不用特别做什么。\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"但更普遍的情况是，定义闭包时会顺带实现 \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" 或者 \", _jsx(_components.code, {\n        children: \"FnMut\"\n      }), \" 。如果想要只实现 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \"，不要实现另外两个，需要用 \", _jsx(_components.code, {\n        children: \"move\"\n      }), \" 。这个关键字会强制转移所有权，使闭包无法满足 \", _jsx(_components.code, {\n        children: \"FnMut\"\n      }), \" 和 \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" 的条件。\"]\n    }), \"\\n\", _jsxs(_components.ul, {\n      children: [\"\\n\", _jsxs(_components.li, {\n        children: [\"例：只实现了 \", _jsx(_components.code, {\n          children: \"FnOnce\"\n        }), \" 的闭包\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"fn main() {\\r\\n    let x = [1,2,3];\\r\\n    \\r\\n    let closure2 = move |z|{z == x.len()}; // 只实现了 FnOnce，所有权转移\\r\\n    closure2(2);\\r\\n    \\r\\n    println!(\\\"{:?}\\\", x); // 报错，x 所有权被转移\\r\\n}\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.ol, {\n      start: \"2\",\n      children: [\"\\n\", _jsxs(_components.li, {\n        children: [\"实现\", _jsx(_components.code, {\n          children: \"FnMut\"\n        })]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"在闭包中修改外部变量，即实现了 \", _jsx(_components.code, {\n        children: \"FnMut\"\n      }), \" （自然也实现了 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \" ），同时没有实现 \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" 。\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"fn main() {\\r\\n    let mut x = vec![1,2,3];\\r\\n\\r\\n    let mut closure = ||{x.push(4);}; // 修改了外部的 x, 实现了 FnMut， x 所有权没有转移\\r\\n    closure();\\r\\n    \\r\\n    println!(\\\"{:?}\\\", x);\\r\\n}\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.ol, {\n      start: \"3\",\n      children: [\"\\n\", _jsxs(_components.li, {\n        children: [\"实现\", _jsx(_components.code, {\n          children: \"Fn\"\n        })]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"在闭包中访问外部变量，不做任何修改，即实现了 \", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" （自然也实现了 \", _jsx(_components.code, {\n        children: \"FnMut\"\n      }), \" 和 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \"）。\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"fn main() {\\r\\n    let s = String::new();\\r\\n\\r\\n    let update_string =  || println!(\\\"{}\\\",s); // 访问外部的 s, 实现了 Fn\\r\\n\\r\\n    exec(update_string);\\r\\n    exec1(update_string);\\r\\n    exec2(update_string);\\r\\n}\\r\\n\\r\\nfn exec\u003cF: FnOnce()\u003e(f: F)  { // Fn 也可以传到 FnOnce 类型\\r\\n    f() // 调用的是 Fn，所有权不会转移\\r\\n}\\r\\n\\r\\nfn exec1\u003cF: FnMut()\u003e(mut f: F)  { // Fn 也可以传到 FnMut 类型\\r\\n    f()\\r\\n}\\r\\n\\r\\nfn exec2\u003cF: Fn()\u003e(f: F)  {\\r\\n    f()\\r\\n}\\n\"\n      })\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"闭包自身的所有权\",\n      children: \"闭包自身的所有权\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"上述讨论的是闭包对于环境变量的所有权处理。那闭包自己呢？当闭包自己作为变量被传来传去时，是 Copy 还是所有权 Move？\"\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"答案是，\", _jsx(_components.code, {\n        children: \"Fn\"\n      }), \" 是 Copy，\", _jsx(_components.code, {\n        children: \"FnMut\"\n      }), \" 和 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \" 是所有权 Move。\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-rust\",\n        children: \"fn main() {\\r\\n    let x = vec![1,2,3];\\r\\n\\r\\n    let closure = |z:usize|{ z == x.len()}; // 实现了 Fn\\r\\n    outter(closure); // 通过\\r\\n    outter(closure); // 通过\\r\\n\\r\\n    let closure2 = |z:usize|{ x.push(4);z == x.len()}; // 实现了 FnMut\\r\\n    outter(closure2); // 通过\\r\\n    outter(closure2); // 报错, closure2 的所有权已被转移\\r\\n}\\r\\n\\r\\nfn outter\u003cT\u003e(mut func: T)\\r\\nwhere T: FnMut(usize) -\u003e bool { // Fn 可以传到 FnMut 标注的参数上\\r\\n    let a = func;\\r\\n}\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"这是非常合理的，对应着 Rust 借用的规则\"\n    }), \"\\n\", _jsxs(_components.blockquote, {\n      children: [\"\\n\", _jsxs(_components.p, {\n        children: [\"在同一时间点，对于同一个变量，\", _jsx(_components.strong, {\n          children: \"要么\"\n        }), \"只能有一个可变借用(FnMut)，\", _jsx(_components.strong, {\n          children: \"要么\"\n        }), \"只能有\", _jsx(_components.strong, {\n          children: \"多个不可变借用\"\n        }), \"(Fn)。\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"至于 \", _jsx(_components.code, {\n        children: \"FnOnce\"\n      }), \"，对环境变量的访问权限这么大，还想 Copy？只能是所有权 move。\"]\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"一些建议\",\n      children: \"一些建议\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"如果遇到函数的参数也是一个函数，需要标注 trait 的场景，又不知道到底应该标注哪一个 trait，建议先标注 Fn ( 权限最小的 trait)，由编译器提示后再进行修改。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"另外，闭包的所有权部分并不推荐背书，尤其不推荐总结为正交规则。三个 traits 的区别与联系在代码层面非常简单且容易分析，总结为正交规则反而是把简单的事情复杂化，而且难记。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"如果仍然难懂，可评论提出，后续改进。\"\n    })]\n  });\n}\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);\n  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {\n    children: _jsx(_createMdxContent, props)\n  })) : _createMdxContent(props);\n}\nreturn {\n  default: MDXContent\n};\n","frontmatter":{"title":"理解 Rust 闭包与环境变量所有权","date":"2022-06-14","categories":"学习","description":"B站反查用户弹幕小记","tags":["Rust"],"keywords":"Rust, 闭包, Closure, 所有权"},"scope":{}},"prevPost":{"title":"记一道题排列组合题解","link":"/posts/记一道题排列组合题解"},"nextPost":{"title":"PPT母版的制作与使用方法","link":"/posts/PPT母版的制作与使用方法"},"excerpt":" 本文将以（自认为）最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系。在现存的类似中文教程中，要么语言表述歧义太大，逻辑上难以理清；要么试图把事情总结得过于复杂。实际上闭包对于环境变量所有权的处理规则是非常简单的。\r \r 阅读本文需要的基础： Rust 变量的所有权、引用与","headings":[{"title":"什么是 Rust 的闭包","rank":1,"id":"什么是-rust-的闭包"},{"title":"闭包中环境变量的所有权","rank":1,"id":"闭包中环境变量的所有权"},{"title":"闭包的三种 traits","rank":1,"id":"闭包的三种-traits"},{"title":"闭包实现三种 traits","rank":1,"id":"闭包实现三种-traits"},{"title":"闭包自身的所有权","rank":1,"id":"闭包自身的所有权"},{"title":"一些建议","rank":1,"id":"一些建议"}]},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"rust-closure-and-ownership"},"buildId":"QGdiKFW0SldeFnBx2ogTE","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>Mac上如何开机与关机时自动运行Shell脚本</title><meta name="description" content="Mac上如何开机与关机时自动运行Shell脚本 网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。  ## 新建一个shell文件  这个shell中包含了你需要开机关机时运行的脚本。  ```bash #!/bin/bash function shutdown"/><meta name="keywords" content="工具, Mac, shell, 自动化, 脚本"/><meta name="description" content="A personal blog about work and life"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="6"/><link rel="preload" href="/_next/static/css/4fc5399b2c6d82d0.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4fc5399b2c6d82d0.css" data-n-g=""/><link rel="preload" href="/_next/static/css/dff1bccf68b12a76.css" as="style"/><link rel="stylesheet" href="/_next/static/css/dff1bccf68b12a76.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script><script src="/_next/static/chunks/webpack-f164db4954bac6ec.js" defer=""></script><script src="/_next/static/chunks/framework-560fb66cbb55e75e.js" defer=""></script><script src="/_next/static/chunks/main-6314e1a2f07f53b5.js" defer=""></script><script src="/_next/static/chunks/pages/_app-642ad64577678b01.js" defer=""></script><script src="/_next/static/chunks/ab88915f-f825823ee17e896c.js" defer=""></script><script src="/_next/static/chunks/f32efb27-c3f613ce4c9d79d8.js" defer=""></script><script src="/_next/static/chunks/811-bf66e7ab0ab14f1d.js" defer=""></script><script src="/_next/static/chunks/26-6a6d6859a2cbdbf9.js" defer=""></script><script src="/_next/static/chunks/499-31520d6949137b90.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-7d66c866ee552925.js" defer=""></script><script src="/_next/static/QGdiKFW0SldeFnBx2ogTE/_buildManifest.js" defer=""></script><script src="/_next/static/QGdiKFW0SldeFnBx2ogTE/_ssgManifest.js" defer=""></script><style data-styled="" data-styled-version="6.0.7">body{background:white;color:black;}/*!sc*/
+data-styled.g1[id="sc-global-PuglZ1"]{content:"sc-global-PuglZ1,"}/*!sc*/
+.kuolET{padding:24px 0 10px 0;text-align:center;font-size:0.625rem;}/*!sc*/
+.kuolET div{margin:1rem auto;}/*!sc*/
+.kuolET a{transition:color .5s;}/*!sc*/
+.kuolET a:hover{color:#e0c56e;}/*!sc*/
+.kuolET i{font-size:1.5rem;margin:0 0.5rem;}/*!sc*/
+data-styled.g2[id="sc-9b286a0d-0"]{content:"kuolET,"}/*!sc*/
+.gyoJCg{width:1em;height:1em;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}/*!sc*/
+.eNBuIX{width:100%;height:21px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}/*!sc*/
+data-styled.g3[id="sc-6db262c7-0"]{content:"gyoJCg,eNBuIX,"}/*!sc*/
+.gUHHsO{background:black;height:2px;transition:all .3s;}/*!sc*/
+.gUHHsO.is-close{opacity:0;}/*!sc*/
+data-styled.g4[id="sc-6db262c7-1"]{content:"gUHHsO,"}/*!sc*/
+.hhWThY{height:2px;position:relative;}/*!sc*/
+.hhWThY::before,.hhWThY::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:black;transition:all .3s;}/*!sc*/
+.hhWThY::before{transform:rotate(45deg);}/*!sc*/
+.hhWThY::after{transform:rotate(-45deg);}/*!sc*/
+.dtuNhN{height:2px;position:relative;}/*!sc*/
+.dtuNhN::before,.dtuNhN::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:black;transition:all .3s;}/*!sc*/
+data-styled.g5[id="sc-6db262c7-2"]{content:"hhWThY,dtuNhN,"}/*!sc*/
+.iZgfEl{min-width:60px;min-height:60px;z-index:20;background:white;border:1px solid #a2a2a280;border-radius:5px;transform:scale3d(1, 1, 1);box-shadow:rgb(0 0 0 / 5%) 0px 0.5rem 2rem;}/*!sc*/
+data-styled.g6[id="sc-bcPKhP"]{content:"iZgfEl,"}/*!sc*/
+.ijPvgl{overflow-y:scroll;max-height:60vh;}/*!sc*/
+data-styled.g7[id="sc-b614f13c-0"]{content:"ijPvgl,"}/*!sc*/
+.gUArue{position:sticky;top:0;background:white;}/*!sc*/
+data-styled.g8[id="sc-b614f13c-1"]{content:"gUArue,"}/*!sc*/
+.eFZTst{border:none;border-radius:0;background:white;width:100%;color:black;}/*!sc*/
+.eFZTst:focus,.eFZTst:focus-visible{outline:none;}/*!sc*/
+data-styled.g9[id="sc-b614f13c-2"]{content:"eFZTst,"}/*!sc*/
+.ewQHdz{font-size:0.875rem;color:#666666;overflow:hidden;white-space:nowrap;wrap:no-wrap;}/*!sc*/
+data-styled.g11[id="sc-b614f13c-4"]{content:"ewQHdz,"}/*!sc*/
+.xQOOU{min-height:unset;position:fixed;top:55px;right:0px;width:24rem;overflow:hidden;margin:0 10px;}/*!sc*/
+.xQOOU.hidden{display:none;}/*!sc*/
+.xQOOU mark{background:none;color:#ae8d0b;}/*!sc*/
+@media screen and (max-width: 580px){.xQOOU{width:96%;max-height:50%;}}/*!sc*/
+data-styled.g12[id="sc-b614f13c-5"]{content:"xQOOU,"}/*!sc*/
+.hBbWJ{width:24px;height:20px;position:fixed;top:22px;right:20px;}/*!sc*/
+data-styled.g13[id="sc-999ff2a7-0"]{content:"hBbWJ,"}/*!sc*/
+.gzHnjq{font-weight:400;padding-top:4rem;font-size:0.625rem;}/*!sc*/
+data-styled.g14[id="sc-999ff2a7-1"]{content:"gzHnjq,"}/*!sc*/
+.eBGEYA{margin:0.5rem 0;}/*!sc*/
+.eBGEYA a{transition:color .5s;}/*!sc*/
+.eBGEYA a:hover{color:#ae8d0b;}/*!sc*/
+.eBGEYA i{font-size:1.5rem;margin:0 0.5rem;}/*!sc*/
+data-styled.g15[id="sc-999ff2a7-2"]{content:"eBGEYA,"}/*!sc*/
+.kgGIvw{background:white;overflow:auto;position:fixed;width:100%;height:100%;z-index:10;transform:translateY(0);transition:transform 1s cubic-bezier(0.46, 0, 0.08, 1.11);}/*!sc*/
+.kgGIvw.hidden{transform:translateY(-100%);}/*!sc*/
+.kgGIvw h1{-webkit-text-stroke:1px;-webkit-text-fill-color:transparent;}/*!sc*/
+.kgGIvw h1 span{position:relative;}/*!sc*/
+.kgGIvw h1 span::after{content:'';position:absolute;left:0;bottom:-1rem;width:100%;height:1px;background:#ae8d0b;}/*!sc*/
+data-styled.g16[id="sc-999ff2a7-3"]{content:"kgGIvw,"}/*!sc*/
+.gpQSEj{margin:0 auto;padding:92px 0px;text-align:center;font-weight:bold;}/*!sc*/
+data-styled.g17[id="sc-999ff2a7-4"]{content:"gpQSEj,"}/*!sc*/
+.esShyj{font-size:1.625rem;line-height:2.75rem;position:relative;transition:box-shadow .3s ease;cursor:pointer;}/*!sc*/
+.esShyj:hover{box-shadow:inset 0 -0.5em 0 #ffffff55;transform:scale(1.2);}/*!sc*/
+data-styled.g18[id="sc-999ff2a7-5"]{content:"esShyj,"}/*!sc*/
+.kJucHj{transform:translateY(0.145rem);transition:color 0.3s ease;}/*!sc*/
+.kJucHj:hover{color:#e0c56e;}/*!sc*/
+data-styled.g19[id="sc-d08d0a03-0"]{content:"kJucHj,"}/*!sc*/
+.beeUbY{height:63px;width:100%;text-align:center;padding-top:0.625rem;font-size:0.625rem;font-style:italic;color:#ae8d0b;font-family:'Times New Roman',STSong,'宋体',serif;opacity:.6;}/*!sc*/
+data-styled.g20[id="sc-d08d0a03-1"]{content:"beeUbY,"}/*!sc*/
+.kNqFbH{height:63px;width:100%;display:flex;justify-content:space-between;align-items:center;position:fixed;background-color:white;z-index:10;transform:translateY(0);transition:transform .5s ease;}/*!sc*/
+data-styled.g21[id="sc-d08d0a03-2"]{content:"kNqFbH,"}/*!sc*/
+.bzdjAY{flex:1 1 auto;display:flex;align-items:center;height:100%;justify-content:flex-end;}/*!sc*/
+data-styled.g22[id="sc-d08d0a03-3"]{content:"bzdjAY,"}/*!sc*/
+.jkueqD{flex:1 1 auto;display:flex;justify-content:flex-start;}/*!sc*/
+.jkueqD img{margin-left:10px;z-index:11;width:63px;height:63px;float:left;cursor:pointer;}/*!sc*/
+@media screen and (max-width: 580px){.jkueqD img{width:48px;height:48px;}}/*!sc*/
+@media screen and (max-width: 350px){.jkueqD{display:none;}}/*!sc*/
+data-styled.g23[id="sc-d08d0a03-4"]{content:"jkueqD,"}/*!sc*/
+.GLIMX{text-align:right;font-size:0.875em;cursor:pointer;}/*!sc*/
+.GLIMX>div{display:inline-block;margin-right:15px;}/*!sc*/
+@media screen and (max-width: 580px){.GLIMX>div{margin-right:16px;padding:1px 0;}}/*!sc*/
+data-styled.g24[id="sc-d08d0a03-5"]{content:"GLIMX,"}/*!sc*/
+.lkWGoW{flex:2 1 auto;display:flex;justify-content:space-evenly;align-items:center;}/*!sc*/
+@media screen and (min-width: 780px){.lkWGoW{max-width:50%;}}/*!sc*/
+@media screen and (min-width: 580px){.lkWGoW{max-width:390px;}}/*!sc*/
+@media screen and (max-width: 580px){.lkWGoW{max-width:290px;}}/*!sc*/
+.lkWGoW ol{padding:0 .5em;padding-top:2px;}/*!sc*/
+.lkWGoW a{position:relative;font-weight:500;}/*!sc*/
+.lkWGoW a::before{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
+.lkWGoW a:hover::before{width:100%;}/*!sc*/
+.lkWGoW ol.current a{color:#ae8d0b;}/*!sc*/
+data-styled.g25[id="sc-d08d0a03-6"]{content:"lkWGoW,"}/*!sc*/
+.cikFIu{max-width:780px;margin:0 auto;padding:0px 48px 48px 48px;}/*!sc*/
+@media screen and (max-width: 780px){.cikFIu{max-width:580px;}}/*!sc*/
+@media screen and (max-width: 580px){.cikFIu{padding:0 20px 48px 20px;}}/*!sc*/
+data-styled.g30[id="sc-5735a324-0"]{content:"cikFIu,"}/*!sc*/
+.fRBXJf{text-align:justify;}/*!sc*/
+@media screen and (max-width: 580px){.fRBXJf{text-align:unset;}}/*!sc*/
+.fRBXJf img,.fRBXJf picture,.fRBXJf video,.fRBXJf canvas,.fRBXJf svg,.fRBXJf pre{margin:1.625rem auto;display:block;}/*!sc*/
+.fRBXJf p,.fRBXJf ul,.fRBXJf ol{line-height:1.8rem;margin:1.5rem 0;}/*!sc*/
+.fRBXJf blockquote{margin:1.625rem 0;}/*!sc*/
+.fRBXJf a{position:relative;font-weight:500;border-bottom:1px solid #ae8d0b;transition:box-shadow .5s;}/*!sc*/
+.fRBXJf a:hover{box-shadow:inset 0 -0.5em 0 #e0c56e;}/*!sc*/
+.fRBXJf code{background-color:#eeeeee;font-size:0.95rem;border-radius:3px;padding:0 0.25rem;margin:0 1px;}/*!sc*/
+.fRBXJf pre code{font-size:0.875rem;border-radius:unset;padding:1rem 2rem;margin:unset;overflow:auto;}/*!sc*/
+.fRBXJf blockquote{border-left:solid 2px;padding-left:1.875em;color:#666666;}/*!sc*/
+.fRBXJf del{opacity:.33;}/*!sc*/
+.fRBXJf ul li{display:block;position:relative;}/*!sc*/
+.fRBXJf ul li::before{content:'';position:absolute;top:.6em;height:.4em;width:.4em;border-radius:1em;border:solid 1px #ae8d0b;left:-1.5rem;}/*!sc*/
+data-styled.g42[id="sc-389d00ff-0"]{content:"fRBXJf,"}/*!sc*/
+.doZKbU{margin:64px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;}/*!sc*/
+.doZKbU>span{color:#666666;font-size:0.875rem;}/*!sc*/
+data-styled.g43[id="sc-54a30f6f-0"]{content:"doZKbU,"}/*!sc*/
+.eZZwgr{padding:.2em 0;display:flex;align-items:center;position:relative;}/*!sc*/
+.eZZwgr i{transform:translateY(-0.1em);}/*!sc*/
+.eZZwgr span{position:relative;}/*!sc*/
+.eZZwgr span::before{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
+.eZZwgr span:hover::before{width:100%;}/*!sc*/
+data-styled.g44[id="sc-54a30f6f-1"]{content:"eZZwgr,"}/*!sc*/
+.IDbQZ{position:relative;--waline-theme-color:#292929;--waline-bgcolor:white;--waline-color:#666666;--waline-active-color:#ae8d0b;--waline-bgcolor-light:#99999915;--waline-border:1px solid #99999966;--waline-border-color:#99999966;--waline-info-bgcolor:#99999915;}/*!sc*/
+.IDbQZ .wl-avatar{margin:0 .5rem;}/*!sc*/
+.IDbQZ .wl-card .wl-meta{display:none;}/*!sc*/
+.IDbQZ .wl-btn.primary{background:#292929;color:white;}/*!sc*/
+.IDbQZ .wl-gif-popup .wl-gallery-column{display:grid!important;grid-template-columns:1fr 1fr;max-height:200px;}/*!sc*/
+.IDbQZ .wl-gif-popup img{width:unset!important;height:unset!important;border-color:white;}/*!sc*/
+.IDbQZ .wl-gif-popup input{background:white;color:black;}/*!sc*/
+data-styled.g45[id="sc-da8d0803-0"]{content:"IDbQZ,"}/*!sc*/
+.iAqViG{max-width:750px;margin-top:72px;animation:gWOUmS 1s ease;}/*!sc*/
+@media screen and (max-width: 580px){.iAqViG{margin-top:20px;}}/*!sc*/
+data-styled.g46[id="sc-6c4d66fc-0"]{content:"iAqViG,"}/*!sc*/
+.ivJsMD{max-width:15em;flex:1 1 0;margin-top:calc(1.375*1em + 72px);position:sticky;align-self:flex-start;top:63px;animation:hBXrSV 1s ease;}/*!sc*/
+@media screen and (max-width: 780px){.ivJsMD{max-width:10em;}}/*!sc*/
+@media screen and (max-width: 580px){.ivJsMD{display:none;}}/*!sc*/
+data-styled.g47[id="sc-6c4d66fc-1"]{content:"ivJsMD,"}/*!sc*/
+.kMWneV{margin-bottom:3rem;}/*!sc*/
+.kMWneV h1{margin-top:.3rem;margin-bottom:0.5rem;}/*!sc*/
+data-styled.g48[id="sc-6c4d66fc-2"]{content:"kMWneV,"}/*!sc*/
+.ebiTpc{font-size:0.875rem;position:relative;}/*!sc*/
+.ebiTpc::before{content:'';position:absolute;top:-.8em;left:0;height:1px;width:100%;background:#ae8d0b;}/*!sc*/
+data-styled.g49[id="sc-6c4d66fc-3"]{content:"ebiTpc,"}/*!sc*/
+.dqzVln{transition:opacity .3s,color .3s;}/*!sc*/
+.dqzVln:hover{color:#ae8d0b;}/*!sc*/
+data-styled.g50[id="sc-6c4d66fc-4"]{content:"dqzVln,"}/*!sc*/
+.GoISI{display:block;padding-left:0em;line-height:1.8em;}/*!sc*/
+.GoISI span{transition:box-shadow .5s;}/*!sc*/
+.GoISI:hover span{box-shadow:inset 0 -0.5em 0 #e0c56e;}/*!sc*/
+data-styled.g51[id="sc-6c4d66fc-5"]{content:"GoISI,"}/*!sc*/
+@keyframes gWOUmS{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}/*!sc*/
+data-styled.g52[id="sc-keyframes-gWOUmS"]{content:"gWOUmS,"}/*!sc*/
+@keyframes hBXrSV{0%{-webkit-transform:translateX(50px);transform:translateX(50px);opacity:0;}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1;}}/*!sc*/
+data-styled.g53[id="sc-keyframes-hBXrSV"]{content:"hBXrSV,"}/*!sc*/
+</style></head><body><div id="__next"><div class="sc-bcPKhP sc-b614f13c-5 iZgfEl xQOOU hidden"><div style="padding:1rem 1rem 0 1rem" class="sc-b614f13c-1 gUArue"><input type="text" placeholder="搜索你感兴趣的内容，以空格分词" class="sc-b614f13c-2 eFZTst"/></div><div style="padding:0.5rem 1rem" class="sc-b614f13c-0 ijPvgl"><div style="font-size:0.875rem;opacity:0.5"><div class="sc-b614f13c-4 ewQHdz">搜索初始化中……</div></div></div></div><div class="sc-999ff2a7-3 kgGIvw hidden"><div style="padding-top:8rem" class="sc-999ff2a7-4 gpQSEj"><h1><span>SANSUI&#x27;S BLOG</span></h1><div><span style="font-size:1.625rem" class="sc-999ff2a7-5 esShyj">日间模式</span></div><div><span class="sc-999ff2a7-5 esShyj"><a href="/categories">分类</a></span></div><div><span class="sc-999ff2a7-5 esShyj"><a href="/atom.xml">RSS</a></span></div><div class="sc-999ff2a7-1 gzHnjq"><div class="sc-999ff2a7-2 eBGEYA"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a></div><div>Sansui 2022 All rights reserved</div></div></div><div class="sc-999ff2a7-0 hBbWJ"><div width="1em" height="1em" class="sc-6db262c7-0 gyoJCg"><div class="sc-6db262c7-1 gUHHsO is-close"></div><div class="sc-6db262c7-2 hhWThY"></div><div class="sc-6db262c7-1 gUHHsO is-close"></div></div></div></div><header class="sc-d08d0a03-2 kNqFbH"><div class="sc-d08d0a03-3 sc-d08d0a03-4 bzdjAY jkueqD"><a href="/"><img src="/avatar-white.png" alt="Sansui"/></a></div><nav class="sc-d08d0a03-6 lkWGoW"><ol class=""><a href="/">Posts</a></ol><ol class=""><a href="/memos">Memos</a></ol><ol class=""><a href="/about">About</a></ol></nav><div class="sc-d08d0a03-3 sc-d08d0a03-5 bzdjAY GLIMX"><div class="sc-d08d0a03-0 kJucHj"><i class="icon-search" style="font-size:1.725rem"></i></div><div style="margin-right:20px;width:22px"><div width="100%" height="21px" class="sc-6db262c7-0 eNBuIX"><div class="sc-6db262c7-1 gUHHsO"></div><div class="sc-6db262c7-2 dtuNhN"></div><div class="sc-6db262c7-1 gUHHsO"></div></div></div></div></header><div class="sc-d08d0a03-1 beeUbY">人活着就是为了卡卡西</div><main><div style="display:flex;margin:auto"><div style="flex:2 1 0"><div class="sc-5735a324-0 sc-6c4d66fc-0 cikFIu iAqViG"><div class="sc-6c4d66fc-2 kMWneV"><h1>Mac上如何开机与关机时自动运行Shell脚本</h1><div style="display:flex"><div style="flex:1 1 0"><span style="flex:1 1 0" class="sc-6c4d66fc-3 ebiTpc">2020-11-24<!-- --> | <a class="sc-6c4d66fc-4 dqzVln" href="/tags/%E5%B7%A5%E5%85%B7">#工具 </a> in <a class="sc-6c4d66fc-4 dqzVln" href="/categories/%E6%8A%98%E8%85%BE"><i style="padding-right:0.15em" class="icon-material-folder_open"></i>折腾</a></span></div><div style="flex:0 0 0;font-size:0.875rem"><i style="padding-left:0.5em;padding-right:0.3em" class="icon-material-eye"></i><span class="waline-pageview-count" data-path=""></span></div></div></div><div class="sc-389d00ff-0 fRBXJf"><p>网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。</p>
+<h2 id="新建一个shell文件">新建一个shell文件</h2>
+<p>这个shell中包含了你需要开机关机时运行的脚本。</p>
+<pre><code class="language-bash">#!/bin/bash
+function shutdown()
+{
+
+  # 关机用的脚本放这里
+
+  exit 0
+}
+
+function startup()
+{
+
+  # 开机用的脚本放这里
+
+  tail -f /dev/null &amp;
+  wait $!
+}
+
+trap shutdown SIGTERM
+trap shutdown SIGKILL
+
+startup;
+</code></pre>
+<p>以上文件我取名为launchdeamon，赋予了当前用户的执行权限。</p>
+<pre><code class="language-shell">chmod 755 launchdaemon
+</code></pre>
+<h2 id="新建plist文件">新建plist文件</h2>
+<p>为了让launchdeamon能在开机时自动运行，需要编写一个相应plist文件，使用launctl做到开机启动。关于launchctl和plist的作用，请先查看这篇文章：<a href="https://www.jianshu.com/p/b65c1d339eec">Mac执行定时任务之launchctl</a>。</p>
+<p>plist文件的内容如下：</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+&lt;key&gt;Label&lt;/key&gt;&lt;string&gt;boot-shutdown&lt;/string&gt;
+
+&lt;key&gt;ProgramArguments&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;$SCRIPT_PATH/launchdaemon&lt;/string&gt;
+&lt;/array&gt;
+
+&lt;key&gt;RunAtLoad&lt;/key&gt;
+&lt;true/&gt;
+
+&lt;key&gt;StandardOutPath&lt;/key&gt;
+&lt;string&gt;$LOG_PATH/boot-shutdown.log&lt;/string&gt;
+
+&lt;key&gt;StandardErrorPath&lt;/key&gt;
+&lt;string&gt;$PLOG_PATH/boot-shutdown.err&lt;/string&gt;
+
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+<p>plist文件以键值对的形式存储信息。以上文件的字段解释：</p>
+<ul>
+<li><code>Label</code>：标签，也就是运行该plist显示的名字。这里为boot-shutdown</li>
+<li><code>ProgramArguments</code>：<code>array</code>里可以存放多个需要运行程序。这里的<code>$SCRIPT_PATH</code>请自己修改。</li>
+<li><code>RunAtLoad</code>：开机自启，为<code>true</code></li>
+<li><code>StandardOutPath</code>：打印标准输出到某个文件，方便查看程序后台运行的结果，<code>$LOG_PATH</code>自行修改。</li>
+<li><code>StandardErrorPath</code>：打印标准错误到某个文件，同上。</li>
+</ul>
+<p>以上文件我取名为 boot-shutdown-script.plist 。</p>
+<p>由于shell脚本的执行权限是当前用户，以上文件需要放入当前用户的开机启动文件夹，即为 ~/Library/LaunchAgents 。</p>
+<p>然后将plist文件加入开启启动：</p>
+<pre><code>launchctl load ~/Library/LaunchAgents/boot-shutdown-script.plist
+</code></pre>
+<p>此时重启后，可以使用以下命令查看脚本运行状态</p>
+<pre><code class="language-shell">launchctl list | grep boot
+</code></pre>
+<p>输出为</p>
+<pre><code>438	0	boot-shutdown
+</code></pre>
+<p>第一个是pid。第二个为状态码，为0说明正常运行中。</p>
+<hr/>
+<p>参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/24200924/run-a-script-only-at-shutdown-not-log-off-or-restart-on-mac-os-x">Run a script only at shutdown (not log off or restart) on Mac OS X</a></li>
+</ul></div><div style="text-align:right;opacity:0.5;font-size:0.875rem;margin:4rem 0 2rem 0">更新于 <!-- -->2020-11-24</div><div class="sc-54a30f6f-0 doZKbU"><div style="flex:1 1 auto"><a style="justify-content:flex-start" class="sc-54a30f6f-1 eZZwgr" href="/posts/%E5%85%B3%E4%BA%8E%E6%8C%87%E9%92%88%E4%B8%8EGolang%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93"><span><i class="icon-arrow-left2"></i> <!-- -->关于指针与Golang的结构体</span></a></div><span></span><div style="flex:1 1 auto"><a style="justify-content:flex-end" class="sc-54a30f6f-1 eZZwgr" href="/posts/%E5%85%B3%E4%BA%8EGolang%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E8%BF%87%E5%A4%A7%E7%9A%84%E9%97%AE%E9%A2%98"><span>关于Golang程序的内存占用过大的问题<!-- --> <i class="icon-arrow-right2"></i></span></a></div></div><div id="waline" class="sc-da8d0803-0 IDbQZ">Waline</div></div></div><div class="sc-6c4d66fc-1 ivJsMD"><nav><div style="font-size:1.25rem;font-weight:bold;padding-bottom:0.5rem;margin-bottom:0.5rem;border-bottom:solid 1px #ae8d0b">目录</div><a class="sc-6c4d66fc-5 GoISI" href="/posts/Mac%E4%B8%8A%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E4%B8%8E%E5%85%B3%E6%9C%BA%E6%97%B6%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8CShell%E8%84%9A%E6%9C%AC#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAshell%E6%96%87%E4%BB%B6"><span>新建一个shell文件</span></a><a class="sc-6c4d66fc-5 GoISI" href="/posts/Mac%E4%B8%8A%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E4%B8%8E%E5%85%B3%E6%9C%BA%E6%97%B6%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8CShell%E8%84%9A%E6%9C%AC#%E6%96%B0%E5%BB%BAplist%E6%96%87%E4%BB%B6"><span>新建plist文件</span></a></nav></div></div></main><div class="sc-9b286a0d-0 kuolET"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a><div>Code &amp; Design by Sansui 2022<!-- --> <br/> <!-- -->All rights reserved</div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"mdxSource":{"compiledSource":"/*@jsxRuntime automatic @jsxImportSource react*/\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction _createMdxContent(props) {\n  const _components = Object.assign({\n    p: \"p\",\n    h2: \"h2\",\n    pre: \"pre\",\n    code: \"code\",\n    a: \"a\",\n    ul: \"ul\",\n    li: \"li\",\n    hr: \"hr\"\n  }, _provideComponents(), props.components);\n  return _jsxs(_Fragment, {\n    children: [_jsx(_components.p, {\n      children: \"网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。\"\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"新建一个shell文件\",\n      children: \"新建一个shell文件\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"这个shell中包含了你需要开机关机时运行的脚本。\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-bash\",\n        children: \"#!/bin/bash\\r\\nfunction shutdown()\\r\\n{\\r\\n\\r\\n  # 关机用的脚本放这里\\r\\n\\r\\n  exit 0\\r\\n}\\r\\n\\r\\nfunction startup()\\r\\n{\\r\\n\\r\\n  # 开机用的脚本放这里\\r\\n\\r\\n  tail -f /dev/null \u0026\\r\\n  wait $!\\r\\n}\\r\\n\\r\\ntrap shutdown SIGTERM\\r\\ntrap shutdown SIGKILL\\r\\n\\r\\nstartup;\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"以上文件我取名为launchdeamon，赋予了当前用户的执行权限。\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-shell\",\n        children: \"chmod 755 launchdaemon\\n\"\n      })\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"新建plist文件\",\n      children: \"新建plist文件\"\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"为了让launchdeamon能在开机时自动运行，需要编写一个相应plist文件，使用launctl做到开机启动。关于launchctl和plist的作用，请先查看这篇文章：\", _jsx(_components.a, {\n        href: \"https://www.jianshu.com/p/b65c1d339eec\",\n        children: \"Mac执行定时任务之launchctl\"\n      }), \"。\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"plist文件的内容如下：\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-xml\",\n        children: \"\u003c?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?\u003e\\r\\n\u003c!DOCTYPE plist PUBLIC \\\"-//Apple//DTD PLIST 1.0//EN\\\" \\\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\\"\u003e\\r\\n\u003cplist version=\\\"1.0\\\"\u003e\\r\\n\u003cdict\u003e\\r\\n\u003ckey\u003eLabel\u003c/key\u003e\u003cstring\u003eboot-shutdown\u003c/string\u003e\\r\\n\\r\\n\u003ckey\u003eProgramArguments\u003c/key\u003e\\r\\n\u003carray\u003e\\r\\n  \u003cstring\u003e$SCRIPT_PATH/launchdaemon\u003c/string\u003e\\r\\n\u003c/array\u003e\\r\\n\\r\\n\u003ckey\u003eRunAtLoad\u003c/key\u003e\\r\\n\u003ctrue/\u003e\\r\\n\\r\\n\u003ckey\u003eStandardOutPath\u003c/key\u003e\\r\\n\u003cstring\u003e$LOG_PATH/boot-shutdown.log\u003c/string\u003e\\r\\n\\r\\n\u003ckey\u003eStandardErrorPath\u003c/key\u003e\\r\\n\u003cstring\u003e$PLOG_PATH/boot-shutdown.err\u003c/string\u003e\\r\\n\\r\\n\u003c/dict\u003e\\r\\n\u003c/plist\u003e\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"plist文件以键值对的形式存储信息。以上文件的字段解释：\"\n    }), \"\\n\", _jsxs(_components.ul, {\n      children: [\"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"Label\"\n        }), \"：标签，也就是运行该plist显示的名字。这里为boot-shutdown\"]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"ProgramArguments\"\n        }), \"：\", _jsx(_components.code, {\n          children: \"array\"\n        }), \"里可以存放多个需要运行程序。这里的\", _jsx(_components.code, {\n          children: \"$SCRIPT_PATH\"\n        }), \"请自己修改。\"]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"RunAtLoad\"\n        }), \"：开机自启，为\", _jsx(_components.code, {\n          children: \"true\"\n        })]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"StandardOutPath\"\n        }), \"：打印标准输出到某个文件，方便查看程序后台运行的结果，\", _jsx(_components.code, {\n          children: \"$LOG_PATH\"\n        }), \"自行修改。\"]\n      }), \"\\n\", _jsxs(_components.li, {\n        children: [_jsx(_components.code, {\n          children: \"StandardErrorPath\"\n        }), \"：打印标准错误到某个文件，同上。\"]\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"以上文件我取名为 boot-shutdown-script.plist 。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"由于shell脚本的执行权限是当前用户，以上文件需要放入当前用户的开机启动文件夹，即为 ~/Library/LaunchAgents 。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"然后将plist文件加入开启启动：\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        children: \"launchctl load ~/Library/LaunchAgents/boot-shutdown-script.plist\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"此时重启后，可以使用以下命令查看脚本运行状态\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"language-shell\",\n        children: \"launchctl list | grep boot\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"输出为\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        children: \"438\\t0\\tboot-shutdown\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"第一个是pid。第二个为状态码，为0说明正常运行中。\"\n    }), \"\\n\", _jsx(_components.hr, {}), \"\\n\", _jsx(_components.p, {\n      children: \"参考：\"\n    }), \"\\n\", _jsxs(_components.ul, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: _jsx(_components.a, {\n          href: \"https://stackoverflow.com/questions/24200924/run-a-script-only-at-shutdown-not-log-off-or-restart-on-mac-os-x\",\n          children: \"Run a script only at shutdown (not log off or restart) on Mac OS X\"\n        })\n      }), \"\\n\"]\n    })]\n  });\n}\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);\n  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {\n    children: _jsx(_createMdxContent, props)\n  })) : _createMdxContent(props);\n}\nreturn {\n  default: MDXContent\n};\n","frontmatter":{"title":"Mac上如何开机与关机时自动运行Shell脚本","date":"2020-11-24","categories":"折腾","description":"Mac上如何开机与关机时自动运行Shell脚本","tags":["工具"],"keywords":"Mac, shell, 自动化, 脚本"},"scope":{}},"prevPost":{"title":"关于指针与Golang的结构体","link":"/posts/关于指针与Golang的结构体"},"nextPost":{"title":"关于Golang程序的内存占用过大的问题","link":"/posts/关于Golang程序的内存占用过大的问题"},"excerpt":" 网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。\r \r ## 新建一个shell文件\r \r 这个shell中包含了你需要开机关机时运行的脚本。\r \r ```bash\r #!/bin/bash\r function shutdown","headings":[{"title":"新建一个shell文件","rank":1,"id":"新建一个shell文件"},{"title":"新建plist文件","rank":1,"id":"新建plist文件"}]},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"Mac上如何开机与关机时自动运行Shell脚本"},"buildId":"QGdiKFW0SldeFnBx2ogTE","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

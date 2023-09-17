@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 14 Sep 2023 20:25:35 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 17 Sep 2023 00:11:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -96,6 +96,25 @@
 <li>
 <p><strong>与手机互传文件</strong>（折腾但稳定版）</p>
 <p>使用 <a href="https://github.com/alist-org/alist">alist</a> 进行磁盘目录映射，并且使用 <a href="https://github.com/jeessy2/ddns-go/wiki">DDNS-Go</a> 动态绑定本机的 ipv6 地址到公网。手机上将相应的 alist 页面添加到主屏幕，便可在该页面互传文件。好处是能走局域网，速度快，不同网络环境下可用，可远程传输等等。依然让 chatgpt 写脚本将两个程序加入开机启动。</p>
+</li>
+</ul>
+<h2>硬件调整</h2>
+<ul>
+<li>
+<p>硬件信息监测</p>
+<p>使用<a href="https://www.hwinfo.com/">hwinfo</a>的实时监测数据作为硬件调整的基准</p>
+</li>
+<li>
+<p>功耗/风扇转速调整</p>
+<p>使用 <a href="https://github.com/seerge/g-helper">g-helper</a> 调整日常使用的风扇曲线。我买的幻16，作为全能本，出厂的奥创调教特别垃，首发时还有bug。它的三种模式</p>
+<ol>
+<li>静音模式风扇完全不转，经常温度突然飙升很吵地转一会儿</li>
+<li>性能模式开什么都以游戏本的方式转，对我来说挺吵的</li>
+<li>增强模式的声音不是给人用的。</li>
+</ol>
+<p>如果用windows默认电源管理方案的话，似乎和程序资源占用有关，即使只有60度也给转上4000转。打个小游戏真的不配这么吵……</p>
+<p>后面用g-helper关闭睿频，功耗限制35w。测下来开原神默认高画质 1080p 稳定在CPU 65度，风扇3500转，不卡。这代 GPU 的散热反而问题不大，至少玩原神不会超过60度。然后测试了带光影的 Minecraft 1.20.1。MC 对 CPU 的要求更高，不过单机的话，不刻意刷红石，35w也够了，一般在25w左右，温度还是差不多的65度，全程电压没有超过1V，降压对于控温还是很有用的。奥创之所以动不动就吵就是因为一开性能模式，什么都不干电压给到1.8V……没必要，真的没必要。</p>
+<p>日常使用场景下，好像也就编译比较耗CPU，其他时候都用不到很好的CPU性能。图形处理还是占GPU更多。音乐制作一类的也是耗CPU但也还好，但更耗内存硬盘。</p>
 </li>
 </ul>
 <h2>音频调整</h2>

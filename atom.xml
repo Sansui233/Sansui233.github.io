@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-09-25T19:35:17.994Z</updated>
+    <updated>2023-09-25T19:38:30.547Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -36,27 +36,13 @@
 </ul>
 <h3>功能类</h3>
 <ul>
-<li>
-<p>modmenu: 显示所有模组和相应的设置页面（如果有的话）</p>
-</li>
-<li>
-<p>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</p>
-</li>
-<li>
-<p>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）以获得更好的摄影视角，zoom 开启类似 optifine 的按 c 视角放大，handrestock 可自动补货手里的工具、方块</p>
-</li>
-<li>
-<p>JourneyMap: 小地图，降肝度必备。Xae 的小地图也不错，两者都需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了各种网络显示和生物显示。</p>
-</li>
-<li>
-<p>Invertory Profile Next: 高版本的 R 键背包整理，强迫症必备。另有捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品，个人非常喜欢，更快，且减少食指的腱鞘炎。</p>
-</li>
-<li>
-<p>Roughly Enough Items: 物品搜索，查看合成配方、查看方块用途，ctrl点击后快速移动到合成台。尽管原版有合成书，但一页条目显示太少，且不支持拼音搜索，不支持模组物品。REI依旧方便很多。</p>
-</li>
-<li>
-<p>imblock: 输入法冲突修复</p>
-</li>
+<li>modmenu: 显示所有模组和相应的设置页面（如果有的话）</li>
+<li>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</li>
+<li>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）以获得更好的摄影视角，zoom 开启类似 optifine 的按 c 视角放大，handrestock 可自动补货手里的工具、方块</li>
+<li>JourneyMap: 小地图，降肝度必备。Xae 的小地图也不错，两者都需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了各种网络显示和生物显示。</li>
+<li>Invertory Profile Next: 高版本的 R 键背包整理，强迫症必备。另有捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品，个人非常喜欢，更快，且减少食指的腱鞘炎。</li>
+<li>Roughly Enough Items: 物品搜索，查看合成配方、查看方块用途，ctrl点击后快速移动到合成台。尽管原版有合成书，但一页条目显示太少，且不支持拼音搜索，不支持模组物品。REI依旧方便很多。</li>
+<li>imblock: 输入法冲突修复</li>
 </ul>
 <h2>设置</h2>
 <ul>
@@ -69,45 +55,21 @@
 <h3>快捷键修改</h3>
 <p>首先把 ctrl 改到 capslock 键位，方便疾跑。系统全局 powertoys 改的（吐槽一万句control的键位）</p>
 <ul>
-<li>
-<p>tab 长按: 快速显示背包中物品，在 tweakroo 中的 hotbarswapbase 设定</p>
-</li>
-<li>
-<p>tab+1/2/3: 快捷键切换到背包中下一行。 tweakroo 中的 hotbarswap 每一行单独设定</p>
-</li>
-<li>
-<p>j: 显示 jouneymap 小地图</p>
-</li>
-<li>
-<p>m: 显示 jouneymap 大地图和设定</p>
-</li>
-<li>
-<p>v: 切换第三人称视角，很常用的功能。原本是f5，实在太远了</p>
-</li>
-<li>
-<p>f5:  灵魂出窍，在 tweakroo 的 freecamera 中设定</p>
-</li>
-<li>
-<p>z: 望远镜，在 tweakroo 的 zoomactivate 中设定</p>
-</li>
+<li>tab 长按: 快速显示背包中物品，在 tweakroo 中的 hotbarswapbase 设定</li>
+<li>tab+1/2/3: 快捷键切换到背包中下一行。 tweakroo 中的 hotbarswap 每一行单独设定</li>
+<li>j: 显示 jouneymap 小地图</li>
+<li>m: 显示 jouneymap 大地图和设定</li>
+<li>v: 切换第三人称视角，很常用的功能。原本是f5，实在太远了</li>
+<li>f5:  灵魂出窍，在 tweakroo 的 freecamera 中设定</li>
+<li>z: 望远镜，在 tweakroo 的 zoomactivate 中设定</li>
 </ul>
 <h4>合成台、箱子UI</h4>
 <ul>
-<li>
-<p>y: REI 查看光标下物品的配方</p>
-</li>
-<li>
-<p>u: REI 查看光标下物品用途</p>
-</li>
-<li>
-<p>ctrl + 左键点击REI的物品，移动物品到合成台</p>
-</li>
-<li>
-<p>r: Invertory Profile Next 整理。按 r+c 在 IPN 的设置中修改</p>
-</li>
-<li>
-<p>使用滚轮以在背包和箱子间移动物品，按shift移动整组</p>
-</li>
+<li>y: REI 查看光标下物品的配方</li>
+<li>u: REI 查看光标下物品用途</li>
+<li>ctrl + 左键点击REI的物品，移动物品到合成台</li>
+<li>r: Invertory Profile Next 整理。按 r+c 在 IPN 的设置中修改</li>
+<li>使用滚轮以在背包和箱子间移动物品，按shift移动整组</li>
 </ul>
 <h2>光影</h2>
 <ul>
@@ -116,12 +78,8 @@
 </ul>
 <h2>材质</h2>
 <ul>
-<li>
-<p>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光。所以要加。</p>
-</li>
-<li>
-<p><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</p>
-</li>
+<li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光。所以要加。</li>
+<li><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</li>
 </ul>]]></content>
         <category label="游戏"/>
         <published>2023-09-26T02:38:09.000Z</published>

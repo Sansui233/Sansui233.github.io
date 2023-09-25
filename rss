@@ -4,12 +4,123 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 25 Sep 2023 18:32:13 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 Sep 2023 19:35:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Minecraft v1.20常用设置]]></title>
+            <link>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</link>
+            <guid>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</guid>
+            <pubDate>Tue, 26 Sep 2023 02:38:09 GMT</pubDate>
+            <description><![CDATA[一些自用的Minecraft高版本常用设置]]></description>
+            <content:encoded><![CDATA[<p>在 Minecraft 1.20 版本光照引擎被大幅改写，使得帧数提升，模组的数量似乎又多了起来。另外在 fabric 发展起来以后，mod的社区生态有了很大的变化，有很多老牌模组有了更新的替代。现在记录一下实现常用的基本功能需要的模组与修改设置。</p>
+<p>我使用的 hmcl 启动器，在其中进行模组下载可显示模组间的依赖情况。以下内容在1.20.1中完全兼容，且项目均在维护中。</p>
+<h2>Mods</h2>
+<p>使用以 fabric-api 构建的模组。</p>
+<h3>渲染类</h3>
+<ul>
+<li>Sodium: 渲染优化之神，许多模组的前置</li>
+<li>Sodium-extra: 渲染优化之神的扩展，相应 GUI 为reeses sodium options</li>
+<li>Lithium: 原版机制的算法改进</li>
+<li>Iris: Sodium 加光影</li>
+<li>Custom Entity Models: 自定义实体模型，增强对 optifine 材质包的支持</li>
+<li>Continuity: 无缝纹理，安装后需要启用相应的材质包</li>
+<li>Indium: 许多模组的前置，提供 Fabric Rendering API的支持</li>
+</ul>
+<h3>功能类</h3>
+<ul>
+<li>
+<p>modmenu: 显示所有模组和相应的设置页面（如果有的话）</p>
+</li>
+<li>
+<p>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</p>
+</li>
+<li>
+<p>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）以获得更好的摄影视角，zoom 开启类似 optifine 的按 c 视角放大，handrestock 可自动补货手里的工具、方块</p>
+</li>
+<li>
+<p>JourneyMap: 小地图，降肝度必备。Xae 的小地图也不错，两者都需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了各种网络显示和生物显示。</p>
+</li>
+<li>
+<p>Invertory Profile Next: 高版本的 R 键背包整理，强迫症必备。另有捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品，个人非常喜欢，更快，且减少食指的腱鞘炎。</p>
+</li>
+<li>
+<p>Roughly Enough Items: 物品搜索，查看合成配方、查看方块用途，ctrl点击后快速移动到合成台。尽管原版有合成书，但一页条目显示太少，且不支持拼音搜索，不支持模组物品。REI依旧方便很多。</p>
+</li>
+<li>
+<p>imblock: 输入法冲突修复</p>
+</li>
+</ul>
+<h2>设置</h2>
+<ul>
+<li>画面尺寸: 1920*1080@60fps，窗口化</li>
+<li>视场角: 80</li>
+<li>鼠标灵敏度: 75</li>
+<li>模拟距离：8</li>
+<li>渲染距离：10</li>
+</ul>
+<h3>快捷键修改</h3>
+<p>首先把 ctrl 改到 capslock 键位，方便疾跑。系统全局 powertoys 改的（吐槽一万句control的键位）</p>
+<ul>
+<li>
+<p>tab 长按: 快速显示背包中物品，在 tweakroo 中的 hotbarswapbase 设定</p>
+</li>
+<li>
+<p>tab+1/2/3: 快捷键切换到背包中下一行。 tweakroo 中的 hotbarswap 每一行单独设定</p>
+</li>
+<li>
+<p>j: 显示 jouneymap 小地图</p>
+</li>
+<li>
+<p>m: 显示 jouneymap 大地图和设定</p>
+</li>
+<li>
+<p>v: 切换第三人称视角，很常用的功能。原本是f5，实在太远了</p>
+</li>
+<li>
+<p>f5:  灵魂出窍，在 tweakroo 的 freecamera 中设定</p>
+</li>
+<li>
+<p>z: 望远镜，在 tweakroo 的 zoomactivate 中设定</p>
+</li>
+</ul>
+<h4>合成台、箱子UI</h4>
+<ul>
+<li>
+<p>y: REI 查看光标下物品的配方</p>
+</li>
+<li>
+<p>u: REI 查看光标下物品用途</p>
+</li>
+<li>
+<p>ctrl + 左键点击REI的物品，移动物品到合成台</p>
+</li>
+<li>
+<p>r: Invertory Profile Next 整理。按 r+c 在 IPN 的设置中修改</p>
+</li>
+<li>
+<p>使用滚轮以在背包和箱子间移动物品，按shift移动整组</p>
+</li>
+</ul>
+<h2>光影</h2>
+<ul>
+<li>BSL v8.2.04，默认配置High，把 Camera 中的 Bloom 关闭，把 Atmosphere 中的 fog 调到 0.5，开启 lighting 中的handDynamicLight。抗锯齿的TAA随便开不开，取决于风扇响不响</li>
+<li>Complementary Reimagined，默认配置 medium，high 会开启镜面反射运算量明显变大</li>
+</ul>
+<h2>材质</h2>
+<ul>
+<li>
+<p>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光。所以要加。</p>
+</li>
+<li>
+<p><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</p>
+</li>
+</ul>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/游戏">游戏</category>
+        </item>
         <item>
             <title><![CDATA[碎碎念001]]></title>
             <link>https://sansui233.com/memos</link>
@@ -850,159 +961,6 @@ function DFStraverse(index: number, map: { point: string[], side: number[][] }) 
 <p>状态其实在各种算法里挺重要的。不少空间换时间的极限操作都要用到。</p>
 <p>算法注定是“不纯”的，能做的也不过是用闭包来保存状态。有时候觉得，纯不纯的也没有这么重要。</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/学习">学习</category>
-        </item>
-        <item>
-            <title><![CDATA[Github hosts 更新脚本(MAC)]]></title>
-            <link>https://sansui233.com/posts/github-hosttools</link>
-            <guid>https://sansui233.com/posts/github-hosttools</guid>
-            <pubDate>Sat, 07 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Github hosts 更新脚本(MAC)]]></description>
-            <content:encoded><![CDATA[<p>此工具已更新至 <a href="https://github.com/Sansui233/mac-githubhosts-autoupdate">Github</a>。</p>
-<ul>
-<li>安装卸载脚本</li>
-<li>自动定时运行</li>
-<li>平时不占内存，运行时几乎不占内存</li>
-</ul>
-<p>原文如下：</p>
-<hr/>
-<p>最近 Github 墙得越来越厉害了。写了个 Shell 工具，连不上的时候就更新一下。可以配合 Alfred 使用。</p>
-<p>使用的 host 源来自<a href="https://github.com/JohyC/Hosts">这里</a>。其实用 SwitchHosts 更新也行，但我真的讨厌 Electron App……麻了，现在听个歌写个笔记 1个多 G 的内存就没了。</p>
-<p>也可以用写成定时程序后台运行，加个 LaunchDaemon 文件就行，但，我不会打包 Mac App……文件这么散着分发也太 emmm，而且别人装起来也麻烦……</p>
-<p>麻烦归麻烦还是要写的……</p>
-<p>文件和说明已经上传到 <a href="https://github.com/Sansui233/mac-githubhosts-autoupdate">Github</a>。</p>
-<ul>
-<li>下面这个文件保存取名为 <code>hoststool</code></li>
-<li>赋予执行权限 <code>chmod +x hoststool</code>。如果为了执行起来方便，可以放进环境变量的目录（比如/usr/local/bin）</li>
-<li>然后就可以使用 <code>hoststool -u</code> 更新 host 了，运行结果会发系统通知。之前可以自己看看 hosts 内容有没有问题。这是有几率失败的，因为用的 gittee 的 host 源，经常会提示文件疑似违规……这种时候再请求一次就好了，第二次就不违规了。我也不知道为什么。</li>
-</ul>
-<p>（定时任务的部分在后面）</p>
-<pre><code class="language-shell">#!/bin/bash
-showHelp() {
-	echo &quot;-u [source_url]	update github hosts. You can specify a custom host source&quot;
-	echo &quot;-b	backup /etc/hosts to /etc/hosts.backup&quot;
-	echo &quot;-r	recover hosts.backup to hosts&quot;
-	echo &quot;-f	list files in /etc which contains \&quot;hosts\&quot;&quot;
-}
-
-
-# ====== Main =====
-if [ $# -eq 0 ]; then showHelp;exit 0;fi
-
-# CONF
-download_dir=&quot;$HOME/etc/hoststool&quot;
-github_hosts=&quot;https://gitee.com/yuchi-shentang/GithubHosts/raw/main/hosts.txt&quot;
-if [ ! -d &quot;$download_dir&quot; ]; then
-  mkdir -p $download_dir
-fi
-
-case &quot;$1&quot; in
-	-f)
-		ls /etc | grep hosts;
-		exit 0;;
-	-b) 
-		sudo cp /etc/hosts /etc/hosts.backup;
-		exit 0;;
-	-r) 
-		sudo cp /etc/hosts.backup /etc/hosts;
-		exit 0;;
-	-u) 
-		if [ $2 ]; then github_hosts=$2;fi
-		curl -o ${download_dir}/hosts ${github_hosts};
-		if [ $? -ne 0 ]; then
-			echo &quot;[ERROR] 获取远程 host 出错，请尝试更换 source 或检查 download_dir 读写权限&quot;
-			osascript -e &#x27;display notification &quot;获取远程 host 出错，请尝试更换 source&quot; with title &quot;hoststool&quot;&#x27;
-			exit 1
-		fi
-		
-		# Validate host content length
-		lines=$(awk &#x27;{print NR}&#x27; ${download_dir}/hosts | tail -n1)
-		if [ $lines -lt 10 ]
-		then
-			echo &#x27;[ERRO] 远程 Github Hosts 无效（Gitee源不稳定），通常重试即可&#x27;
-			osascript -e &#x27;display notification &quot;远程 Github Hosts 无效（Gitee源不稳定），通常重试即可&quot; with title &quot;hoststool&quot;&#x27;
-			rm ${download_dir}/hosts
-			exit 1
-		fi
-
-		# Remove old content
-		begin=$(sed -n  &#x27;/# ==== Github Start ====/=&#x27; /etc/hosts | awk &#x27;NR==1{print}&#x27;)
-		end=$(sed -n  &#x27;/# ==== Github End ====/=&#x27; /etc/hosts | awk &#x27;END{print}&#x27;)
-		echo &quot;Removing old hosts. Start at line \&quot;${begin}\&quot;, End at line \&quot;${end}\&quot;&quot;
-		cat /etc/hosts | sed &quot;${begin},${end}d&quot; &gt; ${download_dir}/hosts.tmp
-		if [ $? -ne 0 ]; then
-			## Trip Failed
-			echo &quot;[INFO] 当前 Host中 无旧的 Github Host 标记可清除&quot;
-		else
-			## Trip Succeed, move result
-			echo &quot;[INFO] 清除旧的 Github Host 标记&quot;
-			sudo cp /etc/hosts /etc/hosts.backup &amp;&amp; sudo cp ${download_dir}/hosts.tmp /etc/hosts;
-		fi
-
-		# Add new hosts
-		sudo bash -c &quot;echo &#x27;# ==== Github Start ====&#x27; &gt;&gt; /etc/hosts&quot; # Add github host
-		if [ $? -ne 0 ]; then
-			echo &quot;[ERROR] 无root权限，请尝试运行脚本手动输入密码&quot;
-			osascript -e &#x27;display notification &quot;无root权限，请尝试运行脚本手动输入密码&quot; with title &quot;hoststool&quot;&#x27;
-			rm ${download_dir}/hosts.tmp
-			rm ${download_dir}/hosts
-			exit 1;
-		fi
-		sudo bash -c &quot;echo \&quot;# Updated at $(date)\&quot; &gt;&gt; /etc/hosts&quot; # Add github host
-		sudo bash -c &quot;cat ${download_dir}/hosts &gt;&gt; /etc/hosts&quot;;
-		sudo bash -c &quot;echo &#x27;# ==== Github End ====&#x27; &gt;&gt; /etc/hosts&quot;
-		rm ${download_dir}/hosts.tmp
-		rm ${download_dir}/hosts
-
-		echo &quot;[INFO] Github Hosts 块更新于 $(date)&quot;
-		osascript -e &#x27;display notification &quot;Github Hosts 已更新&quot; with title &quot;hoststool&quot;&#x27;
-		exit 0;;
-	-h|--help)
-		showHelp;
-		exit 0;;
-	*)
-		echo &quot;Unknown command&quot;;
-		showHelp;
-		exit 1;;
-esac
-</code></pre>
-<h2>定时</h2>
-<p>保存以下文件为 <code>hoststool.plist</code>。</p>
-<pre><code class="language-plist">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
-&lt;dict&gt;
-&lt;key&gt;Label&lt;/key&gt;&lt;string&gt;hoststool&lt;/string&gt;
-
-&lt;key&gt;ProgramArguments&lt;/key&gt;
-&lt;array&gt;
-  &lt;string&gt;/usr/local/bin/hoststool&lt;/string&gt;
-  &lt;string&gt;-u&lt;/string&gt;
-&lt;/array&gt;
-
-&lt;key&gt;RunAtLoad&lt;/key&gt;
-&lt;true/&gt;
-
-&lt;key&gt;StartInterval&lt;/key&gt;
-&lt;integer&gt;3600&lt;/integer&gt;
-
-&lt;key&gt;StandardOutPath&lt;/key&gt;
-&lt;string&gt;/Library/Logs/hoststool.log&lt;/string&gt;
-
-&lt;key&gt;StandardErrorPath&lt;/key&gt;
-&lt;string&gt;/Library/Logs/hoststool.log&lt;/string&gt;
-
-&lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre>
-<p>把 <code>/usr/local/bin</code> ，改成你存放脚本的路径。</p>
-<p>时间间隔为 3600 秒，可以自己修改。</p>
-<p>然后执行</p>
-<pre><code class="language-shell">$ sudo cp hoststool.plist /Library/LaunchDaemons
-$ sudo chown root:admin /Library/LaunchDaemons/hoststool.plist
-$ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
-</code></pre>
-<p>执行完就会立刻运行一次脚本。由于定时任务是 root 用户不是个人用户，不会有通知，可以去 Console 看 log。</p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
     </channel>
 </rss>

@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 25 Sep 2023 19:38:30 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 Sep 2023 19:39:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -74,7 +74,7 @@
 </ul>
 <h2>材质</h2>
 <ul>
-<li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光。所以要加。</li>
+<li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光，所以要加一个材质以确保有 fallback。</li>
 <li><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</li>
 </ul>]]></content:encoded>
             <category domain="https://sansui233.com/categories/游戏">游戏</category>

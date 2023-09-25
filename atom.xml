@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-09-25T19:38:30.547Z</updated>
+    <updated>2023-09-25T19:39:13.581Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -78,7 +78,7 @@
 </ul>
 <h2>材质</h2>
 <ul>
-<li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光。所以要加。</li>
+<li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光，所以要加一个材质以确保有 fallback。</li>
 <li><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</li>
 </ul>]]></content>
         <category label="游戏"/>

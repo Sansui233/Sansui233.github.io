@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-09-20T18:47:10.948Z</updated>
+    <updated>2023-09-25T18:32:13.491Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -142,7 +142,7 @@
 <p>键盘连接电脑练琴，无独立声卡时，可用 <a href="https://asio4all.org/">ASIO4ALL</a> 降低延迟。效果显著。缺点是 ASIO 是设备独占的，比如宿主软件使用 ASIO 到耳机，那看 b 站视频就只能外放（或者别的耳机/音响）。</p>
 </li>
 </ul>]]></content>
-        <category label="摸鱼"/>
+        <category label="工具"/>
         <published>2023-08-30T09:42:20.000Z</published>
     </entry>
     <entry>
@@ -208,7 +208,7 @@
 <hr/>
 <p>PS：我在尽力不要让语句变得不要和写论文一样啰嗦，但总是难以避免……以及我原本想写个内置的交互式组件来演示图像前后的区别，这也是我最初架构博客时选用 mdx 的原因，但真的开始写的时候……怎么还要多写一个东西？好麻烦！还要考虑 rss 兼容的问题，之后再补吧，现在写什么都像坐牢。</p>
 <p>PPS：强烈建议无代码应用都能开发个template market……</p>]]></content>
-        <category label="摸鱼"/>
+        <category label="工具"/>
         <published>2023-08-22T22:20:54.000Z</published>
     </entry>
     <entry>
@@ -285,7 +285,7 @@
 <p>直接出成图的是对已有作品的模拟，抽抽卡，融入不到创意的工作流。</p>
 <p>但是在发展好之前，地球可能已经枯竭了。</p>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/00162-1748765688-masterpiece,%20best%20quality,%20ultra-detailed,%20illustration,%201boy,%20Link%20in%20Breath%20of%20the%20wild,%20stronde%20hair,%20sun%20shine,water,%20emotio.jpg" alt="pastel-mix"/></p>]]></content>
-        <category label="摸鱼"/>
+        <category label="工具"/>
         <published>2023-02-21T00:00:00.000Z</published>
     </entry>
     <entry>
@@ -414,7 +414,7 @@ tar -xvf Cluster_1.tar.gz
 <li><a href="https://www.roci.ltd/dstserver/">饥荒独立服务器入门级快速搭建</a></li>
 <li><a href="https://dontstarve.fandom.com/wiki/Guides/Don%E2%80%99t_Starve_Together_Dedicated_Servers">Guides/Don&#x27;t Starve Together Dedicated Servers - Fandom</a></li>
 </ul>]]></content>
-        <category label="摸鱼"/>
+        <category label="游戏"/>
         <published>2022-12-28T00:00:00.000Z</published>
     </entry>
     <entry>
@@ -779,7 +779,7 @@ where T: FnMut(usize) -&gt; bool { // Fn 可以传到 FnMut 标注的参数上
 <hr/>
 <p>写在后面的吐槽：排版这种事情 <strong>Layout + 组件化</strong> 不香吗！PPT 的样式复用实在太局限了。看祖传的 PPT 排版看得我脑壳疼，每一页的小标题位置都不一样，字体也是用得乱七八糟的。排版的四原则，“亲密”“对齐”“对比”“重复”，每一项都很重要。但一项都不满足这是怎么做到的！强迫症（伪）哭晕在厕所。</p>
 <p>其实还是祖传的习惯问题。比如 Word，小时候我也是有过一段时间空格排版居中……现在谁还空格排版居中，我见一个打一个（狗头）</p>]]></content>
-        <category label="摸鱼"/>
+        <category label="工具"/>
         <published>2021-11-12T00:00:00.000Z</published>
     </entry>
     <entry>
@@ -1015,7 +1015,7 @@ $ sudo chown root:admin /Library/LaunchDaemons/hoststool.plist
 $ sudo launchctl load -w /Library/LaunchDaemons/hoststool.plist
 </code></pre>
 <p>执行完就会立刻运行一次脚本。由于定时任务是 root 用户不是个人用户，不会有通知，可以去 Console 看 log。</p>]]></content>
-        <category label="折腾"/>
+        <category label="工具"/>
         <published>2021-08-07T00:00:00.000Z</published>
     </entry>
 </feed>

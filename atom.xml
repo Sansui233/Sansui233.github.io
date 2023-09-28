@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-09-25T19:39:13.581Z</updated>
+    <updated>2023-09-28T20:53:54.759Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,31 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[Windows调整之中文字体]]></title>
+        <id>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</id>
+        <link href="https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment"/>
+        <updated>2023-09-29T02:25:44.000Z</updated>
+        <summary type="html"><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
+</blockquote>
+<p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。但如今的显示器分辨率越来越高，旧版微软雅黑的设计存在着明显的缺陷。一是其字形设计并不平衡，中宫过大，有的字形可以以难看来形容；二是微软雅黑字形只在4K屏上有着准确的显示。如果你不巧像我一样用着2.5K屏，在ClearType的加持下，仔细观察资源管理器侧边栏中，“桌面”二字短横的间距并不平衡。</p>
+<p>微软曾经设计过“另一版的微软雅黑”，即 Noble Scarlet，但不知出于何种原因并没有在正式的系统中使用。这一版字体设计依然中宫偏大，但相对老版收敛了不少，平衡了一些。据传言汉字部分是兰亭黑Pro。但这个字体在标点处理上很差，最直观的就是中文引号，太像西文的处理方式，很难看出前引号与后引号的区别。其实我在写这一篇文的时候，换了 Typora 的字体，才发现前后引号全打反了……</p>
+<p>个人推荐的配置和工具如下：</p>
+<ul>
+<li><strong>Noble Scarlet</strong>  替换系统的微软雅黑。由于版权原因无官方公开链接，需自行搜索</li>
+<li>系统字体替换工具：自行搜索 “字体替换工具 by 随风飘扬”。win7 时代的产物，太古老了找不到原作者出处。替换完后最好重启，否则可能有一些错误，比如字体大小错误。另外，github 上还有一个非侵入式的系统字体替换工具 <a href="https://github.com/Tatsu-syo/noMeiryoUI">noMeiryoUI</a>，但是换不全，只是作为预览不同字体在系统上的效果倒是个很不错的工具。</li>
+<li><a href="https://www.mactype.net/"><strong>MacType</strong></a> 改善 ClearType 丢细节带来的不平衡</li>
+<li>安装一个 <strong>苹方</strong>。有一些中文网站 Fallback Font 也是苹方在前。由于版权原因无官方公开链接，需自行搜索。浏览器对于字体的渲染不受 MacType 的影响，在PPI不足的情况下，浏览器的渲染是偏细的，默认设置还得是微软雅黑。</li>
+<li><strong><a href="https://source.typekit.com/source-han-serif/cn/">思源宋体</a></strong>：推荐将浏览器的 Serif 字体设置为此字体。默认的宋体真的，不论中文英文，都很丑……只适合打印。</li>
+</ul>
+<p>苹方是一款设计上很优秀的字体，但它对于低 PPI 的显示器不友好，人话说，不是4K屏缩放200%都别用。首先苹方粗体相对其他黑体本身就较细，在ClearType下，苹方被削掉的细节使得其字重偏小，Bold 看起来像 Medium。另外，苹方在2.5K屏上表现非常糊，毕竟苹方问世时已经 Retina 屏已经出了好久了，人家压根没考虑过在低 PPI 屏幕上的表现。最后是版权问题，当然苹果大概不会因为这点事起诉个人用户。</p>
+<p>更纱黑体也非常适合作为 windows 的系统字体，在1080p 和 2.5k 下都能保证良好的清晰度。相比起微软的两款字体，更纱黑体可以称得上是秀气了，但汉字覆盖率不如系统级别的字体。自己看下来，更纱黑体与思源黑体设计的细节不太统一，比如“用”字明显矮了一截，使句子看起来不太稳定。但是在宋体设计上，“用”字矮的这一截反而让字体看起来平衡。一个系列的字体的统一感和比例关系又很大，个人理解为思源/更纱系列是优先考虑宋体的字形，但也不是传统的宋体字形，和黑体的比例有一定的结合。整体而言还是宋体的设计更加优秀。</p>
+<p>思源黑体作为更纱黑体的前辈，是不太适合低 ppi 屏的，它的 Regular 字重看起来像 Bold。</p>]]></content>
+        <category label="工具"/>
+        <published>2023-09-29T02:25:44.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Minecraft v1.20常用设置]]></title>
         <id>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</id>
@@ -47,7 +72,7 @@
 <h2>设置</h2>
 <ul>
 <li>画面尺寸: 1920*1080@60fps，窗口化</li>
-<li>视场角: 80</li>
+<li>视场角: 85</li>
 <li>鼠标灵敏度: 75</li>
 <li>模拟距离：8</li>
 <li>渲染距离：10</li>
@@ -851,87 +876,5 @@ where T: FnMut(usize) -&gt; bool { // Fn 可以传到 FnMut 标注的参数上
 <p>其实还是祖传的习惯问题。比如 Word，小时候我也是有过一段时间空格排版居中……现在谁还空格排版居中，我见一个打一个（狗头）</p>]]></content>
         <category label="工具"/>
         <published>2021-11-12T00:00:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[纯函数与算法]]></title>
-        <id>https://sansui233.com/posts/pure-function</id>
-        <link href="https://sansui233.com/posts/pure-function"/>
-        <updated>2021-09-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[自从接触了纯函数，刷算法题刷得举步维艰。]]></summary>
-        <content type="html"><![CDATA[<p>自从接触了纯函数，刷算法题刷得举步维艰。</p>
-<blockquote>
-<p>什么是纯函数：同样的传入参数，一定可以得到相同的输出</p>
-</blockquote>
-<p>纯函数又被称为无副作用的函数，不会改变外部的状态。</p>
-<p>比如在 JS 中，array.slice()对数组的切片，返回的是一个新的数组，为纯函数。</p>
-<p>相对的，array.splice()对数组的插入与删除是对于原数组操作，不是纯函数。</p>
-<p>纯函数的意义，在于保证<strong>不会对函数外部的状态有隐式的修改</strong>。这在大型的、遍地都是状态的系统中非常重要。如果不保证纯函数，多个函数内部去修改了同一外部状态，容易出现意想不到的 Bug。</p>
-<h2>图的邻接矩阵定义</h2>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/g61Yvh.jpg" alt="img"/></p>
-<pre><code class="language-ts">let map = {
-  point: [&#x27;V0&#x27;, &#x27;V1&#x27;, &#x27;V2&#x27;, &#x27;V3&#x27;, &#x27;V4&#x27;, &#x27;V5&#x27;, &#x27;V6&#x27;, &#x27;V7&#x27;],
-  side: [
-    [0, 1, 0, 1, 1, 0, 0, 0],
-    [1, 0, 1, 0, 1, 0, 0, 0],
-    [0, 1, 0, 0, 0, 1, 0, 0],
-    [1, 0, 0, 0, 0, 0, 1, 0],
-    [1, 1, 0, 0, 0, 0, 1, 0],
-    [0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 1, 1, 0, 0, 1],
-    [0, 0, 0, 0, 0, 0, 1, 0],
-  ]
-}
-</code></pre>
-<h2>图深度遍历的非纯函数实现</h2>
-<pre><code class="language-ts">// DFS 深度优先遍历，从 第 index 个节点开始. visited 记录已访问的节点，全局共用一个 visited
-function DFStraverse(index: number = 0, visited = [map.point[0]]) {
-  if (visited.length === map.point.length) {
-    console.log(visited.toString())
-    return
-  }
-
-  map.side[index].forEach((isSide, targetv) =&gt; {
-    if (isSide &amp;&amp; !visited.includes(map.point[targetv])) {
-      visited.push(map.point[targetv])
-      DFStraverse(targetv, visited)
-    }
-  })
-}
-</code></pre>
-<p>以上代码的问题：</p>
-<ul>
-<li>map 定义在了外部，和别的函数共用</li>
-<li>visited 是全局共用同一个，但却每次都要作为参数传入，逻辑上既不合也没有必要。并且作为函数参数（而不是全局变量），每次都对 visited 作了修改。这里还好，因为要的就是修改后的 visited（实际上是全局的 visited）。但如果题目是一个回溯问题，就需要管理 visited 的状态，在修改了之后，递归出栈时还得改回来。</li>
-</ul>
-<h2>图深度遍历的纯函数实现</h2>
-<pre><code class="language-ts">// DFS 深度优先遍历，从 第 index 个节点开始. visited 记录已访问的节点，全局共用一个 visited
-// 纯函数实现
-function DFStraverse(index: number, map: { point: string[], side: number[][] }) {
-  const visited = [map.point[index]]
-
-  function traverse(index: number) {
-    // 终止条件
-    if (visited.length === map.point.length) {
-      console.log(visited.toString())
-      return
-    }
-
-    map.side[index].forEach((isSide, targetv) =&gt; {
-      if (isSide &amp;&amp; !visited.includes(map.point[targetv])) {
-        visited.push(map.point[targetv])
-        traverse(targetv)
-      }
-    })
-  }
-
-  traverse(index)
-}
-</code></pre>
-<p>使用闭包，把共用的 visited 固定为状态。内部再定义函数作递归。 map 也作为外层的参数传入，里面不去修改。</p>
-<hr/>
-<p>状态其实在各种算法里挺重要的。不少空间换时间的极限操作都要用到。</p>
-<p>算法注定是“不纯”的，能做的也不过是用闭包来保存状态。有时候觉得，纯不纯的也没有这么重要。</p>]]></content>
-        <category label="学习"/>
-        <published>2021-09-25T00:00:00.000Z</published>
     </entry>
 </feed>

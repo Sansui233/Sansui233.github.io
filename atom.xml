@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-10-24T10:58:12.728Z</updated>
+    <updated>2023-10-24T11:06:57.256Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -51,6 +51,12 @@
 <p>“您是否在找：SCP基金会？”</p>
 <p>软件没有那么多因果论，可以这么做模块化。但故事不行，大家需要的只是一个完整的、前后通顺的、精彩的故事，碎片化的、很多的支线绝大多数情况都不是什么好事。你以为你是东方？是FGO？</p>
 <p>打字打了快一个小时，去吃饭了，再见。</p>
+<hr/>
+<p>对了，对于博客我也有另外的打算。</p>
+<p>随着页面增多，构建速度越来越慢了。</p>
+<p>对于memos和索引，我可以构建索引改变build时的状态。但是pages这个我是真的没法控制会不会被重复build，除非我去改变Next.js框架的build行为。但这样的话，额，我又是为什么要用这个框架啊啊啊啊！！</p>
+<p>如果谁还说 Next.js 适合个人静态博客，我就先给他个大逼兜。要么老实用 Hugo 和 Hexo，至少人家有针对博文的 build 优化。要么做成动态的，上 CMS 。千万不要用 Next.js，会变得不幸，嗯。</p>
+<p>不说了，一把心塞泪，原来静态博客的尽头是动态。</p>
 <h2>2023-10-12</h2>
 <p>啊，愁怅，写了2000字又写卡壳了。</p>
 <p>啊，原来是惆怅，不是愁怅。</p>

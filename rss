@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 28 Oct 2023 18:22:56 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 28 Oct 2023 18:57:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -32,7 +32,7 @@
 <p>另外还有图床的问题，由于我白嫖的 github 倒是从不考虑图像大小问题，上传图片前我也有压缩强迫症。但万一以后我想换到别的图床……算了，到时候再改吧，短期内没这个打算就是了。</p>
 </li>
 <li>
-<p>支持标签的解析，memos 支持标签过滤，但这又是个对于静态博客来说非常麻烦的搜索问题，需要提前生成索引文件，索引文件的维护也是个大问题，每个分析都得带有原文件位置和CSR文件位置防止失联。有时候真的想上sqlite3来存这些乱七八糟的东西。真想问问有没有一个库叫逆ORM，就是明明把一个List 的 object 当关系型数据库使，来构建一个新的Object……结构转换太常见，我觉得得有这种库，只是我不知道。</p>
+<p>支持标签的解析，memos 支持标签过滤，但这又是个对于静态博客来说非常麻烦的搜索问题，需要提前生成索引文件，索引文件的维护也是个大问题，每个分析都得带有原文件位置和CSR文件位置防止失联。有时候真的想上sqlite3来存这些乱七八糟的东西。真想问问有没有一个库叫逆ORM，就是把一个 的 object list  当关系型数据库使，来构建一个新的Object……结构转换太常见，我觉得得有这种库，只是我不知道。</p>
 </li>
 <li>
 <p>另外要分析的东西比较多的话，memos的底层设计就得重新考虑了，必要时直接读进内存吧，不然又是在不停对磁盘io……特别是当要分析的东西比较多的时候。</p>

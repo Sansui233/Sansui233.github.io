@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>使用pandoc转换md为PDF并添加中文支持</title><meta name="description" content="使用pandoc转换md为PDF并添加中文支持 由于最近需要把markdown文件导出为pdf并且需要用到latex的行内的数学公式，只用typora无法做到，于是开始使用pandoc。问题是pandoc中在从md转pdf的时候需要手动设置中文，否则会有转换问题。这个坑查了很久，最终从一个pandoc模板里得到了解决方法。  系"/><meta name="keywords" content="markdowns, pandoc, PDF, PDF转换,markdown转PDF"/><meta name="description" content="A personal blog about work and life"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="6"/><link rel="preload" href="/_next/static/css/72a7b0e3bdc42018.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/72a7b0e3bdc42018.css" crossorigin="" data-n-g=""/><link rel="preload" href="/_next/static/css/dff1bccf68b12a76.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/dff1bccf68b12a76.css" crossorigin="" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-417c06ecf0777730.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/framework-6ab2e0a3e5a0915a.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/main-183a10cdd1d803af.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/_app-32a3e9163eb2d733.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/ab88915f-01db70d6c7d8d9ce.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/f32efb27-e8074619ac888612.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/965-180c0dacbb388d4d.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/766-8fcdcccedce68e3c.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/518-e528e5e1c57d2677.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-8a69e0cf65c5b361.js" defer="" crossorigin=""></script><script src="/_next/static/YTy-AqznApeCLv7IfdrAL/_buildManifest.js" defer="" crossorigin=""></script><script src="/_next/static/YTy-AqznApeCLv7IfdrAL/_ssgManifest.js" defer="" crossorigin=""></script><style data-styled="" data-styled-version="6.0.7">body{background:white;color:black;}/*!sc*/
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>使用pandoc转换md为PDF并添加中文支持</title><meta name="description" content="使用pandoc转换md为PDF并添加中文支持 由于最近需要把markdown文件导出为pdf并且需要用到latex的行内的数学公式，只用typora无法做到，于是开始使用pandoc。问题是pandoc中在从md转pdf的时候需要手动设置中文，否则会有转换问题。这个坑查了很久，最终从一个pandoc模板里得到了解决方法。  系统："/><meta name="keywords" content="markdowns, pandoc, PDF, PDF转换,markdown转PDF"/><meta name="description" content="A personal blog about work and life"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="6"/><link rel="preload" href="/_next/static/css/72a7b0e3bdc42018.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/72a7b0e3bdc42018.css" crossorigin="" data-n-g=""/><link rel="preload" href="/_next/static/css/dff1bccf68b12a76.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/dff1bccf68b12a76.css" crossorigin="" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-28e5044bcc11cf92.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/framework-6ab2e0a3e5a0915a.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/main-183a10cdd1d803af.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/_app-b311a5245d5c3d9a.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/ab88915f-01db70d6c7d8d9ce.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/f32efb27-e8074619ac888612.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/965-180c0dacbb388d4d.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/286-f2195b0a86b9c77b.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/518-9361e2073043befb.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-6e6cd498e9e8d6c1.js" defer="" crossorigin=""></script><script src="/_next/static/LLuauLH8Z-wQHWRMaQxKt/_buildManifest.js" defer="" crossorigin=""></script><script src="/_next/static/LLuauLH8Z-wQHWRMaQxKt/_ssgManifest.js" defer="" crossorigin=""></script><style data-styled="" data-styled-version="6.0.7">body{background:white;color:black;}/*!sc*/
 data-styled.g1[id="sc-global-PuglZ1"]{content:"sc-global-PuglZ1,"}/*!sc*/
 .kHmYEQ{padding:24px 0 10px 0;text-align:center;font-size:0.625rem;}/*!sc*/
 .kHmYEQ div{margin:1rem auto;}/*!sc*/
@@ -55,34 +55,34 @@ data-styled.g17[id="sc-2e5f26f-4"]{content:"gFgAuQ,"}/*!sc*/
 .tsHKe{font-size:1.625rem;line-height:2.75rem;position:relative;transition:box-shadow .3s ease;cursor:pointer;}/*!sc*/
 .tsHKe:hover{box-shadow:inset 0 -0.5em 0 #e0c56e;transform:scale(1.2);}/*!sc*/
 data-styled.g18[id="sc-2e5f26f-5"]{content:"tsHKe,"}/*!sc*/
-.eYIYdH{transform:translateY(0.145rem);transition:color 0.3s ease;}/*!sc*/
-.eYIYdH:hover{color:#e0c56e;}/*!sc*/
-data-styled.g19[id="sc-a3a8cb1a-0"]{content:"eYIYdH,"}/*!sc*/
-.gNBItk{height:63px;width:100%;text-align:center;padding-top:0.625rem;font-size:0.625rem;font-style:italic;color:#ae8d0b;font-family:'Times New Roman',STSong,'宋体',serif;opacity:.6;}/*!sc*/
-data-styled.g20[id="sc-a3a8cb1a-1"]{content:"gNBItk,"}/*!sc*/
-.eEpihz{height:63px;width:100%;display:flex;justify-content:space-between;align-items:center;position:fixed;background-color:white;z-index:10;transform:translateY(0);transition:transform .5s ease;}/*!sc*/
-data-styled.g21[id="sc-a3a8cb1a-2"]{content:"eEpihz,"}/*!sc*/
-.cQInZE{flex:1 1 auto;display:flex;align-items:center;height:100%;justify-content:flex-end;}/*!sc*/
-data-styled.g22[id="sc-a3a8cb1a-3"]{content:"cQInZE,"}/*!sc*/
-.jRlHMv{flex:1 1 auto;display:flex;justify-content:flex-start;}/*!sc*/
-.jRlHMv img{margin-left:10px;z-index:11;width:63px;height:63px;float:left;cursor:pointer;}/*!sc*/
-@media screen and (max-width: 580px){.jRlHMv img{width:48px;height:48px;}}/*!sc*/
-@media screen and (max-width: 350px){.jRlHMv{display:none;}}/*!sc*/
-data-styled.g23[id="sc-a3a8cb1a-4"]{content:"jRlHMv,"}/*!sc*/
-.gFNYyj{text-align:right;font-size:0.875em;cursor:pointer;}/*!sc*/
-.gFNYyj>div{display:inline-block;margin-right:15px;}/*!sc*/
-@media screen and (max-width: 580px){.gFNYyj>div{margin-right:16px;padding:1px 0;}}/*!sc*/
-data-styled.g24[id="sc-a3a8cb1a-5"]{content:"gFNYyj,"}/*!sc*/
-.jmSniy{flex:2 1 auto;display:flex;justify-content:space-evenly;align-items:center;}/*!sc*/
-@media screen and (min-width: 780px){.jmSniy{max-width:50%;}}/*!sc*/
-@media screen and (min-width: 580px){.jmSniy{max-width:390px;}}/*!sc*/
-@media screen and (max-width: 580px){.jmSniy{max-width:290px;}}/*!sc*/
-.jmSniy ol{padding:0 .5em;padding-top:2px;}/*!sc*/
-.jmSniy a{position:relative;font-weight:500;}/*!sc*/
-.jmSniy a::before{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
-.jmSniy a:hover::before{width:100%;}/*!sc*/
-.jmSniy ol.current a{color:#ae8d0b;}/*!sc*/
-data-styled.g25[id="sc-a3a8cb1a-6"]{content:"jmSniy,"}/*!sc*/
+.fgzCsg{transform:translateY(0.145rem);transition:color 0.3s ease;}/*!sc*/
+.fgzCsg:hover{color:#e0c56e;}/*!sc*/
+data-styled.g19[id="sc-9f7dd44a-0"]{content:"fgzCsg,"}/*!sc*/
+.jIsxlj{height:63px;width:100%;text-align:center;padding-top:0.625rem;font-size:0.625rem;font-style:italic;color:#ae8d0b;font-family:'Times New Roman',STSong,'宋体',serif;opacity:.6;}/*!sc*/
+data-styled.g20[id="sc-9f7dd44a-1"]{content:"jIsxlj,"}/*!sc*/
+.gnoGHI{height:63px;width:100%;display:flex;justify-content:space-between;align-items:center;position:fixed;background-color:white;z-index:10;transform:translateY(0);transition:transform .5s ease;}/*!sc*/
+data-styled.g21[id="sc-9f7dd44a-2"]{content:"gnoGHI,"}/*!sc*/
+.irHaSj{flex:1 1 auto;display:flex;align-items:center;height:100%;justify-content:flex-end;}/*!sc*/
+data-styled.g22[id="sc-9f7dd44a-3"]{content:"irHaSj,"}/*!sc*/
+.irBSCE{flex:1 1 auto;display:flex;justify-content:flex-start;}/*!sc*/
+.irBSCE img{margin-left:10px;z-index:11;width:63px;height:63px;float:left;cursor:pointer;}/*!sc*/
+@media screen and (max-width: 580px){.irBSCE img{width:48px;height:48px;}}/*!sc*/
+@media screen and (max-width: 350px){.irBSCE{display:none;}}/*!sc*/
+data-styled.g23[id="sc-9f7dd44a-4"]{content:"irBSCE,"}/*!sc*/
+.ezQhws{text-align:right;font-size:0.875em;cursor:pointer;}/*!sc*/
+.ezQhws>div{display:inline-block;margin-right:15px;}/*!sc*/
+@media screen and (max-width: 580px){.ezQhws>div{margin-right:16px;padding:1px 0;}}/*!sc*/
+data-styled.g24[id="sc-9f7dd44a-5"]{content:"ezQhws,"}/*!sc*/
+.cxltpF{flex:2 1 auto;display:flex;justify-content:space-evenly;align-items:center;}/*!sc*/
+@media screen and (min-width: 780px){.cxltpF{max-width:50%;}}/*!sc*/
+@media screen and (min-width: 580px){.cxltpF{max-width:390px;}}/*!sc*/
+@media screen and (max-width: 580px){.cxltpF{max-width:290px;}}/*!sc*/
+.cxltpF ol{padding:0 .5em;padding-top:2px;}/*!sc*/
+.cxltpF a{position:relative;font-weight:500;}/*!sc*/
+.cxltpF a::before{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#ae8d0b;transition:width 1s cubic-bezier(0.34, 0.04, 0.03, 1.4),background .3s;}/*!sc*/
+.cxltpF a:hover::before{width:100%;}/*!sc*/
+.cxltpF ol.current a{color:#ae8d0b;}/*!sc*/
+data-styled.g25[id="sc-9f7dd44a-6"]{content:"cxltpF,"}/*!sc*/
 .hkkzfK{max-width:780px;margin:0 auto;padding:0px 48px 48px 48px;}/*!sc*/
 @media screen and (max-width: 780px){.hkkzfK{max-width:580px;}}/*!sc*/
 @media screen and (max-width: 580px){.hkkzfK{padding:0 20px 48px 20px;}}/*!sc*/
@@ -129,84 +129,25 @@ data-styled.g37[id="sc-9a66d08f-1"]{content:"cgWmsg,"}/*!sc*/
 .hPxeHq .wl-gif-popup img{border-color:white;}/*!sc*/
 .hPxeHq .wl-gif-popup input{background:white;color:black;}/*!sc*/
 data-styled.g42[id="sc-d6a397c0-0"]{content:"hPxeHq,"}/*!sc*/
-.kFOWKU{max-width:800px;margin-top:72px;animation:gWOUmS 1s ease;}/*!sc*/
-@media screen and (max-width: 580px){.kFOWKU{margin-top:36px;}}/*!sc*/
-data-styled.g43[id="sc-50897033-0"]{content:"kFOWKU,"}/*!sc*/
-.kLkhoM{width:0;flex:2 1 0;}/*!sc*/
-data-styled.g44[id="sc-50897033-1"]{content:"kLkhoM,"}/*!sc*/
-.ikZImN{max-width:min(18em,20vw);flex:1 1 0;margin-top:calc(1.375*1em + 72px);position:sticky;align-self:flex-start;top:63px;animation:hBXrSV 1s ease;}/*!sc*/
-@media screen and (max-width: 580px){.ikZImN{display:none;}}/*!sc*/
-data-styled.g45[id="sc-50897033-2"]{content:"ikZImN,"}/*!sc*/
-.fekMYL{margin-bottom:3rem;}/*!sc*/
-.fekMYL h1{margin-top:.3rem;margin-bottom:0.5rem;}/*!sc*/
-data-styled.g46[id="sc-50897033-3"]{content:"fekMYL,"}/*!sc*/
-.kVWxTM{font-size:0.875rem;position:relative;}/*!sc*/
-.kVWxTM::before{content:'';position:absolute;top:-.8em;left:0;height:1px;width:100%;background:#ae8d0b;}/*!sc*/
-data-styled.g47[id="sc-50897033-4"]{content:"kVWxTM,"}/*!sc*/
-.dJKdLN{transition:opacity .3s,color .3s;}/*!sc*/
-.dJKdLN:hover{color:#ae8d0b;}/*!sc*/
-data-styled.g48[id="sc-50897033-5"]{content:"dJKdLN,"}/*!sc*/
-.bvrdLw{display:block;padding-left:1em;padding-top:0.1em;padding-bottom:0.1em;line-height:1.8em;}/*!sc*/
-.bvrdLw::before{content:"•";color:#ae8d0b;left:0em;position:absolute;}/*!sc*/
-.bvrdLw span{transition:box-shadow .5s;}/*!sc*/
-.bvrdLw:hover span{box-shadow:inset 0 -0.5em 0 #e0c56e;}/*!sc*/
-data-styled.g49[id="sc-50897033-6"]{content:"bvrdLw,"}/*!sc*/
+.gPAoes{max-width:800px;margin-top:72px;animation:gWOUmS 1s ease;}/*!sc*/
+@media screen and (max-width: 580px){.gPAoes{margin-top:36px;}}/*!sc*/
+data-styled.g66[id="sc-97eb1a17-0"]{content:"gPAoes,"}/*!sc*/
+.fdBQfU{width:0;flex:2 1 0;}/*!sc*/
+data-styled.g67[id="sc-97eb1a17-1"]{content:"fdBQfU,"}/*!sc*/
+.haTzbh{max-width:min(18em,20vw);flex:1 1 0;margin-top:calc(1.375*1em + 72px);position:sticky;align-self:flex-start;top:63px;animation:hBXrSV 1s ease;}/*!sc*/
+@media screen and (max-width: 580px){.haTzbh{display:none;}}/*!sc*/
+data-styled.g68[id="sc-97eb1a17-2"]{content:"haTzbh,"}/*!sc*/
+.kEiJkz{margin-bottom:3rem;}/*!sc*/
+.kEiJkz h1{margin-top:.3rem;margin-bottom:0.5rem;}/*!sc*/
+data-styled.g69[id="sc-97eb1a17-3"]{content:"kEiJkz,"}/*!sc*/
+.grWiXs{font-size:0.875rem;position:relative;}/*!sc*/
+.grWiXs::before{content:'';position:absolute;top:-.8em;left:0;height:1px;width:100%;background:#ae8d0b;}/*!sc*/
+data-styled.g70[id="sc-97eb1a17-4"]{content:"grWiXs,"}/*!sc*/
+.jPSvwF{transition:opacity .3s,color .3s;}/*!sc*/
+.jPSvwF:hover{color:#ae8d0b;}/*!sc*/
+data-styled.g71[id="sc-97eb1a17-5"]{content:"jPSvwF,"}/*!sc*/
 @keyframes gWOUmS{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}/*!sc*/
-data-styled.g56[id="sc-keyframes-gWOUmS"]{content:"gWOUmS,"}/*!sc*/
+data-styled.g73[id="sc-keyframes-gWOUmS"]{content:"gWOUmS,"}/*!sc*/
 @keyframes hBXrSV{0%{-webkit-transform:translateX(50px);transform:translateX(50px);opacity:0;}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1;}}/*!sc*/
-data-styled.g57[id="sc-keyframes-hBXrSV"]{content:"hBXrSV,"}/*!sc*/
-</style></head><body><div id="__next"><div><div class="sc-bcPKhP sc-5c67c3dd-5 iZgfEl bNFDLR hidden"><div style="padding:1rem 1rem 0 1rem" class="sc-5c67c3dd-1 dwfEQT"><input type="text" placeholder="搜索你感兴趣的内容，以空格分词" class="sc-5c67c3dd-2 ibBEAY"/></div><div style="padding:0.5rem 1rem" class="sc-5c67c3dd-0 jqzWFw"><div style="font-size:0.875rem;opacity:0.5"><div class="sc-5c67c3dd-4 bAixOK">搜索初始化中……</div></div></div></div><div class="sc-2e5f26f-3 lhsayb hidden"><div style="padding-top:8rem" class="sc-2e5f26f-4 gFgAuQ"><h1><span>SANSUI&#x27;S BLOG</span></h1><div><span class="sc-2e5f26f-5 tsHKe">日间模式</span></div><div><span class="sc-2e5f26f-5 tsHKe"><a href="/categories">分类</a></span></div><div><span class="sc-2e5f26f-5 tsHKe"><a href="/atom.xml">RSS</a></span></div><div class="sc-2e5f26f-1 lovKWV"><div class="sc-2e5f26f-2 BqkTv"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a></div><div>Sansui 2022 All rights reserved</div></div></div><div class="sc-2e5f26f-0 eeSTyy"><div width="1em" height="1em" class="sc-6db262c7-0 gyoJCg"><div class="sc-6db262c7-1 gUHHsO is-close"></div><div class="sc-6db262c7-2 hhWThY"></div><div class="sc-6db262c7-1 gUHHsO is-close"></div></div></div></div><header class="sc-a3a8cb1a-2 eEpihz"><div class="sc-a3a8cb1a-3 sc-a3a8cb1a-4 cQInZE jRlHMv"><a href="/"><img src="/avatar-white.png" alt="Sansui"/></a></div><nav class="sc-a3a8cb1a-6 jmSniy"><ol class=""><a href="/">Posts</a></ol><ol class=""><a href="/memos">Memos</a></ol><ol class=""><a href="/about">About</a></ol></nav><div class="sc-a3a8cb1a-3 sc-a3a8cb1a-5 cQInZE gFNYyj"><div style="display:unset" class="sc-a3a8cb1a-0 eYIYdH"><i class="icon-search" style="font-size:1.725rem"></i></div><div style="margin-right:20px;width:22px"><div width="100%" height="21px" class="sc-6db262c7-0 eNBuIX"><div class="sc-6db262c7-1 gUHHsO"></div><div class="sc-6db262c7-2 dtuNhN"></div><div class="sc-6db262c7-1 gUHHsO"></div></div></div></div></header><div class="sc-a3a8cb1a-1 gNBItk">人活着就是为了卡卡西</div><main><div style="display:flex;margin:auto"><div class="sc-50897033-1 kLkhoM"><div class="sc-6f3e56cb-0 sc-50897033-0 hkkzfK kFOWKU"><div class="sc-50897033-3 fekMYL"><h1>使用pandoc转换md为PDF并添加中文支持</h1><div style="display:flex"><div style="flex:1 1 0"><span style="flex:1 1 0" class="sc-50897033-4 kVWxTM">2018-02-07<!-- --> | <a class="sc-50897033-5 dJKdLN" href="/tags/markdowns">#markdowns </a> in <a class="sc-50897033-5 dJKdLN" href="/categories/%E5%B7%A5%E5%85%B7"><i style="padding-right:0.15em" class="icon-material-folder_open"></i>工具</a></span></div><div style="flex:0 0 0;font-size:0.875rem"><i style="padding-left:0.5em;padding-right:0.3em" class="icon-material-eye"></i><span class="waline-pageview-count" data-path=""></span></div></div></div><div class="sc-2d0b97e7-0 bkuXyl"><p>由于最近需要把markdown文件导出为pdf并且需要用到latex的行内的数学公式，只用typora无法做到，于是开始使用pandoc。问题是pandoc中在从md转pdf的时候需要手动设置中文，否则会有转换问题。这个坑查了很久，最终从一个pandoc模板里得到了解决方法。</p>
-<p>系统：macOS 10.13.2</p>
-<h2 id="基本操作">基本操作</h2>
-<p>准备：需要先安装<a href="https://brew.sh/index_zh-cn.html">HomeBrew</a></p>
-<ol>
-<li>安装pandoc</li>
-</ol>
-<pre><code class="hljs language-bash">brew install pandoc
-</code></pre>
-<ol>
-<li>安装texlive，支持latex</li>
-</ol>
-<pre><code class="hljs language-bash">brew cask install mactex
-</code></pre>
-<ol>
-<li>导出pandoc转换为时的latex默认模板</li>
-</ol>
-<pre><code class="hljs language-bash">pandoc -D latex &gt; template.latex
-</code></pre>
-<ol>
-<li>在template.latex里添加中文字体支持</li>
-</ol>
-<pre><code>\usepackage{fontspec}   % 允許設定字體
-  \usepackage{xeCJK}    % 分開設置中英文字型
-  \setCJKmainfont{SimSun}   % 設定中文字型
-  \setmainfont{Helvetical}  % 設定英文字型
-  \setromanfont{Helvetical}   % 字型
-  \setmonofont{Courier New}
-  \linespread{1.2}\selectfont   % 行距
-</code></pre>
-<ol>
-<li>使用模板把md转换为pdf</li>
-</ol>
-<pre><code class="hljs language-bash">pandoc --pdf-engine=xelatex --template=[template.latex的路径] newfile.md -o newfile.pdf
-</code></pre>
-<h2 id="pandoc的默认使用的模板路径">pandoc的默认使用的模板路径</h2>
-<p>在mac os下，在～/.pandoc/templates文件夹里。没有的话要手动创建的。</p>
-<pre><code class="hljs language-bash"><span class="hljs-built_in">cd</span> ~
-<span class="hljs-built_in">mkdir</span> -p ~/.pandoc/templates
-</code></pre>
-<p>导出latex的默认模板至默认的模板路径</p>
-<pre><code class="hljs language-bash">pandoc -D latex &amp;gt; ~/.pandoc/templates/default.latex
-</code></pre>
-<p>在default.latex里添加中文字体支持</p>
-<pre><code>\usepackage{fontspec}   % 允許設定字體
-  \usepackage{xeCJK}    % 分開設置中英文字型
-  \setCJKmainfont{SimSun}   % 設定中文字型
-  \setmainfont{Vollkorn}  % 設定英文字型
-  \setromanfont{Vollkorn}   % 字型
-  \setmonofont{Courier New}
-  \linespread{1.2}\selectfont   % 行距
-</code></pre>
-<p>这样下来转换的时候不使用指定的template，使用的就是default模板。例如</p>
-<pre><code class="hljs language-bash">pandoc --pdf-engine=xelatex newfile.md -o newfile.pdf
-</code></pre></div><div style="text-align:right;opacity:0.5;font-size:0.875rem;margin:4rem 0 2rem 0">更新于 <!-- -->2018-02-07</div><div class="sc-9a66d08f-0 jswLqv"><div style="flex:1 1 auto"><a style="justify-content:flex-start" class="sc-9a66d08f-1 cgWmsg" href="/posts/B%E7%AB%99%E5%8F%8D%E6%9F%A5%E7%94%A8%E6%88%B7%E5%BC%B9%E5%B9%95%E5%B0%8F%E8%AE%B0"><span><i class="icon-arrow-left2"></i> <!-- -->B站反查用户弹幕小记</span></a></div><span></span><div style="flex:1 1 auto"><a style="justify-content:flex-end" class="sc-9a66d08f-1 cgWmsg" href="/posts/welcome"><span>Welcome to sansui&#x27;s blog<!-- --> <i class="icon-arrow-right2"></i></span></a></div></div><div id="waline" class="sc-d6a397c0-0 hPxeHq">Waline</div></div></div><div class="sc-50897033-2 ikZImN"><nav><div style="font-size:1.25rem;font-weight:bold;padding-bottom:0.5rem;margin-bottom:0.5rem;border-bottom:solid 1px #ae8d0b">目录</div><a class="sc-50897033-6 bvrdLw" href="/posts/%E4%BD%BF%E7%94%A8pandoc%E8%BD%AC%E6%8D%A2md%E4%B8%BAPDF%E5%B9%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span>基本操作</span></a><a class="sc-50897033-6 bvrdLw" href="/posts/%E4%BD%BF%E7%94%A8pandoc%E8%BD%AC%E6%8D%A2md%E4%B8%BAPDF%E5%B9%B6%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81#pandoc%E7%9A%84%E9%BB%98%E8%AE%A4%E4%BD%BF%E7%94%A8%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%B7%AF%E5%BE%84"><span>pandoc的默认使用的模板路径</span></a></nav></div></div></main><div class="sc-5f1defee-0 kHmYEQ"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a><div>Code &amp; Design by Sansui 2023<!-- --> <br/> <!-- -->All rights reserved</div></div></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{"mdxSource":{"compiledSource":"/*@jsxRuntime automatic @jsxImportSource react*/\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction _createMdxContent(props) {\n  const _components = Object.assign({\n    p: \"p\",\n    h2: \"h2\",\n    a: \"a\",\n    ol: \"ol\",\n    li: \"li\",\n    pre: \"pre\",\n    code: \"code\",\n    span: \"span\"\n  }, _provideComponents(), props.components);\n  return _jsxs(_Fragment, {\n    children: [_jsx(_components.p, {\n      children: \"由于最近需要把markdown文件导出为pdf并且需要用到latex的行内的数学公式，只用typora无法做到，于是开始使用pandoc。问题是pandoc中在从md转pdf的时候需要手动设置中文，否则会有转换问题。这个坑查了很久，最终从一个pandoc模板里得到了解决方法。\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"系统：macOS 10.13.2\"\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"基本操作\",\n      children: \"基本操作\"\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"准备：需要先安装\", _jsx(_components.a, {\n        href: \"https://brew.sh/index_zh-cn.html\",\n        children: \"HomeBrew\"\n      })]\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: \"安装pandoc\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"hljs language-bash\",\n        children: \"brew install pandoc\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: \"安装texlive，支持latex\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"hljs language-bash\",\n        children: \"brew cask install mactex\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: \"导出pandoc转换为时的latex默认模板\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"hljs language-bash\",\n        children: \"pandoc -D latex \u003e template.latex\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: \"在template.latex里添加中文字体支持\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        children: \"\\\\usepackage{fontspec}   % 允許設定字體\\r\\n  \\\\usepackage{xeCJK}    % 分開設置中英文字型\\r\\n  \\\\setCJKmainfont{SimSun}   % 設定中文字型\\r\\n  \\\\setmainfont{Helvetical}  % 設定英文字型\\r\\n  \\\\setromanfont{Helvetical}   % 字型\\r\\n  \\\\setmonofont{Courier New}\\r\\n  \\\\linespread{1.2}\\\\selectfont   % 行距\\n\"\n      })\n    }), \"\\n\", _jsxs(_components.ol, {\n      children: [\"\\n\", _jsx(_components.li, {\n        children: \"使用模板把md转换为pdf\"\n      }), \"\\n\"]\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"hljs language-bash\",\n        children: \"pandoc --pdf-engine=xelatex --template=[template.latex的路径] newfile.md -o newfile.pdf\\n\"\n      })\n    }), \"\\n\", _jsx(_components.h2, {\n      id: \"pandoc的默认使用的模板路径\",\n      children: \"pandoc的默认使用的模板路径\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"在mac os下，在～/.pandoc/templates文件夹里。没有的话要手动创建的。\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsxs(_components.code, {\n        className: \"hljs language-bash\",\n        children: [_jsx(_components.span, {\n          className: \"hljs-built_in\",\n          children: \"cd\"\n        }), \" ~\\r\\n\", _jsx(_components.span, {\n          className: \"hljs-built_in\",\n          children: \"mkdir\"\n        }), \" -p ~/.pandoc/templates\\n\"]\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"导出latex的默认模板至默认的模板路径\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"hljs language-bash\",\n        children: \"pandoc -D latex \u0026gt; ~/.pandoc/templates/default.latex\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"在default.latex里添加中文字体支持\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        children: \"\\\\usepackage{fontspec}   % 允許設定字體\\r\\n  \\\\usepackage{xeCJK}    % 分開設置中英文字型\\r\\n  \\\\setCJKmainfont{SimSun}   % 設定中文字型\\r\\n  \\\\setmainfont{Vollkorn}  % 設定英文字型\\r\\n  \\\\setromanfont{Vollkorn}   % 字型\\r\\n  \\\\setmonofont{Courier New}\\r\\n  \\\\linespread{1.2}\\\\selectfont   % 行距\\n\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"这样下来转换的时候不使用指定的template，使用的就是default模板。例如\"\n    }), \"\\n\", _jsx(_components.pre, {\n      children: _jsx(_components.code, {\n        className: \"hljs language-bash\",\n        children: \"pandoc --pdf-engine=xelatex newfile.md -o newfile.pdf\\n\"\n      })\n    })]\n  });\n}\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);\n  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {\n    children: _jsx(_createMdxContent, props)\n  })) : _createMdxContent(props);\n}\nreturn {\n  default: MDXContent\n};\n","frontmatter":{"title":"使用pandoc转换md为PDF并添加中文支持","date":"2018-02-07","categories":"工具","description":"使用pandoc转换md为PDF并添加中文支持","tags":["markdowns"],"keywords":"pandoc, PDF, PDF转换,markdown转PDF"},"scope":{}},"prevPost":{"title":"B站反查用户弹幕小记","link":"/posts/B站反查用户弹幕小记"},"nextPost":{"title":"Welcome to sansui's blog","link":"/posts/welcome"},"excerpt":" 由于最近需要把markdown文件导出为pdf并且需要用到latex的行内的数学公式，只用typora无法做到，于是开始使用pandoc。问题是pandoc中在从md转pdf的时候需要手动设置中文，否则会有转换问题。这个坑查了很久，最终从一个pandoc模板里得到了解决方法。\r \r 系","headings":[{"title":"基本操作","rank":1,"id":"基本操作"},{"title":"pandoc的默认使用的模板路径","rank":1,"id":"pandoc的默认使用的模板路径"}]},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"使用pandoc转换md为PDF并添加中文支持"},"buildId":"YTy-AqznApeCLv7IfdrAL","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
+data-styled.g74[id="sc-keyframes-hBXrSV"]{content:"hBXrSV,"}/*!sc*/
+</style></head><body><div id="__next"><div><div class="sc-bcPKhP sc-5c67c3dd-5 iZgfEl bNFDLR hidden"><div style="padding:1rem 1rem 0 1rem" class="sc-5c67c3dd-1 dwfEQT"><input type="text" placeholder="搜索你感兴趣的内容，以空格分词" class="sc-5c67c3dd-2 ibBEAY"/></div><div style="padding:0.5rem 1rem" class="sc-5c67c3dd-0 jqzWFw"><div style="font-size:0.875rem;opacity:0.5"><div class="sc-5c67c3dd-4 bAixOK">搜索初始化中……</div></div></div></div><div class="sc-2e5f26f-3 lhsayb hidden"><div style="padding-top:8rem" class="sc-2e5f26f-4 gFgAuQ"><h1><span>SANSUI&#x27;S BLOG</span></h1><div><span class="sc-2e5f26f-5 tsHKe">日间模式</span></div><div><span class="sc-2e5f26f-5 tsHKe"><a href="/categories">分类</a></span></div><div><span class="sc-2e5f26f-5 tsHKe"><a href="/atom.xml">RSS</a></span></div><div class="sc-2e5f26f-1 lovKWV"><div class="sc-2e5f26f-2 BqkTv"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a></div><div>Sansui 2022 All rights reserved</div></div></div><div class="sc-2e5f26f-0 eeSTyy"><div width="1em" height="1em" class="sc-6db262c7-0 gyoJCg"><div class="sc-6db262c7-1 gUHHsO is-close"></div><div class="sc-6db262c7-2 hhWThY"></div><div class="sc-6db262c7-1 gUHHsO is-close"></div></div></div></div><header class="sc-9f7dd44a-2 gnoGHI"><div class="sc-9f7dd44a-3 sc-9f7dd44a-4 irHaSj irBSCE"><a href="/"><img src="/avatar-white.png" alt="Sansui"/></a></div><nav class="sc-9f7dd44a-6 cxltpF"><ol class=""><a href="/">Posts</a></ol><ol class=""><a href="/memos">Memos</a></ol><ol class=""><a href="/about">About</a></ol></nav><div class="sc-9f7dd44a-3 sc-9f7dd44a-5 irHaSj ezQhws"><div style="display:unset" class="sc-9f7dd44a-0 fgzCsg"><i class="icon-search" style="font-size:1.725rem"></i></div><div style="margin-right:20px;width:22px"><div width="100%" height="21px" class="sc-6db262c7-0 eNBuIX"><div class="sc-6db262c7-1 gUHHsO"></div><div class="sc-6db262c7-2 dtuNhN"></div><div class="sc-6db262c7-1 gUHHsO"></div></div></div></div></header><div class="sc-9f7dd44a-1 jIsxlj">人活着就是为了卡卡西</div><main><div style="display:flex;margin:auto"><div class="sc-97eb1a17-1 fdBQfU"><div class="sc-6f3e56cb-0 sc-97eb1a17-0 hkkzfK gPAoes"><div class="sc-97eb1a17-3 kEiJkz"><h1>使用pandoc转换md为PDF并添加中文支持</h1><div style="display:flex"><div style="flex:1 1 0"><span style="flex:1 1 0" class="sc-97eb1a17-4 grWiXs">2018-02-07 08:00<!-- --> | <a class="sc-97eb1a17-5 jPSvwF" href="/tags/markdowns">#markdowns </a> in <a class="sc-97eb1a17-5 jPSvwF" href="/categories/%E5%B7%A5%E5%85%B7"><i style="padding-right:0.15em" class="icon-material-folder_open"></i>工具</a></span></div><div style="flex:0 0 0;font-size:0.875rem"><i style="padding-left:0.5em;padding-right:0.3em" class="icon-material-eye"></i><span class="waline-pageview-count" data-path=""></span></div></div></div><div class="sc-2d0b97e7-0 bkuXyl"></div><div style="text-align:right;opacity:0.5;font-size:0.875rem;margin:4rem 0 2rem 0">更新于 <!-- -->2018-02-07 08:00</div><div class="sc-9a66d08f-0 jswLqv"><div style="flex:1 1 auto"><a style="justify-content:flex-start" class="sc-9a66d08f-1 cgWmsg" href="/posts/B%E7%AB%99%E5%8F%8D%E6%9F%A5%E7%94%A8%E6%88%B7%E5%BC%B9%E5%B9%95%E5%B0%8F%E8%AE%B0"><span><i class="icon-arrow-left2"></i> <!-- -->B站反查用户弹幕小记</span></a></div><span></span><div style="flex:1 1 auto"><a style="justify-content:flex-end" class="sc-9a66d08f-1 cgWmsg" href="/posts/welcome"><span>Welcome to sansui&#x27;s blog<!-- --> <i class="icon-arrow-right2"></i></span></a></div></div><div id="waline" class="sc-d6a397c0-0 hPxeHq">Waline</div></div></div><div class="sc-97eb1a17-2 haTzbh"><nav><div style="font-size:1.25rem;font-weight:bold;padding-bottom:0.5rem;margin-bottom:0.5rem;border-bottom:solid 1px #ae8d0b">目录</div></nav></div></div></main><div class="sc-5f1defee-0 kHmYEQ"><a href="https://github.com/sansui233"><i class="icon-github-rounded"></i></a><a href="mailto:sansuilnm@gmail.com"><i class="icon-email-rounded"></i></a><a href="/rss"><i class="icon-rss-rounded"></i></a><div>Code &amp; Design by Sansui 2023<!-- --> <br/> <!-- -->All rights reserved</div></div></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{"meta":{"title":"使用pandoc转换md为PDF并添加中文支持","date":"2018-02-07 08:00","tags":["markdowns"],"categories":"工具","description":"使用pandoc转换md为PDF并添加中文支持","keywords":"pandoc, PDF, PDF转换,markdown转PDF"},"content":"\r\n由于最近需要把markdown文件导出为pdf并且需要用到latex的行内的数学公式，只用typora无法做到，于是开始使用pandoc。问题是pandoc中在从md转pdf的时候需要手动设置中文，否则会有转换问题。这个坑查了很久，最终从一个pandoc模板里得到了解决方法。\r\n\r\n系统：macOS 10.13.2\r\n\r\n## 基本操作\r\n\r\n准备：需要先安装[HomeBrew](https://brew.sh/index_zh-cn.html)\r\n\r\n1. 安装pandoc\r\n\r\n```bash\r\nbrew install pandoc\r\n```\r\n\r\n1. 安装texlive，支持latex\r\n\r\n```bash\r\nbrew cask install mactex\r\n```\r\n\r\n1. 导出pandoc转换为时的latex默认模板\r\n\r\n```bash\r\npandoc -D latex \u003e template.latex\r\n```\r\n\r\n1. 在template.latex里添加中文字体支持\r\n\r\n```\r\n\\usepackage{fontspec}   % 允許設定字體\r\n  \\usepackage{xeCJK}    % 分開設置中英文字型\r\n  \\setCJKmainfont{SimSun}   % 設定中文字型\r\n  \\setmainfont{Helvetical}  % 設定英文字型\r\n  \\setromanfont{Helvetical}   % 字型\r\n  \\setmonofont{Courier New}\r\n  \\linespread{1.2}\\selectfont   % 行距\r\n```\r\n\r\n1. 使用模板把md转换为pdf\r\n\r\n```bash\r\npandoc --pdf-engine=xelatex --template=[template.latex的路径] newfile.md -o newfile.pdf\r\n```\r\n\r\n## pandoc的默认使用的模板路径\r\n\r\n在mac os下，在～/.pandoc/templates文件夹里。没有的话要手动创建的。\r\n\r\n```bash\r\ncd ~\r\nmkdir -p ~/.pandoc/templates\r\n```\r\n\r\n导出latex的默认模板至默认的模板路径\r\n\r\n```bash\r\npandoc -D latex \u0026gt; ~/.pandoc/templates/default.latex\r\n```\r\n\r\n在default.latex里添加中文字体支持\r\n\r\n```\r\n\\usepackage{fontspec}   % 允許設定字體\r\n  \\usepackage{xeCJK}    % 分開設置中英文字型\r\n  \\setCJKmainfont{SimSun}   % 設定中文字型\r\n  \\setmainfont{Vollkorn}  % 設定英文字型\r\n  \\setromanfont{Vollkorn}   % 字型\r\n  \\setmonofont{Courier New}\r\n  \\linespread{1.2}\\selectfont   % 行距\r\n```\r\n\r\n这样下来转换的时候不使用指定的template，使用的就是default模板。例如\r\n\r\n```bash\r\npandoc --pdf-engine=xelatex newfile.md -o newfile.pdf\r\n```","excerpt":" 由于最近需要把markdown文件导出为pdf并且需要用到latex的行内的数学公式，只用typora无法做到，于是开始使用pandoc。问题是pandoc中在从md转pdf的时候需要手动设置中文，否则会有转换问题。这个坑查了很久，最终从一个pandoc模板里得到了解决方法。  系统：","prevPost":{"title":"B站反查用户弹幕小记","link":"/posts/B站反查用户弹幕小记"},"nextPost":{"title":"Welcome to sansui's blog","link":"/posts/welcome"},"headings":[]},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"使用pandoc转换md为PDF并添加中文支持"},"buildId":"LLuauLH8Z-wQHWRMaQxKt","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

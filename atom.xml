@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-11-02T14:23:59.994Z</updated>
+    <updated>2023-11-02T16:21:07.174Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -21,8 +21,9 @@
         <updated>2023-10-29T01:16:00.000Z</updated>
         <content type="html"><![CDATA[<h2>2023-11-02 22:20:54</h2>
 <p>#工具 IPA签名工具：<a href="https://esign.yyyue.xyz/">轻松签</a>。</p>
-<p>今日重要新闻：Clash for windows 删库。原因是内置的机场广告相关人员被抓，工具作者自然受牵连。</p>
-<p>对不起我写着写着代码又开始画画了……这次是一个能画完的独立故事！不是片段了！加油！</p>
+<p>今日重要新闻：Clash for windows 删库。原因是10月28日在 twitter(x) 晒了车牌号？工具作者受牵连。</p>
+<p>对不起我写着写着代码又开始画画了……这次是一个能画完的独立故事！不是片段了！加油！不加戏的话，九图可以画完！但我是真的会一边画一边加戏……</p>
+<p>啊好肝，肝起来根本没有时间写论文。</p>
 <h2>2023-11-02 03:39:17</h2>
 <p>说来面包推荐了一下 <a href="https://github.com/shuding/nextra">nextra</a>，我哭了，这不就是，我要的60%的功能都有，在这重复造啥轮子呢……</p>
 <p>然后想看看他们 rehype 这一圈的文件是怎么组织的，学一学，要被这生态圈里类型不一致问题和版本兼容性问题搞疯了（真的先学后端语言的人会有强类型强迫症）。</p>

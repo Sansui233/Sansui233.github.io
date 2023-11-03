@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-11-02T16:21:07.174Z</updated>
+    <updated>2023-11-03T14:51:58.113Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -16,12 +16,14 @@
     <rights>All rights reserved 2022, Sansui</rights>
     <entry>
         <title type="html"><![CDATA[碎碎念001]]></title>
-        <id>https://sansui233.com/memos?id=2023-10-29 09:16</id>
+        <id>https://sansui233.com/memos?id=2023-11-04 06:49</id>
         <link href="https://sansui233.com/memos"/>
-        <updated>2023-10-29T01:16:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2023-11-02 22:20:54</h2>
+        <updated>2023-11-03T22:49:00.000Z</updated>
+        <content type="html"><![CDATA[<h2>2023-11-03 22:50:03</h2>
+<p>今天是 Clash 全系删库的一天。</p>
+<h2>2023-11-02 22:20:54</h2>
 <p>#工具 IPA签名工具：<a href="https://esign.yyyue.xyz/">轻松签</a>。</p>
-<p>今日重要新闻：Clash for windows 删库。原因是10月28日在 twitter(x) 晒了车牌号？工具作者受牵连。</p>
+<p>今日重要新闻：Clash for windows 删库。原因不知道。有说是晒车牌的，有说是推发了太多个人信息的，有说是内置机场被抓的。</p>
 <p>对不起我写着写着代码又开始画画了……这次是一个能画完的独立故事！不是片段了！加油！不加戏的话，九图可以画完！但我是真的会一边画一边加戏……</p>
 <p>啊好肝，肝起来根本没有时间写论文。</p>
 <h2>2023-11-02 03:39:17</h2>
@@ -104,15 +106,9 @@
 <p>说着说着又开始分析数据了……我想说的其实是，如果所有的坑都能有办法延续就好了。我也想过，会不会有一种写故事模式，类似开源软件，由 maintainer 去 pull request 支线故事。但这个点子刚冒头，我就掐了。</p>
 <p>“您是否在找：SCP基金会？”</p>
 <p>软件没有那么多因果论，可以这么做模块化。但故事不行，大家需要的只是一个完整的、前后通顺的、精彩的故事，碎片化的、很多的支线绝大多数情况都不是什么好事。你以为你是东方？是FGO？</p>
-<p>打字打了快一个小时，去吃饭了，再见。</p>
-<h2>2023-10-12</h2>
-<p>啊，愁怅，写了2000字又写卡壳了。</p>
-<p>啊，原来是惆怅，不是愁怅。</p>
-<p>怎么收尾都不满意，太浮于表面，共情不到，也就体会不到。</p>
-<p>只有不同的设定、深刻的意义去想。但我写它的目的就是为了避开设定和意义去讲故事。</p>
-<p>但我同时一想，感情讲得很拉的故事、烂尾的故事、为了戏剧故意制造冲突的故事，也是不要太多……其实大家普遍都很废，嗯。完全真实的发展，叫生活，作为故事讲出来挺无聊。</p>]]></content>
+<p>打字打了快一个小时，去吃饭了，再见。</p>]]></content>
         <category label="Diary"/>
-        <published>2023-10-29T01:16:00.000Z</published>
+        <published>2023-11-03T22:49:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[重读《小王子》]]></title>

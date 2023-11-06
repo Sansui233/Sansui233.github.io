@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sun, 05 Nov 2023 23:08:38 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Nov 2023 08:59:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -31,7 +31,7 @@
 <p>对不起我写着写着代码又开始画画了……这次是一个能画完的独立故事！不是片段了！加油！不加戏的话，九图可以画完！但我是真的会一边画一边加戏……</p>
 <p>啊好肝，肝起来根本没有时间写论文。</p>
 <h2>2023-11-02 03:39:17</h2>
-<p>说来面包推荐了一下 <a href="https://github.com/shuding/nextra">nextra</a>，我哭了，这不就是，我要的60%的功能都有，在这重复造啥轮子呢……</p>
+<p>说来面包推荐了一下 <a href="https://github.com/shuding/nextra">nextra</a>，我哭了，这不就是，我要的 60% 的功能都有，在这重复造啥轮子呢……</p>
 <p>然后想看看他们 rehype 这一圈的文件是怎么组织的，学一学，要被这生态圈里类型不一致问题和版本兼容性问题搞疯了（真的先学后端语言的人会有强类型强迫症）。</p>
 <p>然后我就看到了：<code>// @ts-nocheck</code></p>
 <p>（手动拜拜微笑脸）</p>
@@ -42,11 +42,11 @@
       <span class="hljs-attr">opts</span>: jsxRuntime,
     },
     { frontmatter },
-    scope
-  )
+    scope,
+)
 </code></pre>
-<p>其中的 jsxRuntime 是通过process.env 动态获取的，也就是可以区分是生产还是在是 Dev。</p>
-<p>总结一下就是，核心功能包括 SSR 依赖的是 mdx.js，只要能传函数 render 为一个 RSC(React Server Components) 就可以了嗯……这个库只是包装了一下下静态渲染的功能，核心渲染还是 mdx.js 做的。mdx.js的解析核心又是unist……但比起解析我更想看 rsc 的底层是什么……我又不行了……</p>]]></content:encoded>
+<p>其中的 jsxRuntime 是通过 process.env 动态获取的，也就是可以区分是生产还是在是 Dev。</p>
+<p>总结一下就是，核心功能包括 SSR 依赖的是 mdx.js，只要能传函数 render 为一个 RSC (React Server Components) 就可以了嗯……这个库只是包装了一下下静态渲染的功能，核心渲染还是 mdx.js 做的。mdx.js 的解析核心又是unist……但比起解析我更想看 rsc 的底层是什么……我又不行了……</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>
@@ -115,7 +115,7 @@
             <category domain="https://sansui233.com/categories/书评">书评</category>
         </item>
         <item>
-            <title><![CDATA[Windows调整之中文字体]]></title>
+            <title><![CDATA[Windows 调整之中文字体]]></title>
             <link>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</link>
             <guid>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</guid>
             <pubDate>Fri, 29 Sep 2023 02:25:00 GMT</pubDate>
@@ -123,7 +123,7 @@
             <content:encoded><![CDATA[<blockquote>
 <p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
 </blockquote>
-<p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。但如今的显示器分辨率越来越高，旧版微软雅黑的设计存在着明显的缺陷。一是其字形设计并不平衡，中宫过大，有的字形可以以难看来形容；二是微软雅黑字形只在4K屏上有着准确的显示。如果你不巧像我一样用着2.5K屏，在ClearType的加持下，仔细观察资源管理器侧边栏中，“桌面”二字短横的间距并不平衡。</p>
+<p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。但如今的显示器分辨率越来越高，旧版微软雅黑的设计存在着明显的缺陷。一是其字形设计并不平衡，中宫过大，有的字形可以以难看来形容；二是微软雅黑字形只在4K屏上有着准确的显示。如果你不巧像我一样用着 2.5K 屏，在 ClearType 的加持下，仔细观察资源管理器侧边栏中，“桌面”二字短横的间距并不平衡。</p>
 <p>微软曾经设计过“另一版的微软雅黑”，即 Noble Scarlet，但不知出于何种原因并没有在正式的系统中使用。这一版字体设计依然中宫偏大，但相对老版收敛了不少，平衡了一些。据传言汉字部分是兰亭黑Pro。但这个字体在标点处理上很差，最直观的就是中文引号，太像西文的处理方式，很难看出前引号与后引号的区别。其实我在写这一篇文的时候，换了 Typora 的字体，才发现前后引号全打反了……</p>
 <p>个人推荐的配置和工具如下：</p>
 <ul>
@@ -133,8 +133,8 @@
 <li>安装一个 <strong>苹方</strong>。有一些中文网站 Fallback Font 也是苹方在前。由于版权原因无官方公开链接，需自行搜索。浏览器对于字体的渲染不受 MacType 的影响，在PPI不足的情况下，浏览器的渲染是偏细的，默认设置还得是微软雅黑。</li>
 <li><strong><a href="https://source.typekit.com/source-han-serif/cn/">思源宋体</a></strong>：推荐将浏览器的 Serif 字体设置为此字体。默认的宋体真的，不论中文英文，都很丑……只适合打印。</li>
 </ul>
-<p>苹方是一款设计上很优秀的字体，但它对于低 PPI 的显示器不友好，人话说，不是4K屏缩放200%都别用。首先苹方粗体相对其他黑体本身就较细，在ClearType下，苹方被削掉的细节使得其字重偏小，Bold 看起来像 Medium。另外，苹方在2.5K屏上表现非常糊，毕竟苹方问世时已经 Retina 屏已经出了好久了，人家压根没考虑过在低 PPI 屏幕上的表现。最后是版权问题，当然苹果大概不会因为这点事起诉个人用户。</p>
-<p>更纱黑体也非常适合作为 windows 的系统字体，在1080p 和 2.5k 下都能保证良好的清晰度。相比起微软的两款字体，更纱黑体可以称得上是秀气了，但汉字覆盖率不如系统级别的字体。自己看下来，更纱黑体与思源黑体设计的细节不太统一，比如“用”字明显矮了一截，使句子看起来不太稳定。但是在宋体设计上，“用”字矮的这一截反而让字体看起来平衡。一个系列的字体的统一感和比例关系又很大，个人理解为思源/更纱系列是优先考虑宋体的字形，但也不是传统的宋体字形，和黑体的比例有一定的结合。整体而言还是宋体的设计更加优秀。</p>
+<p>苹方是一款设计上很优秀的字体，但它对于低 PPI 的显示器不友好，人话说，不是4K屏缩放200%都别用。首先苹方粗体相对其他黑体本身就较细，在ClearType下，苹方被削掉的细节使得其字重偏小，Bold 看起来像 Medium。另外，苹方在 2.5K 屏上表现非常糊，毕竟苹方问世时已经 retina 屏已经出了好久了，人家压根没考虑过在低 PPI 屏幕上的表现。最后是版权问题，当然苹果大概不会因为这点事起诉个人用户。</p>
+<p>更纱黑体也非常适合作为 windows 的系统字体，在 1080p 和 2.5k 下都能保证良好的清晰度。相比起微软的两款字体，更纱黑体可以称得上是秀气了，但汉字覆盖率不如系统级别的字体。自己看下来，更纱黑体与思源黑体设计的细节不太统一，比如“用”字明显矮了一截，使句子看起来不太稳定。但是在宋体设计上，“用”字矮的这一截反而让字体看起来平衡。一个系列的字体的统一感和比例关系又很大，个人理解为思源/更纱系列是优先考虑宋体的字形，但也不是传统的宋体字形，和黑体的比例有一定的结合。整体而言还是宋体的设计更加优秀。</p>
 <p>思源黑体作为更纱黑体的前辈，是不太适合低 ppi 屏的，它的 Regular 字重看起来像 Bold。</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
@@ -208,7 +208,7 @@
             <category domain="https://sansui233.com/categories/游戏">游戏</category>
         </item>
         <item>
-            <title><![CDATA[Windows调整之基础功能与常用插件]]></title>
+            <title><![CDATA[Windows 调整之基础功能与常用插件]]></title>
             <link>https://sansui233.com/posts/2023-08-30-windows-tweak-and-enhancement</link>
             <guid>https://sansui233.com/posts/2023-08-30-windows-tweak-and-enhancement</guid>
             <pubDate>Wed, 30 Aug 2023 09:42:00 GMT</pubDate>
@@ -306,7 +306,7 @@
             <guid>https://sansui233.com/posts/20230822-Super_resolution_models_and_tools</guid>
             <pubDate>Tue, 22 Aug 2023 22:20:00 GMT</pubDate>
             <description><![CDATA[AI图像放大模型+工具推荐]]></description>
-            <content:encoded><![CDATA[<p><del>推特</del>，现在叫X.com，是我的桌面壁纸来源，但是推特的图压缩得非常糊，喜欢的动画人基本也只传 1080p 图，导致壁纸糊上加糊。因此需要使用 AI 放大模型进行图像处理。</p>
+            <content:encoded><![CDATA[<p><del>推特</del>，现在叫 X.com，是我的桌面壁纸来源，但是推特的图压缩得非常糊，喜欢的动画人基本也只传 1080p 图，导致壁纸糊上加糊。因此需要使用 AI 放大模型进行图像处理。</p>
 <ul>
 <li>放大效果外链预览：<a href="https://imgsli.com/MjAwMDcx">Comparison</a></li>
 <li>细节对比：<br/>
@@ -349,7 +349,7 @@
 <ul>
 <li>下载链接：<a href="https://openmodeldb.info/models/4x-AnimeSharp">AnimeSharp - OpenModelDB</a></li>
 </ul>
-<p>OpenModelDB.info 上有更多的微调模型，可以试试。总体来说，AI 放大的图像质量目前来说还是乍一看可以，涉及商用美术的话质量仍然不过关。<del>如果商用美术能过关，岂不是能画糊图然后丢AI出高精图了。</del> 作为壁纸放大非常合适，即便是补充的细节不能推敲，但把像素精度补齐到屏幕分辨率带来的视觉提升也是非常大的。4k壁纸就是比1080p看起来舒服。</p>
+<p>OpenModelDB.info 上有更多的微调模型，可以试试。总体来说，AI 放大的图像质量目前来说还是乍一看可以，涉及商用美术的话质量仍然不过关。<del>如果商用美术能过关，岂不是能画糊图然后丢AI出高精图了。</del> 作为壁纸放大非常合适，即便是补充的细节不能推敲，但把像素精度补齐到屏幕分辨率带来的视觉提升也是非常大的。4k 壁纸就是比 1080p 看起来舒服。</p>
 <h2>如何使用</h2>
 <p>使用 chaiNNer 时可照抄下图结构，使用 4x-AnimeSharp 模型放大原图、重命名图片并保存。</p>
 <p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/picgo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-22%20213633.jpg" alt="chaiNNer"/></p>

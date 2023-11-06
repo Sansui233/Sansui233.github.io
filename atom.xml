@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-11-06T11:16:13.599Z</updated>
+    <updated>2023-11-06T11:36:05.789Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -19,7 +19,11 @@
         <id>https://sansui233.com/memos?id=2023-11-04 06:49</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2023-11-03T22:49:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2023-11-05 21:04:56</h2>
+        <content type="html"><![CDATA[<h2>2023-11-06 19:18:22</h2>
+<p>突然好喜欢可爱的字体哇~</p>
+<p>好想用 consolas 做 UI font，这个有点可爱气质的打字机字体竟然意外适合，找不到任何一个替代品。可惜 mono font 因为等宽空格的关系，中英混排不行。我又是一个非常喜欢在中英文之间打空格的人。最后还是折中用了万能的 IBM Plex Sans。IBM Plex Sans 正文无敌强，和中文搭配也非常好。但是写 UI 的话就显得有点挤了。</p>
+<p>UI 字体要和 正文搭起来挺难的。英文字体的搭配主要看几个基线，还有宽度和间距。基本比例一样的都行。但在不同字体间，要找比例一致字体的是一件极其困难的事，因为很容易没特色。</p>
+<h2>2023-11-05 21:04:56</h2>
 <p>以一个极其复杂的方式解决了 <span class="tag">#mdx </span>渲染后的标签点击事件绑定问题。因为这不是 html 原生标签的替换，就有一点点麻烦。最后是从自定义 remark 的 AST 入手，直接解析后转换标签为对应的 estree 节点，再加上三次传 clickhandler，闭包持有 clickhandler，进行元素替换，终于绑上了……不愿再来一次，有这种需求应该直接写一个替换的框架。</p>
 <p>所以我终于可以进行下一步了吗，写 img 相关的组件。但是其实 memo 后端 parse 还有bug，突然到某一条就停了。重构了之后 bug 真的多……search组件还没统一拆出来呢，可以说是因为不会……但主要还是设计问题，没有想好移动端和桌面端怎么做才能统一，不要渲染两遍……还有目录，目录又应该放哪。目录和导航，选一个没吧……</p>
 <h2>2023-11-05 02:51:44</h2>
@@ -38,19 +42,7 @@
 <p>说来面包推荐了一下 <a href="https://github.com/shuding/nextra">nextra</a>，我哭了，这不就是，我要的 60% 的功能都有，在这重复造啥轮子呢……</p>
 <p>然后想看看他们 rehype 这一圈的文件是怎么组织的，学一学，要被这生态圈里类型不一致问题和版本兼容性问题搞疯了（真的先学后端语言的人会有强类型强迫症）。</p>
 <p>然后我就看到了：<code>// @ts-nocheck</code></p>
-<p>（手动拜拜微笑脸）</p>
-<h2>2023-11-01 03:33:06</h2>
-<p>看了一下 <a href="https://github1s.com/hashicorp/next-mdx-remote/blob/HEAD/src/rsc.tsx">next-mdx-remote</a> 的 SSG 实现，汗，原来 getStaticProps 直接传的函数字符串。然后用渲染时还原函数。相当于函数的序列化与反序列化吧……</p>
-<pre><code class="hljs language-ts"><span class="hljs-keyword">const</span> fullScope = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">assign</span>(
-    {
-      <span class="hljs-attr">opts</span>: jsxRuntime,
-    },
-    { frontmatter },
-    scope,
-)
-</code></pre>
-<p>其中的 jsxRuntime 是通过 process.env 动态获取的，也就是可以区分是生产还是在是 Dev。</p>
-<p>总结一下就是，核心功能包括 SSR 依赖的是 mdx.js，只要能传函数 render 为一个 RSC (React Server Components) 就可以了嗯……这个库只是包装了一下下静态渲染的功能，核心渲染还是 mdx.js 做的。mdx.js 的解析核心又是unist……但比起解析我更想看 rsc 的底层是什么……我又不行了……</p>]]></content>
+<p>（手动拜拜微笑脸）</p>]]></content>
         <category label="Diary"/>
         <published>2023-11-03T22:49:00.000Z</published>
     </entry>

@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 08 Nov 2023 13:32:38 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 08 Nov 2023 14:11:57 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,12 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-08 01:30:55</h2>
+            <content:encoded><![CDATA[<h2>2023-11-08 21:54:39</h2>
+<p>简单糊了一下图片浏览器移动端的交互，不是很有细节，但能用。实现方式也不是我满意的，要滑动不闪屏一定得要三个容器，现在只有一个。但 bug 终于修没了……</p>
+<p>但是桌面端……emmm 加了 touchevent 就没了桌面端的交互啊……汗，真要做好的话，事件还要先看设备再绑定，touch 和 mouse 的实现逻辑不一样。</p>
+<p>但但但又但是，你也不能说支持 touch 的设备就不绑定 click 事件了。因为有一种设备叫触屏笔记本。</p>
+<p>有人会说绑 pointer 不就好了。耐思，我本来也是这么想的，因为我最开始绑的就是pointer。直到我发现 pointerUp 在 safari 上基本是不能用的状态，cancel 和 leave 也一样，pointer 事件的触发过程远远没有 touch 事件稳定……</p>
+<h2>2023-11-08 01:30:55</h2>
 <p><span class="tag">#react </span>想要自定义 hook，但里面有依赖怎么办？react 不能检测 custom hook 的 dep 嵌套问题。</p>
 <p>看了 stackoverflow，发现确实可以解决，但写起来和有那个大病似的。</p>
 <pre><code class="hljs language-ts"><span class="hljs-comment">// my hook</span>
@@ -62,9 +67,7 @@
 <p>scroll bar 好烦！！！还没有一个好的思路来处理 scroll bar 时隐时现导致样式shift的问题。</p>
 <h2>2023-11-04 21:43:14</h2>
 <p>看了一下 nextra 的解决方案…………额额额，他们重写了compiler，并没有用 mdx.js 原生的方法去 compile 成不可序列化的函数。他们的结果是可序列化的……不想重复造轮子。</p>
-<p>然后我又去搜了下 <a href="https://github.com/orgs/mdx-js/discussions/1980">discussion</a> ，又看了看 mdx.js 的 doc。才发现人家其实有函数的序列化和反序列化啊！但是不要看 Guide 里面说什么 Next 有自己的 mdx 方法，那个真的很鸡肋，非常鸡肋！最后搞定了，把巨大的 <a href="https://github1s.com/hashicorp/next-mdx-remote/blob/HEAD/src/rsc.tsx">next-mdx-remote</a> 移除了。这个库倒不是思路有问题，而是很久没有维护了导致不兼容新的插件。可能是 mdx.js 支持了所以停更了吧，没有考证，而且其实它做的事也不是很复杂，但引入的包是真的多，明明有 MDXProvider 但没有导出，又要多引入二十几个包……</p>
-<h2>2023-11-03 22:50:03</h2>
-<p>今天是 Clash 全系删库的一天。</p>]]></content:encoded>
+<p>然后我又去搜了下 <a href="https://github.com/orgs/mdx-js/discussions/1980">discussion</a> ，又看了看 mdx.js 的 doc。才发现人家其实有函数的序列化和反序列化啊！但是不要看 Guide 里面说什么 Next 有自己的 mdx 方法，那个真的很鸡肋，非常鸡肋！最后搞定了，把巨大的 <a href="https://github1s.com/hashicorp/next-mdx-remote/blob/HEAD/src/rsc.tsx">next-mdx-remote</a> 移除了。这个库倒不是思路有问题，而是很久没有维护了导致不兼容新的插件。可能是 mdx.js 支持了所以停更了吧，没有考证，而且其实它做的事也不是很复杂，但引入的包是真的多，明明有 MDXProvider 但没有导出，又要多引入二十几个包……</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

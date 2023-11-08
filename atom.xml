@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-11-08T14:11:57.240Z</updated>
+    <updated>2023-11-08T23:10:40.998Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -58,8 +58,8 @@
 <p>测试内容是多图条漫，两条的宽度还不一样哈哈。主要就是测一个极端的比例。已经不能开 typora 了，滑不到头简直要命。我的图上传前都有压缩过，先转 webp，然后压缩 80%。如果是尺寸大一点的图可以压 90%.</p>
 <p>……safari，你可真是666，长按后图片二进制就无了……那么大一张图在那，标准的html元素，按了就无了，这要我怎么debug……还有底部占空间……我还是先以桌面端为主吧，移动端只是个顺便。</p>
 <p>还有一些问题是如果工具要做的话，交互也要一块做。放大缩小拖动边界判定。移动端禁滚动。</p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/picgo/202311062132690.webp" alt="1"/>
-<img src="https://raw.githubusercontent.com/NamiLing/upic/master/picgo/202311062133783.webp" alt="2"/></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311062132690.webp" alt="1"/>
+<img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311062133783.webp" alt="2"/></p>
 <h2>2023-11-06 19:18:22</h2>
 <p>突然好喜欢可爱的字体哇~</p>
 <p>好想用 consolas 做 UI font，这个有点可爱气质的打字机字体竟然意外适合，找不到任何一个替代品。可惜 mono font 因为等宽空格的关系，中英混排不行。我又是一个非常喜欢在中英文之间打空格的人。最后还是折中用了万能的 IBM Plex Sans。IBM Plex Sans 正文无敌强，和中文搭配也非常好。但是写 UI 的话就显得有点挤了。</p>

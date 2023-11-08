@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 07 Nov 2023 16:36:10 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 08 Nov 2023 01:26:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,36 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-06 21:20:06</h2>
+            <content:encoded><![CDATA[<h2>2023-11-08 01:30:55</h2>
+<p><span class="tag">#react </span>想要自定义 hook，但里面有依赖怎么办？react 不能检测 custom hook 的 dep 嵌套问题。</p>
+<p>看了 stackoverflow，发现确实可以解决，但写起来和有那个大病似的。</p>
+<pre><code class="hljs language-ts"><span class="hljs-comment">// my hook</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">useHotKey</span>(<span class="hljs-params">command, listener, options</span>){
+  <span class="hljs-comment">/*do something, but how about listener contains extra deps?*/</span> 
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">useWrapper</span>(<span class="hljs-params">reactHookAsDep: <span class="hljs-built_in">any</span></span>){
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">()=&gt;</span>{},[reactHookAsDep])
+}
+
+<span class="hljs-comment">// in your component</span>
+<span class="hljs-title function_">useWrapper</span>(
+  <span class="hljs-title function_">useMemo</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-title function_">useHotKey</span>(command, listener, options) <span class="hljs-comment">// execute your real custom hook</span>
+  },[command, listener, option, extradep]) <span class="hljs-comment">// full check for all deps</span>
+)
+</code></pre>
+<p>如果不想定义wrapper，那就在组件里直接 useEffect 再 usememo ……没想到吧，dep 参数还能这么用！但依然有 warning，说 dependency 太复杂了</p>
+<pre><code class="hljs language-ts"><span class="hljs-comment">// in your component</span>
+<span class="hljs-title function_">useEffect</span>(()={},[
+  <span class="hljs-title function_">useMemo</span>(<span class="hljs-function">()=&gt;</span>{
+    <span class="hljs-keyword">const</span> <span class="hljs-title function_">listener</span> = (<span class="hljs-params"></span>) =&gt; { <span class="hljs-comment">/*do something with extra deps*/</span> }
+    <span class="hljs-title function_">useHotKey</span>(command, listener, options) <span class="hljs-comment">// execute your real custom hook</span>
+  },[command, option, extradep])
+])
+</code></pre>
+<p>我的评价还是有病，新人看不懂的写法类型。宁愿关 warning，发现有状态不刷新的 bug 再调都行……主要还是得靠理解和代码习惯，不然你 lint 倒是直接禁止在顶层调用参数有 function 的 usehook 啊……新人写那还不是直接用，谁会上来就知道套娃写……</p>
+<h2>2023-11-06 21:20:06</h2>
 <p>这是一条有关于 <span class="tag">#博客 </span>图片组件的交互测试。 #漫画</p>
 <p>测试内容是多图条漫，两条的宽度还不一样哈哈。主要就是测一个极端的比例。已经不能开 typora 了，滑不到头简直要命。我的图上传前都有压缩过，先转 webp，然后压缩 80%。如果是尺寸大一点的图可以压 90%.</p>
 <p>……safari，你可真是666，长按后图片二进制就无了……那么大一张图在那，标准的html元素，按了就无了，这要我怎么debug……还有底部占空间……我还是先以桌面端为主吧，移动端只是个顺便。</p>
@@ -35,12 +64,7 @@
 <p>看了一下 nextra 的解决方案…………额额额，他们重写了compiler，并没有用 mdx.js 原生的方法去 compile 成不可序列化的函数。他们的结果是可序列化的……不想重复造轮子。</p>
 <p>然后我又去搜了下 <a href="https://github.com/orgs/mdx-js/discussions/1980">discussion</a> ，又看了看 mdx.js 的 doc。才发现人家其实有函数的序列化和反序列化啊！但是不要看 Guide 里面说什么 Next 有自己的 mdx 方法，那个真的很鸡肋，非常鸡肋！最后搞定了，把巨大的 <a href="https://github1s.com/hashicorp/next-mdx-remote/blob/HEAD/src/rsc.tsx">next-mdx-remote</a> 移除了。这个库倒不是思路有问题，而是很久没有维护了导致不兼容新的插件。可能是 mdx.js 支持了所以停更了吧，没有考证，而且其实它做的事也不是很复杂，但引入的包是真的多，明明有 MDXProvider 但没有导出，又要多引入二十几个包……</p>
 <h2>2023-11-03 22:50:03</h2>
-<p>今天是 Clash 全系删库的一天。</p>
-<h2>2023-11-02 22:20:54</h2>
-<p><span class="tag">#工具 </span>IPA签名工具：<a href="https://esign.yyyue.xyz/">轻松签</a>。</p>
-<p>今日重要新闻：Clash for windows 删库。原因不知道。有说是晒车牌的，有说是推发了太多个人信息的，有说是内置机场被抓的。</p>
-<p>对不起我写着写着代码又开始画画了……这次是一个能画完的独立故事！不是片段了！加油！不加戏的话，九图可以画完！但我是真的会一边画一边加戏……</p>
-<p>啊好肝，肝起来根本没有时间写论文。</p>]]></content:encoded>
+<p>今天是 Clash 全系删库的一天。</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

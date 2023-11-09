@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 09 Nov 2023 00:13:34 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 09 Nov 2023 00:22:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -16,11 +16,11 @@
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>2023-11-09 08:04:19</h2>
-<p>即便是用的 windows，批处理脚本还是 bash。写博客的流程还是没什么变化。</p>
-<p>以前在 mac 上时，就是 typora 写，alfred 动作一键上传。</p>
-<p>现在在 win 上，还是 typora 写，Listary 动作一键上传。</p>
-<p>连上传脚本都还是 .sh。ps1 和 bat 都不熟，问 chatgpt 的结果也有权限问题，太难用了。</p>
-<p>不同的是，自从把 memos 模块做起来，我的碎碎念变多了。终于不用往大眼和推特倒垃圾了。</p>
+<p>即便是用的 windows，批处理脚本还是 bash。写博客的流程还是没什么变化。<br/>
+以前在 mac 上时，就是 typora 写，alfred 动作一键上传。<br/>
+现在在 win 上，还是 typora 写，Listary 动作一键上传。<br/>
+连上传脚本都还是 .sh。ps1 和 bat 都不熟，问 chatgpt 的结果也有权限问题，太难用了。<br/>
+不同的是，自从把 memos 模块做起来，我的碎碎念变多了。终于不用往大眼和推特倒垃圾了。</p>
 <h2>2023-11-08 21:54:39</h2>
 <p>简单糊了一下图片浏览器移动端的交互，不是很有细节，但能用。实现方式也不是我满意的，要滑动不闪屏一定得要三个容器，现在只有一个。但 bug 终于修没了……</p>
 <p>但是桌面端……emmm 加了 touchevent 就没了桌面端的交互啊……汗，真要做好的话，事件还要先看设备再绑定，touch 和 mouse 的实现逻辑不一样。</p>

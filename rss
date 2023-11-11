@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 09 Nov 2023 10:33:52 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 11 Nov 2023 13:55:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,16 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-09 18:33:17</h2>
+            <content:encoded><![CDATA[<h2>2023-11-11 21:26:00</h2>
+<p>诶居然是双十一。什么都没买，不知道要买什么。</p>
+<p>我又重构了……不过上次是服务端的底层，这次是客户端的。因为我觉得总有一天，我是会用到数据库的，先把接口的形状调整好吧。然后做成无限滚动的。感觉一小条一小条的东西还是能无限滚动比较过瘾。</p>
+<p>然后就是无限滚动的 virual list 实现，两年前我写 fgo 的工具时也有写过，但那个是定高的，动态高度的当时没思路。</p>
+<p>然后我看了一眼推特，推特是监听resize事件直接注入transform的。我觉得很神奇，前面没有加载的元素的高度占用是怎么算的……？</p>
+<p>然后我又看了一眼……前面消失的元素没法算。前向加载时已有元素的 translateY 也一直在变化。</p>
+<p>我大概是想到了做法。每次重新渲染前面的会对比已经之前的 place holder height，有变化的话说明窗口 resize 过，后面的元素也要跟着一起更新。よいよい，真好，我学。</p>
+<p>微博是有一个recycle scroller，相册滚动也是这么个思路。而且微博宽度是定宽的，也就是上高度不会有任何shift，实现起来会简单很多。</p>
+<p>那还是学推特吧，主要是响应式做到底。</p>
+<h2>2023-11-09 18:33:17</h2>
 <p>“我去做点危险的事情，顺便去个世。死了就是我该死，没死就是罪不至死。”</p>
 <h2>2023-11-09 16:54:32</h2>
 <p>卧槽，仲尼去世了……我很不喜欢的简中的舆论环境，特别是娱乐版块。动不动就死全家。可能能上网的小孩子太多了。</p>
@@ -36,7 +45,8 @@
 以前在 mac 上时，就是 typora 写，alfred 动作一键上传。<br/>
 现在在 win 上，还是 typora 写，Listary 动作一键上传。<br/>
 连上传脚本都还是 .sh。ps1 和 bat 都不熟，问 chatgpt 的结果也有权限问题，太难用了。<br/>
-不同的是，自从把 memos 模块做起来，我的碎碎念变多了。终于不用往大眼和推特倒垃圾了。</p>
+不同的是，自从把 memos 模块做起来，我的碎碎念变多了。终于不用往大眼和推特倒垃圾了。<br/>
+当然我觉得用静态网页灌水的群体也很少，可能也只有我一个吧哈哈，毕竟我买不起稳定的服务器嘛。这么写博客的人，首先得是会 markdown 的基本语法，然后要会一种不用开终端就一键发布博客的方法（开终端真的很废时间</p>
 <h2>2023-11-08 21:54:39</h2>
 <p>简单糊了一下图片浏览器移动端的交互，不是很有细节，但能用。实现方式也不是我满意的，要滑动不闪屏一定得要三个容器，现在只有一个。但 bug 终于修没了……</p>
 <p>但是桌面端……emmm 加了 touchevent 就没了桌面端的交互啊……汗，真要做好的话，事件还要先看设备再绑定，touch 和 mouse 的实现逻辑不一样。</p>
@@ -77,11 +87,7 @@
 <p>……safari，你可真是666，长按后图片二进制就无了……那么大一张图在那，标准的html元素，按了就无了，这要我怎么debug……还有底部占空间……我还是先以桌面端为主吧，移动端只是个顺便。</p>
 <p>还有一些问题是如果工具要做的话，交互也要一块做。放大缩小拖动边界判定。移动端禁滚动。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311062132690.webp" alt="1"/>
-<img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311062133783.webp" alt="2"/></p>
-<h2>2023-11-06 19:18:22</h2>
-<p>突然好喜欢可爱的字体哇~</p>
-<p>好想用 consolas 做 UI font，这个有点可爱气质的打字机字体竟然意外适合，找不到任何一个替代品。可惜 mono font 因为等宽空格的关系，中英混排不行。我又是一个非常喜欢在中英文之间打空格的人。最后还是折中用了万能的 IBM Plex Sans。IBM Plex Sans 正文无敌强，和中文搭配也非常好。但是写 UI 的话就显得有点挤了。</p>
-<p>UI 字体要和 正文搭起来挺难的。英文字体的搭配主要看几个基线，还有宽度和间距。基本比例一样的都行。但在不同字体间，要找比例一致字体的是一件极其困难的事，因为很容易没特色。IBM Plex Sans 和 arial 的比例就非常接近，只有宽度和风格区别。</p>]]></content:encoded>
+<img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311062133783.webp" alt="2"/></p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>
@@ -175,8 +181,11 @@
 <li>安装一个 <strong>苹方</strong>。有一些中文网站 Fallback Font 也是苹方在前。由于版权原因无官方公开链接，需自行搜索。浏览器对于字体的渲染不受 MacType 的影响，在PPI不足的情况下，浏览器的渲染是偏细的，默认设置还得是微软雅黑。</li>
 <li><strong><a href="https://source.typekit.com/source-han-serif/cn/">思源宋体</a></strong>：推荐将浏览器的 Serif 字体设置为此字体。默认的宋体真的，不论中文英文，都很丑……只适合打印。</li>
 </ul>
-<p>苹方是一款设计上很优秀的字体，但它对于低 PPI 的显示器不友好，人话说，不是4K屏缩放200%都别用。首先苹方粗体相对其他黑体本身就较细，在 ClearType 下，苹方被削掉的细节使得其字重偏小，Bold 看起来像 Medium。另外，苹方在 2.5K 屏上表现非常糊，毕竟苹方问世时已经 Retina 屏已经出了好久了，人家压根没考虑过在低 PPI 屏幕上的表现。最后是版权问题，当然苹果大概不会因为这点事起诉个人用户。</p>
-<p>更纱黑体也非常适合作为 windows 的系统字体，在 1080p 和 2.5k 下都能保证良好的清晰度。相比起微软的两款字体，更纱黑体可以称得上是秀气了，但汉字覆盖率不如系统级别的字体。自己看下来，更纱黑体与思源黑体设计的细节不太统一，比如“用”字明显矮了一截，使句子看起来不太稳定。但是在宋体设计上，“用”字矮的这一截反而让字体看起来平衡。一个系列的字体的统一感和比例关系又很大，个人理解为思源/更纱系列是优先考虑宋体的字形，但也不是传统的宋体字形，和黑体的比例有一定的结合。整体而言还是宋体的设计更加优秀。</p>
+<p>苹方是一款设计上很优秀的字体，但它对于低 PPI 的显示器不友好，人话说，不是4K屏缩放200%都别用。</p>
+<p>首先苹方粗体相对其他黑体本身就较细，在 ClearType 下，苹方被削掉的细节使得其字重偏小，Bold 看起来像 Medium。</p>
+<p>另外，苹方在 2.5K 屏上表现非常糊，毕竟苹方问世时已经 Retina 屏已经出了好久了，人家压根没考虑过在低 PPI 屏幕上的表现。最后是版权问题，当然苹果大概不会因为这点事起诉个人用户。</p>
+<p>更纱黑体也非常适合作为 windows 的系统字体，在 1080p 和 2.5k 下都能保证良好的清晰度。相比起微软的两款字体，更纱黑体可以称得上是秀气了，但汉字覆盖率不如系统级别的字体。</p>
+<p>自己看下来，更纱黑体与思源黑体设计的细节不太统一，比如“用”字明显矮了一截，使句子看起来不太稳定。但是在宋体设计上，“用”字矮的这一截反而让字体看起来平衡。一个系列的字体的统一感和比例关系又很大，个人理解为思源/更纱系列是优先考虑宋体的字形，但也不是传统的宋体字形，和黑体的比例有一定的结合。整体而言还是宋体的设计更加优秀。</p>
 <p>思源黑体作为更纱黑体的前辈，是不太适合低 ppi 屏的，它的 Regular 字重看起来像 Bold。</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
@@ -343,6 +352,110 @@
             <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
         <item>
+            <title><![CDATA[关于 typescript 泛型中返回值类型约束的问题]]></title>
+            <link>https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322</link>
+            <guid>https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322</guid>
+            <pubDate>Wed, 30 Aug 2023 02:54:00 GMT</pubDate>
+            <description><![CDATA[关于 typescript 泛型中返回值类型约束的问题]]></description>
+            <content:encoded><![CDATA[<p>最近遇到这么一个需求。</p>
+<blockquote>
+<p>定义一个函数接口，要求其返回值类型是 type A 的任意超集。</p>
+</blockquote>
+<p>于是我按直觉写下了：</p>
+<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
+<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
+}
+</code></pre>
+<p>人来看非常简单知道是什么意思，就是返回值包含所有 a 的属性，其他属性全是可有可无的。</p>
+<p>这段代码扔给 GPT，它也看不出什么毛病。但事实上，在 return 时报了一个错：</p>
+<pre><code class="hljs language-text">Type &#x27;() =&gt; A&#x27; is not assignable to type &#x27;FuncA&#x27;.
+  Type &#x27;A&#x27; is not assignable to type &#x27;T&#x27;.
+    &#x27;A&#x27; is assignable to the constraint of type &#x27;T&#x27;, but &#x27;T&#x27; could be instantiated with a different subtype of constraint &#x27;A&#x27;.ts(2322)
+</code></pre>
+<p>这个报错非常的不 helpful。因为平时， typescript 可以根据返回值推测出具体函数标注。比如</p>
+<pre><code class="hljs language-ts"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>){
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;1&quot;</span>
+} <span class="hljs-comment">// 自动推断出函数的具体签名为 () =&gt; string</span>
+</code></pre>
+<p>那为什么上面的报错例子，不能做这样的推断呢？</p>
+<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
+<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
+} 
+<span class="hljs-comment">/* 推断出具体的签名类似于
+() =&gt; {
+  a: string;
+  [name: string]: any
+}
+*/</span>
+</code></pre>
+<p>也就是说，a 是必选属性，其他属性全是 optional。</p>
+<p>（先不讨论 Object 的 key 可以是 Symbol，只是为了看起来好理解，我只写了 string。要写全这里又要多写一个类型推断。）</p>
+<p>当然这里又引发了另一个问题：你为什么不直接把 type A 定义附加任意可选属性？</p>
+<p>好问题，这是一个正常的解决 TS2322 问题的思路。但是我就是想知道为什么泛型推断不能直接做这个……</p>
+<p>我查了很多资料，没有人完美解释这个问题。但有一个相似的问题：如何让参数和返回值持有相同的泛型类型？</p>
+<p>在 typescript 的 <a href="https://github.com/microsoft/TypeScript/issues/50027">github issue</a> 里有详细的案例说明，务必看看，很好懂，说是故意这么设计的。这里我将理由简短概括如下：</p>
+<blockquote>
+<p>如果 f 是上有一个额外的属性 prop，编译器如果推导出了返回值类型成 typeof f。之后你调用 f.prop，静态编译不会报错，但实际上有一个 runtime error，因为你的真实的返回值只是一个 <code>()=&gt;{}</code> ，没有prop 属性。</p>
+</blockquote>
+<p>但个人觉得这里静态编译应该报错，并不是一个 runtime 错误。前面说了，typescript 可以对返回值进行静态的类型的检查。以上面 issue 为例，理想的报错设计是长这样：</p>
+<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
+<span class="hljs-keyword">type</span> B = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
+
+<span class="hljs-comment">// 类型签名为 &lt;T extends A | B&gt;(value: T) =&gt; T 的实现</span>
+<span class="hljs-keyword">function</span> f1&lt;T <span class="hljs-keyword">extends</span> A | B&gt;(<span class="hljs-attr">value</span>: T): T {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {};  <span class="hljs-comment">// 推断出 T 此时是 typeof ()=&gt;{}，也就是 ()=&gt;{}</span>
+}
+
+<span class="hljs-keyword">let</span> <span class="hljs-attr">f</span>: <span class="hljs-built_in">any</span>= <span class="hljs-function">()=&gt;</span>{}
+f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha&quot;</span>
+
+<span class="hljs-title function_">f1</span>(f) <span class="hljs-comment">// 这里传参报错，因为 typeof f 和 typeof ()=&gt;{} 不一致。本质上就是 ts2322 描述的问题，但不应该在上面报错</span>
+</code></pre>
+<p>当然上面的例子返回值类型已经定了是 <code>typeof ()=&gt;{}</code>，返回值再标注 T 显得十分多此一举。但是 f1 对只是对这个函数签名的一种实现。完全可以实现对这个函数签名有不同的实现，返回不同的 subtype。</p>
+<blockquote>
+<p>什么是 subtype？T extends A，T 就是 A 的 subtype</p>
+</blockquote>
+<p>这又引发了另一个问题：这和函数重载有什么区别？</p>
+<p>当然有区别啊，最大的区别就是我能定义一个统一的函数接口，只要返回值满足最基本的约束 <code>A</code>。但可以是返回不同的 subtype，实现也分开写到不同的文件里，类似于 oop 语言中返回所有某基类的派生类。这才是完全体。</p>
+<p>但现在的 typescript 完全做不到这一点，返回值只能是一个非常具体的 type，要么就抛出一个毫无说服力的 ts2322 错误。</p>
+<p>如果要解决开头的问题，大概是以下三个思路：</p>
+<ul>
+<li>定义 A 时，把所有可能要用到的属性都写到可选属性里，或直接 <code>[name: string]: any</code>。</li>
+<li>考虑业务场景，其他未知属性不留下会影响到什么吗。99% 的场景是没有必要的，也就是说这个需求就是没意义的。剩下的 1% 我没有遇到/想到。</li>
+<li>根据输入参数的 T 写一个类型推导，手动将返回的类型设置为 a 的具体扩展类型。类似这样</li>
+</ul>
+<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Extend</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span>&gt; = {
+  [<span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>
+} &amp; {
+  [K <span class="hljs-keyword">in</span> keyof T]: T[K]
+}
+
+<span class="hljs-keyword">type</span> A  = {<span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span>}
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = <span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Extend</span>&lt;A&gt;
+<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span>, <span class="hljs-attr">b</span>:<span class="hljs-string">&quot;extra&quot;</span>} 
+} 
+<span class="hljs-title function_">f</span>().<span class="hljs-property">a</span> <span class="hljs-comment">// a is string</span>
+<span class="hljs-title function_">f</span>().<span class="hljs-property">b</span> <span class="hljs-comment">// b is any</span>
+</code></pre>
+<p>总之，在目前的 typescript 中，<strong>返回值类型不能是泛型</strong>。</p>
+<p>当然这样也失去了扩展的类型检查，等于是用了函数的签名来检查的，和返回值的类型一点关系也没有。</p>
+<p>现在 typescript 的静态检查器其实已经做了一些运行时的功能，比如条件语句判断以排除属性。但是，这些像运行时一样的检查只在静态类型不明确时才起作用。就这个 if，我已经遇到了好几次无法判断的 bug ，清空缓存并重启才恢复。</p>
+<p>说回第二点，既然你允许传了任意值，也就说明在你这个库中，你也不知道其他附加值具体是拿来干什么的，大多无非遍历一下再过滤一下。如果是静态类型检查器来遍历，诶诶扩展属性怎么全是 any。最终还得用 JS 的运行时来做这个事情……所以有拿来做什么的话早就在 A 里增加 optional 属性了。这也是为什么说 99% 的场景这个需求其实不存在。</p>
+<p>还有一个更重要的原因，那就是，ts 的类型体操，实在太他妈难写了。</p>
+<hr/>
+<p>可能没用的参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/56505560/how-to-fix-ts2322-could-be-instantiated-with-a-different-subtype-of-constraint">typescript - How to fix TS2322: &quot;could be instantiated with a different subtype of constraint &#x27;object&#x27;&quot;? - Stack Overflow</a></li>
+<li><a href="https://github.com/microsoft/TypeScript/issues/50027">Could be instantiated with a different subtype of constraint · Issue #50027 · microsoft/TypeScript</a></li>
+</ul>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/学习">学习</category>
+        </item>
+        <item>
             <title><![CDATA[图像超分辨率工具推荐]]></title>
             <link>https://sansui233.com/posts/20230822-Super_resolution_models_and_tools</link>
             <guid>https://sansui233.com/posts/20230822-Super_resolution_models_and_tools</guid>
@@ -352,7 +465,7 @@
 <ul>
 <li>放大效果外链预览：<a href="https://imgsli.com/MjAwMDcx">Comparison</a></li>
 <li>细节对比：<br/>
-<img src="https://raw.githubusercontent.com/NamiLing/upic/master/picgo/comparison.jpg" alt=""/></li>
+<img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/master/picgo/comparison.jpg" alt=""/></li>
 </ul>
 <p>文章分为三个部分：</p>
 <ul>
@@ -394,7 +507,7 @@
 <p>OpenModelDB.info 上有更多的微调模型，可以试试。总体来说，AI 放大的图像质量目前来说还是乍一看可以，涉及商用美术的话质量仍然不过关。<del>如果商用美术能过关，岂不是能画糊图然后丢AI出高精图了。</del> 作为壁纸放大非常合适，即便是补充的细节不能推敲，但把像素精度补齐到屏幕分辨率带来的视觉提升也是非常大的。4k 壁纸就是比 1080p 看起来舒服。</p>
 <h2>如何使用</h2>
 <p>使用 chaiNNer 时可照抄下图结构，使用 4x-AnimeSharp 模型放大原图、重命名图片并保存。</p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/picgo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-22%20213633.jpg" alt="chaiNNer"/></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/master/picgo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-22%20213633.jpg" alt="chaiNNer"/></p>
 <p>如果使用的是 <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui</a> ，Extra Network 选项卡中也有预置模型，可以使用 SwinIR 和 ESRGAN。</p>
 <hr/>
 <p>可能对您有用的资料：</p>
@@ -422,14 +535,14 @@
 <p>二次元目前主流三家 Anything Orange Counterfeit 。</p>
 <p>目前有不少混合了 2D 和 3D 的 2.5D 模型，用来出 cos 的，个人不喜欢。</p>
 <p>下图模型为 pastel-mix，图片画质已严重压缩（看不见则需要开代理，如果你用的 Innoreader 手机版阅读此文，大概率被放头图了）</p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/00153-2596022983-masterpiece,%20best%20quality,%20ultra-detailed,%20illustration,%201boy,%20Link%20in%20Breath%20of%20the%20wild,%20sun%20shine,water,%20on%20back,%20lying%20in%20wa.jpg" alt="pastel-mix"/></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/master/uPic/00153-2596022983-masterpiece,%20best%20quality,%20ultra-detailed,%20illustration,%201boy,%20Link%20in%20Breath%20of%20the%20wild,%20sun%20shine,water,%20on%20back,%20lying%20in%20wa.jpg" alt="pastel-mix"/></p>
 <h3>模型精度选择</h3>
 <p>fp-16(2G)，fp-32(4G)，full(7G) 用于生产没有肉眼可见的区别。full 主要是训练用的。fp16 生产够用了，快，占用小。</p>
 <p>bf-16(2G) 相对 fp-16 会损失一小部分细节，不推荐，会发布 bf-16 版本的模型也较少。</p>
 <h3>VAE权重网络</h3>
 <p>影响色彩，主观效果是增加饱和度（比修图软件饱和度增强好太多）。目前流行的 VAE 就两个，一个 Waifu 的一个 Anything 的，很多带 vae 模型都是用的这两个改了个名字。</p>
 <p>下图为 mix-pro-v3-fp16 模型，叠加了其配套的 WD vae 的 效果。</p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/00045-311454338-Original%20Characters,%201boy,%20sea%20shore,%20%20pastel-full.jpg" alt="Mix-pro-v3"/></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/master/uPic/00045-311454338-Original%20Characters,%201boy,%20sea%20shore,%20%20pastel-full.jpg" alt="Mix-pro-v3"/></p>
 <h3>Prompt</h3>
 <p>prompt（提示词）是玄学范围。不同模型的 prompt 词库不一，目前主流的词库有两个</p>
 <ul>
@@ -470,7 +583,7 @@
 <p>细化风格（画风）由模型决定，不由你的草稿决定。模型风格对于画风影响非常关键。Prompt 也可以影响画风。</p>
 <p>细化内容（画的具体是什么）由 Prompt 、草稿、模型共同决定，调整 CFG、Denoise 、 ControlNet 的 Weight 可改变三者比例。</p>
 <p>下图为自己的较草的线稿使用 ControlNet 与 Anything V3.0 上色：</p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/00275-3225619170-masterpiece,%20best%20quality,%20illustration,face,%20right%20hand,%20atomespheric,%20cold,%20sunshine,%20sky,,%20high%20detail,%20flowers%20and%20leafs.jpg" alt="Control-Net"/></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/master/uPic/00275-3225619170-masterpiece,%20best%20quality,%20illustration,face,%20right%20hand,%20atomespheric,%20cold,%20sunshine,%20sky,,%20high%20detail,%20flowers%20and%20leafs.jpg" alt="Control-Net"/></p>
 <p>（这个东西出名是因为某博说 ControlNet 初衷是洗稿……之前 Pixiv 也出过线稿上色的 AI，只是效果好和不好的差别，怎么没人说是搭配 PS 的线稿提取功能洗稿）</p>
 <h2>五、Lora</h2>
 <p>Lora 是一种训练小模型的方法，可以在 15 张图以上生成稳定的单个角色图。</p>
@@ -480,7 +593,7 @@
 <p>风格迁移渐渐成熟了，过拟合的问题在逐渐减少。减少过拟合的最终解决思路，还是把端到端的网络，按需求拆成了人为可控的 pipline。个人认为 AI 如果真的要作为工具，模块化的 pipline 是终点。</p>
 <p>直接出成图的是对已有作品的模拟，抽抽卡，融入不到创意的工作流。</p>
 <p>但是在发展好之前，地球可能已经枯竭了。</p>
-<p><img src="https://raw.githubusercontent.com/NamiLing/upic/master/uPic/00162-1748765688-masterpiece,%20best%20quality,%20ultra-detailed,%20illustration,%201boy,%20Link%20in%20Breath%20of%20the%20wild,%20stronde%20hair,%20sun%20shine,water,%20emotio.jpg" alt="pastel-mix"/></p>]]></content:encoded>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/master/uPic/00162-1748765688-masterpiece,%20best%20quality,%20ultra-detailed,%20illustration,%201boy,%20Link%20in%20Breath%20of%20the%20wild,%20stronde%20hair,%20sun%20shine,water,%20emotio.jpg" alt="pastel-mix"/></p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
         <item>
@@ -681,213 +794,6 @@ tar -xvf Cluster_1.tar.gz
 <hr/>
 <p>总得来说还是数学好的强啊。</p>
 <p>另外还有一个人非让我看完一个 30 分钟的高斯素数判断法，结果我一直在想 dp，搞得他怨念深重 hh</p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/学习">学习</category>
-        </item>
-        <item>
-            <title><![CDATA[理解 Rust 闭包与环境变量所有权]]></title>
-            <link>https://sansui233.com/posts/rust-closure-and-ownership</link>
-            <guid>https://sansui233.com/posts/rust-closure-and-ownership</guid>
-            <pubDate>Tue, 14 Jun 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[B站反查用户弹幕小记]]></description>
-            <content:encoded><![CDATA[<p>本文将以（自认为）最简单易懂的方式讲述 Rust 中的闭包与环境变量所有权的关系。在现存的类似中文教程中，要么语言表述歧义太大，逻辑上难以理清；要么试图把事情总结得过于复杂。实际上闭包对于环境变量所有权的处理规则是非常简单的。</p>
-<p>阅读本文需要的基础： Rust 变量的所有权、引用与借用、函数、traits。</p>
-<h2>什么是 Rust 的闭包</h2>
-<p>Rust 中的闭包是<strong>一种函数</strong>。与 Rust 普通函数不同，它可以<strong>捕获函数外部的变量并使用</strong>。</p>
-<p>基本语法：<code>|参数列表| {函数体}</code></p>
-<pre><code class="hljs language-rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">x</span> = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">sum</span> = |y: <span class="hljs-type">i32</span>| { x + y }; <span class="hljs-comment">// 说明： 闭包 sum 接收一个参数 y，且捕获前面的 x = 1, 返回 x + y</span>
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, <span class="hljs-title function_ invoke__">sum</span>(<span class="hljs-number">99</span>)); <span class="hljs-comment">// 输出 100</span>
-
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">sum2</span> = |y :<span class="hljs-type">i32</span>| x + y + <span class="hljs-number">1</span>; <span class="hljs-comment">// 也可以省略花括号</span>
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, <span class="hljs-title function_ invoke__">sum2</span>(<span class="hljs-number">99</span>)); <span class="hljs-comment">// 输出 101</span>
-}
-</code></pre>
-<blockquote>
-<p>说明： 闭包 sum 接收一个参数 y，返回 x + y。其中 x 是第一行定义的 <code>let x = 1;</code> ，为闭包外部的变量。</p>
-</blockquote>
-<p>像 <code>x</code> 这样在定义在闭包外部、可被闭包直接访问的变量，我们称为“<strong>环境变量</strong>”。</p>
-<h2>闭包中环境变量的所有权</h2>
-<p>有 rust 基础的人应该知道，普通的 rust 函数的传入参数有三种形式</p>
-<ol>
-<li>所有权 move（默认行为）。</li>
-<li>可变借用，形式为 <code>&amp;mut param</code></li>
-<li>不可变借用 ，形式为 <code>&amp;param</code></li>
-</ol>
-<blockquote>
-<p>上述为 rust 所有权基础知识，不再赘述。</p>
-</blockquote>
-<p>普通的 rust 函数可以使用参数，但无法使用环境变量。闭包则加上了 <strong>捕获当前环境变量</strong> 的功能。</p>
-<p><strong>捕获当前环境变量</strong> 仅仅是指闭包 “知道有哪些环境变量”。闭包在使用环境变量时，依然可能会对环境变量执行三种操作：</p>
-<ol>
-<li>所有权 move</li>
-<li>可变借用</li>
-<li>不可变借用</li>
-</ol>
-<p>具体是执行了哪种操作呢？这个问题就比较复杂了，我们可以从上面的例子出发。</p>
-<p>回顾上面的例子，对于环境变量 <code>x</code> ，首先排除了所有权 move。</p>
-<pre><code class="hljs language-rust">    <span class="hljs-keyword">let</span> <span class="hljs-variable">x</span> = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">sum</span> = |y: <span class="hljs-type">i32</span>| { x + y }; <span class="hljs-comment">// 使用了 x</span>
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, <span class="hljs-title function_ invoke__">sum</span>(<span class="hljs-number">99</span>)); <span class="hljs-comment">// 输出 100</span>
-
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">sum2</span> = |y :<span class="hljs-type">i32</span>| x + y + <span class="hljs-number">1</span>; <span class="hljs-comment">// 再次使用了 x</span>
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, <span class="hljs-title function_ invoke__">sum2</span>(<span class="hljs-number">99</span>)); <span class="hljs-comment">// 输出 101</span>
-</code></pre>
-<blockquote>
-<p>说明： <code>x</code> 在 sum1 中使用后，还能在 sum2 中再次使用，说明 <code>x</code> 所有权没有 move。</p>
-</blockquote>
-<p>实际上，上述例子的 <code>x</code> 在闭包中是作为 <strong>不可变借用</strong> 使用的，<strong>因为这个闭包实现了 <code>Fn</code> trait</strong>。</p>
-<h2>闭包的三种 traits</h2>
-<p>闭包是一种函数，它的三种 traits 恰好对应了三种处理所有权的方式。</p>
-<p>三种 traits 如下（划重点，请背下来）：</p>
-<ol>
-<li><code>FnOnce</code>：表示此闭包调用时会获取环境变量所有权（<strong>所有权 move</strong>)。因此取名 <code>FnOnce</code>，表示此闭包只能执行一次，因为再次执行时，环境变量可能由于之前所有权 move 过，已经没法用了。</li>
-<li><code>FnMut</code> ：表示此闭包调用时会对环境变量进行<strong>可变借用</strong>，可能会修改环境变量</li>
-<li><code>Fn</code> ： 表示此闭包调用时会对环境变量进行<strong>不可变借用</strong>，不会修改环境变量</li>
-</ol>
-<p>并且，<strong>一个闭包可以同时实现多个 traits</strong>。比如实现了 <code>Fn</code> 的闭包也一定实现了 <code>FnOnce</code> （后续解释）。</p>
-<p>上面是从“对环境变量如何处理所有权” 来解释三个 traits，大部分教程也是这么写，但个人并不推荐完全按这样去理解。因为上述表述中，三个 traits 看起来是互不重叠的（实际并非如此），导致可能会出现这样的疑问：</p>
-<blockquote>
-<p>“实现了 <code>Fn</code> 的闭包说是对环境变量进行了不可变借用，那怎么还能同时实现 <code>FnOnce</code> ，去获取环境变量的所有权呢？到底是仅仅进行不可变借用，还是获取了所有权呢？”</p>
-</blockquote>
-<p>但是看三个 traits 的源代码，可以直接回答上述问题：是不可变借用。虽然确实也实现了 <code>FnOnce</code>（所有权 move） ，但并没有调用 <code>FnOnce</code> 的 call 函数，而是调用了 <code>Fn</code>(不可变借用) 的 call 函数。</p>
-<pre><code class="hljs language-rust"><span class="hljs-keyword">pub</span> <span class="hljs-keyword">trait</span> <span class="hljs-title class_">Fn</span>&lt;Args&gt; : <span class="hljs-built_in">FnMut</span>&lt;Args&gt; {
-    <span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;rust-call&quot;</span> <span class="hljs-keyword">fn</span> <span class="hljs-title function_">call</span>(&amp;<span class="hljs-keyword">self</span>, args: Args) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">Self</span>::Output;
-}
-
-<span class="hljs-keyword">pub</span> <span class="hljs-keyword">trait</span> <span class="hljs-title class_">FnMut</span>&lt;Args&gt; : <span class="hljs-built_in">FnOnce</span>&lt;Args&gt; {
-    <span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;rust-call&quot;</span> <span class="hljs-keyword">fn</span> <span class="hljs-title function_">call_mut</span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, args: Args) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">Self</span>::Output;
-}
-
-<span class="hljs-keyword">pub</span> <span class="hljs-keyword">trait</span> <span class="hljs-title class_">FnOnce</span>&lt;Args&gt; {
-    <span class="hljs-keyword">type</span> <span class="hljs-title class_">Output</span>;
-
-    <span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;rust-call&quot;</span> <span class="hljs-keyword">fn</span> <span class="hljs-title function_">call_once</span>(<span class="hljs-keyword">self</span>, args: Args) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">Self</span>::Output;
-}
-</code></pre>
-<blockquote>
-<p>分析：如果 <code>FnOnce</code> 的 call 函数被调用，则直接传入了 <code>self</code> ，也就是获取了当前的环境变量的所有权，自然运行一次后回被销毁。而 <code>Fn</code> 的 call 函数传入的是不可变借用 <code>&amp;self</code>。</p>
-</blockquote>
-<p>并且会发现， <code>Fn</code> 的前提是实现了 <code>FnMut</code> , <code>FnMut</code> 的前提是实现了 <code>FnOnce</code> 。</p>
-<ul>
-<li>从继承关系来讲： <code>Fn</code> 继承 <code>FnMut</code> 继承 <code>FnOnce</code></li>
-<li>从访问变量的权限范围来讲： <code>Fn</code> &lt; <code>FnMut</code> &lt; <code>FnOnce</code></li>
-</ul>
-<p>也可以说，<strong>闭包就算实现了 <code>FnOnce</code> 也不一定会用到所有权 move，因为可能还实现了 <code>Fn</code> ，那么环境变量的所有权会按 <code>Fn</code> 处理</strong>。</p>
-<hr/>
-<p>由于上述继承关系，如果定义一个普通函数，参数需要传入 <code>FnOnce</code> ，实际上也可以传入 <code>Fn</code> 。</p>
-<pre><code class="hljs language-rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">fn_once</span>&lt;F&gt;(func: F)
-<span class="hljs-keyword">where</span>
-    F: <span class="hljs-title function_ invoke__">FnOnce</span>(<span class="hljs-type">usize</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">bool</span>, <span class="hljs-comment">// 传入闭包</span>
-{
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, <span class="hljs-title function_ invoke__">func</span>(<span class="hljs-number">3</span>));
-}
-
-<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">x</span> = <span class="hljs-built_in">vec!</span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">closure</span> = |z|{z == x.<span class="hljs-title function_ invoke__">len</span>()}; <span class="hljs-comment">// 此闭包实现了 Fn、 FnMut 和 FnOnce</span>
-    <span class="hljs-title function_ invoke__">fn_once</span>(closure); <span class="hljs-comment">// Fn 可传入标注为 FnOnce 的参数</span>
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{:?}&quot;</span>, x); <span class="hljs-comment">// x 还能用，所有权没转移</span>
-
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">closure2</span> = <span class="hljs-keyword">move</span> |z|{z == x.<span class="hljs-title function_ invoke__">len</span>()}; <span class="hljs-comment">//  此闭包只实现了 FnOnce，因为 x 被强制转移所有权到闭包内部</span>
-    <span class="hljs-title function_ invoke__">fn_once</span>(closure2); <span class="hljs-comment">// 传入 FnOnce</span>
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{:?}&quot;</span>, x); <span class="hljs-comment">// 报错，x 已经没了</span>
-}
-</code></pre>
-<blockquote>
-<p>说明：fn_once 需要接收 <code>FnOnce</code> 的闭包作为参数，但传入 <code>Fn</code> 也是合理的，编译器也会按照 <code>Fn</code> 的调用方式处理为不可变借用，并不会因为标注着 <code>FnOnce</code> 而变成所有权 move。</p>
-</blockquote>
-<blockquote>
-<p>闭包对所有权的处理并不会随着标注改变，标注仅仅是为了取悦编译器 ——鲁迅</p>
-</blockquote>
-<h2>闭包实现三种 traits</h2>
-<p>上述例子中，直接标注了闭包实现了三种 traits，但并没有具体说明为什么这么写就是实现了三种 traits。这是本节需要说明的内容。</p>
-<p>闭包实现 traits 是<strong>隐式</strong>的。也就是说，你不用（也没法）标注这个闭包是实现的哪个 traits。具体实现了哪些 traits 是根据你的闭包写法决定的。</p>
-<ol>
-<li>实现<code>FnOnce</code></li>
-</ol>
-<p>所有的闭包都自动实现了 <code>FnOnce</code> 。不用特别做什么。</p>
-<p>但更普遍的情况是，定义闭包时会顺带实现 <code>Fn</code> 或者 <code>FnMut</code> 。如果想要只实现 <code>FnOnce</code>，不要实现另外两个，需要用 <code>move</code> 。这个关键字会强制转移所有权，使闭包无法满足 <code>FnMut</code> 和 <code>Fn</code> 的条件。</p>
-<ul>
-<li>例：只实现了 <code>FnOnce</code> 的闭包</li>
-</ul>
-<pre><code class="hljs language-rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">x</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
-    
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">closure2</span> = <span class="hljs-keyword">move</span> |z|{z == x.<span class="hljs-title function_ invoke__">len</span>()}; <span class="hljs-comment">// 只实现了 FnOnce，所有权转移</span>
-    <span class="hljs-title function_ invoke__">closure2</span>(<span class="hljs-number">2</span>);
-    
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{:?}&quot;</span>, x); <span class="hljs-comment">// 报错，x 所有权被转移</span>
-}
-</code></pre>
-<ol start="2">
-<li>实现<code>FnMut</code></li>
-</ol>
-<p>在闭包中修改外部变量，即实现了 <code>FnMut</code> （自然也实现了 <code>FnOnce</code> ），同时没有实现 <code>Fn</code> 。</p>
-<pre><code class="hljs language-rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
-    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">x</span> = <span class="hljs-built_in">vec!</span>[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
-
-    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">closure</span> = ||{x.<span class="hljs-title function_ invoke__">push</span>(<span class="hljs-number">4</span>);}; <span class="hljs-comment">// 修改了外部的 x, 实现了 FnMut， x 所有权没有转移</span>
-    <span class="hljs-title function_ invoke__">closure</span>();
-    
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{:?}&quot;</span>, x);
-}
-</code></pre>
-<ol start="3">
-<li>实现<code>Fn</code></li>
-</ol>
-<p>在闭包中访问外部变量，不做任何修改，即实现了 <code>Fn</code> （自然也实现了 <code>FnMut</code> 和 <code>FnOnce</code>）。</p>
-<pre><code class="hljs language-rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">s</span> = <span class="hljs-type">String</span>::<span class="hljs-title function_ invoke__">new</span>();
-
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">update_string</span> =  || <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>,s); <span class="hljs-comment">// 访问外部的 s, 实现了 Fn</span>
-
-    <span class="hljs-title function_ invoke__">exec</span>(update_string);
-    <span class="hljs-title function_ invoke__">exec1</span>(update_string);
-    <span class="hljs-title function_ invoke__">exec2</span>(update_string);
-}
-
-<span class="hljs-keyword">fn</span> <span class="hljs-title function_">exec</span>&lt;F: <span class="hljs-title function_ invoke__">FnOnce</span>()&gt;(f: F)  { <span class="hljs-comment">// Fn 也可以传到 FnOnce 类型</span>
-    <span class="hljs-title function_ invoke__">f</span>() <span class="hljs-comment">// 调用的是 Fn，所有权不会转移</span>
-}
-
-<span class="hljs-keyword">fn</span> <span class="hljs-title function_">exec1</span>&lt;F: <span class="hljs-title function_ invoke__">FnMut</span>()&gt;(<span class="hljs-keyword">mut</span> f: F)  { <span class="hljs-comment">// Fn 也可以传到 FnMut 类型</span>
-    <span class="hljs-title function_ invoke__">f</span>()
-}
-
-<span class="hljs-keyword">fn</span> <span class="hljs-title function_">exec2</span>&lt;F: <span class="hljs-title function_ invoke__">Fn</span>()&gt;(f: F)  {
-    <span class="hljs-title function_ invoke__">f</span>()
-}
-</code></pre>
-<h2>闭包自身的所有权</h2>
-<p>上述讨论的是闭包对于环境变量的所有权处理。那闭包自己呢？当闭包自己作为变量被传来传去时，是 Copy 还是所有权 Move？</p>
-<p>答案是，<code>Fn</code> 是 Copy，<code>FnMut</code> 和 <code>FnOnce</code> 是所有权 Move。</p>
-<pre><code class="hljs language-rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">x</span> = <span class="hljs-built_in">vec!</span>[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
-
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">closure</span> = |z:<span class="hljs-type">usize</span>|{ z == x.<span class="hljs-title function_ invoke__">len</span>()}; <span class="hljs-comment">// 实现了 Fn</span>
-    <span class="hljs-title function_ invoke__">outter</span>(closure); <span class="hljs-comment">// 通过</span>
-    <span class="hljs-title function_ invoke__">outter</span>(closure); <span class="hljs-comment">// 通过</span>
-
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">closure2</span> = |z:<span class="hljs-type">usize</span>|{ x.<span class="hljs-title function_ invoke__">push</span>(<span class="hljs-number">4</span>);z == x.<span class="hljs-title function_ invoke__">len</span>()}; <span class="hljs-comment">// 实现了 FnMut</span>
-    <span class="hljs-title function_ invoke__">outter</span>(closure2); <span class="hljs-comment">// 通过</span>
-    <span class="hljs-title function_ invoke__">outter</span>(closure2); <span class="hljs-comment">// 报错, closure2 的所有权已被转移</span>
-}
-
-<span class="hljs-keyword">fn</span> <span class="hljs-title function_">outter</span>&lt;T&gt;(<span class="hljs-keyword">mut</span> func: T)
-<span class="hljs-keyword">where</span> T: <span class="hljs-title function_ invoke__">FnMut</span>(<span class="hljs-type">usize</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">bool</span> { <span class="hljs-comment">// Fn 可以传到 FnMut 标注的参数上</span>
-    <span class="hljs-keyword">let</span> <span class="hljs-variable">a</span> = func;
-}
-</code></pre>
-<p>这是非常合理的，对应着 Rust 借用的规则</p>
-<blockquote>
-<p>在同一时间点，对于同一个变量，<strong>要么</strong>只能有一个可变借用(FnMut)，<strong>要么</strong>只能有<strong>多个不可变借用</strong>(Fn)。</p>
-</blockquote>
-<p>至于 <code>FnOnce</code>，对环境变量的访问权限这么大，还想 Copy？只能是所有权 move。</p>
-<h2>一些建议</h2>
-<p>如果遇到函数的参数也是一个函数，需要标注 trait 的场景，又不知道到底应该标注哪一个 trait，建议先标注 Fn ( 权限最小的 trait)，由编译器提示后再进行修改。</p>
-<p>另外，闭包的所有权部分并不推荐背书，尤其不推荐总结为正交规则。三个 traits 的区别与联系在代码层面非常简单且容易分析，总结为正交规则反而是把简单的事情复杂化，而且难记。</p>
-<p>如果仍然难懂，可评论提出，后续改进。</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/学习">学习</category>
         </item>
     </channel>

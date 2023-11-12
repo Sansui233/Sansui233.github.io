@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sun, 12 Nov 2023 22:07:41 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 Nov 2023 22:36:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -119,7 +119,11 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-11 21:26:00</h2>
+            <content:encoded><![CDATA[<h2>2023-11-13 06:10:38</h2>
+<p>一不小心 debug 了 4 个小时，但居然搞定了动态高度的无限滚动！布局虽然看起来没变化，实际上完全不是一个渲染方式。这两天改了700多行吧，从统一 datafetching 的方式开始，以后对接多后端就会方便很多！</p>
+<p>我觉得我那个 virtual list 的实现还行，泛用性还是挺强的，对外没有任何状态需要管理，父级组件除了存数据，啥也不用干。唯一的问题是 sources 和 props 有点重复了，要不改成回调函数渲染算了，耐思。</p>
+<p>——如果我这次也能安全度过感冒的话，</p>
+<h2>2023-11-11 21:26:00</h2>
 <p>诶居然是双十一。什么都没买，不知道要买什么。</p>
 <p>我又重构了……不过上次是服务端的底层，这次是客户端的。因为我觉得总有一天，我是会用到数据库的，先把接口的形状调整好吧。然后做成无限滚动的。感觉一小条一小条的东西还是能无限滚动比较过瘾。</p>
 <p>然后就是无限滚动的 virual list 实现，两年前我写 fgo 的工具时也有写过，但那个是定高的，动态高度的当时没思路。</p>
@@ -184,14 +188,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
   },[command, option, extradep])
 ])
 </code></pre>
-<p>我的评价还是有病，新人看不懂的写法类型。宁愿关 warning，发现有状态不刷新的 bug 再调都行……主要还是得靠理解和代码习惯，不然你 lint 倒是直接禁止在顶层调用参数有 function 的 usehook 啊……新人写那还不是直接用，谁会上来就知道套娃写……</p>
-<h2>2023-11-06 21:20:06</h2>
-<p>这是一条有关于 <span class="tag">#博客 </span>图片组件的交互测试。 #漫画</p>
-<p>测试内容是多图条漫，两条的宽度还不一样哈哈。主要就是测一个极端的比例。已经不能开 typora 了，滑不到头简直要命。我的图上传前都有压缩过，先转 webp，然后压缩 80%。如果是尺寸大一点的图可以压 90%.</p>
-<p>……safari，你可真是666，长按后图片二进制就无了……那么大一张图在那，标准的html元素，按了就无了，这要我怎么debug……还有底部占空间……我还是先以桌面端为主吧，移动端只是个顺便。</p>
-<p>还有一些问题是如果工具要做的话，交互也要一块做。放大缩小拖动边界判定。移动端禁滚动。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311062132690.webp" alt="1"/>
-<img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311062133783.webp" alt="2"/></p>]]></content:encoded>
+<p>我的评价还是有病，新人看不懂的写法类型。宁愿关 warning，发现有状态不刷新的 bug 再调都行……主要还是得靠理解和代码习惯，不然你 lint 倒是直接禁止在顶层调用参数有 function 的 usehook 啊……新人写那还不是直接用，谁会上来就知道套娃写……</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

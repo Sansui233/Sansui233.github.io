@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sun, 12 Nov 2023 22:36:24 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Nov 2023 15:43:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -119,10 +119,14 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-13 06:10:38</h2>
+            <content:encoded><![CDATA[<h2>2023-11-13 23:35:54</h2>
+<p>经常都觉得我做的东西看起来都好冷冰冰。有没有一种可能，冷的是内容 (= =)</p>
+<p>动不动就大几百字，往这边倒垃圾，也不用 emoji🤡。我在别的平台是经常用表情的。</p>
+<p>可能一个人的话，就没有什么阴阳怪气的必要了吧。</p>
+<h2>2023-11-13 06:10:38</h2>
 <p>一不小心 debug 了 4 个小时，但居然搞定了动态高度的无限滚动！布局虽然看起来没变化，实际上完全不是一个渲染方式。这两天改了700多行吧，从统一 datafetching 的方式开始，以后对接多后端就会方便很多！</p>
 <p>我觉得我那个 virtual list 的实现还行，泛用性还是挺强的，对外没有任何状态需要管理，父级组件除了存数据，啥也不用干。唯一的问题是 sources 和 props 有点重复了，要不改成回调函数渲染算了，耐思。</p>
-<p>——如果我这次也能安全度过感冒的话，</p>
+<p>——如果我这次也能安全度过感冒的话。</p>
 <h2>2023-11-11 21:26:00</h2>
 <p>诶居然是双十一。什么都没买，不知道要买什么。</p>
 <p>我又重构了……不过上次是服务端的底层，这次是客户端的。因为我觉得总有一天，我是会用到数据库的，先把接口的形状调整好吧。然后做成无限滚动的。感觉一小条一小条的东西还是能无限滚动比较过瘾。</p>
@@ -159,36 +163,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <p>简单糊了一下图片浏览器移动端的交互，不是很有细节，但能用。实现方式也不是我满意的，要滑动不闪屏一定得要三个容器，现在只有一个。但 bug 终于修没了……</p>
 <p>但是桌面端……emmm 加了 touchevent 就没了桌面端的交互啊……汗，真要做好的话，事件还要先看设备再绑定，touch 和 mouse 的实现逻辑不一样。</p>
 <p>但但但又但是，你也不能说支持 touch 的设备就不绑定 click 事件了。因为有一种设备叫触屏笔记本。</p>
-<p>有人会说绑 pointer 不就好了。耐思，我本来也是这么想的，因为我最开始绑的就是pointer。直到我发现 pointerUp 在 safari 上基本是不能用的状态，cancel 和 leave 也一样，pointer 事件的触发过程远远没有 touch 事件稳定……</p>
-<h2>2023-11-08 01:30:55</h2>
-<p><span class="tag">#react </span>想要自定义 hook，但里面有依赖怎么办？react 不能检测 custom hook 的 dep 嵌套问题。</p>
-<p>看了 stackoverflow，发现确实可以解决，但写起来和有那个大病似的。</p>
-<pre><code class="hljs language-ts"><span class="hljs-comment">// my hook</span>
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">useHotKey</span>(<span class="hljs-params">command, listener, options</span>){
-  <span class="hljs-comment">/*do something, but how about listener contains extra deps?*/</span> 
-}
-
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">useWrapper</span>(<span class="hljs-params">reactHookAsDep: <span class="hljs-built_in">any</span></span>){
-  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">()=&gt;</span>{},[reactHookAsDep])
-}
-
-<span class="hljs-comment">// in your component</span>
-<span class="hljs-title function_">useWrapper</span>(
-  <span class="hljs-title function_">useMemo</span>(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-title function_">useHotKey</span>(command, listener, options) <span class="hljs-comment">// execute your real custom hook</span>
-  },[command, listener, option, extradep]) <span class="hljs-comment">// full check for all deps</span>
-)
-</code></pre>
-<p>如果不想定义wrapper，那就在组件里直接 useEffect 再 usememo ……没想到吧，dep 参数还能这么用！但依然有 warning，说 dependency 太复杂了</p>
-<pre><code class="hljs language-ts"><span class="hljs-comment">// in your component</span>
-<span class="hljs-title function_">useEffect</span>(()={},[
-  <span class="hljs-title function_">useMemo</span>(<span class="hljs-function">()=&gt;</span>{
-    <span class="hljs-keyword">const</span> <span class="hljs-title function_">listener</span> = (<span class="hljs-params"></span>) =&gt; { <span class="hljs-comment">/*do something with extra deps*/</span> }
-    <span class="hljs-title function_">useHotKey</span>(command, listener, options) <span class="hljs-comment">// execute your real custom hook</span>
-  },[command, option, extradep])
-])
-</code></pre>
-<p>我的评价还是有病，新人看不懂的写法类型。宁愿关 warning，发现有状态不刷新的 bug 再调都行……主要还是得靠理解和代码习惯，不然你 lint 倒是直接禁止在顶层调用参数有 function 的 usehook 啊……新人写那还不是直接用，谁会上来就知道套娃写……</p>]]></content:encoded>
+<p>有人会说绑 pointer 不就好了。耐思，我本来也是这么想的，因为我最开始绑的就是pointer。直到我发现 pointerUp 在 safari 上基本是不能用的状态，cancel 和 leave 也一样，pointer 事件的触发过程远远没有 touch 事件稳定……</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

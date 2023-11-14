@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-11-13T18:36:43.326Z</updated>
+    <updated>2023-11-14T11:55:13.562Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -124,7 +124,9 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
         <id>https://sansui233.com/memos?id=2023-11-04 06:49</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2023-11-03T22:49:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2023-11-13 23:35:54</h2>
+        <content type="html"><![CDATA[<h2>2023-11-14 19:54:31</h2>
+<p>脑袋，哦莫（好重）。不要，感冒。已经不转了。</p>
+<h2>2023-11-13 23:35:54</h2>
 <p>经常都觉得我做的东西看起来都好冷冰冰。有没有一种可能，冷的是内容 (= =)</p>
 <p>动不动就大几百字，往这边倒垃圾，也不用 emoji🤡。我在别的平台是经常用表情的。</p>
 <p>可能一个人的话，就没有什么阴阳怪气的必要了吧。</p>
@@ -163,12 +165,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 现在在 win 上，还是 typora 写，Listary 动作一键上传。<br/>
 连上传脚本都还是 .sh。ps1 和 bat 都不熟，问 chatgpt 的结果也有权限问题，太难用了。<br/>
 不同的是，自从把 memos 模块做起来，我的碎碎念变多了。终于不用往大眼和推特倒垃圾了。<br/>
-当然我觉得用静态网页灌水的群体也很少，可能也只有我一个吧哈哈，毕竟我买不起稳定的服务器嘛。这么写博客的人，首先得是会 markdown 的基本语法，然后要会一种不用开终端就一键发布博客的方法（开终端真的很废时间</p>
-<h2>2023-11-08 21:54:39</h2>
-<p>简单糊了一下图片浏览器移动端的交互，不是很有细节，但能用。实现方式也不是我满意的，要滑动不闪屏一定得要三个容器，现在只有一个。但 bug 终于修没了……</p>
-<p>但是桌面端……emmm 加了 touchevent 就没了桌面端的交互啊……汗，真要做好的话，事件还要先看设备再绑定，touch 和 mouse 的实现逻辑不一样。</p>
-<p>但但但又但是，你也不能说支持 touch 的设备就不绑定 click 事件了。因为有一种设备叫触屏笔记本。</p>
-<p>有人会说绑 pointer 不就好了。耐思，我本来也是这么想的，因为我最开始绑的就是pointer。直到我发现 pointerUp 在 safari 上基本是不能用的状态，cancel 和 leave 也一样，pointer 事件的触发过程远远没有 touch 事件稳定……</p>]]></content>
+当然我觉得用静态网页灌水的群体也很少，可能也只有我一个吧哈哈，毕竟我买不起稳定的服务器嘛。这么写博客的人，首先得是会 markdown 的基本语法，然后要会一种不用开终端就一键发布博客的方法（开终端真的很废时间</p>]]></content>
         <category label="Diary"/>
         <published>2023-11-03T22:49:00.000Z</published>
     </entry>

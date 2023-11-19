@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 18 Nov 2023 22:15:13 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Nov 2023 12:57:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -166,7 +166,9 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-19 06:09:27</h2>
+            <content:encoded><![CDATA[<h2>2023-11-19 19:02:29</h2>
+<p><a href="https://github.com/pmndrs/zustand">zustand</a> 好好用好好用…… 属于是理想的 use 外部 state 的方式了。</p>
+<h2>2023-11-19 06:09:27</h2>
 <p>昨天是靠褪黑素睡觉的，今天真的睡不了一点。</p>
 <p>大概是我无法忍受我一天啥也不看的感觉，个人的事情做起来太容易没日没夜的了，我又要订计划了。最近变得不是很想嗑cp，大概是无法靠画同人调整作息了。但我想看一些书，永远有想干的事情。</p>
 <p>齐木楠雄的灾难，我看了一个多月了，每天都说看一集，还是看不了，看20分钟视频跟完成任务似的。</p>
@@ -188,9 +190,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311162247378.webp" alt=""/></p>
 <h2>2023-11-15 23:33:56</h2>
 <p>感冒了就想画这种。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311152326469.webp" alt=""/></p>
-<h2>2023-11-14 19:54:31</h2>
-<p>脑袋，哦莫（好重）。不要，感冒。已经不转了。</p>]]></content:encoded>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311152326469.webp" alt=""/></p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sun, 19 Nov 2023 18:51:32 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 20 Nov 2023 11:35:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -166,7 +166,11 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-19 19:02:29</h2>
+            <content:encoded><![CDATA[<h2>2023-11-20 19:34:18</h2>
+<p>想要变得可爱！</p>
+<h2>2023-11-20 05:30:40</h2>
+<p>我草草草，原来是mdx.js 的方法打包完有440k………当入 unist 这一圈时，打包体积就已经下不去了，解析速度也是。这东西其实真就不适合给网页前端用的……我看了下别人的，在想能不能分离，把 html 部分提前渲染，JSX 最后单独注入……但这样也还是不行，因为我是要 CSR，还要去兼顾搜索的数据……头痛，有没有小一点的库。还是SSR好…我改ssr试试看</p>
+<h2>2023-11-19 19:02:29</h2>
 <p><a href="https://github.com/pmndrs/zustand">zustand</a> 好好用好好用…… 属于是理想的 use 外部 state 的方式了。</p>
 <h2>2023-11-19 06:09:27</h2>
 <p>昨天是靠褪黑素睡觉的，今天真的睡不了一点。</p>
@@ -184,13 +188,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <h2>2023-11-18 20:04:28</h2>
 <p>想在博客养一只猫猫！但是要引入动画库我是不太愿意的……我觉得首屏已经有一点点慢了，代码体积还是有点大的，除了框架外，最占大头就是 mdx 放前端解析，直接让公用JS代码多了40k……但是我又不用！对！重点是我他妈的不用 mdx 写！我唯一用到 mdx 的地方还是解析 tag 绑定 react 事件，标签！好吧这也算了，前端解析数据注定是这个样子的。</p>
 <p>当然如果不考虑 seo 的话，可以优化的东西就多多了，seo导致所有内容都必须先加载出来。但我现在想想，除了信息密度大的页面，其他也无所谓的。嗯，就这样吧。</p>
-<p>还有，styled-component，说好用也好用，说不好用也不好用，一定要说的话我觉得还是不好用，可能只适合个人搞开发。不如 css 自带的变量管理、tailwind 功能class那一套，那一套是真的挺好用的。</p>
-<h2>2023-11-16 22:47:44</h2>
-<p>微软，你干什么？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311162247378.webp" alt=""/></p>
-<h2>2023-11-15 23:33:56</h2>
-<p>感冒了就想画这种。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311152326469.webp" alt=""/></p>]]></content:encoded>
+<p>还有，styled-component，说好用也好用，说不好用也不好用，一定要说的话我觉得还是不好用，可能只适合个人搞开发。不如 css 自带的变量管理、tailwind 功能class那一套，那一套是真的挺好用的。</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 23 Nov 2023 23:53:48 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 25 Nov 2023 14:37:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -166,7 +166,17 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-24 05:39:50</h2>
+            <content:encoded><![CDATA[<h2>2023-11-25 22:13:15</h2>
+<p>我有一个收藏夹专门收藏个人博客，特别是自己写的页面的。</p>
+<p>很多人很有个性。我很羡慕，我做不到。</p>
+<p>文字的力量非常强大。如果你的标题像是在写诗，再配个非常简洁的界面，怎么样都很好看。比如<a href="https://bouquetrender.github.io/blog/">它</a>。</p>
+<p>如果你的图片很高级，文字不多，也会很好看。</p>
+<p>我也想变得好看！但是话太多了，表达欲是比较过剩的。只是有比较多的方式去表达。不一定非得说话。</p>
+<p>我不太喜欢在现实中说太多话，倒也不是说有社交恐惧一类的。我不想要我说的话对别人造成任何影响，但和人交流就是在不断造成影响，我对影响别人和被别人影响这个事情恐惧。言论可以让人思考，也可以让人失去思考。</p>
+<p>还有很多时候，说一大堆话只是为了说服别人，或者说是证明自己。我也一点也不想说服别人或者用言语证明自己一类的。对着琳琅满目的简历除了厌恶已经没有其他感觉了。小时候会羡慕简历上有一大堆东西的人。但现在觉得很烦写成这样。满足要求，够用就行。</p>
+<p>我不知道有多少人难入睡是因为一直脑子在重复一些没什么意义的思考。我很羡慕可以一秒睡觉的人，我做不到。</p>
+<p>我想起了那个身体永远停留在13岁的小孩子。他今年应该22岁了吧。我想去看看他，不知道他是否在世。也不是出于同情，因为他很有趣，从小就很有趣，少年老成。我觉得这样的天才不应该遭受到老天爷这样的对待（脑部相关的手术失败导致的问题）。得庆幸现在有b站。我不知道他在做的是什么账号，但是这样应该有很多人会看到他。</p>
+<h2>2023-11-24 05:39:50</h2>
 <p>图片浏览器移动端的交互手势重写了啦啦啦，成功做到了可以看长图！并且流畅度全程靠 css 动画！帧率感人！我对 css 动画有一种执念，性能上的执念可能是，再烂的 css 匹配性能都比 JS 好。JS 的动画一般 chrome 上都还好，safari 真机测试时开始掉帧，整个交互说好听点就突出一个灵活，说难听点就是乱飞。</p>
 <p>没有用库，很臃肿，而且要实现我要的方向锁定的功能也还得再封装一次。自己写下来交互没那么全，但够用了，毕竟打包大小 1k 不到啊！高度内聚啊，没有多事件冗余啊。</p>
 <p>之后要写一下 zoom，还有 zoom 状态下的拖拽。不过其实不是很有必要，基本是网页端屏幕太大的时候会用到。</p>
@@ -184,12 +194,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <h2>2023-11-20 05:30:40</h2>
 <p>我草草草，原来是mdx.js 的方法打包完有400k………当入 unist 这一圈时，打包体积就已经下不去了，解析速度也是。这东西其实真就不适合给网页前端用的……我看了下别人的，在想能不能分离，把 html 部分提前渲染，JSX 最后单独注入……但这样也还是不行，因为我是要 CSR，还要去兼顾搜索的数据……头痛，有没有小一点的库。还是SSR好…我改ssr试试看</p>
 <h2>2023-11-19 19:02:29</h2>
-<p><a href="https://github.com/pmndrs/zustand">zustand</a> 好好用好好用…… 属于是理想的 use 外部 state 的方式了。</p>
-<h2>2023-11-19 06:09:27</h2>
-<p>昨天是靠褪黑素睡觉的，今天真的睡不了一点。</p>
-<p>大概是我无法忍受我一天啥也不看的感觉，个人的事情做起来太容易没日没夜的了，我又要订计划了。最近变得不是很想嗑cp，大概是无法靠画同人调整作息了。但我想看一些书，永远有想干的事情。</p>
-<p>齐木楠雄的灾难，我看了一个多月了，每天都说看一集，还是看不了，看20分钟视频跟完成任务似的。</p>
-<p>再见博客。</p>]]></content:encoded>
+<p><a href="https://github.com/pmndrs/zustand">zustand</a> 好好用好好用…… 属于是理想的 use 外部 state 的方式了。</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

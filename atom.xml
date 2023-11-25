@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2023-11-25T14:37:08.570Z</updated>
+    <updated>2023-11-25T22:50:07.836Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -172,7 +172,10 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
         <id>https://sansui233.com/memos?id=2023-11-04 06:49</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2023-11-03T22:49:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2023-11-25 22:13:15</h2>
+        <content type="html"><![CDATA[<h2>2023-11-26 00:51:20</h2>
+<p>明显我的画技还不足以支撑我使用windows画图这样的神级绘画软件。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311260050763.webp" alt=""/></p>
+<h2>2023-11-25 22:13:15</h2>
 <p>我有一个收藏夹专门收藏个人博客，特别是自己写的页面的。</p>
 <p>很多人很有个性。我很羡慕，我做不到。</p>
 <p>文字的力量非常强大。如果你的标题像是在写诗，再配个非常简洁的界面，怎么样都很好看。比如<a href="https://bouquetrender.github.io/blog/">它</a>。</p>
@@ -198,9 +201,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <h2>2023-11-20 19:34:18</h2>
 <p>想要变得可爱！</p>
 <h2>2023-11-20 05:30:40</h2>
-<p>我草草草，原来是mdx.js 的方法打包完有400k………当入 unist 这一圈时，打包体积就已经下不去了，解析速度也是。这东西其实真就不适合给网页前端用的……我看了下别人的，在想能不能分离，把 html 部分提前渲染，JSX 最后单独注入……但这样也还是不行，因为我是要 CSR，还要去兼顾搜索的数据……头痛，有没有小一点的库。还是SSR好…我改ssr试试看</p>
-<h2>2023-11-19 19:02:29</h2>
-<p><a href="https://github.com/pmndrs/zustand">zustand</a> 好好用好好用…… 属于是理想的 use 外部 state 的方式了。</p>]]></content>
+<p>我草草草，原来是mdx.js 的方法打包完有400k………当入 unist 这一圈时，打包体积就已经下不去了，解析速度也是。这东西其实真就不适合给网页前端用的……我看了下别人的，在想能不能分离，把 html 部分提前渲染，JSX 最后单独注入……但这样也还是不行，因为我是要 CSR，还要去兼顾搜索的数据……头痛，有没有小一点的库。还是SSR好…我改ssr试试看</p>]]></content>
         <category label="Diary"/>
         <published>2023-11-03T22:49:00.000Z</published>
     </entry>

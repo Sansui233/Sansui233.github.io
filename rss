@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 25 Nov 2023 22:50:07 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Nov 2023 19:16:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -166,7 +166,12 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-26 00:51:20</h2>
+            <content:encoded><![CDATA[<h2>2023-11-29 03:12:05</h2>
+<p><span class="tag">#工具 </span>windows创建硬链接和符号链接的工具：<a href="https://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html">Link Shell Extension</a>。安装完，右键源文件，选择源链接，然后去目标路径，右键创建为符号链接就可以了。之前特别烦这一点，因为 pwsh 命令太长，软链接要管理员权限，真的懒得打命令，一直不怎么用。顺便推荐少数派上的<a href="https://sspai.com/post/66834">这一篇文章</a>。</p>
+<h2>2023-11-28 08:55:10</h2>
+<p>最近要变成高饱和战士了……心态和性格会影响的所有创作类的东西，极其影响，而且性格还会变化，大概是只要对世界一切保持好奇和理解，性格就不会太稳定。</p>
+<p>不过也是相对的，比如太不稳定我也学不会画搞笑猛男……</p>
+<h2>2023-11-26 00:51:20</h2>
 <p>明显我的画技还不足以支撑我使用windows画图这样的神级绘画软件。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311260050763.webp" alt=""/></p>
 <h2>2023-11-25 22:13:15</h2>
@@ -191,11 +196,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <h2>2023-11-21 00:57:14</h2>
 <p><span class="tag">#工具 </span><a href="https://bundlephobia.com/">BundlePhobia</a> 查看库的打包大小</p>
 <h2>2023-11-21 00:42:14</h2>
-<p>大概是换了电脑，我很久没用过 logseq 的暗色模式，结果现在发现可真是……五彩斑斓的黑啊！我觉得是 dell 这屏幕的显色有问题。同一个色相调饱和度从绿色到紫色，数值调了 1 都看得出来……要准还是专业显示器或者苹果吧。不过果子不同产品线设备的色偏也是挺严重的（我觉得</p>
-<h2>2023-11-20 19:34:18</h2>
-<p>想要变得可爱！</p>
-<h2>2023-11-20 05:30:40</h2>
-<p>我草草草，原来是mdx.js 的方法打包完有400k………当入 unist 这一圈时，打包体积就已经下不去了，解析速度也是。这东西其实真就不适合给网页前端用的……我看了下别人的，在想能不能分离，把 html 部分提前渲染，JSX 最后单独注入……但这样也还是不行，因为我是要 CSR，还要去兼顾搜索的数据……头痛，有没有小一点的库。还是SSR好…我改ssr试试看</p>]]></content:encoded>
+<p>大概是换了电脑，我很久没用过 logseq 的暗色模式，结果现在发现可真是……五彩斑斓的黑啊！我觉得是 dell 这屏幕的显色有问题。同一个色相调饱和度从绿色到紫色，数值调了 1 都看得出来……要准还是专业显示器或者苹果吧。不过果子不同产品线设备的色偏也是挺严重的（我觉得</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

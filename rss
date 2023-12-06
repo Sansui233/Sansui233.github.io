@@ -4,18 +4,102 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 28 Nov 2023 19:16:32 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Dec 2023 21:33:36 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
         <item>
+            <title><![CDATA[Windows 命令行相关配置]]></title>
+            <link>https://sansui233.com/posts/2023-11-29-windows-shell-configuration</link>
+            <guid>https://sansui233.com/posts/2023-11-29-windows-shell-configuration</guid>
+            <pubDate>Wed, 29 Nov 2023 04:07:00 GMT</pubDate>
+            <description><![CDATA[一些 powershell 相关配置]]></description>
+            <content:encoded><![CDATA[<h2>常用 shell</h2>
+<p>一直以来 windows 的命令行方案都很多，都不好用，怎么配置也是仁者见仁智者见智的一个事情。先总结一下常用shell 方案</p>
+<ul>
+<li><code>powershell</code> 官方shell，各种工具库支持最全，缺点自带的命令太长，以至于完全没有日常使用的想法。</li>
+<li><code>msys2系列</code> windows 上的类 unix 环境，基于现代Cygwin (POSIX兼容层) 和 MinGW-w64（工具包），特点是确实像unix，一般命令可以无缝迁移。缺点是没有包管理，兼容性有问题很多环境要手动配（可以说几乎所有），像是conda init 自己写，npm补全执行出错，很多命令执行起来都有问题，无数个坑。心累</li>
+<li><code>git bash</code> 基本同上，工具更多，加载更慢。</li>
+<li><code>wsl</code> 完全的 Linux 子系统，缺点是太占内存。</li>
+</ul>
+<h2>方案选择</h2>
+<p>我需求</p>
+<ul>
+<li>常用命令必须是类 unix 命令</li>
+<li>有包管理器，第三方工具配置友好</li>
+<li>不要太占内存</li>
+</ul>
+<p>结果发现这就是经典的三圈相交，没有任何一个常用方案能满足以上要求。</p>
+<p>最后，我决定用 powershell。除了第一条外都满足。后面两条属于难以解决的硬伤，而第一条可以编写脚本，将常用的命令模拟。</p>
+<h3>powershell 配置流程</h3>
+<p>包含工具包、终端美化。</p>
+<ol>
+<li>Install the latest Powershell Core</li>
+<li>Install <a href="https://gitforwindows.org/">git-bash</a> for basic bash and git tools</li>
+<li>Install <a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=zh-cn&amp;gl=cn&amp;rtc=1">Windows Terminal</a> and open Powershell</li>
+<li>Install <a href="https://github.com/PowerShell/PSReadLine">PSReadLine</a></li>
+<li>Install <a href="https://github.com/dahlbyk/posh-git">posh-git</a></li>
+<li>Install <a href="https://ohmyposh.dev/">oh-my-posh</a> for showing extra info in term.</li>
+<li>Install <a href="https://github.com/gerardog/gsudo">gsudo</a> for softlink</li>
+<li>open <code>$PROFILE</code> in powershell, append the contents of <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a></li>
+</ol>
+<p>大致介绍一下用途。</p>
+<ul>
+<li>git-bash，一系列类 unix 工具，git 一类的</li>
+<li>Windows Ternimal，微软的终端。我拒绝终端用electron 去套的……</li>
+<li>PSReadLine，改变一系列 powershell 的行为。比如复制粘贴的快捷键。可惜在 vscode 里会没用，只能右键粘贴。</li>
+<li>posh-git，显示 git 的状态</li>
+<li>oh-my-posh，美化。具体主题可能需要会自己改一下，要么丑，要么不支持提示 conda 环境或者 npm 环境。</li>
+<li>gsudo，提权，类似 unix 的 sudo。可能运行时会被杀软报毒，需要加入信任区。</li>
+</ul>
+<p>powershell 的用户配置文件输入 <code>$PROFILE</code> 就能找到。</p>
+<p>我的配置文件上传到了 <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a>。需要挂代理打开。配置文件包含 <code>ls</code> <code>ln</code> <code>open</code> <code>grep</code> <code>which</code> 等命令模拟。powershell 的缩写默认支持了 <code>mv</code> <code>cat</code> <code>rm</code> 等命令，配合起来日常基本够用。</p>
+<h2>终端代理</h2>
+<p>我在配置文件中设置了<code>proxy</code>和<code>unproxy</code>函数，以快速设置与取消终端的代理连接。自己改下端口就能用。因为我自己习惯上不开系统代理，都是软件内的 http 连接。</p>
+<h2>其他常用工具</h2>
+<ul>
+<li>
+<p>winget：自带的包管理器，命令行工具都是这个装的。部分用的 scoop，非常少。还有的直接用的官网 setup。</p>
+</li>
+<li>
+<p>nvim：命令行编辑器，vim 的替代品。我用的是发行版 AstroNvim。之前也有自己折腾插件，太懒得维护了，算了。</p>
+</li>
+<li>
+<p>nodejs：JS 环境，nvim 的插件要用，开发也要用</p>
+</li>
+<li>
+<p>zoxide：快速跳转目录。最有用的功能没有之一。类似 unix 的 autojump</p>
+</li>
+<li>
+<p>Terminal-Icons：ls 命令加 icon，还能解决 ls 不高亮的问题。但是，颜色很丑。但是，我不也想再配置了，配置真的心好累。</p>
+</li>
+<li>
+<p>ripgrep：类似 grep 的用法。我在模拟 grep 命令时只是单纯替换成了 findstr，真的 grep 建议用 ripgrep (rg) 替代。nvim 的 telescope 一些插件也会用到。</p>
+</li>
+</ul>
+<p>安装脚本汇总：</p>
+<pre><code class="hljs language-powershell">winget install conda
+
+winget install neovim
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+
+winget install gerardog.gsudo
+winget install OpenJS.NodeJSLTS
+Install-Module -Name Terminal-Icons -Repository PSGallery; Import-Module -Name Terminal-Icons
+# z-jump
+winget install zoxide # z-jump, see https://github.com/ajeetdsouza/zoxide
+winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
+</code></pre>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/工具">工具</category>
+        </item>
+        <item>
             <title><![CDATA[大概是关于五笔打字更慢的一点碎碎念？]]></title>
             <link>https://sansui233.com/posts/thoughts-about-wubi-im</link>
             <guid>https://sansui233.com/posts/thoughts-about-wubi-im</guid>
             <pubDate>Fri, 17 Nov 2023 01:59:00 GMT</pubDate>
-            <description><![CDATA[大概是关于五笔输入法的一点沉思]]></description>
+            <description><![CDATA[嘎？]]></description>
             <content:encoded><![CDATA[<p>每次看到打字的视频，总是会有人说五笔是最快的。五笔我打了八年。突发奇想去测试了一下五笔打字的输入速度，结果在我意料之内——在不刻意飙手速（以不被室友打）的情况下，大概是60字/min，全拼大概是70字/min。</p>
 <p>虽然拼音我现在已经非常不熟练了，但速度还是比五笔快。而五笔在日常使用也并没有感觉到有什么不顺畅的地方，为什么测速还是会更慢呢？</p>
 <h2>五笔更慢的原因</h2>
@@ -24,7 +108,7 @@
 <p>看打，指看着一段文字打出来，在早期没有各种扫描技术时，录文件就是这样的纯手工录入方式。</p>
 <p>看打有利于五笔的拆字输入，而且不论一个人的普通话是否标准，只要认字都能使用。早期学者非常多会看字但念不准的。</p>
 <p>早期输入法（智能ABC）没有云计算，也没有词库，几乎一个字一个字蹦出来，非常非常慢。我小学拼音打冰灯用尽全力的记录也就 55字/min，不算快的但也不算慢了。但现在五笔随意打初见就 70 字/min，途中还有好几个字不会拆的。想想在当时的那个环境，只靠打单字和少量词组，就能达到百字每分，是多么牛逼的一件事。</p>
-<p>但在日常打字的时候，大部分人纯聊天，更多是使用的听打，想到什么说什么，就算口中没有真的发出声音。这明显是利于拼音打字的。另外，拼音打字的辅音键位非常固定，像 ing 这样的三字母辅音，打起来非常连贯，在这瞬间可以一秒按8个键，任何人打字多一点都能做到。真正意义上想说什么打什么。</p>
+<p>但在日常打字的时候，大部分人纯聊天，更多是使用的听打，想到什么说什么，就算口中没有真的发出声音。这明显是利于拼音打字的。另外，拼音打字的韵母键位非常固定，像 ing 这样的三字母韵母，打起来非常连贯，在这瞬间可以一秒按8个键，任何人打字多一点都能做到。真正意义上想说什么打什么。</p>
 <p>我的名字拼音一共有(10-15)个字母，可以在 1.5 秒内打完全拼。拼音的输入速度完全不慢，重码问题也几乎靠技术解决了。在纠错、词库、上下文联想早就发展起来的情况下，五笔在日常使用上真的没有什么优势。</p>
 <h3>极限速度？</h3>
 <p>这就是一个老生常谈的问题了———学习成本。</p>
@@ -62,7 +146,7 @@
             <link>https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322</link>
             <guid>https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322</guid>
             <pubDate>Sat, 11 Nov 2023 22:26:00 GMT</pubDate>
-            <description><![CDATA[关于 typescript 泛型中返回值类型约束的问题]]></description>
+            <description><![CDATA[全是坑]]></description>
             <content:encoded><![CDATA[<p>最近遇到这么一个需求。</p>
 <blockquote>
 <p>定义一个函数接口，要求其返回值类型是 type A 的任意超集。</p>
@@ -166,37 +250,39 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2023-11-04 06:49</guid>
             <pubDate>Fri, 03 Nov 2023 22:49:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2023-11-29 03:12:05</h2>
-<p><span class="tag">#工具 </span>windows创建硬链接和符号链接的工具：<a href="https://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html">Link Shell Extension</a>。安装完，右键源文件，选择源链接，然后去目标路径，右键创建为符号链接就可以了。之前特别烦这一点，因为 pwsh 命令太长，软链接要管理员权限，真的懒得打命令，一直不怎么用。顺便推荐少数派上的<a href="https://sspai.com/post/66834">这一篇文章</a>。</p>
-<h2>2023-11-28 08:55:10</h2>
-<p>最近要变成高饱和战士了……心态和性格会影响的所有创作类的东西，极其影响，而且性格还会变化，大概是只要对世界一切保持好奇和理解，性格就不会太稳定。</p>
-<p>不过也是相对的，比如太不稳定我也学不会画搞笑猛男……</p>
-<h2>2023-11-26 00:51:20</h2>
-<p>明显我的画技还不足以支撑我使用windows画图这样的神级绘画软件。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311260050763.webp" alt=""/></p>
-<h2>2023-11-25 22:13:15</h2>
-<p>我有一个收藏夹专门收藏个人博客，特别是自己写的页面的。</p>
-<p>很多人很有个性。我很羡慕，我做不到。</p>
-<p>文字的力量非常强大。如果你的标题像是在写诗，再配个非常简洁的界面，怎么样都很好看。比如<a href="https://bouquetrender.github.io/blog/">它</a>。</p>
-<p>如果你的图片很高级，文字不多，也会很好看。</p>
-<p>我也想变得好看！但是话太多了，表达欲是比较过剩的。只是有比较多的方式去表达。不一定非得说话。</p>
-<p>我不太喜欢在现实中说太多话，倒也不是说有社交恐惧一类的。我不想要我说的话对别人造成任何影响，但和人交流就是在不断造成影响，我对影响别人和被别人影响这个事情恐惧。言论可以让人思考，也可以让人失去思考。</p>
-<p>还有很多时候，说一大堆话只是为了说服别人，或者说是证明自己。我也一点也不想说服别人或者用言语证明自己一类的。对着琳琅满目的简历除了厌恶已经没有其他感觉了。小时候会羡慕简历上有一大堆东西的人。但现在觉得很烦写成这样。满足要求，够用就行。</p>
-<p>我不知道有多少人难入睡是因为一直脑子在重复一些没什么意义的思考。我很羡慕可以一秒睡觉的人，我做不到。</p>
-<p>我想起了那个身体永远停留在13岁的小孩子。他今年应该22岁了吧。我想去看看他，不知道他是否在世。也不是出于同情，因为他很有趣，从小就很有趣，少年老成。我觉得这样的天才不应该遭受到老天爷这样的对待（脑部相关的手术失败导致的问题）。得庆幸现在有b站。我不知道他在做的是什么账号，但是这样应该有很多人会看到他。</p>
-<h2>2023-11-24 05:39:50</h2>
-<p>图片浏览器移动端的交互手势重写了啦啦啦，成功做到了可以看长图！并且流畅度全程靠 css 动画！帧率感人！我对 css 动画有一种执念，性能上的执念可能是，再烂的 css 匹配性能都比 JS 好。JS 的动画一般 chrome 上都还好，safari 真机测试时开始掉帧，整个交互说好听点就突出一个灵活，说难听点就是乱飞。</p>
-<p>没有用库，很臃肿，而且要实现我要的方向锁定的功能也还得再封装一次。自己写下来交互没那么全，但够用了，毕竟打包大小 1k 不到啊！高度内聚啊，没有多事件冗余啊。</p>
-<p>之后要写一下 zoom，还有 zoom 状态下的拖拽。不过其实不是很有必要，基本是网页端屏幕太大的时候会用到。</p>
-<p>参考了微博移动版的的图片组件事件绑定逻辑，对于 react 的事件绑定也看了use-gesture 库。我真的想了很久很久传统的 query 要怎么绑定，因为 react 是没有办法检测到 ref 值的变动的，也就是没有一个渲染完成的时机，传 ref 的 current custom hook 也压根不会触发刷新，毕竟 useEffect 也不会刷新。监听 onload listener 也许可以，但他妈有的组件是 lazyload 啊！比如这个问题：<a href="https://github.com/orgs/mdx-js/discussions/1948">What is the easiest or recommended method to add a copy code button?</a>。在原生 dom 上很好实现的东西，在 react 上堪称世纪难题，最正确的做法还得是自己写插件……我操了，我真的操了。</p>
-<p>所以当我想“绑定完一个事件后再绑定其他事件”，想用 ref  时也是一个完完全全的“我操了”。后面看到 use-guesture 库的绑法，fine，真的很奇葩，很 react，但 work。完全不是时间序的东西，后面慢慢改改改，逐渐有了分组绑定的思路。个人觉得交互事件比较重要的一点是需要使用外部的 state ，只有输出刷新页面的数据才放在组件内部。不然改个内部状态就得重建一个函数就重新绑定……还玩不玩了？</p>
-<p>到现在我拆复杂的hook，都没法第一时间完全想出哪些状态放外面哪些状态放里面。把 search 拆出来时拆死我了。很多东西拆了其实也没有地方复用，一般也只有框架类的才有机会复用，只是为了看起来清楚一点。就比如拖拽手势，虽然理论上是可以到处用，但我也是真的想不到还要什么地方有加的必要。而且图片浏览的拖拽实际上也比一般的拖拽要复杂，只是拖拽倒是很好实现，但有方向锁定，自动回弹，复合点击判定、结束事件一类的，用库也要再封装一次，还要加新功能只暴露出需要使用的部分，更重要的是 css 的配合，又不想再引入个react-spring。如果是工作而不是个人博客，我倒是很情愿开发用库的。</p>
-<p>另外，看代码看到这一行时，笑了，好抽象，又带着一丝合理。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202311240640679.webp" alt=""/></p>
-<h2>2023-11-21 00:57:14</h2>
-<p><span class="tag">#工具 </span><a href="https://bundlephobia.com/">BundlePhobia</a> 查看库的打包大小</p>
-<h2>2023-11-21 00:42:14</h2>
-<p>大概是换了电脑，我很久没用过 logseq 的暗色模式，结果现在发现可真是……五彩斑斓的黑啊！我觉得是 dell 这屏幕的显色有问题。同一个色相调饱和度从绿色到紫色，数值调了 1 都看得出来……要准还是专业显示器或者苹果吧。不过果子不同产品线设备的色偏也是挺严重的（我觉得</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h2>2023-12-07 04:52:48</h2>
+<p>Gawainx 毕业啦，毕业快乐。</p>
+<p>另外一位 b 站认识不久的网友也快了。那就提前毕业快乐吧，有机会我也想认识三次元的 enfp 哈哈。</p>
+<p>在线好友: 1 今年6月已经毕业啦，要留学啦，读博后啦，恭喜。</p>
+<p>虽然 6 月时你想帮我时大概是惊㤉到了，怎么有人宁愿先嗑 cp 也不愿先写论文，你说你不知道我出了问题，那是最后一通电话了，不算快乐的电话。但其实你一直没有明白我说的不想科研是什么意思，因为除开科研以外我实在太正常了。科研有困难很正常的是吧，你遇到的困难也肯定比我多，也不会往别的方面想。其实打到后面我这边几乎说不出话，不是不想说，而是我不愿让人听见我不够平静的声音。</p>
+<p>祝你们毕业快乐。</p>
+<h2>2023-12-07 00:21:41</h2>
+<p>突然对 logseq 插件没兴趣了……头好痒啊，好痒，得洗头，但澡堂开放时我全程在睡觉。最近睡得有点子过多了，每天能醒不到 10 小时。</p>
+<p>喜欢听很萌很快乐的歌。虽然听起来有点变态，但我是很喜欢萝莉音的，不是很刻板尖尖的萝莉音，而是『ユイカ』那样的声音（年龄感再偏小一些）。我也喜欢小女孩子，小女孩子能穿得简单很舒服的那种造型就更好了。我也喜欢仍然喜欢听摇滚，和二次元特定风格的温柔男孩子。古典在想提升逼格时会喜欢听，但日常还是想轻松一些。最不喜欢的是节奏重复的土嗨舞曲。</p>
+<p>我喜欢不被人关注，喜欢当边缘人，但也喜欢所有的朋友。我其实也很喜欢舔但前提是舔的人不会在意我在舔（于是只能赛博舔网友）。我不喜欢被夸奖，但喜欢被理解。以上，这就是三水的自我介绍了，或者说是事故介绍吧，哈哈。</p>
+<p>对了，sansui 其实是三水的拼音，这个角度来说我也是实名上网，但不想被熟人一眼认出来所以去掉了翘舌音，所以我也不知道要怎么读，每次默念都是嘶……233，挺怪的 id。</p>
+<h2>2023-12-05 19:08:43</h2>
+<p>什么都可以是假的，但鸣佐不能(咆哮！)</p>
+<p>要不我引入一下微博的表情包吧……阴阳怪气第一名的表情包。但缺一个编辑器嗯……为什么 Typora 不能有插件！（咆哮！）</p>
+<h2>2023-12-02 05:38:21</h2>
+<p>最近突然很喜欢工具风格的外观，比较紧凑的 UI，细线简单分区的那种。没有太多字体上和间距上的 scale，主打一个稳定和无与伦比的统一感。啊救命，喜好能不能不要一直变变变，已经喜欢无边框的好久了，现在又喜欢回细边框的，审美是一个轮回，其实只要字体和间距不要太拉，看一个 txt 都能看得眉清目秀。</p>
+<p>有图标、细线，良好的分区，就足以完成一个耐看的外观了，不用赶时髦，也不用想太多理论。虽然牛逼的平面设计出的 scale 确实牛逼，但大部分时候都是一坨💩。其实论实用性也只要做到干净统一就可以了。</p>
+<h2>2023-12-02 03:04:36</h2>
+<p>好烦现在的屏幕，真的是五彩斑斓的黑。虽然我选产品的时候有专门注意屏幕参数，但果然还是不行，就typora的这个标题，都能看出外框正黑，菜单栏是冷黑，但正文的Next主题灰黑色又发暖发青。就是这个发暖发青，真的绝了，没法好好配色。还是只有高饱和才能压色偏吗…</p>
+<p>我眼睛好像对于低饱和变化是比较敏感一点，高饱和颜色看不了太长时间，很难受，经常画出来颜色会发灰，因为选色时老觉得颜色已经变了很多了很丰富了，过几天一看……这不都差不多是灰色吗？？</p>
+<h2>2023-12-01 06:29:35</h2>
+<p>对了，我终于看完了《齐木楠雄的灾难》，看了两个月……这是少见的越看越好看的日常动画，看完的时候严重戒断反应。两个月来有空的时候就会看看看，睡不着也开着看看很快就能睡觉，因为节奏特别快，看20分钟像过了一个小时似的。看着人物形象越来越立体，我以为他们的故事会一直持续下去，结果就突然没了……网飞原创那一集的结局也非常非常棒，比原作还要好的感觉。</p>
+<p>我最喜欢的日常动画还是《在下齐木，有何贵干》。虽然很短，但脑洞真的很独特，下下下下下辈子都想不到的操作。而且总是很暖心，结尾结得真的好！</p>
+<p>这两个搞笑动画虽然表面有一点像，但内核是很不一样的。《齐木》比较电波系一点，人物会重置的，所以完结时总觉得他们的世界在继续。《坂本》给人感觉更像有连续性的独立故事，到最后所有的矛盾都很好地解决了。</p>
+<p>唯一可惜的是，坂本的作者去世了😭幸好她说她的一生很快乐，这就足够了。目前的在播动画已经成为她的遗作。</p>
+<p>然后我算了算动画的经费，只是画的部分，逐帧的画一人一天撑死画两秒（原画+上色的流程），分工的话加上导演编剧分镜后期一原二原中割色指定场景摄影配音……也是一天两秒（可能还不到），质量高很多的两秒。两秒差不多是一个镜头吧，不算长也不算很短的镜头。这么算下来2秒花2万块是再正常不过的事了……真的可怕。如果前期有好好规划，比如导演分镜编剧都是一个人，色指定和场景摄影是一个人（原画真的省不了因为就是时间堆的）成本会更低，但也低不到哪里去，能一人多职的都是大佬……</p>
+<p>如果去学动画，最开始会发现，画了两秒，好开心！坚持一个月，积少成多！结果一个月后，也画不过一分钟……而 TV 番组都是20分钟，真的是很大的工程。所以国内很多泡面番，因为做起来真的太难了，投入与回报完全不成正比。</p>
+<p>我又想了下为什么动画的投入产出这么不成正比，原因其实在于……画风。摄影作品什么的再怎么调滤镜都是写实风，镜头语言剧本风格改起来又没有改变画风这么慢。声音作品也是如此，也是写实的。如实记录是很快的事情，但创作也就越慢，成本也越高。3D动捕的成本也比2D好一些，但3D也是永远有一种3D感，包括原神。用3D去模拟真正的2D并不会更快。</p>
+<p>想起了双城之战，有人问你们的人物为什么就像画的一样，他们说：“We paint!” 他们就是用画的纹理。</p>
+<p>2D 永远有一种独特的抽象感，我不认为它为消失，相反，随着具象事物的泛滥，抽象的东西会变得越来越珍贵。</p>
+<h2>2023-12-01 05:56:22</h2>
+<p>更新了 logseq，发现有一点 breaking change，所以主题也更新了一下。非常佛系，也没有看社区，现在越来越懒了……只是他们新加的组件最好不要动。一直在删删删旧代码。</p>
+<p>我博客也是一直在改改改样式，也是没有仔细设计，细节上有挺多设计不一致的。比如圆角的弧度对齐……因为从前设计整体是方形，所以 post 的搜索做的是偏方角。但是 memo 整体是圆角的……然后 memo 的搜索框有 border，因为那边信息量比较多，图标也是以线条为主的，没有border反而感觉很怪异。但是其他地方又都是无边框的，唉……设计很难的！要感觉简洁但又要让人感觉不要太空，twitter那样的分块是最好的。可以的话我倒是想抄，但其实也没有那么适合个人博客，因为个人博客的布局是非常不固定的，不是 app，还是很喜欢长文占满一整页的感觉。有个东西叫 usememos，我用不了……树形分类与长文是有必要的，基础的导航也是有必要的，强迫症会比较开心。</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>
@@ -204,7 +290,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/posts/2023-10-09-the-little-prince-review</link>
             <guid>https://sansui233.com/posts/2023-10-09-the-little-prince-review</guid>
             <pubDate>Mon, 09 Oct 2023 13:56:00 GMT</pubDate>
-            <description><![CDATA[以故事写作的角度重读世界名著《小王子》]]></description>
+            <description><![CDATA[以故事写作的角度重读童话《小王子》]]></description>
             <content:encoded><![CDATA[<p>《小王子》在不同年龄阶段都看过，中译和原著也都读过，当时只是觉得有趣。但尝试自己写故事后，才惊觉其实所有的有趣都是是作者的刻意表达。</p>
 <p>仅仅以生活中的“有趣”与“想象力”写出的故事远远不够，别人看起来并没有你认为的那么有趣，内核是空洞的。</p>
 <p>人在成年人后，所经历的一切容易让笔下故事的发展陷入自身所见所闻，很难写出孩子般质朴的想象，无法逃离现实的束缚。</p>
@@ -303,7 +389,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
             <link>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</link>
             <guid>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</guid>
             <pubDate>Tue, 26 Sep 2023 02:38:00 GMT</pubDate>
-            <description><![CDATA[一些自用的Minecraft高版本常用设置]]></description>
+            <description><![CDATA[一些自用的Minecraft高版本设置]]></description>
             <content:encoded><![CDATA[<p>在 Minecraft 1.20 版本光照引擎被大幅改写，使得帧数提升，模组的数量似乎又多了起来。另外在 fabric 发展起来以后，mod的社区生态有了很大的变化，有很多老牌模组有了更新的替代。现在记录一下实现常用的基本功能需要的模组与修改设置。</p>
 <p>我使用的 hmcl 启动器，在其中进行模组下载可显示模组间的依赖情况。以下内容在1.20.1中完全兼容，且项目均在维护中。</p>
 <h2>Mods</h2>
@@ -515,14 +601,13 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-22%20213633.jpg" alt="chaiNNer"/></p>
 <p>如果使用的是 <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui</a> ，Extra Network 选项卡中也有预置模型，可以使用 SwinIR 和 ESRGAN。</p>
 <hr/>
-<p>可能对您有用的资料：</p>
+<p>可能有用的资料：</p>
 <ul>
 <li><a href="https://openmodeldb.info/models/4x-AnimeSharp">4x-AnimeSharp</a></li>
 <li><a href="https://phhofm.github.io/upscale/">Interactive Visual Comparison of Upscaling Models</a></li>
 </ul>
 <hr/>
-<p>PS：我在尽力不要让语句变得不要和写论文一样啰嗦，但总是难以避免……以及我原本想写个内置的交互式组件来演示图像前后的区别，这也是我最初架构博客时选用 mdx 的原因，但真的开始写的时候……怎么还要多写一个东西？好麻烦！还要考虑 rss 兼容的问题，之后再补吧，现在写什么都像坐牢。</p>
-<p>PPS：强烈建议无代码应用都能开发个template market……</p>]]></content:encoded>
+<p>PS：强烈建议无代码应用都开发个 template market……不要做一堆功能摆那里就自由发挥了啊诶！当发现要什么工作流很难做时就会感知到这些无代码 App 的问题所在了……在实际应用场景中很烂！很难做！说的就是comfyui……</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
         <item>
@@ -600,134 +685,6 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <p>但是在发展好之前，地球可能已经枯竭了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/uPic/00162-1748765688-masterpiece,%20best%20quality,%20ultra-detailed,%20illustration,%201boy,%20Link%20in%20Breath%20of%20the%20wild,%20stronde%20hair,%20sun%20shine,water,%20emotio.jpg" alt="pastel-mix"/></p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
-        </item>
-        <item>
-            <title><![CDATA[部署饥荒联机版Linux服务器]]></title>
-            <link>https://sansui233.com/posts/dontstarvetogether-linux-server</link>
-            <guid>https://sansui233.com/posts/dontstarvetogether-linux-server</guid>
-            <pubDate>Wed, 28 Dec 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[此文为 Docker 版饥荒联机版服务器在 CentOS 下的部署教程。]]></description>
-            <content:encoded><![CDATA[<p>此文为 Docker 版饥荒联机版服务器在 CentOS 下的部署教程。</p>
-<blockquote>
-<p>为什么要部署Linux服务器？因为玩到后面，只要一联机连主机都卡，闲得想试</p>
-</blockquote>
-<p><a href="https://www.roci.ltd/dstserver/">这个中文教程</a>讲了native steam版的安装方法，包括了Cent OS缺少的库，坑全踩了一遍写得十分详细。官方文档实在太拉，基本就是没有文档，像跨平台缺库这种事情也没有解决，没有脚本。不过教程中对于网络环境问题与mod的配置方法提得不多。</p>
-<p>我这里使用的是<a href="https://hub.docker.com/r/jamesits/dst-server">Docker版本</a>。优点是</p>
-<ul>
-<li>国内的云平台对于Dockerhub的加速后走内网流量，不使用公网流量下载镜像。而且国内的服务器公网下载速度堪忧。</li>
-<li>Docker版本的文档写得对用户友好，易上手</li>
-<li>文件管理集中，比较方便。原版服务器的mod和存档是分开放的</li>
-</ul>
-<p>也有一些在国内环境下比较要命的缺点</p>
-<ul>
-<li>网络环境原因，无法下载创意工坊mod。最近靠改 hosts 也不行了。</li>
-<li>如果想开代理下载，docker容器开代理（设置环境变量）非常麻烦，具体来讲
-<ol>
-<li>如果每次开关代理都创建一个新的容器，Steam和游戏文件的更新都得再触发一次，又消耗流量又慢</li>
-<li>如果动态修改容器的配置文件，docker需要重启才能生效，所有docker服务都得宕机一会儿</li>
-</ol>
-</li>
-</ul>
-<h2>准备</h2>
-<ul>
-<li>一台至少2G内存的服务器</li>
-<li>使用ssh连接服务器、传输并管理文件的技能</li>
-</ul>
-<h2>Docker的安装</h2>
-<p>由于涉及到Docker镜像和Dockerhub加速的问题，具体安装步骤建议看docker的文档和各个云平台。</p>
-<p>我使用的腾讯云，见<a href="https://cloud.tencent.com/document/product/1207/45596">安装 Docker 并配置镜像加速源</a>，大约花费2分钟。</p>
-<h2>服务器防火墙设置</h2>
-<p>需要放行 10999，11000，12346，12347 这四个端口的UDP流量。</p>
-<ul>
-<li>在国内云平台的控制台-防火墙中，放行服务器的这四个端口</li>
-<li>如果服务器上iptables有流量拦截，也需要放行</li>
-</ul>
-<h2>饥荒服务器镜像的启动</h2>
-<pre><code class="hljs language-bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">${HOME}</span>/Klei <span class="hljs-comment"># 创建存放数据有文件夹</span>
-
-<span class="hljs-comment"># 拉取镜像并在前台启动</span>
-<span class="hljs-comment"># 由于Steam要更新，根据网络环境可能要等比较久的时间</span>
-<span class="hljs-comment"># 如果实在无法连接，再考虑给容器挂个代理下载。但总体不建议容器挂代理，因为我不清楚挂代理后steam是连接到服务器的游戏端口还是连到代理的端口上去了，取消容器的代理也非常麻烦。</span>
-docker run --name dst -v <span class="hljs-variable">${HOME}</span>/Klei:/data -p 10999-11000:10999-11000/udp -p 12346-12347:12346-12347/udp -it jamesits/dst-server:latest
-</code></pre>
-<p>以上命令执行期间，可以去准备一下游戏存档和Mod相关文件。</p>
-<h2>准备游戏存档和Mod</h2>
-<p>我使用的Mac，饥荒的游戏文件相关目录位于</p>
-<pre><code class="hljs language-bash"><span class="hljs-comment"># 游戏存档</span>
-SAVE_DIR=<span class="hljs-string">&quot;~/Documents/Klei/DoNotStarveTogether/324927772/Cluster_1&quot;</span>
-<span class="hljs-comment"># mod下载目录</span>
-MODS_DIR=<span class="hljs-string">&quot;~/Library/Application Support/Steam/steamapps/common/Don&#x27;t Starve Together/dontstarve_steam.app/Contents/mods&quot;</span> <span class="hljs-comment">#</span>
-
-<span class="hljs-built_in">cd</span> <span class="hljs-variable">$SAVE_DIR</span> <span class="hljs-comment"># 进入存档目录</span>
-</code></pre>
-<p>windows可以在饥荒游戏内点数据打开游戏存档，并在Steam中查看游戏的安装目录。</p>
-<h3>准备存档信息</h3>
-<p>点开<a href="https://accounts.klei.com/account/info">饥荒的账号</a>，记下 <strong>Klei User ID</strong>。如果没有就注册一个。</p>
-<p>然后，新建<code>adminlist.txt</code>，并写入你的<strong>Klei User ID。</strong></p>
-<pre><code class="hljs language-bash">$ vim adminlist.txt
-<span class="hljs-comment"># 写入以下内容</span>
-你的Klei User ID
-</code></pre>
-<p>点开<a href="https://accounts.klei.com/account/game/servers?game=DontStarveTogether">自建饥荒服务器的页面</a>，新建一个服务器，记下生成的Server Token，其他不用管。</p>
-<p>然后，新建 <code>cluster_token.txt</code>，并写入Server Token。</p>
-<pre><code class="hljs language-bash">$ vim cluster_token.txt
-<span class="hljs-comment"># 写入以下内容</span>
-你的Server Token
-</code></pre>
-<h3>准备mods</h3>
-<p>不开mod的可以跳过这一步。</p>
-<p>由于国内环境没法下载mod，需要把对应的mod文件复制过来。我为了方便就全复制了</p>
-<pre><code class="hljs language-bash"><span class="hljs-built_in">cp</span> -r <span class="hljs-string">&quot;<span class="hljs-variable">$MODS_DIR</span>&quot;</span> mods
-</code></pre>
-<p>先查看一下目前的存档开了哪些mod。</p>
-<pre><code class="hljs language-bash">$ <span class="hljs-built_in">cat</span> Master/modoverrides.lua
-<span class="hljs-comment"># 开启的mod</span>
-<span class="hljs-built_in">return</span> {
-  [<span class="hljs-string">&quot;workshop-1172839635&quot;</span>]={ configuration_options={ icebox_freeze=<span class="hljs-string">&quot;0.5&quot;</span> }, enabled=<span class="hljs-literal">true</span> },
-  [<span class="hljs-string">&quot;workshop-1294206358&quot;</span>]={ configuration_options={  }, enabled=<span class="hljs-literal">true</span> },
-}
-</code></pre>
-<p>然后，编辑 <code>mods/dedicated_server_mods_setup.lua</code> 文件，写入上面的mod编号</p>
-<pre><code class="hljs language-bash">$ vim mods/dedicated_server_mods_setup.lua
-<span class="hljs-comment"># 写入以下内容</span>
-ServerModSetup(<span class="hljs-string">&quot;workshop-1294206358&quot;</span>)
-ServerModSetup(<span class="hljs-string">&quot;workshop-1595631294&quot;</span>)
-</code></pre>
-<p>至此，游戏存档和mods就准备好了。</p>
-<h2>转移游戏存档和Mods至服务器</h2>
-<p>上传游戏存档到服务器。打包和上传文件我一般使用GUI操作，用命令行的话是这样</p>
-<pre><code class="hljs language-bash"><span class="hljs-built_in">cd</span> ~/Documents/Klei/DoNotStarveTogether/324927772/
-tar -cvf Cluster_1.tar.gz Cluster_1 
-scp Cluster_1.tar.gz root@myserver:/Klei/
-</code></pre>
-<p>如果之前的服务器连接还在，等无新日志输出后使用control+c退出容器。如果已断开连接，重新用ssh登录服务器。</p>
-<p>然后可以看到在服务器的 <code>~/Klei/DoNotStarveTogether</code> 中有了一个 <code>Cluster_1</code> 存档。</p>
-<p><strong>转移游戏存档时，需要注意有两种情况（来自<a href="https://hub.docker.com/r/jamesits/dst-server">文档</a>）</strong></p>
-<p>第一种情况是，如果自己的存档开启了洞穴，把自己的存档覆盖过去即可。</p>
-<pre><code class="hljs language-bash"><span class="hljs-built_in">rm</span> -rf Cluster_1
-tar -xvf Cluster_1.tar.gz
-</code></pre>
-<p>第二种情况是，自己的存档没有开启洞穴，需要</p>
-<ol>
-<li>在自己的电脑中，存档的上一级有个 <code>client_save</code> 。复制下面的除了 <code>session</code> 外的所有文件到服务器的 <code>Cluster_1/save</code> 。</li>
-<li>自己存档中的 <code>Cluster_1/save/session</code> 需要删除，其他文件可以直接覆盖</li>
-</ol>
-<p>存档覆盖完毕后，启动容器</p>
-<pre><code class="hljs language-bash">docker start -a dst
-<span class="hljs-comment"># 如果最后输出了 Sim Pause 就代表 OK 了，按 ctrl + c 退出，容器继续后台运行</span>
-</code></pre>
-<p>我第一次装Mod启动时发生了一个莫名其妙的 <strong>Segmentation fault</strong>，程序退出了，但是第二次启动就好了。搜了一下<a href="https://github.com/Jamesits/docker-dst-server/issues/48">相关issue</a>，完全相同的情况，也是CentOS，偶尔发生，难稳定复现。</p>
-<h2>游玩</h2>
-<p>之前自己的存档叫什么名字就搜什么名字，加入就完事，好好玩吧w</p>
-<hr/>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://hub.docker.com/r/jamesits/dst-server">jamesits/dst-server</a></li>
-<li><a href="https://github.com/Jamesits/docker-dst-server/issues">docker-dst-server issue</a></li>
-<li><a href="https://www.roci.ltd/dstserver/">饥荒独立服务器入门级快速搭建</a></li>
-<li><a href="https://dontstarve.fandom.com/wiki/Guides/Don%E2%80%99t_Starve_Together_Dedicated_Servers">Guides/Don&#x27;t Starve Together Dedicated Servers - Fandom</a></li>
-</ul>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/游戏">游戏</category>
         </item>
     </channel>
 </rss>

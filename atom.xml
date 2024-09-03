@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2024-02-28T10:23:07.066Z</updated>
+    <updated>2024-09-03T01:45:09.873Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -15,82 +15,362 @@
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
     <entry>
+        <title type="html"><![CDATA[Windows 调整之中文字体]]></title>
+        <id>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</id>
+        <link href="https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment"/>
+        <updated>2024-08-01T18:08:00.000Z</updated>
+        <summary type="html"><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
+</blockquote>
+<p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。</p>
+<p>但如今的显示器分辨率越来越高，旧版微软雅黑的设计存在着明显的缺陷。</p>
+<p>一是其字形设计并不平衡，中宫过大，有的字形可以以难看来形容；二是微软雅黑字形只在 4K 屏 200% 缩放（以上的配置）上有着较好的显示效果。</p>
+<p>微软曾经设计过“另一版的微软雅黑”，即 Noble Scarlet，但并没有在正式的系统中使用。这一版字体设计依然中宫偏大，但相对老版收敛了不少，平衡了一些。</p>
+<p>另外，如果你不巧像我一样用着 2K 或 2.5K 屏，</p>
+<ul>
+<li>在 24寸时，100% 缩放字体比较合适，但与 16 寸 1080p 显示器差不多清晰度，不过屏幕可用空间更大。</li>
+<li>在 21 寸时，100% 缩放字体会偏小，比较锻炼眼睛。150% 缩放字体大小比较合适，效果更细腻，但字型会比较怪，且屏幕可用空间与 1080p 相同。</li>
+<li>在 16 寸时，150% 缩放字体稍微偏小，效果比较细腻，但非整数倍缩放+ClearType 的加持下，一些像素被吞掉，笔画的间距不平衡，有种“ windows 特有的字被虫噬的美”。</li>
+</ul>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408190158527.webp" alt="字形"/></p>
+<p>可以看到，上图的 100% 200% 缩放没有字形变形问题，可以说微软雅黑小字优化是考虑的 100% 缩放。100% 缩放显得糊则是因为图片放大放大倍率过高，实际不会有糊，而是有锯齿感。</p>
+<p>150% 缩放会由于 clearType 的“锐化”导致字形变化，不知道的还以为换了个字体。如果是125%、175%的缩放，字体变形更加糟糕。</p>
+<p>造成缩放问题的原因大概可以用下图进行简要解释：</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408190318888.webp" alt="缩放"/></p>
+<p>Mac 上的 Retina 渲染相当于 4k 200% 缩放起步。而 windows 下， 2k-2.5k 的屏幕都在 200% 以下的缩放中挣扎。如果软件没有适配高分屏，没有 clearType，强制进行双线性缩放（常见于图片UI），就会显得非常糊。想体验这样的糊，可以下载旧版的原神启动器。</p>
+<h2>需要准备</h2>
+<ul>
+<li>
+<p><strong>Noble Scarlet</strong>  替换系统的微软雅黑。由于 Noble Scarlet 是一个未完成的字体，普遍使用的是社区修正版，以下是资源参考。</p>
+<ul>
+<li><a href="https://bbs.pcbeta.com/viewthread-1960120-1-4.html">pcbeta</a></li>
+<li><a href="https://www.bilibili.com/read/cv6059905/">bilibili</a></li>
+</ul>
+</li>
+<li>
+<p>系统字体替换工具：搜索 “<a href="https://www.fishlee.net/soft/SysFontReplacer/">字体替换工具 by 随风飘扬</a>”。替换完后重启，否则可能有缩放错误。另外，github 上有一个非侵入式的系统字体替换工具 <a href="https://github.com/Tatsu-syo/noMeiryoUI">noMeiryoUI</a>，可惜换不全 windows 11，只是作为预览不同字体在系统上的效果倒是个很不错的工具。</p>
+</li>
+<li>
+<p><a href="https://www.mactype.net/"><strong>MacType</strong></a> 改善 ClearType 的虫噬渲染方式带来的不均匀，使用后提升非常非常大。</p>
+</li>
+<li>
+<p><strong><a href="https://source.typekit.com/source-han-serif/cn/">思源宋体</a></strong>：推荐将浏览器的 Serif 字体设置为此字体。默认的宋体真的，不论中文英文，都很丑……只适合打印。</p>
+</li>
+</ul>
+<h2>常用正文黑体简述</h2>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/07/202407260100518.webp" alt=""/></p>
+<h3>苹方</h3>
+<p>苹方是一款设计上很优秀的字体，其间架结构、中宫非常平衡，既兼顾了传统的汉字笔画细节又有规整而现代的几何化，间距合理，阅读起来非常舒适。</p>
+<p>但是……苹方的设计缺字重。</p>
+<p>在设计上，苹方没有 Heavy 字重（<a href="https://support.apple.com/en-us/103203">参考</a>）。而在<a href="https://github.com/paraself/PingFang-Fonts">流行的 github 苹方字体仓库</a>中，则是将 Bold 字重映射到了 Heavy，而将原本的Medium 映射到了 bold。虽然这个问题不是苹果设计的导致的，而是一个再次分发时的错误，但致使目前网上能搜索到的第三方仓库的苹方字体整体字重均偏细。</p>
+<p>另外，苹方在 2.5K 屏上表现非常糊，苹方问世时已经进入了 Retina 屏的时代，没考虑过在低 PPI 屏幕上的表现（不是4K屏缩放200%都别用）。</p>
+<p>第三，苹果设备的显示的西文字体是 <a href="https://zh.wikipedia.org/zh-hans/San_Francisco_(2014%E5%B9%B4%E7%9A%84%E5%AD%97%E4%BD%93)">San Francisco</a>，不是苹方。在 <a href="https://lrd.im/blog/2022-01-17">细数 Pingfang SC 的七宗罪</a> 中，也提到仅使用苹方导致不同设备字体 fallback 的不一致的问题。而作为系统字体里的其他问题，例如缺失本地化的字型，也是大部分字体所缺乏的，这已经不仅仅是一个字体问题，而是和字体相关的和 UI 技术标准化问题，难以仅通过字体解决。而无比例数字、冒号不垂直居中、没有垂直标点等细节，则都是因为苹果显示标点数字用的 SF 字体，苹方在此类字符上算是基本能用，但缺少多种场景下的细节。</p>
+<p>其他资源： <a href="https://www.figma.com/community/file/1089832205783108371">Pingfang for windows - Figma</a></p>
+<p>另外，苹方是有版权限制，以下字体除了思源黑体，和大厂的开源黑体，均不可免费商用。</p>
+<h3>思源黑体系列</h3>
+<p>思源黑体(Noto sans) 是 google 的开源可商用字体，用于 Android 系统，在开源可商用的的黑体其质量无可替代。</p>
+<p>更纱黑体是思源黑体的衍生，修改了西文部分，相比思源黑体上更符合作为 无明显风格特征的系统字体，带 hinting 在 1080p 和 2.5k 下都能保证良好的清晰度。</p>
+<p>但是，思源黑体系列设计相比于国产的商用字体并不能算好，有时间架结构比较怪异，字形的细节不太统一，比如“用”字明显矮了一截，整理风格上给人一种不稳定感。同时也不是一个大气的字体，比如口字旁处理对于黑体而言偏小，“用”字矮了一些，但是在宋体设计上，“用”字矮的这一截反而让字体看起来平衡。而一个系列的字体衬线、非衬线的统一感来源于其比例，个人理解为思源/更纱系列是优先考虑宋体的字形，和黑体的比例有一定的结合。整体而言还是宋体的设计更加优秀。</p>
+<p>相对而言更纱黑体更适合作为系统字体，有着合理的 hinting。思源黑体是不太适合低 ppi 屏的，它的 Regular 字重看起来像 Bold。</p>
+<h3>方正兰亭系列（微软雅黑）</h3>
+<p>Noble Scarlet （社区版）常规体是新设计中宫收窄的微软雅黑，而粗体是方正兰亭黑 Pro，因此在加粗时，字体明显会变小一圈。</p>
+<p>微软雅黑系列字体在标点处理上很差，最直观的就是全角引号，太像半角的处理方式，很难看出前引号与后引号的区别。其实我在写这一篇文的时候，换了 Typora 的字体，才发现前后引号全打反了……</p>
+<p>方正兰亭黑 Pro 想对于两版微软雅黑都有着更小的中宫，字形设计中正。但也由于稍小了一些，在低 ppi 屏的小字上笔画更容易显得不太均匀，渲染效果不太好。另外使用此字体需要相比于其他所有字体更大的行距，因为其较小的中宫，字间距显得相对宽了。</p>
+<h3>汉仪旗黑系列</h3>
+<p>近年来的国产安卓厂商字体都是汉仪旗黑的衍生，代表阿里的普惠体、鸿蒙体、小米的字体、Oppo的字体。</p>
+<p>这系列字体间架结构合理，但笔画上更加激进，减弱了起笔与收笔的的传统突出，以追求几何感与现代的科技感。在观感上，这样规矩的方形会使得字体相比方正系列更加圆润，多了现代感但少了汉字的人情味，用于阅读小说时尤其明显。</p>
+<p>仅字形而言，作为 UI 是非常不错的。不过 Misans 渲染出来明显偏粗，我没有测试其他同系列字体是否也有这样的问题。</p>
+<h2>改掉 Windows 的默认中文无衬线字体</h2>
+<p>很多无法分别修改中英字体的 windows 原生应用，当只设置了英文字体时，显示的中文是新宋体（SimSun），比如 vs studio。原因在于系统里的 Microsoft Sans-serif 字体名，回落到的第一个字体就是新宋体……难以想象微软雅黑出了十多年了还有这样的问题。</p>
+<p>解决办法：</p>
+<ul>
+<li>winkey + R, 输入 regdit，进入 windows注册表</li>
+<li>进入 <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink</code></li>
+<li>把 Microsoft Sans Serif 的值中 SIMSUN.TTC 那一行去掉。这样默认的无衬线体就会往后 fallback 到系统的微软雅黑上。</li>
+</ul>
+<hr/>
+<p>创建于 2023-09-29 02:25:44</p>
+<p>更新于 2024-08-19 01:45:31</p>]]></content>
+        <category label="工具"/>
+        <published>2024-08-01T18:08:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows 命令行相关配置之 msys2+zsh+zi]]></title>
+        <id>https://sansui233.com/posts/windows-zsh-conf</id>
+        <link href="https://sansui233.com/posts/windows-zsh-conf"/>
+        <updated>2024-03-15T20:35:00.000Z</updated>
+        <content type="html"><![CDATA[<p>长久以来，遇到 bash 脚本会临时切 git-bash 中的 bash。由于用的语言都有自己的包管理器，倒也一直够用。但是最近涉及到一些 c++，由 git-bash 提供的最小化环境东西缺得太多，几乎不能当个日常 shell 用，也没有 pacman 包管理，最后决定还是单独安装 msys2。</p>
+<p>git-bash 和 msys2 同时安装不会冲突。msys2 是独立的 home 目录，而 git-bash 是与 windows 当前用户通用的。我本来想卸载 git-bash，但由于我现在还是用 powershell，最终发现 git-bash 不能卸载。一是 posh-git 只支持 git-bash 的 git；其次是，astro-nvim 中的一些插件需要 <code>git.exe</code> 在环境变量下，使用 alias 链接的 git 不行，而手动加环境变量会把 git 以外的程序也加进去，造成 msys2 的工具与 powershell 本身工具的冲突。</p>
+<p>想来想去，决定保留 git-bash 到最小化的状态，当成 powershell 的插件用。unix-like shell 以及相应的包管理还是 msys2。</p>
+<h2>安装 msys2</h2>
+<p>见 <a href="https://www.msys2.org/">https://www.msys2.org/</a> 。安装过程没什么好说的，唯一要注意的在于安装目录的权限必须是当前用户可以完全控制，否则后续各种包的安装都会有一大堆问题。如果因为强迫症安装到 Program Files 下，则需要手动添加当前用户的权限。</p>
+<h3>软链接问题</h3>
+<p>windows 的软链接本来也是个很麻烦的问题。到 msys2 下，还多了一个软链接方式兼容问题。msys2 默认是 <code>ln -s</code> 是复制，要用 windows 风格的软链接，可以改安装目录下的各种 <code>.ini</code> 文件中的配置。</p>
+<pre><code>MSYS=&quot;winsymlinks:lnk&quot;
+</code></pre>
+<h2>zsh + zi</h2>
+<h3>zsh 的安装</h3>
+<pre><code class="hljs language-bash">pacman -S zsh
+</code></pre>
+<p>老实说个人觉得和 linux 上的 zsh 相比还是差了一大截，用起来和 bash 感觉差不多。只是 zsh 插件管理的选择比较多</p>
+<h3>zi 的安装</h3>
+<p>关于 zsh 插件管理，之前在 git-bash 上我也安装了 oh-my-zsh，但是环境原因，遇到的 bug 着实太多，基本不用。另外，最大的问题是启动太慢，每次启动长达 10 秒。我分析了一下初始化脚本的执行时长，发现拖慢速度的罪魁祸首是初始化命令补全（就不能异步吗啊！）当然用 mac 时 omz 也有点慢，但显然没有 msys2 里这么离谱。</p>
+<p>下午吐槽这个事情后，Antarx 说他换 zi 了。我试了下，确实很快，从没超过3s，令人偷税。</p>
+<ul>
+<li>zi 的安装：<a href="https://wiki.zshell.dev/docs/getting_started/installation">https://wiki.zshell.dev/docs/getting_started/installation</a></li>
+</ul>
+<p>安装过程最好在 msys2 的 GUI 终端下进行，因为需要登录的默认目录是在 home 的当前用户下。但这里又有另一个问题 —— msys2 不带 git。如果系统有另外安装 git，想复用，可以 cmd 启动 zsh，不指定启动的目录，指定继承环境变量。</p>
+<pre><code class="hljs language-cmd">C:\\msys64\\msys2_shell.cmd -defterm -no-start -mingw64 -use-full-path -shell zsh
+</code></pre>
+<h3>zi 的配置与插件</h3>
+<p><a href="https://wiki.zshell.dev/docs/getting_started/installation">安装Wiki</a> 在不断更新，检查最新版的安装方法。</p>
+<p>安装好后，<code>.zshrc</code> 里添加如下，写好重启 zsh 即可。</p>
+<pre><code class="hljs language-bash">$ vi ~/.zshrc
+
+<span class="hljs-comment"># zsh</span>
+<span class="hljs-built_in">setopt</span> AUTO_PUSHD
+
+<span class="hljs-built_in">export</span> CLICOLOR=1
+<span class="hljs-built_in">export</span> LSCOLORS=ExGxFxdaCxDaDahbadeche
+<span class="hljs-built_in">zstyle</span> <span class="hljs-string">&#x27;:completion:*&#x27;</span> list-colors <span class="hljs-string">&quot;<span class="hljs-variable">${(@s.:.)LS_COLORS}</span>&quot;</span>
+<span class="hljs-built_in">alias</span> <span class="hljs-built_in">ls</span>=<span class="hljs-string">&#x27;ls --color=auto&#x27;</span>
+<span class="hljs-built_in">alias</span> la=<span class="hljs-string">&#x27;la --color=auto&#x27;</span>
+
+<span class="hljs-comment"># zi</span>
+<span class="hljs-built_in">typeset</span> -A ZI
+ZI[BIN_DIR]=<span class="hljs-string">&quot;<span class="hljs-variable">${HOME}</span>/.zi/bin&quot;</span>
+<span class="hljs-built_in">source</span> <span class="hljs-string">&quot;<span class="hljs-variable">${ZI[BIN_DIR]}</span>/zi.zsh&quot;</span>
+
+<span class="hljs-built_in">autoload</span> -Uz _zi
+(( <span class="hljs-variable">${+_comps}</span> )) &amp;&amp; _comps[zi]=_zi
+<span class="hljs-comment"># source &lt;(curl -sL init.zshell.dev); zzinit</span>
+
+
+<span class="hljs-comment"># 插件</span>
+<span class="hljs-comment"># 提前运行一次 zi ice pick&quot;async.zsh&quot; src&quot;pure.zsh&quot;</span>
+zi light sindresorhus/pure 
+zi light agkozak/zsh-z  <span class="hljs-comment"># 不能用 eval &quot;$(zoxide init zsh)&quot; 会冲突</span>
+zi snippet OMZP::git
+zi light zsh-users/zsh-completions
+<span class="hljs-comment"># 提前运行一次 zi ice wait lucid atload&#x27;_zsh_autosuggest_start&#x27;</span>
+zi light zsh-users/zsh-autosuggestions 
+<span class="hljs-comment"># 提前运行一次 zi ice wait lucid atinit=&#x27;zpcompinit&#x27;</span>
+zi light zdharma/fast-syntax-highlighting
+
+
+</code></pre>
+<h2>Windows Terminal 设置</h2>
+<p>在设置里改 json，加相应的 profile。可以使用 <code>-use-full-path</code> 继承 windows 系统的环境变量。</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;commandline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -here -no-start -mingw64 -use-full-path -shell zsh&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;guid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;{c420e0af-28d9-4742-a6b8-83d5fcf424e9}&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\mingw64.ico&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;msys2 zsh&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;startingDirectory&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;%USERPROFILE%&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2>Vscode Terminal 设置</h2>
+<pre><code class="hljs language-json"><span class="hljs-attr">&quot;terminal.integrated.profiles.windows&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;MSYS2 zsh&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\msys2_shell.cmd&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-defterm&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-here&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-no-start&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-mingw64&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-use-full-path&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-shell&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;zsh&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;MSYSTEM&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;MINGW64&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;overrideName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h2>Mintty 设置</h2>
+<p>Mintty 是 msys2 里默认的终端 GUI，默认 shell 是 bash。修改 <code>mingw64.ini</code> 为如下内容。</p>
+<pre><code>MSYS=winsymlinks:lnk
+MSYS2_PATH_TYPE=inherit
+MSYSTEM=MINGW64
+SHELL=/usr/bin/zsh
+</code></pre>
+<h2>npm设置</h2>
+<p>如果有使用 npm 进行包管理，继承自环境变量的 npm 补全时会报错。需要设置为</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="bash">npm config edit</span>
+script-shell=C:\msys64\usr\bin\bash.exe
+shell=C:\msys64\msys2\usr\bin\bash.exe # 重要<span class="hljs-meta prompt_">
+$ </span><span class="bash">npm config list</span>
+</code></pre>
+<h2>conda 设置</h2>
+<p>如果有使用 conda 进行 python 开发，继承自环境变量的 conda 默认初始化脚本也有问题……从 Github 上查到的解决方法……</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_"># </span><span class="bash">&gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span><span class="hljs-meta prompt_">
+# </span><span class="bash">!! Contents within this block are managed by <span class="hljs-string">&#x27;conda init&#x27;</span> !!</span>
+if [ -f &#x27;/c/Users/me/miniconda3/Scripts/conda.exe&#x27; ]; then
+    #eval &quot;$(&#x27;/c/Users/me/miniconda3/Scripts/conda.exe&#x27; &#x27;shell.zsh&#x27; &#x27;hook&#x27;)&quot;
+    eval &quot;$(&#x27;/c/Users/me/miniconda3/Scripts/conda.exe&#x27; &#x27;shell.zsh&#x27; &#x27;hook&#x27; | sed -e &#x27;s/&quot;$CONDA_EXE&quot; $_CE_M $_CE_CONDA &quot;$@&quot;/&quot;$CONDA_EXE&quot; $_CE_M $_CE_CONDA &quot;$@&quot; | tr -d \x27\\r\x27/g&#x27;)&quot;
+fi<span class="hljs-meta prompt_">
+# </span><span class="bash">&lt;&lt;&lt; <span class="hljs-string">conda initialize &lt;&lt;&lt;</span></span>
+</code></pre>
+<h3>ssh配置共用</h3>
+<p>如果有多个 ssh 账户的密钥，最好是软链接一下配置目录。注意需要前面的修改软链接方式，否则还是去资源管理器手动软链接吧。</p>
+<pre><code class="hljs language-shell">ln -s /c/Users/me/.ssh ~/.ssh
+</code></pre>
+<h2>参考</h2>
+<p><a href="https://hustlei.github.io/2018/11/msys2-for-win.html#%E5%AE%89%E8%A3%85git%E5%92%8Cvim">msys2-for-win</a></p>
+<p><a href="https://sdl.moe/post/zsh-conf/">https://sdl.moe/post/zsh-conf/</a></p>]]></content>
+        <category label="工具"/>
+        <published>2024-03-15T20:35:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[笔记 - 像素的一生]]></title>
+        <id>https://sansui233.com/posts/2024-02-29_像素的一生</id>
+        <link href="https://sansui233.com/posts/2024-02-29_像素的一生"/>
+        <updated>2024-02-29T23:45:00.000Z</updated>
+        <summary type="html"><![CDATA[浏览器渲染原理]]></summary>
+        <content type="html"><![CDATA[<p>内容来自于 2018 年谷歌的一个视频。原视频不长但内容很多，非常值得一看。Chrome 的渲染机制是在不断变化的。</p>
+<p>笔记原存于 Logseq，如果有类似于，“见CSS/图层”一类的语句，为笔记内超链接。相关概念需自行了解。</p>
+<p>📚 <strong>资料</strong></p>
+<ul>
+<li>
+<p><a href="https://www.bilibili.com/video/av35265997/?vd_source=a94b8ba67535fb1431364b8c5fac341d">b站视频 - 2018</a></p>
+</li>
+<li>
+<p><a href="https://docs.google.com/presentation/d/1boPxbgNrTU0ddsc144rcXayGA_WF53k96imRH8Mp34Y/edit?pli=1">英文slides</a></p>
+</li>
+<li>
+<p><a href="https://segmentfault.com/a/1190000020102554">思否文章</a></p>
+</li>
+</ul>
+<p><strong>渲染流程</strong>：web content → magic(rendering) → pixels</p>
+<h2>1. Web content</h2>
+<p>最常见的 HTML + CSS + Javascript API</p>
+<p>还有图片、视频、音频、web assembly、WebGL、Canvas、PDF等等</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342847.webp" alt="Web Content"/></p>
+<h2>2. 渲染</h2>
+<p>渲染是在一个 sandbox 进行的。渲染引擎 Blink 是渲染代码的一个子集。</p>
+<p>操作系统渲染 API：OpenGL，DirectX(Windows), vulkan。包含 textures shaders 等等。</p>
+<h3>2.1 渲染目标</h3>
+<ol>
+<li>
+<p>把 web content 渲染为 openGL 的调用</p>
+</li>
+<li>
+<p>为更新渲染建立起对应的数据结构</p>
+</li>
+</ol>
+<h3>2.2 基本渲染流程</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342848.webp" alt="渲染流程"/></p>
+<p>渲染流程太复杂，会被分为几个阶段进行数据结构的转换</p>
+<p>不是每一次更新渲染，都要走全部的流程。相关看 浏览器/渲染原理 中的回流与重绘。</p>
+<h4>HTML to DOM</h4>
+<p>解析 HTML 为 DOM 树。DOM树的作用有两个，一个表示文档结构，二是暴露 API 给 Javascript，由 V8 JS引擎进行 API 绑定。</p>
+<h4>CSS to ComputedStyle</h4>
+<p>CSS 转换为 StyleRule 集，每个 StyleRule 包含 CSSSelector 和 CSSPropertyValue。流程如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342849.webp" alt="css parser"/></p>
+<p>根据 css 样式规则，计算出每个 DOM 元素样式属性的最终值，存储于 <strong>ComputedStyle</strong> 对象模型中，是一个 style properties 与 values 的超大映射。这个过程被称为 Style Resolution。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342850.webp" alt="style resolution"/></p>
+<p><strong>ComputedStyle</strong> 对象已经暴露给了 JS。使用<code>getComputedStyle(element)[&#x27;padding-top&#x27;]</code>即可获取。在 Dev tools 的 Elements 中的 Computed 选项卡的值就是依据此 对象来的。</p>
+<h4>Layout Stage</h4>
+<p>例子：</p>
+<ul>
+<li>Web 最基础的 Block Flow 布局，需要计算出 Block 的 x、y、width、height。</li>
+<li>由于 Block 自适应高度，需要根据内容的尺寸，找到文字换行的地方，以计算每个 Block  的高度。</li>
+<li>每一个 Block 的矩形有多种边界（在CSS/盒模型中说得很清楚）。内容 overflow 时，需要计算两个矩形，一个是<strong>实际内容区域</strong>，一个是<strong>能显示出的内容的区域</strong>。如果内容可滚动，还要计算<strong>滚动边界</strong>和<strong>滚动条边界</strong>。</li>
+</ul>
+<p>Document 的根节点本身就是 overflow 且可滚动的。</p>
+<p>Layout Objects 也树结构存在，几乎与 DOM 是一对一，但并非总是如此。比如伪元素、浮动元素。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342851.webp" alt="layout"/></p>
+<p>在 style 计算后会构建一个没有填入任何数据的 <strong>Layout Tree</strong>。</p>
+<p><strong>更新布局</strong>的本质就是遍历 layout tree 并向里面填充所有数据。</p>
+<p>Slides里说目前没有把 Layout Stage 的输入输出区分开，但没细说，只是说下个版本会改。放个图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342852.webp" alt="Layout Stage NG"/></p>
+<h4>Paint to display item lists</h4>
+<p>做类似于在指定坐标内画一个红色的矩形这样的动作。代码结构上 ，是 LayoutObject 有一个 Paint 方法。去调用更底层的 Paint  API。</p>
+<p><strong>此阶段生成“作画步骤”，还没有真的画出像素</strong>。步骤是可以重放的。至于为什么这样做，之后再说（然而之后并没有说）。</p>
+<p>Paint 是从 z-index 最大到最小进行的，而不是 DOM 的前后顺序。而两个并列的层叠上下文时，后覆盖前。在一个 CSS/层叠上下文 内，按层叠上下文的堆叠规则绘制（z轴的层叠规则），如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342853.webp" alt="image.png"/></p>
+<h4>Rasterization 栅格化</h4>
+<p>将 Display Item（位于 CC Layer 中，之后说）中记录的 Paint 操作转化为<strong>位图</strong>(bitmap)。</p>
+<p>raster bitmap 通常保存于 GPU 内存中，被 <strong>OpenGL Texture Object</strong> 引用。GPU 不仅可以保存 bitmap，也可以生成 bitmap。叫 <strong>accelerated rasterization</strong>。</p>
+<p><strong>此时像素纹理已经生成到内存，但还是没有画到屏幕上。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342854.webp" alt="Rasterization"/></p>
+<p>栅格化通过 <strong>SKIA 库</strong>生成对 <strong>OpenGL</strong> 的调用。SKIA 提供了一系列对硬件的抽象。具体而言，PaintOps 会调用 SKIA 中的 SkCanvas 对象。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342856.webp" alt="SKIA"/></p>
+<p>由于渲染过程是在 sandbox 进行的， 不能产生系统调用，OpenGL 调用是通过 command buffer 塞进另一个进程 <strong>GPU Process</strong> 执行的。GPU Process 接受到绘制命令后通过 GL API 去产生真正的 GL 调用。</p>
+<p>使用 GPU process 隔离渲染进程除了渲染进程有沙盒机制外，OpenGL 可能也不太稳定或者是有漏洞。GPU Process 可以做一些保护措施。</p>
+<p>GL API 来源于系统动态库 <code>libGLESv2.so</code>。但是 windows 中来自于 Google 的 ANGLE 库 <code>libglesv2.dll</code>，因为 Windows 上渲染不是用的 OpenGL，而是 DirectX API。ANGLE 库可以翻译 OpenGL 调用为 DirectX 调用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342857.webp" alt="GL API"/></p>
+<h2>3. 图层合成</h2>
+<h3>3.1 帧与动画</h3>
+<p>每一帧是当前 Web 内容的完整呈现。</p>
+<p>动画是连续的帧。针对第一部分提到的 style、layout、paint、raster，浏览器都做了跟踪失效的处理，只重绘改变的部分，其他部分复用。</p>
+<h3>3.2 合成线程</h3>
+<p>一个单独的渲染线程，减少 JS 主线程的其他操作和渲染之间 block。</p>
+<p><strong>图层</strong>给合成线程渲染。比如 video 和 gif 在单独的图层，还有 transform3D, will-change 等 css 属性也会新建图层进行处理。</p>
+<p>合成线程也需要处理交互。能处理的先合成线程处理（比如滚动），处理不了的就进主线程。</p>
+<p><strong>Layer Tree</strong>（CC Layer Tree）</p>
+<p>图层也是以树结构存在，前序遍历。</p>
+<p>有的图层的存在不是绘制，而是图层效果，比如剪贴蒙版、滤镜。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342858.webp" alt="layer tree"/></p>
+<p>图层的合成位于 CC (Chronium compositor) namspace, 所以代码里有很多 <code>cc::layer</code>。</p>
+<p>如果一个 Layout Object 没有指定单独的 layer(比如没有 will-change 属性)，就会被绘制到父 layer 的图层。</p>
+<p>Paint Layer 是要被分到 CC LayerTree 的。这就是CSS/层叠上下文与CSS/图层之间的关系。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342859.webp" alt="image.png"/></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342860.webp" alt="paint layer map"/></p>
+<h3>3.3 compositioning update</h3>
+<p>在上一章的流程中，没有讲到合成这步，实际要加上。因为合成不是必须的，但合成步骤能优化渲染。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342861.webp" alt="更新合成"/></p>
+<p>未来，创建图层的工作会放到 paint 之后（slimming paint）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342862.webp" alt="commit"/></p>
+<p><strong>commit</strong></p>
+<p>提交一次合成。这里合成线程与主线程都存在 layer tree，需要同步合成线程与主线程的状态。</p>
+<h3>3.4 Tilling</h3>
+<p>在 rastering 阶段，把 CC layer 分块成 tile。</p>
+<p><strong>tile 是 raster 的最小单位</strong>，在专门的 <strong>raster 线程</strong> 进行栅格化。</p>
+<p>合成线程有一个 <strong>tile manager</strong> 安排 tile 优先级。</p>
+<p>不同分辨率的 tile 策略是不同的。</p>
+<h3>3.5 Drawing</h3>
+<p>不同 tile 合成为 <strong>Quad</strong>。Quad 引用内存中的 raster output，封装在合成进程中，再提交到浏览器进程。浏览器动画帧的<strong>帧</strong>概念就是 Quad。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342863.webp" alt="Quad"/></p>
+<p>不同 commit 有先后顺序，需要从 pending <strong>激活</strong>再绘制。</p>
+<h3>3.6 Display</h3>
+<p>浏览器进程将 Quad 展示到屏幕上的过程。位于 Viz 组件中，调用 OpenGL 绘制 GPU 进程中的 Quad 资源，和 rastering 的 GL call 一样。</p>
+<p>大部分平台的显示合成输出是双倍缓冲（有过游戏画面撕裂经验的应该对这有概念），quad 是在后台缓冲器（GPU的还是Viz？）中绘制的，用 swap 命令让后台的 quad 到前台展示。</p>
+<h2>4. 总结</h2>
+<p>Blink 引擎严格执行了主线程的步骤。但由于要实现 Web 平台化，是有一些合成线程的权限的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342864.webp" alt="总结"/></p>
+<h2>其他</h2>
+<p>渲染器和浏览器都用到了 GPU，都有向GPU进程的IPC通道。</p>
+<p>如果想让滚动的交互产生的动画不在主线程而在合成线程执行，需要强制 will-transform 分层</p>]]></content>
+        <category label="学习"/>
+        <published>2024-02-29T23:45:00.000Z</published>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[碎碎念001]]></title>
         <id>https://sansui233.com/memos?id=2024-02-29 01:28</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2024-02-28T17:28:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2024-02-28 17:24:54</h2>
-<p><span class="tag">#沉思 </span> <a href="https://1q43.blog/post/5322">《幸福的积分》 - 虹线（评论尸）</a></p>
-<p>非常喜欢这个作者的文章。上一个能隔着屏幕能感受到脑电波同频的还是几年前的笛子。</p>
-<p>我确实完全符合最后提出的“不卷的心态”，但这个心态问题不在个人，而是具有“幸福幻觉”的主流会对这样的生活进行源源不断的谴责，压力非常大。从前和人聊天时，我说过即便我做了要求的一切，在外部看起来是稳步推进，但我快乐程度不会发生任何变化，甚至会更糟糕。然后头一次感觉对方，近乎恐慌地挂掉了电话。</p>
-<p>“卷过了就会幸福” 是个根深蒂固的谎言，如果是这样，就会形成奇怪的逻辑——为了最终的幸福而选择一直过着卷的人生。但什么是最终的幸福？大部分人根本不会考虑。直接把“最终的幸福”换成客观的标准（比如一个小目标）逻辑才比较通顺。但本着“人道主义关怀”，以“一个小目标”为终点，怎么好给人洗🧠呢？“还是卷过就幸福了”好使。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402281725661.webp" alt="幸福的积分 内容截选图片"/></p>
-<h2>2024-02-28 03:08:09</h2>
-<p>有时候觉得布局是个很神奇的事，每当觉得说说的味不够说说时，只需要把头像和文本的列错开，说说味就上来了。论形式的重要性。好像是从论坛开始，一直都有头像在左边单独一列的认知。就算头像变小了，列还是得保留。</p>
-<h2>2024-02-25 01:17:01</h2>
-<p>上一篇文章写不完了，但还是之后再说吧。没有很强的目的性的话是比较难完成一件耗时较长的事的。</p>
-<p>果然还是比较喜欢和喜欢学习的人讲话。</p>
-<h2>2024-02-22 15:36:59</h2>
-<p><span class="tag">#沉思 </span>为什么腾讯做不出O神一样的二次元游戏？</p>
-<p>还在写，一天写不完。这是很长的文章，为博主的浴室沉思答辩，并非严肃论述。<del>（因为博主不会）</del></p>
-<h3>一、什么是二次元</h3>
-<p>在几个月前，某姐姐说她抓到了一个玲娜贝儿的娃娃，想要送给我</p>
-<p>姐姐：“你对二次元感兴趣，为什么不要呢？”</p>
-<p>我：“玲娜贝儿，算是一种时尚快销品吧？”</p>
-<p>姐姐：“但她是二次元的啊，她很可爱啊！”</p>
-<p>是啊，玲娜贝儿确实是一个很二次元的形象，但为什么我会认为她不是二次元呢？</p>
-<p>姐夫：“二次元不看这些，要看都看火影海贼。”</p>
-<p>我：“对对对，火影！玲娜贝儿她只有个外表，没有故事吧。”</p>
-<p>在主流眼中的二次元，可能只是一个很好学的简单画风。真正二次元不仅仅是外观上的改变。二次元是一个内容为主的领域，表现形式多样，包括了文字、音频、图像、动画。很难给二次元下一个准确的定义，但如果说一个作品想要获得“二次元感”，是有个大共性可说的。</p>
-<blockquote>
-<p>将精神寄放于创作的世界，与角色共同生活。</p>
-</blockquote>
-<p>……很烂的一个道理，传统的表演、剧作、配音不都是这么做的吗？</p>
-<p>是的，二次元感的核心就是这些。网上常常流传着二次元追“纸片人”，正因为纸片人有内容支撑起足够立体的形象，才会让人感到是“由人创作的人”，而非“由人创作的纸片”。相对的，玲娜贝儿尽管是 3d 虚构形象，但她缺乏内容的支撑，更像一个“由人创作的纸片”。</p>
-<p>如果硬要把二次元对标一个已有的专业，我会选择对标剧作。</p>
-<p>由于二次元和传统内容创作的一致性，现在的人可能会慢慢感觉到：“年轻人怎么都在看二次元”。这恰恰是因为二次元本身就是由内容创作支撑，只不过二次元的题材与表现形式通常更加超现实。在视觉风格上，二次元深受日本近代动画的影响，导致整体呈现出如今所说的“动漫”风格。</p>
-<p>中国的二次元游戏在从前有一个说法是：“做给日本人玩的游戏”。这表示着二次元在形式上就是“日本动漫”，连“二次元” 这个名字本身都是源于日本动漫，且并不被中国的主流认可。但请记住，<strong>二次元本质上是内容创作</strong>。如果想再变得刻板印象一点，是<strong>基于角色的超现实内容创作</strong>。没有令人印象深刻的角色，没有好的故事，再 “动漫” 的形象，都是垃圾。</p>
-<p>这也可以解释二次元为什么可以和古风很好地结合。古风小说，大部分也是基于角色的架空历史世界，本质上和二次元完全一致。</p>
-<p>二次元的画师中，有一类画师听起来是二次元专属，名为 “oc画师”。original character，中文名为原创角色。oc 画师为自己想象出的同一组角色画很多的插图，或是漫画，将自己的情感寄托于 oc 间，一张华丽插图的表面下有属于画师自己的想法。</p>
-<p>现在 ai 画画很火，单论画风外行已经看不出区别，但常常会看到一些 oc 画师转发一些 ai 的模仿自己画风的画，评论到 “ai 始终还是 ai”。如果对内容创作本身有一点关注，就会感受到 ai 与内容创作间最大的鸿沟—— ai 是“画皮”，而内容创作是 “画魂”。这个“魂”可以随时延展到其他的媒体形式，比如漫画、声音、小说，不同形式间有着自成一体的和谐，而非生硬拼凑。</p>
-<p>至于为何艺术风格是受日本的影响，说来话长，但长话短说：日本过去几十年的文化输出做得太好了。如果不是日本的动画影响，“二次元” 或许就不叫二次元。我个人不认为二次元的本质会没落，在国内二次元没有发展的时期，国内网文界已经是风生水起，每个时代有每个时代的小龙女。但日本输出的动画的风格让如今的“原创架空角色”印象更加具体了。</p>
-<p>文化输出是与经济正相关的，但最终大家都能接受才是真的输出。日本的二次元风格与近代越来越概括、抽象的艺术发展史不无关系，也与物质生产力的发展不无关系。细说就是另一个话题了。</p>
-<h3>二、什么是二次元游戏</h3>
-<p>二次元游戏也无法脱离二次元最基本要素，即“基于角色的内容创作”。从形式上说 rpg 天然容易做成二次元游戏，而 pvp 的角色完全由玩家控制。</p>
-<p>一个例子是火影。火影是经典的动画大 IP，但它的手游并不算真正意义的上“二次元”游戏。手游太偏竞技，并不注重角色塑造本身。从没有看过火影的竞技类玩家也可以是火影手游的忠实玩家，同时与火影的动画观众取得不了任何共鸣。</p>
-<p>除了剧情塑造角色以外，二次元游戏中的美术占了很重要的一部分。游戏大部分时间由玩家操作，讲剧情的时间相比于影视作品偏少，这时 100% 时间与玩家接触的美术的塑造就要承担这一功能。</p>
-<p>二次元游戏的人物服饰大多复杂且夸张，能让人在最短的时间强化对角色的身份、性格印象。在角色设计上有一个很出名的道理：“味不够，就往大了画”。</p>
-<p>二次元游戏中的声音演出也起着重要作用。原神的角色时不时就会说话，不同角色根据不同的情景说不一样的台词，能够反复强化角色印象。当玩家下线后，还能记得“今天又被散兵骂了”。</p>
-<p>这也是为何二次元游戏总会有很多的“二次创作”“同人作品”，二次元游戏提供的内容需要足够支撑起虚构的角色与世界观。尽管别的游戏也需要美术与声音的塑造，区别在于目的是否是“想塑造一个鲜明的角色”，是否想创造出活的“纸片人”。</p>
-<p>而 pvp 的游戏，由于乐趣在于玩家间的对战，游戏角色有着机制美和强度美，但二次元角色需要的“性格、经历、气质”等并不重要，甚至没有也完全无所谓。</p>
-<p>（另外，此博客顶部的菜单后方隐藏了一个彩蛋，滑得够快也许可以看到 —— “人活着就是为了卡卡西”）</p>
-<h3>三、腾讯不会做原神</h3>
-<p>腾讯真的是一家做游戏公司吗？</p>
-<p>不是的，至少现在的腾讯，是一家投资游戏公司的公司。</p>
-<p>腾讯从社交产品起家，腾讯的手游部门在竞技类游戏领域，发挥自家产品的联动的优势，做出了不少成绩。一个长久的观察是，公司基因对后续决策的影响是非常大的，这点在《浪潮之间》中也有提到。你也许无法预测市场走向何方，但你会对一家大公司的“风格”有印象。比如，当苹果把 mac 视觉设计地更厚时，就会被评价为：“这很不苹果”。不过也有人觉得这只是很不乔布斯。</p>
-<p>同样的，如果命题换为“如果腾讯做原神”，嗯……看看<a href="https://www.youtube.com/watch?v=8mHJhy_5e3U">这个视频</a>吧。很难想象出腾讯会在初期投资一个投入很多、社交属性这么弱、不知道能不能赚钱的游戏。互联网的投资思维，大多是建立在“产品心理学”上的，解决了主流的哪些痛点，如何盈利，是否能与自家产品联动，是否有利于公司的其他部门发展，会不会有竞争，会不有被别的公司抄袭垄断。而内容，或者说产品质量本身的竞争力，对于投资人而言是最不可控，因此会被严重低估的一部分。笔者认为这也是当下互联网的畸形之处。</p>
-<p>想像一下当初拿着原神的 demo 去找腾讯，告诉投资人，这个游戏借鉴了一个知名的独立游戏的玩法，之前没有人做过，我想做成手游。投资人也不知道二次元的钱到底好不好赚，问你有什么盈利点，然后你说</p>
-<ol>
-<li>预计盈利模式是抽卡，但不抽卡时玩家还是可以通过送的角色很顺利地体验到全部的游玩内容，我们不会通过强度卡玩家进度，但鼓会励玩家变强以获得更多的奖励。</li>
-<li>我们通过对角色的剧情塑造和角色机制设计让玩家抽卡，建立社区宣传新角色的好处，让玩家自己想抽卡。</li>
-<li>游戏有体力限制，但体力不是盈利点，而是为了不要让玩家升级过快。为了让玩家顺利体验到游玩内容，我们会送体力，起码游戏开始最初 30 个小时不用补充。</li>
-<li>这个游戏不需要玩家在游戏里社交，你们给点广告位就可以了。</li>
-<li>我们没有开屏弹窗展示当前的活动，我们选择用小红点来逼强迫症点开。</li>
-<li>我们没有弹窗展示首充活动，我们也没有限时充值礼包，我们主要通过限时卡池，让玩家在抽不到想要的卡的时候自己点进三级菜单充值……</li>
-<li>所有的游戏内容由我们自行设计，我们前期需要大量投入以保证持续的活动。</li>
-<li>我们的渲染是自研的 3D 二次元风格，对标的是某知名独立游戏，和现在手游市场主流美术风格有区别，所以目前很难有人抄我们。我们觉得这个风格玩家会喜欢，美术也是我们的盈利点。</li>
-</ol>
-<p>投资人：…………</p>
-<p>原神火起来的原因在玩家眼里看来非常简单：“质量好”，并且是一个正循环。最初只能说是一般般，风格与玩法严重抄塞尔达，剧情也写得很单薄，世界观立不住。比如第一章的国家蒙德，整个主城构造不如一个大学的丰富度，机构只有骑士团和教堂，真的足够作为一个国家吗？但在那时没有一个手游戏能抄塞尔达的风格抄得那么像，这点就足够吸引人了。后面以中国为原型的璃月地区上线后，全方面的质量都有了非常明显的改善。内容产出速度与质量足以卷死一切友商。</p>
-<p>在开发上，这种完全依靠游戏制作公司产出游戏性、而非 pvp 的模式，是非常消耗开发者的，每个月做一集 3d 动画、设计新角色、新玩法。在软件开发中，成本与功能数量呈正相关，加机制加内容都是巨大的投入。</p>
-<p>在14-18年，现在回过头看来是二次元领域发展的黄金时期，任何人只要有比较好的作品都非常容易在这期间获得曝光。18年后越来越多厂商看重了二次玩游戏市场，多小的二游厂商都能获得投资，换皮手游层不出穷（不过后面很多拿不到版号）</p>
-<h2>2024-02-21 02:19:07</h2>
-<p>我说 everything 怎么搜不到 lime 安装目录，按字母排序也找常常不到，刷新一下又突然找到了。直到我打开命令行，ls 了一下…………这个目录叫 Iime 不叫 lime …… 第一个字母是大写的 i（汗）这就是为什么我的英文无衬线体偏爱用 IBM Plex Sans…… 之前博客也是用的这个字体，但由于数字偏大不好和别的字体混排而放弃了。</p>
-<h2>2024-02-21 01:24:14</h2>
-<p>windows11 看不了 psd 缩略图这事也困扰了好久，之前搜知乎，软件支持也只到了 windows10。然后也没怎么管，反正我都是会导出一份当预览。然后今天突然还是想解决一下，也不想下载 bridge，于是用英文找了找，reddit 上有人说 honeyview 就有……妈的遇到救世主了！</p>
-<h2>2024-02-19 03:43:16</h2>
-<p>给冰凌输入法改了个皮肤，名字直接叫果里果气算了。虽然我数值是准的，但渲染出来像素级对不太准，另外压缩后有被染色emmmm……还有内圆角的弧度、序号的排版是没法改的，圆角就算能改也不是外框的 squircle。不过因为实际使用中很小，勉强能看吧。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402190342598.webp" alt="果里果气的皮肤"/></p>]]></content>
+        <content type="html"><![CDATA[<h2>2024-09-03 09:31:00</h2>
+<p>看到一个交互的仓库：<a href="https://veloxijs.com/">veloxijs.com</a>。瞪大了眼睛……其实 react-spring 做动画也好用但缺交互事件，交互要额外绑。而我觉得其实绑交互才是最麻烦，多平台有区分，还要干掉一些和原生交互冲突的问题……我在那手撮交互和动画算什么！！不过一看打包体积 50 多k，那还是手搓吧，按需手撮 5k 不到……</p>
+<h2>2024-08-26 10:48:17</h2>
+<p>推荐短篇漫画<a href="https://weibo.com/5790748645/Otq6Td0Jm">小狐狸化形记</a>。在作品要么连篇累牍的设定与废话，要么网文快节奏模板的时代，已经感觉已经好久好久，没有看过这样能写进教科书一般的，剧本了。</p>
+<p>二游的剧情其实我都看不太进去，大概就 fgo 2.6 还行，1.6 已经不记得了……然后原里枫丹审判看得还行，没有逻辑 bug 已经万幸了，要有代入感就算了。二游太注重打造异世界和卖角色了，但<strong>代入感反而是要能映射现实才会有</strong>…支线有不少抄名著的但抄得很生硬，反应人性不是故意写脑子有病的家庭啊喂。</p>
+<p>枫丹把矛盾归结在了“天理”上，为了解决“天理”的问题而选择牺牲自己，算是非常讨巧的做法，这是一种“虚构的矛盾”，虽然不符合现实但是非常符合异世界卖角色的二游。</p>
+<p>崩铁 2.3匹诺康尼大立意很好，但小分段上也还是在卖异世界社达体验，观感上最好的是只为剧情服务的星期日……他出场不多（物理）却有非常多真实的侧写，一是和妹妹的互动，二是有领导压力和家族派系之间的压力，三是有真实的动机——想人们能快乐摸鱼。这些和异世界结合也没有违和感。大部分角色做好一个点就不错了，砂金做好童年创伤就大卖特卖…说到底还是大部分二游角色过于扁平，没有现实的复杂度支撑不住。</p>
+<p>然后这也可以解释崩铁垃圾桶会塑造得很成功。首先主角独特的捡垃圾 xp 就逆天，其次“垃圾”这词在当代象征了太多。垃圾除了能指人，还有十连抽出“金色传说垃圾”嘲讽了抽卡。垃圾桶的外形和战斗机制也足够搞笑……符号比角色好出效果可太真实了。</p>
+<p>然后说回 fgo 2.6，厉害的点就在于每个人都是活的，矛盾和动机是真实且鲜明的“人之间的故事”（指抽象的人）。明明都是异世界卖角色，蘑菇怎么写出来的……可能是 fgo 最不需要的就是沉浸感吧……对于看剧情的玩家，只要脱离沉浸感，纯写剧情反而结果会好…</p>
+<p>古剑三也挺好的，很明显这也是不用代入主角的游戏，有沉浸感大概是本土文化滤镜吧。玩基于西方神话种族体系的就不行，代不了。</p>
+<h2>2024-08-23 10:48:53</h2>
+<p>屏幕调白平衡的软件 <a href="https://justgetflux.com/">https://justgetflux.com/</a> ，才发现我最适应的色温大概在 5700k。标准的 6500K sRGB 对我来说太刺眼了，看不了太长时间的蓝光+高饱和……</p>
+<h2>2024-08-23 08:18:14</h2>
+<p>虽然但是，ppi 小于 200，一般场景还好，但一开始涉及打印，看小说一类的，就不免会和现实的媒介比，win 这不上 4k 屏感觉真眼瞎……什么，16寸的2.5k屏 ppi 还不够吗？你好，是的，真的很明显，被虫啃了。</p>
+<p>另外，把网页的字体 fallback 换成了方正兰亭黑Pro，字形真的前所未有的顺眼……微软雅黑就算改进过的也还是烂……不过 hinting  做得最好的还是更纱黑体。思源的 hinting 是一坨了。</p>
+<p>关于 <span class="tag">#博客 </span>搜索，有考虑改数据库存储的方案，方案早就有想好了，客户端的接口形式也预留了，现在的 memo 就是数据获取的其中一种实现，非常的 CSR。剩下的就是看能不能找到靠谱且没那么贵的服务了，个人博客的 hosting 没什么流量，我也不是很常用。说来其实 memo 想存数据库主要是考虑搜索，目前的全文搜索真的很全文，都没有索引的……虽然写了三年的废话大小加起来连500k 也没有，长文那边 100k 也没有，完全不必担心……</p>
+<p>个人一生能写的字数，大概除了写小说的，做成搜索的话用无索引全文搜索完全够了……我好像十四年的微博7000条了吧，可能 50-80 万字。memo 差不多有十万字，但搜索起来感觉就是瞬间无延迟，连 Searching 的状态指示都看不到……最大的时间消耗在第一次获取搜索数据上，也就是网络延迟……而且不是全文匹配，结果一旦符合就中断相应条目的匹配，搜不到时才是用时最久的，也用不了几秒。这么一说，个人博客废话再多也还是没有必要上数据库……实在久了就加上，只搜最近的500条所有带 tag 的条目……然后以后的处理器会越来越好，感觉远远大于，人的废话膨胀速度……</p>
+<h2>2024-08-18 00:30:21</h2>
+<p>跟着一梦徽州教程一步步摆做了几次后，突然就会变得会设计家园了……对于信息密度的把控与刻画细节，是可以通过重复临摹提升的，如果要走商业风格，前期多临摹很有用，真的。</p>
+<p>另外谢谢谦谦……虽然自己还是很菜，但少了一些，再学什么都不会有所改变的想法。</p>
+<p>真的不能总是让某些人狭窄的人生观去占据脑子，当把人考虑为一个定量的因素后，人才真的变成了一个定量的因素。但本不应如此，不应由过去的经验塑造未来，而应由当下。总是看别人、看过去，情况不会有任何改善。对未来做出承诺也是不可能的，只有看着过去决定未来的人可以对未来做出预测，想要有改变那未来必定难以预测。</p>
+<p>所以请不要使用过去决定未来，会真正完全地丧失掉应有的活力。悲观的是简中的大氛围都是这样，存在着“无法赎清的罪孽”，甚至虚构的角色都不放过，比如散兵。</p>
+<p>然后去了听 logseq 在 discord 的直播……全英文还是，可怕！只有在带耳机、网络好、对方没有很含糊不清的情况下比较听得懂。那个提问的有一点点印度口音的说话比管社区的人听得懂一些……很难想象这样要怎么面试啊啊啊啊！</p>
+<p>我自从没什么机会说话后，又因为唱歌狂念日语歌词，中文已经说不太好了，稍微快一点舌头和口腔就会不听使唤，然后结巴……最近过剧情的时候都有意开始念台词了，像小学生一样，念不顺的词就重复念，练中文发音会用到的肌肉，特别是 ji 和 yi，舌根处用力把气流收得很窄，标准发音时会口吃，如果是说南方口音就不会口吃。才发现其实配音说话都很快，又快又清楚。天哪之前根本没觉得把话说得快而清楚是需要努力的一件事，我 18 年的视频说话就是又快又清楚的……落泪了</p>
+<h2>2024-08-05 23:28:21</h2>
+<p>才发现代码随想录的题解是相当个人的，废话超级多而且不说人话。KMP那里才完全感受到，一直在套名词定义，但其实直观解释两句就能让人明白，但就一直搁那里套定义，然后为了定义准确说了一堆废话。我感觉自从我做碎片化笔记后就变得不太会写教程了，我还是要努力去变得直观一些，多加一些图！</p>
+<h2>2024-08-01 17:45:27</h2>
+<p>解决 2024年 windows 只能设置一个字体的应用们的无衬线中文还是优先 fallback 到新宋体的问题：去注册表，<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink</code>把 Microsoft Sans Serif 中 SIMSUN.TTC 那一行去掉……服惹 win7 就有微软雅黑了留着宋体 fallback 干嘛……还是说他们也知道微软雅黑的正文阅读体验很差劲……但宋体不搭更差劲啊！</p>]]></content>
         <category label="Diary"/>
         <published>2024-02-28T17:28:00.000Z</published>
     </entry>
@@ -203,18 +483,18 @@
         <link href="https://sansui233.com/posts/2023-11-29-windows-shell-configuration"/>
         <updated>2023-11-29T04:07:00.000Z</updated>
         <content type="html"><![CDATA[<h2>常用 shell</h2>
-<p>一直以来 windows 的命令行方案都很多，都不好用，怎么配置也是仁者见仁智者见智的一个事情。先总结一下常用shell 方案</p>
+<p>一直以来 windows 的命令行方案都很多，个人感觉都有不太好用的点，怎么配置也是仁者见仁智者见智的一个事情。先总结一下常用shell 方案</p>
 <ul>
 <li><code>powershell</code> 官方shell，各种工具库支持最全，缺点自带的命令太长，以至于完全没有日常使用的想法。</li>
-<li><code>msys2系列</code> windows 上的类 unix 环境，基于现代 Cygwin (POSIX兼容层) 和 MinGW-w64（工具包），特点是确实像unix，一般命令可以无缝迁移。缺点是没有包管理，兼容性有问题很多环境要手动配（可以说几乎所有），像是conda init 自己写，npm补全执行出错，很多命令执行起来都有问题，无数个坑。心累</li>
-<li><code>git bash</code> 基本同上，工具更多，加载更慢。</li>
-<li><code>wsl</code> 完全的 Linux 子系统，缺点是太占内存。</li>
+<li><code>msys2</code> windows 上的类 unix 环境，基于现代 Cygwin (POSIX兼容层) 和 MinGW-w64（工具包）。确实像 unix，一般命令可以无缝迁移。缺点是兼容性，需要手动配置很多东西，比如是否继承 windows 环境变量，不继承的话不想维护两份环境，继承了又容易冲突。</li>
+<li><code>git bash</code> msys2 阉割版，无包管理，多了 git。</li>
+<li><code>wsl</code> 完全的 Linux 子系统，但太占内存。</li>
 </ul>
 <h2>方案选择</h2>
 <p>我需求</p>
 <ul>
 <li>常用命令必须是类 unix 命令</li>
-<li>有包管理器，第三方工具配置友好</li>
+<li>有包管理器，各类命令行工具配置友好且兼容性不错。</li>
 <li>不要太占内存</li>
 </ul>
 <p>结果发现这就是经典的三圈相交，没有任何一个常用方案能满足以上要求。</p>
@@ -234,7 +514,7 @@
 <p>大致介绍一下用途。</p>
 <ul>
 <li>git-bash，一系列类 unix 工具，git 一类的</li>
-<li>Windows Ternimal，微软的终端。我拒绝终端用electron 去套的……</li>
+<li>Windows Terminal，微软的终端。我拒绝终端用 electron 去套的……</li>
 <li>PSReadLine，改变一系列 powershell 的行为。比如复制粘贴的快捷键。可惜在 vscode 里会没用，只能右键粘贴。</li>
 <li>posh-git，显示 git 的状态</li>
 <li>oh-my-posh，美化。具体主题可能需要会自己改一下，要么丑，要么不支持提示 conda 环境或者 npm 环境。</li>
@@ -244,6 +524,29 @@
 <p>我的配置文件上传到了 <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a>。需要挂代理打开。配置文件包含 <code>ls</code> <code>ln</code> <code>open</code> <code>grep</code> <code>which</code> 等命令模拟。powershell 的缩写默认支持了 <code>mv</code> <code>cat</code> <code>rm</code> 等命令，配合起来日常基本够用。</p>
 <h2>终端代理</h2>
 <p>我在配置文件中设置了<code>proxy</code>和<code>unproxy</code>函数，以快速设置与取消终端的代理连接。自己改下端口就能用。因为我自己习惯上不开系统代理，都是软件内的 http 连接。</p>
+<pre><code class="hljs language-powershell"># Proxy Togglers
+function proxy {
+	$portInUse = netstat -ano | findstr &quot;LISTENING&quot; | findstr &quot;7890&quot;
+	$portInUse2 = netstat -ano | findstr &quot;LISTENING&quot; | findstr &quot;10808&quot;
+	if ($portInUse -ne $null) {
+		$env:HTTP_PROXY = &quot;socks5://127.0.0.1:7890&quot;
+		$env:HTTPS_PROXY = &quot;socks5://127.0.0.1:7890&quot;
+		Write-Host &quot;Proxy set to socks port 7890&quot;
+	} elseif ($portInUse2 -ne $null) {
+		$env:HTTP_PROXY = &quot;socks5://127.0.0.1:10808&quot;
+		$env:HTTPS_PROXY = &quot;socks5://127.0.0.1:10808&quot;
+		Write-Host &quot;Proxy set to socks port 10808&quot;
+	} else {
+		$env:HTTP_PROXY = &quot;socks5://127.0.0.1:1080&quot;
+		$env:HTTPS_PROXY = &quot;socks5://127.0.0.1:1080&quot;
+		Write-Host &quot;Proxy set to socks port &quot;
+	}
+}
+function unproxy {
+	$env:HTTP_PROXY = &quot;&quot;
+	$env:HTTPS_PROXY = &quot;&quot;
+}
+</code></pre>
 <h2>其他常用工具</h2>
 <ul>
 <li>
@@ -277,7 +580,9 @@ Install-Module -Name Terminal-Icons -Repository PSGallery; Import-Module -Name T
 # z-jump
 winget install zoxide # z-jump, see https://github.com/ajeetdsouza/zoxide
 winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
-</code></pre>]]></content>
+</code></pre>
+<h2>ZSH</h2>
+<p>有关 zsh 相关的配置，我放在了 <a href="https://sansui233.github.io/posts/windows-zsh-conf">Windows 命令行相关配置之 msys2+zsh+zi</a> 。</p>]]></content>
         <category label="工具"/>
         <published>2023-11-29T04:07:00.000Z</published>
     </entry>
@@ -515,46 +820,21 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
         <published>2023-10-09T13:56:00.000Z</published>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Windows 调整之中文字体]]></title>
-        <id>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</id>
-        <link href="https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment"/>
-        <updated>2023-09-29T02:25:00.000Z</updated>
-        <summary type="html"><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
-</blockquote>
-<p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。</p>
-<p>但如今的显示器分辨率越来越高，旧版微软雅黑的设计存在着明显的缺陷。</p>
-<p>一是其字形设计并不平衡，中宫过大，有的字形可以以难看来形容；二是微软雅黑字形只在 4K 屏上有着准确的显示。如果你不巧像我一样用着 2.5K 屏，在 ClearType 的加持下，仔细观察资源管理器侧边栏中，“桌面”二字短横的间距并不平衡。</p>
-<p>微软曾经设计过“另一版的微软雅黑”，即 Noble Scarlet，但不知出于何种原因并没有在正式的系统中使用。这一版字体设计依然中宫偏大，但相对老版收敛了不少，平衡了一些。据传言汉字部分是兰亭黑 Pro。</p>
-<p>但这个字体在标点处理上很差，最直观的就是中文引号，太像西文的处理方式，很难看出前引号与后引号的区别。其实我在写这一篇文的时候，换了 Typora 的字体，才发现前后引号全打反了……</p>
-<p>个人推荐的配置和工具如下：</p>
-<ul>
-<li><strong>Noble Scarlet</strong>  替换系统的微软雅黑。由于版权原因无官方公开链接，需自行搜索</li>
-<li>系统字体替换工具：自行搜索 “字体替换工具 by 随风飘扬”。win7 时代的产物，太古老了找不到原作者出处。替换完后最好重启，否则可能有一些错误，比如字体大小错误。另外，github 上还有一个非侵入式的系统字体替换工具 <a href="https://github.com/Tatsu-syo/noMeiryoUI">noMeiryoUI</a>，但是换不全，只是作为预览不同字体在系统上的效果倒是个很不错的工具。</li>
-<li><a href="https://www.mactype.net/"><strong>MacType</strong></a> 改善 ClearType 丢细节带来的不平衡</li>
-<li>安装一个 <strong>苹方</strong>。有一些中文网站 Fallback Font 也是苹方在前。由于版权原因无官方公开链接，需自行搜索。浏览器对于字体的渲染不受 MacType 的影响，在PPI不足的情况下，浏览器的渲染是偏细的，默认设置还得是微软雅黑。</li>
-<li><strong><a href="https://source.typekit.com/source-han-serif/cn/">思源宋体</a></strong>：推荐将浏览器的 Serif 字体设置为此字体。默认的宋体真的，不论中文英文，都很丑……只适合打印。</li>
-</ul>
-<p>苹方是一款设计上很优秀的字体，但它对于低 PPI 的显示器不友好，人话说，不是4K屏缩放200%都别用。</p>
-<p>首先苹方粗体相对其他黑体本身就较细，在 ClearType 下，苹方被削掉的细节使得其字重偏小，Bold 看起来像 Medium。</p>
-<p>另外，苹方在 2.5K 屏上表现非常糊，毕竟苹方问世时已经 Retina 屏已经出了好久了，人家压根没考虑过在低 PPI 屏幕上的表现。最后是版权问题，当然苹果大概不会因为这点事起诉个人用户。</p>
-<p>更纱黑体也非常适合作为 windows 的系统字体，在 1080p 和 2.5k 下都能保证良好的清晰度。相比起微软的两款字体，更纱黑体可以称得上是秀气了，但汉字覆盖率不如系统级别的字体。</p>
-<p>自己看下来，更纱黑体与思源黑体设计的细节不太统一，比如“用”字明显矮了一截，使句子看起来不太稳定。但是在宋体设计上，“用”字矮的这一截反而让字体看起来平衡。一个系列的字体的统一感和比例关系又很大，个人理解为思源/更纱系列是优先考虑宋体的字形，但也不是传统的宋体字形，和黑体的比例有一定的结合。整体而言还是宋体的设计更加优秀。</p>
-<p>思源黑体作为更纱黑体的前辈，是不太适合低 ppi 屏的，它的 Regular 字重看起来像 Bold。</p>]]></content>
-        <category label="工具"/>
-        <published>2023-09-29T02:25:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Minecraft v1.20常用设置]]></title>
+        <title type="html"><![CDATA[Minecraft v1.20.1 常用设置]]></title>
         <id>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</id>
         <link href="https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20"/>
         <updated>2023-09-26T02:38:00.000Z</updated>
         <content type="html"><![CDATA[<p>在 Minecraft 1.20 版本光照引擎被大幅改写，使得帧数提升，模组的数量似乎又多了起来。另外在 fabric 发展起来以后，mod的社区生态有了很大的变化，有很多老牌模组有了更新的替代。现在记录一下实现常用的基本功能需要的模组与修改设置。</p>
-<p>我使用的 hmcl 启动器，在其中进行模组下载可显示模组间的依赖情况。以下内容在1.20.1中完全兼容，且项目均在维护中。</p>
-<h2>Mods</h2>
+<p>我使用的 hmcl 启动器，在其中进行模组下载可显示模组间的依赖情况。以下内容在 1.20.1 中完全兼容，且项目均在维护中。</p>
+<h2>1. Mods</h2>
+<p>MC 是一款肝度明显过高的游戏。mod 的选用主要是为了：</p>
+<ol>
+<li>使画面养眼</li>
+<li>降低肝度，同时少引入额外的快捷键</li>
+<li>优化细节使用体验</li>
+</ol>
 <p>使用以 fabric-api 构建的模组。</p>
-<h3>渲染类</h3>
+<h3>1.1 渲染类</h3>
 <ul>
 <li>Sodium: 渲染优化之神，许多模组的前置</li>
 <li>Sodium-extra: 渲染优化之神的扩展，相应 GUI 为reeses sodium options</li>
@@ -564,212 +844,100 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <li>Continuity: 无缝纹理，安装后需要启用相应的材质包</li>
 <li>Indium: 许多模组的前置，提供 Fabric Rendering API的支持</li>
 </ul>
-<h3>功能类</h3>
+<h3>1.2 功能类</h3>
 <ul>
 <li>modmenu: 显示所有模组和相应的设置页面（如果有的话）</li>
 <li>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</li>
 <li>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）以获得更好的摄影视角，zoom 开启类似 optifine 的按 c 视角放大，handrestock 可自动补货手里的工具、方块</li>
-<li>JourneyMap: 小地图，降肝度必备。Xae 的小地图也不错，两者都需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了各种网络显示和生物显示。</li>
-<li>Invertory Profile Next: 高版本的 R 键背包整理，强迫症必备。另有捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品，个人非常喜欢，更快，且减少食指的腱鞘炎。</li>
+<li>JourneyMap: 小地图，降肝度必备。Xae 的小地图也不错，两者都需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了网格显示和生物显示。</li>
+<li>Invertory Profile Next: 高版本的 R 键背包整理（但被我改成 Z 键整理，R 键通常是 rei 查看合成表）。自动补充工具、连续合成、捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品。关掉快破损时替换工具。</li>
+<li>Carry on：手里没有东西时，<code>shift+右键</code> 搬运箱子，降低装饰的肝度。</li>
 <li>Roughly Enough Items: 物品搜索，查看合成配方、查看方块用途，ctrl点击后快速移动到合成台。尽管原版有合成书，但一页条目显示太少，且不支持拼音搜索，不支持模组物品。REI依旧方便很多。</li>
 <li>imblock: 输入法冲突修复</li>
+<li>Panda&#x27;s falling tree：砍树时树会倒下，降低砍树的肝度。</li>
+<li>Leawind&#x27;s Third Person: 更好的第三视角。这算是第一个可以日常使用的第三视角模组，挖方块瞄准都很方便。日常的垂直平滑 0.5 以上，不然爬山能晕死。</li>
+<li>better combat: 动作战斗优化，攻速和攻击范围都有反馈了。</li>
+<li>Litematica：投影。辅助红石机械建造，也算是一种降生存建筑的肝度。使用相当简单，一根木棍，control+滚动切换模式，快捷键进菜单。最难的其实是收集足够多的预置模型。</li>
 </ul>
-<h2>设置</h2>
+<h3>1.3 新物品</h3>
+<ul>
+<li>Gliders：类似塞尔达的滑翔伞，防摔。在空中按空格展开滑翔。使用方式和大部分游戏一致。只是要占一个盔甲位。动画做得很不错。</li>
+<li>Waystones：传送石碑，后期物品，降低交通的肝度。如果用地图作弊路径点传送就不需要这个东西了，但理想的玩法还是地图只是用来看的，让传送石碑在地图上显示（需要前期多刷小黑），只能传送石碑处，禁止任意传送。传送石不是个好设计，MC背包不能放下更多东西了。除非有单纯扩容用的背包模组。</li>
+<li>travelersbackpack：背包模组，终于有了 fabric 版。虽然 mojang 一直很谨慎地加入新的方块，但似乎从未考虑过方块越来越多时的背包使用问题。再者模组整合包也因为方块种类数爆炸的问题增加背包模组。在 1.12 版本时，背包容量是刚好够的。个人并不是很喜欢背包的设计。</li>
+</ul>
+<h2>2. 设置</h2>
 <ul>
 <li>画面尺寸: 1920*1080@60fps，窗口化</li>
 <li>视场角: 85</li>
 <li>鼠标灵敏度: 75</li>
 <li>模拟距离：8</li>
-<li>渲染距离：10</li>
+<li>渲染距离：12</li>
 </ul>
-<h3>快捷键修改</h3>
+<h3>2.1 快捷键修改</h3>
+<p>总体的键位映射图如下。深绿色为原版的功能。橘色为Mod功能，蓝色为创造模式功能。键位分为直接按键、组合键、修饰键（长按）。MC 原版只能定义直接按键，组合键与修饰键在复杂的 mod 中用得多，并且会覆盖原版的直接按键。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408220938708.webp" alt="KeyMaps"/></p>
+<h4>游戏主界面</h4>
 <p>首先把 ctrl 改到 capslock 键位，方便疾跑。系统全局 powertoys 改的（吐槽一万句control的键位）</p>
 <ul>
-<li>tab 长按: 快速显示背包中物品，在 tweakroo 中的 hotbarswapbase 设定</li>
-<li>tab+1/2/3: 快捷键切换到背包中下一行。 tweakroo 中的 hotbarswap 每一行单独设定</li>
-<li>j: 显示 jouneymap 小地图</li>
-<li>m: 显示 jouneymap 大地图和设定</li>
-<li>v: 切换第三人称视角，很常用的功能。原本是f5，实在太远了</li>
-<li>f5:  灵魂出窍，在 tweakroo 的 freecamera 中设定</li>
-<li>z: 望远镜，在 tweakroo 的 zoomactivate 中设定</li>
+<li>长按 <code>tab</code>，滚轮切换物品栏。在tweakroo 的「工具」中开启 hotbarscroll，再在 tweakroo  的「快捷键」中把 hotbarscroll 的快捷键设置为 Tab。</li>
+<li><code>v</code>: 切换第三人称视角(visual)，很常用的功能。原本是f5，实在太远了</li>
+<li><code>f4</code>: Leawind&#x27;s Third Person 第三人称视角相机调位置。同时关掉左右切换。点按左右，长按居中</li>
+<li><code>f5</code>:  灵魂出窍，在 tweakroo 的 freecamera 中设定</li>
+<li><code>c</code>: 望远镜，在 tweakroo 的 zoomactivate 中设定</li>
+<li><code>t</code>: 路标点传送管理(transport)。聊天改 <code>enter</code> 键</li>
+<li><code>x</code>: 锦致装饰-箭袋</li>
+<li><code>m</code>:  显示 jouneymap 大地图和设定。Journey map 的其他快捷键全关掉。</li>
+<li><code>n</code> Litematica 投影菜单</li>
+<li><code>shift+右键</code> 空手时搬运箱子，carry on 自带。</li>
+</ul>
+<p>特定工具下的修饰键：</p>
+<ul>
+<li>木棍工具
+<ul>
+<li><code>~</code>  Litematica 木棍工具修饰键，改变区域大小</li>
+<li><code>n+space</code> Litematica 木棍工具模式5下放置投影</li>
+</ul>
+</li>
+</ul>
+<p>预留键位：</p>
+<ul>
+<li><code>g</code> 圆盘菜单</li>
+<li><code>~</code>  特定工具修饰键，比如连锁挖矿</li>
+<li><code>b</code> 背包(backpack)</li>
+<li><code>j</code> FTB任务书(journal)</li>
+<li><code>左alt</code> 创造模式下，建筑模组 axiom 用 alt 切换专用物品栏。</li>
 </ul>
 <h4>合成台、箱子UI</h4>
 <ul>
-<li>y: REI 查看光标下物品的配方</li>
-<li>u: REI 查看光标下物品用途</li>
+<li>r: REI 查看光标下物品的合成方式</li>
+<li>u: REI 查看光标下物品的用途</li>
 <li>ctrl + 左键点击REI的物品，移动物品到合成台</li>
-<li>r: Invertory Profile Next 整理。按 r+c 在 IPN 的设置中修改</li>
+<li>z: 一键整理。在 IPN 的设置中修改。</li>
 <li>使用滚轮以在背包和箱子间移动物品，按shift移动整组</li>
 </ul>
-<h2>光影</h2>
+<h2>3. 光影</h2>
 <ul>
-<li>BSL v8.2.04，默认配置High，把 Camera 中的 Bloom 关闭，把 Atmosphere 中的 fog 调到 0.5，开启 lighting 中的handDynamicLight。抗锯齿的TAA随便开不开，取决于风扇响不响</li>
-<li>Complementary Reimagined，默认配置 medium，high 会开启镜面反射运算量明显变大</li>
+<li>BSL v8.2.04，默认配置High，把 Camera 中的 Bloom 关闭，把 Atmosphere 中的 fog 调到 0，开启 lighting 中的handDynamicLight。抗锯齿的TAA随便开不开，取决于风扇响不响</li>
+<li>Complementary Reimagined，配置 medium，high 会开启材质的反射运算量明显变大。夜晚也比较亮，适合生存。</li>
+<li>itt 3.0，更适合搭配了写实系材质的建筑，风格最写实的 shader 没有之一。不适合生存。</li>
 </ul>
-<h2>材质</h2>
+<h2>4. 材质</h2>
 <ul>
 <li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光，所以要加一个材质以确保有 fallback。</li>
 <li><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</li>
-</ul>]]></content>
+</ul>
+<h2>5. 创造模式附加</h2>
+<h3>5.1 Mod</h3>
+<p>Axiom 高版本环境必备，可以创建实体方块随意拉伸模型，相当好用。</p>
+<p>effortLess structure 快速建造几何体。原 effortless buidling。</p>
+<p>lotweaks 自定义材质轮盘</p>
+<p>wordedit 经典创世神</p>
+<h3>快捷键</h3>
+<p><code>z</code>: effortLess structure 轮盘。</p>
+<p><code>x</code>: lotweaks 轮盘，和手中方块有关。会禁用丢东西（但创造模式本来就不用丢东西除了篝火灭火，何不用 Axiom 的调试棒？）</p>
+<p><code>左 alt</code>： Axiom 的大菜单</p>
+<p><code>r</code>: Axiom replace，其他的模组类似功能关掉。实测下来 replace 相当常用。</p>]]></content>
         <category label="游戏"/>
         <published>2023-09-26T02:38:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows 调整之基础功能与常用插件]]></title>
-        <id>https://sansui233.com/posts/2023-08-30-windows-tweak-and-enhancement</id>
-        <link href="https://sansui233.com/posts/2023-08-30-windows-tweak-and-enhancement"/>
-        <updated>2023-08-30T09:42:00.000Z</updated>
-        <content type="html"><![CDATA[<p>自从感觉内存硬盘越来越不够用，以及对老黄的显卡需求，从 mac 换成了多年不见的 windows11 。做了非常多的调整，至现在基本稳定，记录下来以供参考。</p>
-<h2>基本调整与基础功能增强</h2>
-<ul>
-<li>
-<p><strong>右键菜单</strong></p>
-<p>使用 <a href="https://nilesoft.org/download">shell</a>，恢复被藏到“更多选项”中的的右键菜单项，同时保持 win11 的设计风格。并且带有用 vscode 打开和用 windows Terminal 打开。虽然说 Windows Terminal 自己也有一个“用终端打开”，但那个有 Bug，打开的目录会被两个程序同时占用句柄，导致无法对目录本身进行操作。</p>
-</li>
-<li>
-<p><strong>批量重命名</strong></p>
-<p>使用 <a href="https://learn.microsoft.com/en-us/windows/powertoys/">Powertoys</a> 中的 PowerRename，可选中多个文件后右键批量重命名，整理素材时太有用了。大致与 mac 的多文件重命名相同。缺点是不能改成 <code>同名称 + 编号</code> 。但系统自带的重命名恰好只能同名编号。Powertoys 有很多别的小工具，但都不够好用，按需关掉。</p>
-</li>
-<li>
-<p><strong>快速预览</strong></p>
-<p>使用 <a href="https://github.com/QL-Win/QuickLook">QL-Win/QuickLook</a> ，选中文件后按空格直接预览，再按空格关闭。对于看各种后缀的文本文件、zip 压缩包目录结构非常有用。也用了 mac 后没法割舍的一个功能。前面说的 Powertoys 也有，但快捷键一定要加 ctrl（真的难按），功能更少，图片不能显示大小，无法定制。</p>
-</li>
-<li>
-<p><strong>文件快速搜索</strong></p>
-<p>使用 <a href="https://www.voidtools.com/">Everything</a>，我大部分使用场景是在卸载程序后，清除残留的下载数据与用户数据。</p>
-</li>
-<li>
-<p><strong>快速启动/全局搜索</strong></p>
-<p>使用 Listary</p>
-</li>
-<li>
-<p><strong>优化合集</strong></p>
-<p><a href="https://github.com/hellzerg/optimizer">hellzerg/optimizer</a> 微调 windows 的合集程序，包括禁止系统更新、改 hosts 文件刷新 DNS、移除开机启动项、添加自定义右键菜单等。</p>
-</li>
-<li>
-<p><strong>历史剪贴板</strong>：在 <code>设置→系统→剪贴板</code> 中启用。</p>
-</li>
-<li>
-<p><strong>屏幕颜色配置文件(ICC Profile)</strong></p>
-<p>在 <code>设置→屏幕→显示配置文件</code> 中，换成对应屏幕的sRGB文件。否则对于广色域屏幕，某些不读 ICC Profile 的照片查看器会出现色彩过饱和的情况。</p>
-</li>
-<li>
-<p><strong>输入法</strong></p>
-<p>微软输入法需要改成回车时键入英文，否则会清空，不方便中英混输。不过作为一个五笔用户，我现在使用的是基于 Rime 的 <a href="http://98wb.ysepan.com/">98五笔输入法</a> 和 <a href="https://github.com/Sansui233/98wubi">我的配置</a>。<del>因为微软输入法 shift 加 空格会标点变全角，而这个功能在中英混输时非常容易触发，还不能改掉，实在太弱智了</del></p>
-</li>
-<li>
-<p><strong>关闭顶部自动布局</strong></p>
-<p>关闭 <code>系统→多任务处理→贴靠窗口</code>。此功能乍一看非常贴心，实则非常容易阻碍鼠标精准排列窗口，尤其是想把上沿拉到顶部时。不建议使用鼠标时开启，更适合手指操控设备。</p>
-</li>
-<li>
-<p><strong>多线程下载器</strong></p>
-<p>使用 <a href="https://aria2.github.io/">aria2</a>，在网上抄了一个配置文件，并且让 chatgpt 写了一个开机自启脚本。面板使用的是 Chrome 插件 <a href="https://chrome.google.com/webstore/detail/mpkodccbngfoacfalldjimigbofkhgjn">Aria2 Explorer</a>，考虑到都是在浏览器中下载，没必要使用独立的客户端 App。</p>
-</li>
-<li>
-<p><strong>与手机互传文件</strong>（折腾但稳定版）</p>
-<p>使用 <a href="https://github.com/alist-org/alist">alist</a> 进行磁盘目录映射，并且使用 <a href="https://github.com/jeessy2/ddns-go/wiki">DDNS-Go</a> 动态绑定本机的 ipv6 地址到公网。手机上将相应的 alist 页面添加到主屏幕，便可在该页面互传文件。好处是能走局域网，速度快，不同网络环境下可用，可远程传输等等。依然让 chatgpt 写脚本将两个程序加入开机启动。</p>
-</li>
-</ul>
-<h2>硬件调整</h2>
-<ul>
-<li>
-<p>硬件信息监测</p>
-<p>使用<a href="https://www.hwinfo.com/">hwinfo</a>的实时监测数据作为硬件调整的基准</p>
-</li>
-<li>
-<p>功耗/风扇转速调整</p>
-<p>使用 <a href="https://github.com/seerge/g-helper">g-helper</a> 调整日常使用的风扇曲线。我买的幻16，作为全能本，出厂的奥创调教特别垃，首发时还有bug。它的三种模式</p>
-<ol>
-<li>静音模式风扇完全不转，经常温度突然飙升很吵地转一会儿</li>
-<li>性能模式开什么都以游戏本的方式转，对我来说挺吵的</li>
-<li>增强模式的声音不是给人用的。</li>
-</ol>
-<p>如果用windows默认电源管理方案的话，似乎和程序资源占用有关，即使只有60度也给转上4000转。打个小游戏真的不配这么吵……</p>
-<p>后面用g-helper关闭睿频，功耗限制35w。测下来开原神默认高画质 1080p 稳定在CPU 65度，风扇3500转，不卡。这代 GPU 的散热反而问题不大，至少玩原神不会超过60度。然后测试了带光影的 Minecraft 1.20.1。MC 对 CPU 的要求更高，不过单机的话，不刻意刷红石，35w也够了，一般在25w左右，温度还是差不多的65度，全程电压没有超过1V，降压对于控温还是很有用的。奥创之所以动不动就吵就是因为一开性能模式，什么都不干电压给到1.8V……没必要，真的没必要。</p>
-<p>日常使用场景下，好像也就编译比较耗CPU，其他时候都用不到很好的CPU性能。图形处理还是占GPU更多。音乐制作一类的也是耗CPU但也还好，但更耗内存硬盘。</p>
-</li>
-</ul>
-<h2>音频调整</h2>
-<ul>
-<li>
-<p><strong><a href="https://sourceforge.net/projects/equalizerapo/files/">Equalizer APO</a></strong></p>
-<p>调全局声音的均衡，需要搭配 <a href="https://github.com/jaakkopasanen/AutoEq">Autoeq</a> 仓库中说的 peace 插件使用（现在好像直接叫autoeq.app）。耳机发烧友的必备。注意蓝牙耳机无法使用卷积eq。</p>
-</li>
-<li>
-<p><strong>内录用虚拟声卡：<a href="https://vb-audio.com/Cable/">VBCABLE_Driver</a></strong></p>
-<p>网上有很多教程，为轻量级内录解决方案。另外如果系统带有 xbox，用 xbox 的录制视频是默认走的内录。</p>
-</li>
-<li>
-<p><strong>降低 Midi 键盘延迟</strong></p>
-<p>键盘连接电脑练琴，无独立声卡时，可用 <a href="https://asio4all.org/">ASIO4ALL</a> 降低延迟。效果显著。缺点是 ASIO 是设备独占的，比如宿主软件使用 ASIO 到耳机，那看 b 站视频就只能外放（或者别的耳机/音响）。</p>
-</li>
-</ul>]]></content>
-        <category label="工具"/>
-        <published>2023-08-30T09:42:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[图像超分辨率工具推荐]]></title>
-        <id>https://sansui233.com/posts/20230822-Super_resolution_models_and_tools</id>
-        <link href="https://sansui233.com/posts/20230822-Super_resolution_models_and_tools"/>
-        <updated>2023-08-22T22:20:00.000Z</updated>
-        <summary type="html"><![CDATA[AI图像放大模型+工具推荐]]></summary>
-        <content type="html"><![CDATA[<p><del>推特</del>，现在叫 X.com，是我的桌面壁纸来源，但是推特的图压缩得非常糊，喜欢的动画人基本也只传 1080p 图，导致壁纸糊上加糊。因此需要使用 AI 放大模型进行图像处理。</p>
-<ul>
-<li>放大效果外链预览：<a href="https://imgsli.com/MjAwMDcx">Comparison</a></li>
-<li>细节对比：<br/>
-<img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/comparison.jpg" alt=""/></li>
-</ul>
-<p>文章分为三个部分：</p>
-<ul>
-<li>图像处理工具</li>
-<li>AI 图像放大模型</li>
-<li>如何使用</li>
-</ul>
-<h2>图像处理工具</h2>
-<h3>1. <a href="https://github.com/chaiNNer-org/chaiNNer">chaiNNer</a></h3>
-<p>一个无代码的图像处理自动化工具，可以实现批量改大小、调色、压缩、拼接等等等。同时也支持用 AI 对图像放大，也能接入 Stable Diffusion 的工作节点，上限非常高。缺点没有内置模板，即便是很小的功能（比如文件批量重命名）都需要自己创建。</p>
-<p>应用内置使用文档，不过不看文档也能一眼知道怎么用。</p>
-<p><strong>只有英文，没有中文。</strong></p>
-<ul>
-<li>传送门：<a href="https://chainner.app/">chaiNNer</a></li>
-</ul>
-<h3>2. <a href="https://imagestool.com/zh_CN/">imagestool</a></h3>
-<p>对于单张图和 gif 的常见处理小工具合集，网页打开即用，完全本地运行无隐私问题。特点是非常易用，支持小批量处理，支持 pipline，也就是说如果想在调整大小后转换格式再压缩，不需要每一步都上传下载图片，可以处理完每一步直接选下一步，只下载最终的处理结果。</p>
-<ul>
-<li>传送门：<a href="https://imagestool.com/zh_CN/">imagestool</a></li>
-</ul>
-<h2>AI 图像放大模型</h2>
-<p>超分辨率成像(Super-Resolution，简称 SR) 是一种提高图像分辨率的技术，通俗的叫法就是图像放大。如果你曾经使用过 Photoshop 对小图进行放大，会发现放大后的边缘总是非常模糊，并且用锐化等操作无法弥补，这是传统方法的在图像放大上的缺陷。</p>
-<p>但是神经网络（Neural Networks，简称NN）的出现对图像放大的效果带来了极大的提升，几年前就已经有不少 AI 图像放大的应用，但最近两年的模型效果尤其好。下面介绍几个现阶段应用上比较火的模型。</p>
-<h3>1. <a href="https://github.com/JingyunLiang/SwinIR">SwinIR</a></h3>
-<p>2021年基于 Transformer 的图像超分辨率模型，放大任何图片的效果都非常好。风格偏锐利且干净，且参数少，处理速度快。此模型分为 3 类，经典图像超分辨率（Classical image SR）、轻量级图像超分辨率（Lightweight image SR）、真实世界图像超分辨率（Real-world image SR）。</p>
-<ul>
-<li>下载链接： <a href="https://github.com/JingyunLiang/SwinIR/releases/tag/v0.0">Release  · JingyunLiang/SwinIR</a></li>
-</ul>
-<p>可下载的版本很多，不知道选哪个的就选 <a href="https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/001_classicalSR_DIV2K_s48w8_SwinIR-M_x4.pth">001_classicalSR_DIV2K_s48w8_SwinIR-M_x4.pth</a> ，这个为4倍放大的模型，也是 Stable Diffusion 的 SwinIR 预置模型。</p>
-<h3>2. <a href="https://github.com/xinntao/Real-ESRGAN">Real-ESRGAN</a></h3>
-<p>2021年的经典图像超分辨率模型，这论文出来后大家疯狂在它基础上卷，基于 ESRGAN 改进的模型和论文非常非常多。不过最初的版本也已经足够好用。</p>
-<p>下载链接：<a href="https://github.com/xinntao/Real-ESRGAN/releases">Releases · xinntao/Real-ESRGAN</a></p>
-<p>依旧版本很多，不知道下哪个的下载 <a href="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.1/RealESRNet_x4plus.pth">RealESRNet_x4plus.pth</a> 即可。</p>
-<h3>3. 4x-AnimeSharp</h3>
-<p>基于 ESRGAN 架构的动漫类放大，<del>可能由于训练集选得好</del>，在众多动漫类放大中它可以很好地处理景深，其他的Anime模型多少在景深部分会有一些清晰过度的问题，包括著名的 <a href="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth">RealESRGAN 动漫模型</a></p>
-<ul>
-<li>下载链接：<a href="https://openmodeldb.info/models/4x-AnimeSharp">AnimeSharp - OpenModelDB</a></li>
-</ul>
-<p>OpenModelDB.info 上有更多的微调模型，可以试试。总体来说，AI 放大的图像质量目前来说还是乍一看可以，涉及商用美术的话质量仍然不过关。<del>如果商用美术能过关，岂不是能画糊图然后丢AI出高精图了。</del> 作为壁纸放大非常合适，即便是补充的细节不能推敲，但把像素精度补齐到屏幕分辨率带来的视觉提升也是非常大的。4k 壁纸就是比 1080p 看起来舒服。</p>
-<h2>如何使用</h2>
-<p>使用 chaiNNer 时可照抄下图结构，使用 4x-AnimeSharp 模型放大原图、重命名图片并保存。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-22%20213633.jpg" alt="chaiNNer"/></p>
-<p>如果使用的是 <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui</a> ，Extra Network 选项卡中也有预置模型，可以使用 SwinIR 和 ESRGAN。</p>
-<hr/>
-<p>可能有用的资料：</p>
-<ul>
-<li><a href="https://openmodeldb.info/models/4x-AnimeSharp">4x-AnimeSharp</a></li>
-<li><a href="https://phhofm.github.io/upscale/">Interactive Visual Comparison of Upscaling Models</a></li>
-</ul>
-<hr/>
-<p>PS：强烈建议无代码应用都开发个 template market……不要做一堆功能摆那里就自由发挥了啊诶！当发现要什么工作流很难做时就会感知到这些无代码 App 的问题所在了……在实际应用场景中很烂！很难做！说的就是comfyui……</p>]]></content>
-        <category label="工具"/>
-        <published>2023-08-22T22:20:00.000Z</published>
     </entry>
 </feed>

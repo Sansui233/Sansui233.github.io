@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2024-11-13T18:48:16.597Z</updated>
+    <updated>2024-11-13T18:57:34.484Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -165,8 +165,8 @@
         <id>https://sansui233.com/memos?id=2024-11-08 12:41</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2024-11-08T04:41:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2024-11-14 00:10:28</h2>
-<p>啊啊啊 next.js tree shaking 怎么改了于是我的 rss build 不起作用了………进入了一轮强迫症</p>
+        <content type="html"><![CDATA[<h2>2024-11-14 02:52:18</h2>
+<p>疯狂 debug 快3小时，自从 next.js 升级依赖后，rss 就不会在 build 时更新了，仔细一查竟然是卡在 code splitting 上……然后开个 branch 查了半天，发现把茴字换一种 dynamic import 写法就不会有问题了，啊？啊？不是？我不明白……另外这要怎么 debug 啊……</p>
 <h2>2024-11-13 22:45:23</h2>
 <p>啊啊啊听歌就好像画画真的好想画画有想画的但画技太烂了又会画一半被自己气死！</p>
 <h2>2024-11-12 05:49:48</h2>

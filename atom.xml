@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2024-09-03T01:45:09.873Z</updated>
+    <updated>2024-11-13T14:58:14.077Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,198 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[懒、快节奏与赛博巨婴]]></title>
+        <id>https://sansui233.com/posts/2024-11-13-懒-快节奏与赛博巨婴</id>
+        <link href="https://sansui233.com/posts/2024-11-13-懒-快节奏与赛博巨婴"/>
+        <updated>2024-11-13T22:55:00.000Z</updated>
+        <summary type="html"><![CDATA[科技为了便利，可便利是否有尽头]]></summary>
+        <content type="html"><![CDATA[<p>1</p>
+<p>今天我想把一张图从 iPad 传到 iPhone 时，突然感觉很麻烦，因为需要打开并解锁，ipad，打开照片，再点击分享，点击AirDrop。</p>
+<p>然后猛然意识到，我是不是越来越懒了？</p>
+<p>对于懒与对于快节奏的追求本质上是一回事，都是简化简化再简化。我对简化的追求似乎有无止境的趋势，也喜欢比对市面上的效率工具，但这真的能提高生产力吗？</p>
+<p>从前拿着U盘传照片，会感叹信息化的便利。我学习计算机也想做让生活便利的事情，在更短的时间去体验到更多原本无法体验到的东西。后来用 qq 传照片，也感觉很方便。是什么时候开始连 AirDrop 都嫌弃太麻烦了呢？是不是对于我，只有意念传输才是终点？可那之后又能如何呢？</p>
+<p>2</p>
+<p>生活的意义来自于过程，而非终点。而衡量事物价格来自于终点，而非过程。</p>
+<p>毫无疑问，工作、劳动力是商品化的，意义与复杂性从不等于价格。不如说以找寻意义的方式寻找工作，很大程度上会面临吃不上饭。</p>
+<p>3</p>
+<p>从前会写书信，后来能随时短信联系变得好方便，一个月发几十块的短信。再后来即时通讯工具出来，联络更便宜更方便了，可人渐渐变成了24小时 oncall 状态，隔几个小时不看微信就会被说太慢了。大概一天只看两次微信的已经是异端了。</p>
+<p>也许和人有关，微信从一个方便联系感情的软件，变成了生产力工具，是随时随地接受需求的怪物。我起初能理解在微信同时加工作的人和亲人，之后变得难以理解，到现在又变得可以理解，感受是大不相同。从前是四海为友，后来是要把社交分开，到现在是感觉其实都是一回事，亲人不会更特别。</p>
+<p>当真的想要放松联络时，就会使用其他软件了。为什么 qq 依然在年轻人中流行？其实就是长辈不用。qq 的用户群有特别老的和特别年轻的，中间有明显的断层。</p>
+<p>4</p>
+<p>国人非常喜欢开发效率类工具，也喜欢记录。近几年新的效率工具，我所知道的绝大部分是国人在开发。可能与老中整体的环境相关。在我记忆中，如果一件事做得不好，就是要反省的，如果一件事做得好但慢，那就是没有效率。「效率」这个词似乎成为了魔咒。</p>
+<p>再加上不要自大、时刻谦逊、居安思危等等，于是养成了无法接受任何夸赞的性格。夸就是客套，真夸就是直冒冷汗。嗯，只要还面对着别人，没有一件事是我满意的。满意的东西现在会小心收藏起来，像 led 屏一样，不要轻易就被弄碎了。</p>
+<p>5</p>
+<p>人类造就科技成长，但又被科技裹挟，造就一个个被高度封装的便利化包裹的巨婴。从逻辑上说，国内早就已经进入赛博朋克，只是社会形态还没有跟上。</p>
+<p>这类抽象思考的空虚感令人害怕，时常觉得早已非人。也可能只是我的个人想法。希望脱离宏大叙事，去做出微小的选择。</p>
+<p>想画漫画了，草。</p>
+<p>写于2024年11月13日03时15分。</p>]]></content>
+        <category label="生活"/>
+        <published>2024-11-13T22:55:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[把 draw.io 装修为简单且现代的白板应用]]></title>
+        <id>https://sansui233.com/posts/2024-11-12-把drawio装修为简单美观的白板应用</id>
+        <link href="https://sansui233.com/posts/2024-11-12-把drawio装修为简单美观的白板应用"/>
+        <updated>2024-11-12T05:19:00.000Z</updated>
+        <summary type="html"><![CDATA[装修无止境！]]></summary>
+        <content type="html"><![CDATA[<p><a href="http://draw.io">draw.io</a> 是一个功能丰富的流程图绘制软件。此前写论文时我一直使用这个软件画图。在没有系统性的画图需要，转而变成了有时想要随手画矢量示意图后，这个软件启动交互流程步骤繁琐，我便极少使用它了。但在使用了 tldraw, excalidraw 后，又回到了 <a href="http://draw.io">draw.io</a>，才发现这个软件的可定制性其实非常强，完全能满足随手画图的需要。这里记录一下如何把 draw.io 变成一个更适合打开即用的、默认效果更加现代的白板应用。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511240.webp" alt="image.png"/></p>
+<p>（草……windows 截图这边缘的黑框好丑啊！）</p>
+<h2>为什么是 draw.io</h2>
+<p>先对比一下适合需求的竞品（不想看请跳转下一节）：</p>
+<ul>
+<li><a href="https://www.microsoft.com/en-us/microsoft-365/visio/flowchart-software">visio</a>: 收费，而且 mac 上没有。</li>
+<li><a href="https://www.tldraw.com/">tldraw</a>, <a href="https://excalidraw.com/">excalidraw</a>: 更适合作为 sdk 使用，作为成品有些过于简单，在易用的同时，想多做一点非流程图的东西又很复杂，中文字体也不契合其默认的手写设计。而且并没有打包为桌面 App，文件关联是个问题。</li>
+<li><a href="https://www.processon.io/">processon</a>: 要登录</li>
+<li><a href="https://www.figma.com/">figma</a>: 要用梯子登录</li>
+<li>powerpoint: ……我只是想偶尔画个示意图</li>
+<li>飞书: 每30天要扫码登录 ……我只是想偶尔画个示意图</li>
+<li>adobe illustrator: 没有常用预制样式库，漫长的启动时间，对于没接触过的人学习成本很高。</li>
+<li>无边记、goodnotes: 苹果移动端生态 only</li>
+</ul>
+<p><a href="http://draw.io">draw.io</a> 没有上述的问题，但它由于设计之初不是个草图应用，所以：</p>
+<ul>
+<li>默认较为重型的 UI</li>
+<li>启动先选择储存位置，太慢了</li>
+<li>默认组件样式很丑，看起来只适合工控图</li>
+<li>有时会感觉曲线箭头很难调，怎么都不流畅</li>
+</ul>
+<p>我根据以上三点问题大致说一下如何改进。</p>
+<h2>更换UI布局</h2>
+<p>默认的 UI 较为传统的重型设计，熟悉这类UI是相当好用的，但按钮组过多会显得不够轻便。在 <code>其它→主题→外观</code> 中可以更换为其他的主题，有5套可用：经典、极简、简易、草图、atlas。</p>
+<p>我个人用得比较多的是「简易」，并且关掉了左侧栏形状库的栏，改为用顶栏，右侧格式栏在顶部有快速按钮展开。</p>
+<p>习惯 tldraw、excalidraw 的用户应该还是更适合「草图」主题，绑定了基础形状的快捷键。需要去手动调出格式栏。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511552.webp" alt="image.png"/></p>
+<h2>更改启动流程</h2>
+<p>默认情况下，启动时会弹出选择保存位置的框。新建画布时，又会先看到一大串模板的选择题，还得去想命名。但很多时候，随便画图是不需要保存的。</p>
+<p>在经典主题下，需要去「其它」→「显示开始画面」上取消勾选。在其它的主题下，则需要去菜单的「设置」→「配置」里取消勾选「显示开始画面」。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516688.webp" alt="image.png"/></p>
+<h2>配置默认样式</h2>
+<p>要做到更改默认样式，需要写 JSON 配置。尽管可以在侧栏按「设置为默认样式」，但只能当前打开的窗口生效，刷新、新开文档都会导致默认样式回到最初的样子。</p>
+<p>在经典主题下，需要通过 「其它」→「配置」打开，其它主题下，则是「设置」→「配置」。</p>
+<blockquote>
+<p><strong>我的配置已经上传到 <a href="https://gist.github.com/Sansui233/a7f5b88e35194f82b1a76a7e05df4f5c">gist</a>。</strong></p>
+</blockquote>
+<p>JSON 写法参考了如下文档：</p>
+<ul>
+<li><a href="https://drawio-app.com/blog/customise-default-shape-libraries-templates-and-plugins-in-draw-io-for-confluence-cloud/">Customise default shape libraries, templates and plugins in draw.io for Confluence Cloud - draw.io</a></li>
+<li><a href="https://www.drawio.com/doc/faq/configure-diagram-editor">Configure the draw.io editor</a></li>
+</ul>
+<p><a href="http://draw.io">draw.io</a> 的图形分为 vertex（顶点图形） 和 edge（箭头、线段）两类，选中按 <code>ctrl + e</code> 即可查看当前图形应用的样式。</p>
+<h3>配色与样式设计</h3>
+<p>整体采用的粗线条粗体，比较契合现代简约又活泼的趋势。edge 采用黑色，与高饱和的 vertex 非常好搭配。</p>
+<p>直接抄的无边记的颜色，有的有轻微的改动。不过无边记最印象化的水蓝色没有抄上去。</p>
+<p>默认的配色改为了最后一个蓝色。以下配色均可以在右侧的「格式栏」中找到并应用。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120513014.webp" alt="配色方案.png"/></p>
+<h3>关于圆角矩形</h3>
+<p>现代设计中圆角矩形用得更多。对于圆角的弧度，可以通过属性 Arc Size 去调整。可以点击设置为默认样式，也可以配置到 JSON 里。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120514766.webp" alt="image.png"/></p>
+<p>如果你使用的「经典」主题，需要自己选择圆角矩形的图形。在「草图」主题下，按 <code>D</code> 就是默认配置好的圆角矩形，相当简单。「简易」主题下的位置如图：</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511067.webp" alt="image.png"/></p>
+<h3>关于曲线设置</h3>
+<p>曲线设置不对会变得很难调整，一张图说明大多数情况下的曲线操作与设置：</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120515358.webp" alt="曲线.png"/></p>
+<h3>想更换为手写风格？</h3>
+<p>在不选中任何东西的情况下，把右侧格式栏的草图勾选上即可，就可以获得类似 excalidraw 的手写风格啦！</p>
+<p>另外，如果没有自定义 JSON， 「草图」主题下的默认样式也是手写风格的。</p>
+<h3>关于默认字体（附网页用字号推荐）</h3>
+<p>JSON 中这几个字段设置默认字体。我默认英文是 Inter，中文是使用的系统黑体。文字大小我设置为了网页标准 16px。</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;customFonts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-string">&quot;Inter&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-string">&quot;pingfang sc&quot;</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;defaultVertexStyle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;fontSize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">16</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;fontFamily&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Inter&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;defaultEdgeStyle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;fontSize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">16</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;fontFamily&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Inter&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>另外介绍一下常用网页文字大小的规范，现代的美术设计由于自己屏幕很大，或者对标准视距缩放大小没太多概念，非常容易把字给设置得很小（点名星穹铁道）</p>
+<ul>
+<li>16px 为默认正文大小，但由于主要是考虑了希腊字母面积比较小，所以也有的中文网站会设置为 15px。</li>
+<li>14px 偏次级小段落、不重要的文字，长时间阅读会累。</li>
+<li>13px 为代码常用大小。</li>
+<li>12px 已经非常小了，是正常视距下最小可视大小，适合做脚注、引用。</li>
+</ul>
+<p>再小的字号不推荐作为内容性文本使用。</p>
+<h3>关于背景网格</h3>
+<p>在简易主题中默认关闭的，经典主题中可以通过配置 JSON 为默认关闭。关掉背景网格会显得比较现代化。</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;defaultGridEnabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;defaultPageVisible&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>但还是有时可能需要开启网格，那就什么都不选中，右侧栏开启网格就可以了。</p>
+<h2>其他使用 Tips</h2>
+<h3>导出设置</h3>
+<p>导出时注意一下缩放。网页标准大小字体为 16px，编辑时画布 100% 缩放下一切正常。但是当导出为位图（jpg, png）时，需要根据你的显示器缩放进行放大，否则文字一定会糊。</p>
+<p>我的显示器为 150% 界面缩放，因此需要缩放到 150% 才能大概清晰，如果要让 4k 屏也看得无比清晰，最好导出 200% 缩放，且 dpi 尽量在 180 以上。</p>
+<p>另外可以直接框选后右键复制，不一定要导出。</p>
+<h3>一个文件画多张图</h3>
+<p>经常会遇到多张同系列图的需求。为此，你可以选择都画在一页上，要用时框选特定范围，右键复制为 png 。这样很适合边聊天边画图发给别人，但也会失去缩放、加白底、加白边等设置。至少你得打个组，把 16px 的文字放大后再复制，以确保结果不会糊。</p>
+<p><a href="http://draw.io">draw.io</a> 也可以分页，建议是一页一个图，可批量导出。</p>
+<h3>从 Mermaid 生成图、嵌入 Notion</h3>
+<p>mermaid 是一种画流程图的代码，比较适合不想可视化排列对齐的强迫症。</p>
+<p>draw.io 可以在菜单中的「高级」使用 mermaid 生成图，下面的图就是导入 mermaid 生成的。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516990.webp" alt="未命名绘图.png"/></p>
+<p>由于 notion 无法画图，在 notion 我都是用的 mermaid，有点不好看但至少目的达到了。不过最近发现，<a href="http://draw.io">draw.io</a> 的导出可以选择直接嵌入notion，点开还能进行编辑……实现方式是图像数据全部存放在了链接里……不得不说 draw.io 自主兼容性做得很强，从接入了那么多网盘就可见一斑。</p>
+<h3>自定义CSS</h3>
+<p>如果还是觉得 UI 太丑了，在 <a href="https://www.drawio.com/doc/faq/configure-diagram-editor">Configure the draw.io editor</a> 中可以找到自定义 CSS 的部分（但我觉得 UI 排列上还是不错的，这足够了）</p>]]></content>
+        <category label="工具"/>
+        <published>2024-11-12T05:19:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[碎碎念001]]></title>
+        <id>https://sansui233.com/memos?id=2024-11-08 12:41</id>
+        <link href="https://sansui233.com/memos"/>
+        <updated>2024-11-08T04:41:00.000Z</updated>
+        <content type="html"><![CDATA[<h2>2024-11-13 22:45:23</h2>
+<p>啊啊啊听歌就好像画画真的好想画画有想画的但画技太烂了又会画一半被自己气死！</p>
+<h2>2024-11-12 05:49:48</h2>
+<p>今天又抓住 secs 聊天，大概确定评估标准就是生活质量+感兴趣吧。北京生活质量的活，antarx 说是觉得得 50w，我觉得长期生活的话确实是这样的，很难想象一个月一万块在这个出门就是雾霾的地方生活个十几年，每天看着 AQI 破百的空气质量发愁。啥也存不下，那我不如回老家，也是一个月一万多但至少有房……</p>
+<p>然后 secs 和 andy 出去的理由其实都是有比较明确的，离开家的动力。但鉴于之前种种原因吧，我差不多没有任何生活上换地方的动力了，或者说哪里都一样。会觉得换个地方可能很好，但是不是那种很想去看看的好，而是觉得达不到的理想美。我现在有动力可能是上门维修网络疑难杂症，可能是太需要帮人解决问题以维持自身那点薄弱的价值感了。</p>
+<p>说来买的软排线还没到……搜了好久才知道中关村那边是还有在卖的。怪我没有做硬件的朋友，尽管本科专业是硬件相关的但那时没有人喜欢自己 DIY，我那时也不喜欢，现在，“超有意思”……</p>
+<p>然后说回朋友，其实感觉工作后的人会觉得人脉重要还是没有公开透明有效的机制，以及大熔炉的环境吧。在学校的话，找到合适的人是相当容易的，很多被迫社交的场合和活动，至少对我这种 i 人来说也不会存在非常多的信息不对称。出来后是因为社交广度变窄了。</p>
+<p>还有到底为什么父母为什么觉得回家等于不工作啊！回家只是少房租啊该工还是工啊！没工一样找啊！不过早就听过自由职业者谈过这个问题，最后甚至出去租工位假装上班了。我个人也不愿意回家，只要不是活不下去了，一分钱也不想用家里的……</p>
+<p>然后 secs 写的那篇如何识别野鸡公司，是针对技术岗的，非常有用，我觉得可以拿去开讲座的程度。就是策划岗不太适用吧。</p>
+<h2>2024-11-07 23:56:52</h2>
+<p>游戏策划这个事情、何と言うかさあ……果然还是不太行的样子。老实说呢我本科时是还真是挺想进的，日记会写想做 ACG 相关的。但是时代变了大人……朝令夕改的谁也不保。而且我始终想做的是技术（就算画画也是技术），而不是策划这样门槛低，但比炒股都难赚，还要指挥别人 social……我真的很 i 的 i 人，要是感觉 e 都是装的（也并没有遇到有人感觉我 e）</p>
+<p>另外前途这个事，hr 说了很多还是不觉得策划的发展路线是明朗的，更类似创业吧，创业多不明朗做策划就多不明朗。今天 hr 说的没招老策划的原因，那很可能就是我今后再次找工作面临的问题。</p>
+<p>技术后期再做策划，大概是我觉得最好的方式了，也不会有拍脑袋一想结果没法落地的问题。我甚至觉得技术有想法那是不需要专门找策划的，要找只能是因为人一天只能工8小时……</p>
+<p>我在以前也是觉得只要能力对口就能找，但现在发现好多公司都是草台班子混口饭吃，工作内容就是谁都能做，做久了能力没有提升只是熟悉了业务流程，这时就是拼的简历、学历什么的……如果有生活得更轻松的工作，业余时间打点游戏，就是再好不过了。</p>
+<p>当然还蛮开心和制作人聊天的，整个过程还挺神奇的，被动找过来的，不是一个诈骗公司还是有在做原创的公司就很幸运了，但就还是，一个不能做技术的职位，还谁都能做，确实不会想去，说浪费我游戏设计的天赋，但我长期实践过也无比清楚我设计很一般，比下有余比上不足，每次看到好作品一查作者都是艺术、设计相关专业出身，无一例外。所以这是巧合吗？设计是天赋吗？上限是的但是下限不是，下限是经验，是可以学习的。我开始画画真的是被说没天赋的，画什么都很怪，完全看不出特点和方向，但后面上了课后就被说有天赋了……不是……那其实就是基础和经验而已。</p>
+<p>相比之下做策划更浪费我学技术的天赋，或者说动力吧……艺术生就业更加困难这种机会还是给他们吧，我还遇到了挺多逻辑挺好的艺术生的，但鄙人的艺术生朋友无一例外都是技术党，明确表示技术做到头了也不想去混管理，还想学虚幻5，要转去做个人品牌。</p>
+<p>不过我也听说了同专业学长有一些本科去了游戏策划，可能16年左右吧，只能说，时代啊时代……但策划也没有在我的考虑范围内，毕竟我更习惯直接动手实践，而且策划钱太少了（图穷匕现！）真就在北京贷款上班是吧，同样的工资在老家 955 躺平不好吗，想干什么做成副业不好吗……</p>
+<p>不过也感谢强行把我从待机状态拉出来的 HR 吧，说明我还不是真的想摆烂……开头面试时整个牙齿都在抖，这就是社恐久了……</p>
+<h2>2024-11-01 17:42:59</h2>
+<p>真切感受到 App 各自圈地带来的影响是，有个妹妹问 ps 穿透模式有什么作用，说换了八个关键词都没有搜到。我有点震惊。然后搜了一下百度……确实搜不到！唯一有用的靠前的还是个 抖 的长视频，看一眼就可以明白的东西用视频讲了 9 分钟……</p>
+<p>然后换了小红书搜，虽然相关内容不多，但第一条就是。</p>
+<p>然后换了 bing 搜，也是第一条就有，adobe 的官网，但可惜她打不开。csp 台湾地区 tips 也非常详细，但可惜她打不开。国内优动漫的运营做的说明其实也很详细了，但在百度的 seo 排名非常之低，完全搜不到 ，用 bing 倒是排在第一个。</p>
+<p>好烂的信息茧房。</p>
+<hr/>
+<p>但说来十二年 ps 老登其实也没看说明书，就是对着老爸吃灰的 PS3 零基础案例书学会的。不过接触 Adobe illustrator 是真的会觉得有理解成本在的</p>
+<h2>2024-10-18 00:38:10</h2>
+<p>华强北的小作坊便携显示器坏了，于是换了 ipad moonlight 串流。屏幕感觉太舒服了感动。Apple 的屏幕能莫名觉得很稳定。PC 再好的屏幕都还是会有一种刺眼的感觉，换个角度的观感就不一样。</p>
+<h2>2024-10-16 18:36:24</h2>
+<p><span class="tag">#博客 </span>对了哦，这个页面的无限滚动的框重做了，其实是参考的 Thread。但做的时候发现一个问题……头顶那两个圆角很难做！因为无限滚动是使用 transform3d 定位的，然后就会新建一个图层。众所周知，新建图层的 方形 background 会覆盖父级容器……</p>
+<p>然后我想那是不是 first-child 就可以了呢？然后发现我的 virtual list 实现是每个 list item 外面都套了一圈 div，当时的原因是 ref 传不了函数式组件，但我又需要在父级使用 ref，因为我这个无限滚动容器大概是做了个除了微博以外的平台都没有做的 feature —— 可变高度（微博的那个可变高度还有 bug 草，收起时状态没有同步）</p>
+<p>然后我可能会想 virtual list div 上去写样式不就好了吗？不行不行，我的 virtual list 设计是通用组件，不能带样式，样式应该由外部决定。</p>
+<p>Thread 的解决方案是，绝对定位单独画了两个角……是的，你没有听错，那两个圆角甚至是两个单独的图层……我不想这么做。</p>
+<p>我想不能在组件接口上开个口， style 传给内部吗？哒咩，一个组件的参数既有 container 的样式，和 item list 的样式，感觉就是很混乱。而且样式又分 style 和 classname。这个组件只有两个层级还好，只用暴露四个样式接口，但要是那种很多层的，不能也设计这么多样式接口吧！这是个原则性问题，絶対無理！</p>
+<p>最后解决方法其实非常简单但开始时没有想到，那就是 在父级总节点加了 class，用最原始的， css 的，“&gt;”…………</p>
+<h2>2024-10-14 16:41:32</h2>
+<p>svg 动画，好，好好好，太适合关键帧了，k 帧 k 下来一个 transform 自动插值。所以重点在，触发和交互如何 k 帧……</p>
+<p>另外就是 tailwind css…… 我真的不知道有什么好的啊啊啊！至少开发体验极差，因为逻辑被淹没在样式里，要修改时根本定位不到代码。你猜最开始的人为什么就把 html，css 和 js 分开写……从这个角度来说 vue 比较正常，react 这种 html 和 js 混合的确实是接受了好一阵子……但其实 JSX 里混得也不太多，大部分还是分开的。 tailwind 混合的太离谱了……是不用 writing css，因为本质上是重新定义了css……可能还是我用 css 太习惯了。styled-component 还是香的。</p>
+<p>另外小火箭真的卡得不行，最近已经卡到怀疑人生了。换成了 sing box 好，好了！ singbox 手机上还挺直观好的，电脑上没 PC 端。GUI for singbox 真的很不直观，界面层级藏得太深了草，用看起来根本不像是能点的文字藏了我最关键的配置信息，逆天交互草……这之前我一直以为这软件的界面只有两个层级。</p>]]></content>
+        <category label="Diary"/>
+        <published>2024-11-08T04:41:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Windows 调整之中文字体]]></title>
         <id>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</id>
@@ -339,42 +531,6 @@ fi<span class="hljs-meta prompt_">
         <published>2024-02-29T23:45:00.000Z</published>
     </entry>
     <entry>
-        <title type="html"><![CDATA[碎碎念001]]></title>
-        <id>https://sansui233.com/memos?id=2024-02-29 01:28</id>
-        <link href="https://sansui233.com/memos"/>
-        <updated>2024-02-28T17:28:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2024-09-03 09:31:00</h2>
-<p>看到一个交互的仓库：<a href="https://veloxijs.com/">veloxijs.com</a>。瞪大了眼睛……其实 react-spring 做动画也好用但缺交互事件，交互要额外绑。而我觉得其实绑交互才是最麻烦，多平台有区分，还要干掉一些和原生交互冲突的问题……我在那手撮交互和动画算什么！！不过一看打包体积 50 多k，那还是手搓吧，按需手撮 5k 不到……</p>
-<h2>2024-08-26 10:48:17</h2>
-<p>推荐短篇漫画<a href="https://weibo.com/5790748645/Otq6Td0Jm">小狐狸化形记</a>。在作品要么连篇累牍的设定与废话，要么网文快节奏模板的时代，已经感觉已经好久好久，没有看过这样能写进教科书一般的，剧本了。</p>
-<p>二游的剧情其实我都看不太进去，大概就 fgo 2.6 还行，1.6 已经不记得了……然后原里枫丹审判看得还行，没有逻辑 bug 已经万幸了，要有代入感就算了。二游太注重打造异世界和卖角色了，但<strong>代入感反而是要能映射现实才会有</strong>…支线有不少抄名著的但抄得很生硬，反应人性不是故意写脑子有病的家庭啊喂。</p>
-<p>枫丹把矛盾归结在了“天理”上，为了解决“天理”的问题而选择牺牲自己，算是非常讨巧的做法，这是一种“虚构的矛盾”，虽然不符合现实但是非常符合异世界卖角色的二游。</p>
-<p>崩铁 2.3匹诺康尼大立意很好，但小分段上也还是在卖异世界社达体验，观感上最好的是只为剧情服务的星期日……他出场不多（物理）却有非常多真实的侧写，一是和妹妹的互动，二是有领导压力和家族派系之间的压力，三是有真实的动机——想人们能快乐摸鱼。这些和异世界结合也没有违和感。大部分角色做好一个点就不错了，砂金做好童年创伤就大卖特卖…说到底还是大部分二游角色过于扁平，没有现实的复杂度支撑不住。</p>
-<p>然后这也可以解释崩铁垃圾桶会塑造得很成功。首先主角独特的捡垃圾 xp 就逆天，其次“垃圾”这词在当代象征了太多。垃圾除了能指人，还有十连抽出“金色传说垃圾”嘲讽了抽卡。垃圾桶的外形和战斗机制也足够搞笑……符号比角色好出效果可太真实了。</p>
-<p>然后说回 fgo 2.6，厉害的点就在于每个人都是活的，矛盾和动机是真实且鲜明的“人之间的故事”（指抽象的人）。明明都是异世界卖角色，蘑菇怎么写出来的……可能是 fgo 最不需要的就是沉浸感吧……对于看剧情的玩家，只要脱离沉浸感，纯写剧情反而结果会好…</p>
-<p>古剑三也挺好的，很明显这也是不用代入主角的游戏，有沉浸感大概是本土文化滤镜吧。玩基于西方神话种族体系的就不行，代不了。</p>
-<h2>2024-08-23 10:48:53</h2>
-<p>屏幕调白平衡的软件 <a href="https://justgetflux.com/">https://justgetflux.com/</a> ，才发现我最适应的色温大概在 5700k。标准的 6500K sRGB 对我来说太刺眼了，看不了太长时间的蓝光+高饱和……</p>
-<h2>2024-08-23 08:18:14</h2>
-<p>虽然但是，ppi 小于 200，一般场景还好，但一开始涉及打印，看小说一类的，就不免会和现实的媒介比，win 这不上 4k 屏感觉真眼瞎……什么，16寸的2.5k屏 ppi 还不够吗？你好，是的，真的很明显，被虫啃了。</p>
-<p>另外，把网页的字体 fallback 换成了方正兰亭黑Pro，字形真的前所未有的顺眼……微软雅黑就算改进过的也还是烂……不过 hinting  做得最好的还是更纱黑体。思源的 hinting 是一坨了。</p>
-<p>关于 <span class="tag">#博客 </span>搜索，有考虑改数据库存储的方案，方案早就有想好了，客户端的接口形式也预留了，现在的 memo 就是数据获取的其中一种实现，非常的 CSR。剩下的就是看能不能找到靠谱且没那么贵的服务了，个人博客的 hosting 没什么流量，我也不是很常用。说来其实 memo 想存数据库主要是考虑搜索，目前的全文搜索真的很全文，都没有索引的……虽然写了三年的废话大小加起来连500k 也没有，长文那边 100k 也没有，完全不必担心……</p>
-<p>个人一生能写的字数，大概除了写小说的，做成搜索的话用无索引全文搜索完全够了……我好像十四年的微博7000条了吧，可能 50-80 万字。memo 差不多有十万字，但搜索起来感觉就是瞬间无延迟，连 Searching 的状态指示都看不到……最大的时间消耗在第一次获取搜索数据上，也就是网络延迟……而且不是全文匹配，结果一旦符合就中断相应条目的匹配，搜不到时才是用时最久的，也用不了几秒。这么一说，个人博客废话再多也还是没有必要上数据库……实在久了就加上，只搜最近的500条所有带 tag 的条目……然后以后的处理器会越来越好，感觉远远大于，人的废话膨胀速度……</p>
-<h2>2024-08-18 00:30:21</h2>
-<p>跟着一梦徽州教程一步步摆做了几次后，突然就会变得会设计家园了……对于信息密度的把控与刻画细节，是可以通过重复临摹提升的，如果要走商业风格，前期多临摹很有用，真的。</p>
-<p>另外谢谢谦谦……虽然自己还是很菜，但少了一些，再学什么都不会有所改变的想法。</p>
-<p>真的不能总是让某些人狭窄的人生观去占据脑子，当把人考虑为一个定量的因素后，人才真的变成了一个定量的因素。但本不应如此，不应由过去的经验塑造未来，而应由当下。总是看别人、看过去，情况不会有任何改善。对未来做出承诺也是不可能的，只有看着过去决定未来的人可以对未来做出预测，想要有改变那未来必定难以预测。</p>
-<p>所以请不要使用过去决定未来，会真正完全地丧失掉应有的活力。悲观的是简中的大氛围都是这样，存在着“无法赎清的罪孽”，甚至虚构的角色都不放过，比如散兵。</p>
-<p>然后去了听 logseq 在 discord 的直播……全英文还是，可怕！只有在带耳机、网络好、对方没有很含糊不清的情况下比较听得懂。那个提问的有一点点印度口音的说话比管社区的人听得懂一些……很难想象这样要怎么面试啊啊啊啊！</p>
-<p>我自从没什么机会说话后，又因为唱歌狂念日语歌词，中文已经说不太好了，稍微快一点舌头和口腔就会不听使唤，然后结巴……最近过剧情的时候都有意开始念台词了，像小学生一样，念不顺的词就重复念，练中文发音会用到的肌肉，特别是 ji 和 yi，舌根处用力把气流收得很窄，标准发音时会口吃，如果是说南方口音就不会口吃。才发现其实配音说话都很快，又快又清楚。天哪之前根本没觉得把话说得快而清楚是需要努力的一件事，我 18 年的视频说话就是又快又清楚的……落泪了</p>
-<h2>2024-08-05 23:28:21</h2>
-<p>才发现代码随想录的题解是相当个人的，废话超级多而且不说人话。KMP那里才完全感受到，一直在套名词定义，但其实直观解释两句就能让人明白，但就一直搁那里套定义，然后为了定义准确说了一堆废话。我感觉自从我做碎片化笔记后就变得不太会写教程了，我还是要努力去变得直观一些，多加一些图！</p>
-<h2>2024-08-01 17:45:27</h2>
-<p>解决 2024年 windows 只能设置一个字体的应用们的无衬线中文还是优先 fallback 到新宋体的问题：去注册表，<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink</code>把 Microsoft Sans Serif 中 SIMSUN.TTC 那一行去掉……服惹 win7 就有微软雅黑了留着宋体 fallback 干嘛……还是说他们也知道微软雅黑的正文阅读体验很差劲……但宋体不搭更差劲啊！</p>]]></content>
-        <category label="Diary"/>
-        <published>2024-02-28T17:28:00.000Z</published>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[白嫖怪的经验]]></title>
         <id>https://sansui233.com/posts/白嫖怪的经验</id>
         <link href="https://sansui233.com/posts/白嫖怪的经验"/>
@@ -509,6 +665,7 @@ fi<span class="hljs-meta prompt_">
 <li>Install <a href="https://github.com/dahlbyk/posh-git">posh-git</a></li>
 <li>Install <a href="https://ohmyposh.dev/">oh-my-posh</a> for showing extra info in term.</li>
 <li>Install <a href="https://github.com/gerardog/gsudo">gsudo</a> for softlink</li>
+<li>Install <a href="https://eza.rocks/">eza</a> for listing</li>
 <li>open <code>$PROFILE</code> in powershell, append the contents of <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a></li>
 </ol>
 <p>大致介绍一下用途。</p>
@@ -519,6 +676,7 @@ fi<span class="hljs-meta prompt_">
 <li>posh-git，显示 git 的状态</li>
 <li>oh-my-posh，美化。具体主题可能需要会自己改一下，要么丑，要么不支持提示 conda 环境或者 npm 环境。</li>
 <li>gsudo，提权，类似 unix 的 sudo。可能运行时会被杀软报毒，需要加入信任区。</li>
+<li>eza，2024年了，终于有了一个像样的 ls 替代……</li>
 </ul>
 <p>powershell 的用户配置文件输入 <code>$PROFILE</code> 就能找到。</p>
 <p>我的配置文件上传到了 <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a>。需要挂代理打开。配置文件包含 <code>ls</code> <code>ln</code> <code>open</code> <code>grep</code> <code>which</code> 等命令模拟。powershell 的缩写默认支持了 <code>mv</code> <code>cat</code> <code>rm</code> 等命令，配合起来日常基本够用。</p>
@@ -749,195 +907,5 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 </ul>]]></content>
         <category label="学习"/>
         <published>2023-11-11T22:26:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[重读《小王子》]]></title>
-        <id>https://sansui233.com/posts/2023-10-09-the-little-prince-review</id>
-        <link href="https://sansui233.com/posts/2023-10-09-the-little-prince-review"/>
-        <updated>2023-10-09T13:56:00.000Z</updated>
-        <content type="html"><![CDATA[<p>《小王子》在不同年龄阶段都看过，中译和原著也都读过，当时只是觉得有趣。但尝试自己写故事后，才惊觉其实所有的有趣都是是作者的刻意表达。</p>
-<p>仅仅以生活中的“有趣”与“想象力”写出的故事远远不够，别人看起来并没有你认为的那么有趣，内核是空洞的。</p>
-<p>人在成年人后，所经历的一切容易让笔下故事的发展陷入自身所见所闻，很难写出孩子般质朴的想象，无法逃离现实的束缚。</p>
-<p>举个例子，如果你的故事需要一个超现实的“天体引力”进行推动，你会用怎样的方式让这样的力产生？</p>
-<p>我搜集了很多宇宙的资料，试图从中找到什么想法。但事实上我并不是想写硬科幻，也没人想在简短的剧情中读一大堆物理考据。</p>
-<p>我对此一筹莫展，觉得怎样都编不出一个合理的解释……最后决定拉出上帝作为隐喻，上帝按自己心意去裁定天体引力。听起来很离谱吧，就好像是小孩子的瞎想，仅仅是“上帝裁定天体引力”不也是一具无意义空壳吗？但如果将这个设定赋予别的象征，就不再是无意义的。或者说，我其实是想象征什么，才拉出一个离谱的上帝。不过这个处理我也并不满意，但一时想不到更好的方法。</p>
-<p>幻想的意义不在于幻想本身，而是幻想对故事带来的推动。感到有趣的事在深入思考后也不仅是罕见、超现实的表象，它会带来的新体验，又或者：“喜剧的内核是悲剧”。</p>
-<p>今天复看《小王子》，试图从写故事的角度去理解，作者在下笔时是带着怎样的想法与心情呢？或是单纯是觉得有趣吗？怎么想出这些光怪陆离的可爱小故事？我是一个强逻辑性的Ne人，这样的思考也许能提高一下Ni的水平，带来一些不一样的启发。</p>
-<h2>第1章</h2>
-<p>介绍“我”与“大人”之间的区别。</p>
-<p>“我”在成为大人后 ，依然有着孩子般的心灵。如果不是这样，后文的“我”将是一个很难理解小王子的大人。体现这一点是“蛇吞象”与“帽子”的故事（作者真的很会想）。大人看东西只关注现实，不现实的事情对于大人毫无意义。</p>
-<h2>第2-7章</h2>
-<p>介绍小王子的由来。</p>
-<p>“我”困在沙漠中时遇到来自另一个星球的小王子，一个礼貌的、有点忧伤的小王子。小王子想要我画一只绵羊给他，但挑三拣四，最后对一只藏在箱子里看不见的小绵羊表示满意，还觉得小羊在箱子里睡着了。</p>
-<p>为什么想到在这里安排这么一只奇怪的绵羊，如果仅仅想有趣，那安排一只会走钢丝的山羊不行吗？读到最后才隐隐有了答案——美丽的事物往往是不被看见的，这也许是“箱子里的羊”的动机。</p>
-<p>第6章的写小王子星球上的猴面包树。从编剧的角度，不描写羊吃什么食物也无伤故事发展，但写了，还写的是特别具体也不常见的猴面包树，大概是有什么想法在里面的。猴面包树是会无限扩张的、不好的东西，但这和小王子的生活有什么关系呢，也就是多了一些并不让人开心的日常打扫。</p>
-<p>我不认为这里是象征自私的欲望、野心，小王子的星球上没有出现这类元素的必要性，含义也并不太深刻，在后续别的星球遇到更合理。后来看知乎上感觉有一个（我认为）挺靠谱的说法：</p>
-<blockquote>
-<p>作者发表时正值二战期间，作者是一名法国人，国土沦丧旅居纽约。旅居纽约的法国人又分成戴高乐派和维希派，他想劝告两派捐弃前嫌共同对敌，却遭到两派的夹攻，非常无奈，这三棵灌木正是代表法西斯的德国、意大利和日本。</p>
-</blockquote>
-<p>破坏这份宁静的、疯长的、夺取人生存空间的猴面包树。</p>
-<p>然后引出了对于小王子最重要的玫瑰花。作者是先想到绵羊再编出的玫瑰花，还是本来就想写玫瑰花与小王子的故事、再编出绵羊？如果以先写大纲让剧情先行的角度，我偏向于后者。无论以何种方式开始，绵羊和玫瑰花的情节是精妙契合的。情节的前后衔接一向不是一个简单的事情，如果先写剧情可能人物 ooc，如果先写人物可能会想不出后续，好多长篇就是这么坑掉的……</p>
-<p>这部分里还有一些别的情节，比如说谈到小王子的星球叫做行星 B612 时，讽刺了大人们喜欢以衣冠取人，关注外在与代号，不关注人的本质。</p>
-<p>小王子的星球上还有两座活火山一座死火山，非常有趣的脑洞，对剧情发展没什么用但并不觉得无聊，气质很符合小王子的星球（氛围渲染也是有必要的？）。小王子有一天最多看了43次日落，后文对不同星球的日落次数描写对比起来也非常有趣。至此基本表现出了小王子日常生活。</p>
-<h2>第8-9章</h2>
-<p>玫瑰花与小王子的相处这两章浪漫温柔，明显以人物情感先行，对话自然发生。剧情上没有太多刻意安排。有刻意安排的剧情是小王子最后一时冲动生了玫瑰花的气，离星出走。虽说是生气了，但看起来还是十分的文艺……整个文笔的基调就是这样的，very童话。</p>
-<h2>第10-15章</h2>
-<p>离星出走章节。不同星球上住着不同的奇怪大人，写得非常直白。后面有许多章节都会显得较为独立且直白，是娓娓道来的日常故事。</p>
-<p>第10章：有理性但放不下权威架子的大人。</p>
-<p>第11章：爱慕虚荣的大人。</p>
-<p>第12章：永远在犯同样错误的酒鬼。非常短，像四格漫画一样，但闭环的对白好有趣。</p>
-<p>第13章：除了钱和财产再脑子也容不下别的东西的商人。一些人看到什么东西就觉得是自己的，什么也不做就想据为己有，像是在讽刺资本主义的起源嗯……</p>
-<p>第14章：守规矩的、不知变通的打工人。观看一千多次日落这个吐槽也很有趣，像是人物先行写出来的。</p>
-<p>第15章：不出门的地理学家。看到好多模板的影子：不深入基层的高高在上的 leader、掉书袋不实践的人、把别人的成果据为己有的人、不切实际的甲方。地理学家知道地球，但连自己的星球上有没有大洋和火山都不知道，却觉得理所当然。</p>
-<h2>第16-19章</h2>
-<p>小王子来地球的见闻。</p>
-<p>第16章介绍地球。</p>
-<p>第17章小王子来到地球寻找人类，第一个遇见的毒蛇是为以后小王子回家埋下的伏笔（好残忍）。</p>
-<p>第18章向花问路的写作视角很有趣。以花的视角，人没有根，所以被风送走了。</p>
-<p>第19章的回声有点类似空镜的作用？我不理解，但隐约觉得好像是有用的，好可爱。</p>
-<h2>第20-21章</h2>
-<p>算是主线章节（？）很多玫瑰的花圃，小王子最初知道自己的玫瑰在外形上不是独一无二的后，很伤心。但小狐狸的出现又让他明白了</p>
-<blockquote>
-<p><strong>正是因为小王子在玫瑰身上花费的时间，才使得玫瑰变得如此珍贵。因此单她一朵，就胜过了这世间所有。</strong></p>
-</blockquote>
-<p>此外小狐狸还教会了他仪式感。</p>
-<h2>第22-23章</h2>
-<p>永远在向往别处，行色匆匆，忽视脚下风景的人。</p>
-<p>永远在节省时间，追求效率的现代人。</p>
-<h2>第24-25章</h2>
-<p>沙漠里的井水，突出主题的两章，和星星上的玫瑰花一样。这个情节的设置和作者的自身经历有关，对于没有经历过的人而言难以复刻。</p>
-<blockquote>
-<p>“沙漠美丽，因为沙漠的某处隐藏着一口井。”</p>
-</blockquote>
-<blockquote>
-<p>“房子也好，星星、沙漠也好，美化他们的东西，是肉眼看不见的。”</p>
-</blockquote>
-<h2>第26-27章</h2>
-<p>小王子通过死亡回去了，“我”不舍。这两章人物先行，对白比较重要。</p>
-<p>总体感想是，这是一本给成年人读的童话。我清楚记得我小学时看到第一章，只觉得这是一个有点可爱的怪孩子。到高中时，可以感受到文笔有童话的美好，但并不太理解作者要表达什么。大学时看原著也没有懂，纯学英文去了。直到现在才对里面的情节有所体会。小王子的“童真”是人在成长过程中需要慢慢获得的，是成年人的反思，在小时候的记忆中类似的想法我从未存在过。小时候反而会现实得多，真正的小孩子有着更原始更本能的残酷。</p>
-<p>语文考试总是在问“作者在这一段想要表达什么”，小时候总觉得有时候是出题想太多。现在觉得，不是的，但也不应该有标准答案。刻意设计的剧作可以解释，很多人带着心情自然而然书写而成的东西，自己也是无法准确剖析的。剖析自己对每个人都是困难的，何况是一纸之隔的他人呢。</p>]]></content>
-        <category label="书和剧"/>
-        <published>2023-10-09T13:56:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Minecraft v1.20.1 常用设置]]></title>
-        <id>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</id>
-        <link href="https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20"/>
-        <updated>2023-09-26T02:38:00.000Z</updated>
-        <content type="html"><![CDATA[<p>在 Minecraft 1.20 版本光照引擎被大幅改写，使得帧数提升，模组的数量似乎又多了起来。另外在 fabric 发展起来以后，mod的社区生态有了很大的变化，有很多老牌模组有了更新的替代。现在记录一下实现常用的基本功能需要的模组与修改设置。</p>
-<p>我使用的 hmcl 启动器，在其中进行模组下载可显示模组间的依赖情况。以下内容在 1.20.1 中完全兼容，且项目均在维护中。</p>
-<h2>1. Mods</h2>
-<p>MC 是一款肝度明显过高的游戏。mod 的选用主要是为了：</p>
-<ol>
-<li>使画面养眼</li>
-<li>降低肝度，同时少引入额外的快捷键</li>
-<li>优化细节使用体验</li>
-</ol>
-<p>使用以 fabric-api 构建的模组。</p>
-<h3>1.1 渲染类</h3>
-<ul>
-<li>Sodium: 渲染优化之神，许多模组的前置</li>
-<li>Sodium-extra: 渲染优化之神的扩展，相应 GUI 为reeses sodium options</li>
-<li>Lithium: 原版机制的算法改进</li>
-<li>Iris: Sodium 加光影</li>
-<li>Custom Entity Models: 自定义实体模型，增强对 optifine 材质包的支持</li>
-<li>Continuity: 无缝纹理，安装后需要启用相应的材质包</li>
-<li>Indium: 许多模组的前置，提供 Fabric Rendering API的支持</li>
-</ul>
-<h3>1.2 功能类</h3>
-<ul>
-<li>modmenu: 显示所有模组和相应的设置页面（如果有的话）</li>
-<li>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</li>
-<li>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）以获得更好的摄影视角，zoom 开启类似 optifine 的按 c 视角放大，handrestock 可自动补货手里的工具、方块</li>
-<li>JourneyMap: 小地图，降肝度必备。Xae 的小地图也不错，两者都需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了网格显示和生物显示。</li>
-<li>Invertory Profile Next: 高版本的 R 键背包整理（但被我改成 Z 键整理，R 键通常是 rei 查看合成表）。自动补充工具、连续合成、捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品。关掉快破损时替换工具。</li>
-<li>Carry on：手里没有东西时，<code>shift+右键</code> 搬运箱子，降低装饰的肝度。</li>
-<li>Roughly Enough Items: 物品搜索，查看合成配方、查看方块用途，ctrl点击后快速移动到合成台。尽管原版有合成书，但一页条目显示太少，且不支持拼音搜索，不支持模组物品。REI依旧方便很多。</li>
-<li>imblock: 输入法冲突修复</li>
-<li>Panda&#x27;s falling tree：砍树时树会倒下，降低砍树的肝度。</li>
-<li>Leawind&#x27;s Third Person: 更好的第三视角。这算是第一个可以日常使用的第三视角模组，挖方块瞄准都很方便。日常的垂直平滑 0.5 以上，不然爬山能晕死。</li>
-<li>better combat: 动作战斗优化，攻速和攻击范围都有反馈了。</li>
-<li>Litematica：投影。辅助红石机械建造，也算是一种降生存建筑的肝度。使用相当简单，一根木棍，control+滚动切换模式，快捷键进菜单。最难的其实是收集足够多的预置模型。</li>
-</ul>
-<h3>1.3 新物品</h3>
-<ul>
-<li>Gliders：类似塞尔达的滑翔伞，防摔。在空中按空格展开滑翔。使用方式和大部分游戏一致。只是要占一个盔甲位。动画做得很不错。</li>
-<li>Waystones：传送石碑，后期物品，降低交通的肝度。如果用地图作弊路径点传送就不需要这个东西了，但理想的玩法还是地图只是用来看的，让传送石碑在地图上显示（需要前期多刷小黑），只能传送石碑处，禁止任意传送。传送石不是个好设计，MC背包不能放下更多东西了。除非有单纯扩容用的背包模组。</li>
-<li>travelersbackpack：背包模组，终于有了 fabric 版。虽然 mojang 一直很谨慎地加入新的方块，但似乎从未考虑过方块越来越多时的背包使用问题。再者模组整合包也因为方块种类数爆炸的问题增加背包模组。在 1.12 版本时，背包容量是刚好够的。个人并不是很喜欢背包的设计。</li>
-</ul>
-<h2>2. 设置</h2>
-<ul>
-<li>画面尺寸: 1920*1080@60fps，窗口化</li>
-<li>视场角: 85</li>
-<li>鼠标灵敏度: 75</li>
-<li>模拟距离：8</li>
-<li>渲染距离：12</li>
-</ul>
-<h3>2.1 快捷键修改</h3>
-<p>总体的键位映射图如下。深绿色为原版的功能。橘色为Mod功能，蓝色为创造模式功能。键位分为直接按键、组合键、修饰键（长按）。MC 原版只能定义直接按键，组合键与修饰键在复杂的 mod 中用得多，并且会覆盖原版的直接按键。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408220938708.webp" alt="KeyMaps"/></p>
-<h4>游戏主界面</h4>
-<p>首先把 ctrl 改到 capslock 键位，方便疾跑。系统全局 powertoys 改的（吐槽一万句control的键位）</p>
-<ul>
-<li>长按 <code>tab</code>，滚轮切换物品栏。在tweakroo 的「工具」中开启 hotbarscroll，再在 tweakroo  的「快捷键」中把 hotbarscroll 的快捷键设置为 Tab。</li>
-<li><code>v</code>: 切换第三人称视角(visual)，很常用的功能。原本是f5，实在太远了</li>
-<li><code>f4</code>: Leawind&#x27;s Third Person 第三人称视角相机调位置。同时关掉左右切换。点按左右，长按居中</li>
-<li><code>f5</code>:  灵魂出窍，在 tweakroo 的 freecamera 中设定</li>
-<li><code>c</code>: 望远镜，在 tweakroo 的 zoomactivate 中设定</li>
-<li><code>t</code>: 路标点传送管理(transport)。聊天改 <code>enter</code> 键</li>
-<li><code>x</code>: 锦致装饰-箭袋</li>
-<li><code>m</code>:  显示 jouneymap 大地图和设定。Journey map 的其他快捷键全关掉。</li>
-<li><code>n</code> Litematica 投影菜单</li>
-<li><code>shift+右键</code> 空手时搬运箱子，carry on 自带。</li>
-</ul>
-<p>特定工具下的修饰键：</p>
-<ul>
-<li>木棍工具
-<ul>
-<li><code>~</code>  Litematica 木棍工具修饰键，改变区域大小</li>
-<li><code>n+space</code> Litematica 木棍工具模式5下放置投影</li>
-</ul>
-</li>
-</ul>
-<p>预留键位：</p>
-<ul>
-<li><code>g</code> 圆盘菜单</li>
-<li><code>~</code>  特定工具修饰键，比如连锁挖矿</li>
-<li><code>b</code> 背包(backpack)</li>
-<li><code>j</code> FTB任务书(journal)</li>
-<li><code>左alt</code> 创造模式下，建筑模组 axiom 用 alt 切换专用物品栏。</li>
-</ul>
-<h4>合成台、箱子UI</h4>
-<ul>
-<li>r: REI 查看光标下物品的合成方式</li>
-<li>u: REI 查看光标下物品的用途</li>
-<li>ctrl + 左键点击REI的物品，移动物品到合成台</li>
-<li>z: 一键整理。在 IPN 的设置中修改。</li>
-<li>使用滚轮以在背包和箱子间移动物品，按shift移动整组</li>
-</ul>
-<h2>3. 光影</h2>
-<ul>
-<li>BSL v8.2.04，默认配置High，把 Camera 中的 Bloom 关闭，把 Atmosphere 中的 fog 调到 0，开启 lighting 中的handDynamicLight。抗锯齿的TAA随便开不开，取决于风扇响不响</li>
-<li>Complementary Reimagined，配置 medium，high 会开启材质的反射运算量明显变大。夜晚也比较亮，适合生存。</li>
-<li>itt 3.0，更适合搭配了写实系材质的建筑，风格最写实的 shader 没有之一。不适合生存。</li>
-</ul>
-<h2>4. 材质</h2>
-<ul>
-<li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光，所以要加一个材质以确保有 fallback。</li>
-<li><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</li>
-</ul>
-<h2>5. 创造模式附加</h2>
-<h3>5.1 Mod</h3>
-<p>Axiom 高版本环境必备，可以创建实体方块随意拉伸模型，相当好用。</p>
-<p>effortLess structure 快速建造几何体。原 effortless buidling。</p>
-<p>lotweaks 自定义材质轮盘</p>
-<p>wordedit 经典创世神</p>
-<h3>快捷键</h3>
-<p><code>z</code>: effortLess structure 轮盘。</p>
-<p><code>x</code>: lotweaks 轮盘，和手中方块有关。会禁用丢东西（但创造模式本来就不用丢东西除了篝火灭火，何不用 Axiom 的调试棒？）</p>
-<p><code>左 alt</code>： Axiom 的大菜单</p>
-<p><code>r</code>: Axiom replace，其他的模组类似功能关掉。实测下来 replace 相当常用。</p>]]></content>
-        <category label="游戏"/>
-        <published>2023-09-26T02:38:00.000Z</published>
     </entry>
 </feed>

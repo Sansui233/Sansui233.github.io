@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 13 Nov 2024 14:58:14 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 13 Nov 2024 18:48:16 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -44,7 +44,7 @@
             <guid>https://sansui233.com/posts/2024-11-12-把drawio装修为简单美观的白板应用</guid>
             <pubDate>Tue, 12 Nov 2024 05:19:00 GMT</pubDate>
             <description><![CDATA[装修无止境！]]></description>
-            <content:encoded><![CDATA[<p><a href="http://draw.io">draw.io</a> 是一个功能丰富的流程图绘制软件。此前写论文时我一直使用这个软件画图。在没有系统性的画图需要，转而变成了有时想要随手画矢量示意图后，这个软件启动交互流程步骤繁琐，我便极少使用它了。但在使用了 tldraw, excalidraw 后，又回到了 <a href="http://draw.io">draw.io</a>，才发现这个软件的可定制性其实非常强，完全能满足随手画图的需要。这里记录一下如何把 draw.io 变成一个更适合打开即用的、默认效果更加现代的白板应用。</p>
+            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120511240.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120511552.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120516688.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120513014.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120514766.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120511067.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120515358.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120516990.webp"/><p><a href="http://draw.io">draw.io</a> 是一个功能丰富的流程图绘制软件。此前写论文时我一直使用这个软件画图。在没有系统性的画图需要，转而变成了有时想要随手画矢量示意图后，这个软件启动交互流程步骤繁琐，我便极少使用它了。但在使用了 tldraw, excalidraw 后，又回到了 <a href="http://draw.io">draw.io</a>，才发现这个软件的可定制性其实非常强，完全能满足随手画图的需要。这里记录一下如何把 draw.io 变成一个更适合打开即用的、默认效果更加现代的白板应用。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511240.webp" alt="image.png"/></p>
 <p>（草……windows 截图这边缘的黑框好丑啊！）</p>
 <h2>为什么是 draw.io</h2>
@@ -159,7 +159,9 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2024-11-08 12:41</guid>
             <pubDate>Fri, 08 Nov 2024 04:41:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2024-11-13 22:45:23</h2>
+            <content:encoded><![CDATA[<h2>2024-11-14 00:10:28</h2>
+<p>啊啊啊 next.js tree shaking 怎么改了于是我的 rss build 不起作用了………进入了一轮强迫症</p>
+<h2>2024-11-13 22:45:23</h2>
 <p>啊啊啊听歌就好像画画真的好想画画有想画的但画技太烂了又会画一半被自己气死！</p>
 <h2>2024-11-12 05:49:48</h2>
 <p>今天又抓住 secs 聊天，大概确定评估标准就是生活质量+感兴趣吧。北京生活质量的活，antarx 说是觉得得 50w，我觉得长期生活的话确实是这样的，很难想象一个月一万块在这个出门就是雾霾的地方生活个十几年，每天看着 AQI 破百的空气质量发愁。啥也存不下，那我不如回老家，也是一个月一万多但至少有房……</p>
@@ -192,11 +194,7 @@
 <p>然后我可能会想 virtual list div 上去写样式不就好了吗？不行不行，我的 virtual list 设计是通用组件，不能带样式，样式应该由外部决定。</p>
 <p>Thread 的解决方案是，绝对定位单独画了两个角……是的，你没有听错，那两个圆角甚至是两个单独的图层……我不想这么做。</p>
 <p>我想不能在组件接口上开个口， style 传给内部吗？哒咩，一个组件的参数既有 container 的样式，和 item list 的样式，感觉就是很混乱。而且样式又分 style 和 classname。这个组件只有两个层级还好，只用暴露四个样式接口，但要是那种很多层的，不能也设计这么多样式接口吧！这是个原则性问题，絶対無理！</p>
-<p>最后解决方法其实非常简单但开始时没有想到，那就是 在父级总节点加了 class，用最原始的， css 的，“&gt;”…………</p>
-<h2>2024-10-14 16:41:32</h2>
-<p>svg 动画，好，好好好，太适合关键帧了，k 帧 k 下来一个 transform 自动插值。所以重点在，触发和交互如何 k 帧……</p>
-<p>另外就是 tailwind css…… 我真的不知道有什么好的啊啊啊！至少开发体验极差，因为逻辑被淹没在样式里，要修改时根本定位不到代码。你猜最开始的人为什么就把 html，css 和 js 分开写……从这个角度来说 vue 比较正常，react 这种 html 和 js 混合的确实是接受了好一阵子……但其实 JSX 里混得也不太多，大部分还是分开的。 tailwind 混合的太离谱了……是不用 writing css，因为本质上是重新定义了css……可能还是我用 css 太习惯了。styled-component 还是香的。</p>
-<p>另外小火箭真的卡得不行，最近已经卡到怀疑人生了。换成了 sing box 好，好了！ singbox 手机上还挺直观好的，电脑上没 PC 端。GUI for singbox 真的很不直观，界面层级藏得太深了草，用看起来根本不像是能点的文字藏了我最关键的配置信息，逆天交互草……这之前我一直以为这软件的界面只有两个层级。</p>]]></content:encoded>
+<p>最后解决方法其实非常简单但开始时没有想到，那就是 在父级总节点加了 class，用最原始的， css 的，“&gt;”…………</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>
@@ -205,7 +203,7 @@
             <guid>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</guid>
             <pubDate>Thu, 01 Aug 2024 18:08:00 GMT</pubDate>
             <description><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></description>
-            <content:encoded><![CDATA[<blockquote>
+            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/08/202408190158527.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/08/202408190318888.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/07/202407260100518.webp"/><blockquote>
 <p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
 </blockquote>
 <p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。</p>
@@ -403,7 +401,7 @@ fi<span class="hljs-meta prompt_">
             <guid>https://sansui233.com/posts/2024-02-29_像素的一生</guid>
             <pubDate>Thu, 29 Feb 2024 23:45:00 GMT</pubDate>
             <description><![CDATA[浏览器渲染原理]]></description>
-            <content:encoded><![CDATA[<p>内容来自于 2018 年谷歌的一个视频。原视频不长但内容很多，非常值得一看。Chrome 的渲染机制是在不断变化的。</p>
+            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342847.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342848.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342849.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342850.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342851.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342852.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342853.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342854.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342856.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342857.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342858.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342859.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342860.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342861.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342862.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342863.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342864.webp"/><p>内容来自于 2018 年谷歌的一个视频。原视频不长但内容很多，非常值得一看。Chrome 的渲染机制是在不断变化的。</p>
 <p>笔记原存于 Logseq，如果有类似于，“见CSS/图层”一类的语句，为笔记内超链接。相关概念需自行了解。</p>
 <p>📚 <strong>资料</strong></p>
 <ul>

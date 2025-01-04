@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-01-04T19:58:37.445Z</updated>
+    <updated>2025-01-04T20:03:23.176Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -26,11 +26,11 @@
 <ol>
 <li>无线 iPad 当作电脑副屏</li>
 </ol>
-<p>某天突然想躺着用手柄玩电脑的游戏，所以 <a href="https://github.com/LizardByte/Sunshine">sunshine</a> + moonlight(iPad) 串流。非常不错！</p>
+<p>某天突然想躺着用手柄玩电脑的游戏，所以 <a href="https://github.com/LizardByte/Sunshine">sunshine</a> + moonlight(iPad) 串流。效果非常不错！</p>
 <ol start="2">
 <li>便携显示屏</li>
 </ol>
-<p>接上：后面，我又组装了个便携显示屏。配件全部拼多多的。</p>
+<p>后面，我又嫌无线的码率不稳定，组装了个便携显示屏，变成了躺着用电脑副屏……配件全部拼多多的。</p>
 <ul>
 <li>显示屏，京东方 NVM156N69</li>
 <li>驱动版、按键板、软排线</li>
@@ -39,7 +39,7 @@
 <ol start="3">
 <li>新的代理协议与客户端</li>
 </ol>
-<p>今年对于魔法上网，非常重要的事情就是 clash-core 删库。不过也正好，促使我看看有没有人设计新的协议。</p>
+<p>今年对于魔法上网，非常重要的事情就是去年年底 clash-core 删库。不过也正好，促使我看看有没有人设计新的协议。</p>
 <p>协议方面尝试了 hysteria2 和 naive，测试下来已经把 hysteria2 当作主力了。顺便读了下 http2 <a href="https://github.com/abbshr/rfc7540-translation-zh_cn">rfc7540</a> 和 http3 <a href="https://datatracker.ietf.org/doc/html/rfc9114">rfc 9114</a> （但现在又忘了！）</p>
 <p>客户端试了 <a href="https://sing-box.sagernet.org/">singbox</a>，在 ios 上替代了 shadowrocket，性能好非常多。电脑端 GUI 是典型的后端程序配置的思维，很难用，还是用 clash-meta 系列了。</p>
 <h2>单机游戏</h2>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-01-04T19:51:01.644Z</updated>
+    <updated>2025-01-04T19:58:37.445Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,148 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[2024 年的总结与分享]]></title>
+        <id>https://sansui233.com/posts/2025-01-05-2024-summary</id>
+        <link href="https://sansui233.com/posts/2025-01-05-2024-summary"/>
+        <updated>2025-01-05T01:21:00.000Z</updated>
+        <summary type="html"><![CDATA[还是太宅了！]]></summary>
+        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp"/><p>印象中之前每年其实都有写去年主要干了什么，看了什么作品。但又忘了都写在了哪里。今年想起来还是在这里写吧。</p>
+<p>主要说说看了些什么吧。</p>
+<h2>实用小技术</h2>
+<ol>
+<li>无线 iPad 当作电脑副屏</li>
+</ol>
+<p>某天突然想躺着用手柄玩电脑的游戏，所以 <a href="https://github.com/LizardByte/Sunshine">sunshine</a> + moonlight(iPad) 串流。非常不错！</p>
+<ol start="2">
+<li>便携显示屏</li>
+</ol>
+<p>接上：后面，我又组装了个便携显示屏。配件全部拼多多的。</p>
+<ul>
+<li>显示屏，京东方 NVM156N69</li>
+<li>驱动版、按键板、软排线</li>
+<li>外壳、音响</li>
+</ul>
+<ol start="3">
+<li>新的代理协议与客户端</li>
+</ol>
+<p>今年对于魔法上网，非常重要的事情就是 clash-core 删库。不过也正好，促使我看看有没有人设计新的协议。</p>
+<p>协议方面尝试了 hysteria2 和 naive，测试下来已经把 hysteria2 当作主力了。顺便读了下 http2 <a href="https://github.com/abbshr/rfc7540-translation-zh_cn">rfc7540</a> 和 http3 <a href="https://datatracker.ietf.org/doc/html/rfc9114">rfc 9114</a> （但现在又忘了！）</p>
+<p>客户端试了 <a href="https://sing-box.sagernet.org/">singbox</a>，在 ios 上替代了 shadowrocket，性能好非常多。电脑端 GUI 是典型的后端程序配置的思维，很难用，还是用 clash-meta 系列了。</p>
+<h2>单机游戏</h2>
+<ol>
+<li><a href="https://store.steampowered.com/app/240720/Getting_Over_It_with_Bennett_Foddy/">Getting Over it</a> (掘地求升)</li>
+</ol>
+<p>我的天，有生之年我居然打通了这个8年前的破游戏！</p>
+<p>打通的那一瞬间，我感觉觉得自己已经可能面对任何困难无所不能了。但是山顶的聊天室早已空无一人，有一点寂寞。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp" alt="Getting over it"/></p>
+<ol start="2">
+<li><a href="https://store.steampowered.com/agecheck/app/1086940/?l=schinese">博德之门3</a></li>
+</ol>
+<p>tga 2023 年度游戏，不好玩。去年买了，今年和 meme 大师与墨墨联机了好几次，还是玩不下去！打架打一局太久了……而且打不好还要 SL……补药啊！（后面没法联机了其实主要是因为我作息太乱了）</p>
+<ol start="3">
+<li><a href="https://store.steampowered.com/app/1426210/_/?l=schinese">双人成行</a></li>
+</ol>
+<p>2021 年度游戏，好玩，这个还是感谢陈 sir 陪我打完了，而且因为他是全成就大师所以我也跟着全成就了。因为我竟然买了两年都没有玩，显得特别可怜……</p>
+<ol start="4">
+<li><a href="https://store.steampowered.com/app/2198150/Tiny_Glade/">Tiny Glade</a></li>
+</ol>
+<p>新出的休闲建筑游戏，最不像游戏的游戏。建筑方式新颖，而且好好看哦！</p>
+<p>玩了后做了个视频，竟然被 HR 联系了……差点当诈骗私信……</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp" alt="Tiny Glade"/></p>
+<ol start="5">
+<li><a href="https://www.nintendo.com/hk/switch/animal_crossing_new_horizons/">动物森友会</a></li>
+</ol>
+<p>到今年才打开这个几年前的游戏。建岛是好玩的，画风也可爱，但因为手游也有在刷，对于刷刷刷的都有点疲惫了。</p>
+<ol start="6">
+<li><a href="https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/">Halo</a></li>
+</ol>
+<p>meme 大师带飞的经典 FPS，有剧情，非常好游戏！我只用跟在后面捡各种好玩的枪就好了（不是）</p>
+<ol start="7">
+<li><a href="https://store.steampowered.com/app/620/Portal_2/?l=schinese&amp;curator_clanid=31468181">传送门2</a></li>
+</ol>
+<p>十几年前的解谜神作，好丸！多人模式也是 meme 大师带飞的。</p>
+<ol start="8">
+<li><a href="https://www.bilibili.com/video/BV1hS411w7tR">Second Eden-理想箱庭物语</a></li>
+</ol>
+<p>这是个新的 minecraft 深度魔改整合包，基于模拟殖民地 mod。我觉得比很多整合包都要好，考虑了流程、循环、引导，有些 mod 加的解谜结构很好玩。但模拟殖民地本身有 bug，加上流程上其实也不是特别完整，只建了一小半。</p>
+<ol start="9">
+<li>零大陆</li>
+</ol>
+<p>这是个超老的 Minecraft1.8 原版 RPG 整合包。真的非常震撼能做到这个程度，流程设计、地图设计上超级完整……可惜循环有问题，卡在一个冒险模式下的银河城地下区域了。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp" alt="零大陆"/></p>
+<ol start="10">
+<li>模拟地铁</li>
+</ol>
+<p>休闲小游戏，也是老游戏了，极简地铁规划，最后发现还是开滴滴比较好。内容对得起价格。也因此和喜欢地铁的朋友有聊些城建游戏。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp" alt="模拟地铁"/></p>
+<ol start="11">
+<li><a href="https://store.steampowered.com/app/813230/ANIMAL_WELL/?l=schinese">动物井 (Animal Well)</a></li>
+</ol>
+<p>解谜 + 平台跳跃。太好玩了，这才是真正的 2024 年度游戏！！而且只 33 M，性能也超好！是像素美术但是是很现代的赛博梦幻像素美术，好看的！</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp" alt="Animal Well"/></p>
+<ol start="12">
+<li><a href="https://store.steampowered.com/app/391540/Undertale/?l=schinese&amp;curator_clanid=31318556">传说之下 (UnderTale)</a></li>
+</ol>
+<p>经典日式 RPG，脑洞超大角色有意思，剧情很温暖。是Meme 依据本人的游戏时长与偏好定制的 steam 礼物……非常喜欢！</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp" alt="UnderTale"/></p>
+<h2>动画&amp;漫画</h2>
+<ol>
+<li><a href="https://www.bilibili.com/bangumi/media/md28339735">孤独摇滚</a></li>
+</ol>
+<p>今年不知道为啥乐队日常番这么火……首页的爵士乐理视频都变多了！还可以。总体日常番不太是我的菜。</p>
+<ol start="2">
+<li><a href="https://www.bilibili.com/bangumi/media/md28339713">蓝色禁区 Blue Lock</a></li>
+</ol>
+<p>足球番，我原以为我不喜欢看，最后被根本停不下来……动画第一季做得实在太好了，但第二季是 PPT，1 分都不想给……漫画非常棒，不愧2024 年的日本漫画销冠。</p>
+<p>不过我是其实从其中一对 CP 图决定看，结果看完动画觉得这两人麦太多了……不如好好看球！</p>
+<ol start="3">
+<li><a href="https://www.bilibili.com/video/BV1ag4y1W78U">异形舞台 Alien Stage</a></li>
+</ol>
+<p>动画音乐剧，讲的外星人饲养地球人当宠物，看人们在舞台上通过选秀比赛相杀的故事。特点是，一集一个寡妇（夫）……太刀了！</p>
+<h2>电影</h2>
+<ol>
+<li>你想活出怎样的人生</li>
+</ol>
+<p>宫崎骏动画电影，我觉得依旧很好看，很温暖。</p>
+<ol start="2">
+<li>蓦然回首（Look Back）</li>
+</ol>
+<p>藤本树动画电影，讲普通画画人的故事。非常牛美术风格。尽管我不是画画人，也没有很好的画画天赋。但也有一些感受有经历过，日复一日练基础，什么时候都在考虑画画……</p>
+<p>以及藤本树居然开始走治愈系了！</p>
+<ol start="3">
+<li>志愿库 - 存亡之战</li>
+</ol>
+<p>怎么突然出现了国庆战争片……这个真的拍得挺好的，算是近年陈凯歌的不那么扑的了。以及我有朱一龙演技滤镜，在超烂低成本不被任何人看好的改编网剧里，因为演技太好而突然红的，真的没得说。</p>
+<ol start="4">
+<li>名侦探柯南 - 黑铁的鱼影</li>
+</ol>
+<p>和雨疏的年度固定节目，不错的粉丝向主线剧场。真好啊真好十年后还在和她一起看柯南。</p>
+<h2>音乐</h2>
+<p>年度歌手还是 Radwimps，基本老歌。上半年没怎么听</p>
+<p>年底听 4 块钱的直播，才发现日系真是年年有天才。「晚餐歌」真的很厉害。原来不是我不喜欢听歌了，是没关注到好听的歌了，网易云日推越来越不行了，一直推各种时下 OP ED。</p>
+<h2>技能相关</h2>
+<ul>
+<li>
+<p>游戏，给 MC 服务器写了 彩虹帽子 数据包。想来这其实是第一次和游戏有关的编程，经典入口是帧更新 tick()。</p>
+</li>
+<li>
+<p>画画，学了平面设计的课，作业也很肝完了，有一些收获。然后又看了些曼奇的网课，素描关系有提升，就是增加了短调子、空间感、体积感的意识。我之前也不是感受不到，而是没觉得差一点明度就会差很多。这就是 Ti - Se 画画相比于 Se - Ti 的劣势，一定是有理论后才能画得好……</p>
+</li>
+<li>
+<p>原神里头一回赶上音游的版本，写了几首比较难的谱面，这个非常满意，是我自己都可以反复玩的！</p>
+</li>
+</ul>
+<h2>专业相关</h2>
+<p>这随便吧又没人看。</p>
+<p>开源这边笔记主题没怎么更。</p>
+<p>新写了个服务器的监控页。</p>
+<p>论文挣扎着狂补。</p>
+<p>有去接触 GPU 相关的，不想只停留在业务 MVC 再 CRUD。但看了发现没需求的话确实用不上。</p>
+<p>公司的相关还是不说了……主要是图形学和，久违的 OOP 编程，新的语言 C<span class="tag">#，但长得非常通用面向对象，没有太多的入门门槛。不禁感叹外面世界的语言真是五花八门……但要说写界面好用还是声明式的，OOP </span>写界面特别过程式就，扭曲，痛苦，但无疑性能会更好。</p>]]></content>
+        <category label="Diary"/>
+        <published>2025-01-05T01:21:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[碎碎念2025]]></title>
         <id>https://sansui233.com/memos?id=2025-01-05 08:53</id>
@@ -773,109 +915,5 @@ winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
 <p>好困😴 睡觉</p>]]></content>
         <category label="Diary"/>
         <published>2023-11-17T01:59:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于 typescript 泛型中返回值类型约束的问题]]></title>
-        <id>https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322</id>
-        <link href="https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322"/>
-        <updated>2023-11-11T22:26:00.000Z</updated>
-        <content type="html"><![CDATA[<p>最近遇到这么一个需求。</p>
-<blockquote>
-<p>定义一个函数接口，要求其返回值类型是 type A 的任意超集。</p>
-</blockquote>
-<p>于是我按直觉写下了：</p>
-<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
-<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
-<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
-}
-</code></pre>
-<p>人来看非常简单知道是什么意思，就是返回值包含所有 a 的属性，其他属性全是可有可无的。</p>
-<p>这段代码扔给 GPT，它也看不出什么毛病。但事实上，在 return 时报了一个错：</p>
-<pre><code class="hljs language-text">Type &#x27;() =&gt; A&#x27; is not assignable to type &#x27;FuncA&#x27;.
-  Type &#x27;A&#x27; is not assignable to type &#x27;T&#x27;.
-    &#x27;A&#x27; is assignable to the constraint of type &#x27;T&#x27;, but &#x27;T&#x27; could be instantiated with a different subtype of constraint &#x27;A&#x27;.ts(2322)
-</code></pre>
-<p>这个报错非常的不 helpful。因为平时， typescript 可以根据返回值推测出具体函数标注。比如</p>
-<pre><code class="hljs language-ts"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>){
-  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;1&quot;</span>
-} <span class="hljs-comment">// 自动推断出函数的具体签名为 () =&gt; string</span>
-</code></pre>
-<p>那为什么上面的报错例子，不能做这样的推断呢？</p>
-<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
-<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
-<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
-} 
-<span class="hljs-comment">/* 推断出具体的签名类似于
-() =&gt; {
-  a: string;
-  [name: string]: any
-}
-*/</span>
-</code></pre>
-<p>也就是说，a 是必选属性，其他属性全是 optional。</p>
-<p>（先不讨论 Object 的 key 可以是 Symbol，只是为了看起来好理解，我只写了 string。要写全这里又要多写一个类型推断。）</p>
-<p>当然这里又引发了另一个问题：你为什么不直接把 type A 定义附加任意可选属性？</p>
-<p>好问题，这是一个正常的解决 TS2322 问题的思路。但是我就是想知道为什么泛型推断不能直接做这个……</p>
-<p>我查了很多资料，没有人完美解释这个问题。但有一个相似的问题：如何让参数和返回值持有相同的泛型类型？</p>
-<p>在 typescript 的 <a href="https://github.com/microsoft/TypeScript/issues/50027">github issue</a> 里有详细的案例说明，务必看看，很好懂，说是故意这么设计的。这里我将理由简短概括如下：</p>
-<blockquote>
-<p>如果 f 是上有一个额外的属性 prop，编译器如果推导出了返回值类型成 typeof f。之后你调用 f.prop，静态编译不会报错，但实际上有一个 runtime error，因为你的真实的返回值只是一个 <code>()=&gt;{}</code> ，没有prop 属性。</p>
-</blockquote>
-<p>但个人觉得这里静态编译应该报错，并不是一个 runtime 错误。前面说了，typescript 可以对返回值进行静态的类型的检查。以上面 issue 为例，理想的报错设计是长这样：</p>
-<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
-<span class="hljs-keyword">type</span> B = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
-
-<span class="hljs-comment">// 类型签名为 &lt;T extends A | B&gt;(value: T) =&gt; T 的实现</span>
-<span class="hljs-keyword">function</span> f1&lt;T <span class="hljs-keyword">extends</span> A | B&gt;(<span class="hljs-attr">value</span>: T): T {
-  <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {};  <span class="hljs-comment">// 推断出 T 此时是 typeof ()=&gt;{}，也就是 ()=&gt;{}</span>
-}
-
-<span class="hljs-keyword">let</span> <span class="hljs-attr">f</span>: <span class="hljs-built_in">any</span>= <span class="hljs-function">()=&gt;</span>{}
-f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha&quot;</span>
-
-<span class="hljs-title function_">f1</span>(f) <span class="hljs-comment">// 这里传参报错，因为 typeof f 和 typeof ()=&gt;{} 不一致。本质上就是 ts2322 描述的问题，但不应该在上面报错</span>
-</code></pre>
-<p>当然上面的例子返回值类型已经定了是 <code>typeof ()=&gt;{}</code>，返回值再标注 T 显得十分多此一举。但是 f1 对只是对这个函数签名的一种实现。完全可以实现对这个函数签名有不同的实现，返回不同的 subtype。</p>
-<blockquote>
-<p>什么是 subtype？T extends A，T 就是 A 的 subtype</p>
-</blockquote>
-<p>这又引发了另一个问题：这和函数重载有什么区别？</p>
-<p>当然有区别啊，最大的区别就是我能定义一个统一的函数接口，只要返回值满足最基本的约束 <code>A</code>。但可以是返回不同的 subtype，实现也分开写到不同的文件里，类似于 oop 语言中返回所有某基类的派生类。这才是完全体。</p>
-<p>但现在的 typescript 完全做不到这一点，返回值只能是一个非常具体的 type，要么就抛出一个毫无说服力的 ts2322 错误。</p>
-<p>如果要解决开头的问题，大概是以下三个思路：</p>
-<ul>
-<li>定义 A 时，把所有可能要用到的属性都写到可选属性里，或直接 <code>[name: string]: any</code>。</li>
-<li>考虑业务场景，其他未知属性不留下会影响到什么吗。99% 的场景是没有必要的，也就是说这个需求就是没意义的。剩下的 1% 我没有遇到/想到。</li>
-<li>根据输入参数的 T 写一个类型推导，手动将返回的类型设置为 a 的具体扩展类型。类似这样</li>
-</ul>
-<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Extend</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span>&gt; = {
-  [<span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>
-} &amp; {
-  [K <span class="hljs-keyword">in</span> keyof T]: T[K]
-}
-
-<span class="hljs-keyword">type</span> A  = {<span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span>}
-<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = <span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Extend</span>&lt;A&gt;
-<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span>, <span class="hljs-attr">b</span>:<span class="hljs-string">&quot;extra&quot;</span>} 
-} 
-<span class="hljs-title function_">f</span>().<span class="hljs-property">a</span> <span class="hljs-comment">// a is string</span>
-<span class="hljs-title function_">f</span>().<span class="hljs-property">b</span> <span class="hljs-comment">// b is any</span>
-</code></pre>
-<p>总之，在目前的 typescript 中，<strong>返回值类型不能是泛型</strong>。</p>
-<p>当然这样也失去了扩展的类型检查，等于是用了函数的签名来检查的，和返回值的类型一点关系也没有。</p>
-<p>现在 typescript 的静态检查器其实已经做了一些运行时的功能，比如条件语句判断以排除属性。但是，这些像运行时一样的检查只在静态类型不明确时才起作用。就这个 if，我已经遇到了好几次无法判断的 bug ，清空缓存并重启才恢复。</p>
-<p>说回第二点，既然你允许传了任意值，也就说明在你这个库中，你也不知道其他附加值具体是拿来干什么的，大多无非遍历一下再过滤一下。如果是静态类型检查器来遍历，诶诶扩展属性怎么全是 any。最终还得用 JS 的运行时来做这个事情……所以有拿来做什么的话早就在 A 里增加 optional 属性了。这也是为什么说 99% 的场景这个需求其实不存在。</p>
-<p>还有一个更重要的原因，那就是，ts 的类型体操，实在太他妈难写了。</p>
-<hr/>
-<p>可能没用的参考：</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/56505560/how-to-fix-ts2322-could-be-instantiated-with-a-different-subtype-of-constraint">typescript - How to fix TS2322: &quot;could be instantiated with a different subtype of constraint &#x27;object&#x27;&quot;? - Stack Overflow</a></li>
-<li><a href="https://github.com/microsoft/TypeScript/issues/50027">Could be instantiated with a different subtype of constraint · Issue #50027 · microsoft/TypeScript</a></li>
-</ul>]]></content>
-        <category label="学习"/>
-        <published>2023-11-11T22:26:00.000Z</published>
     </entry>
 </feed>

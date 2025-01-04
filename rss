@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 04 Jan 2025 17:20:27 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 04 Jan 2025 19:43:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -24,34 +24,6 @@
 <p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050056661.webp" alt="传说之下"/></p>
 <p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp" alt="传说之下"/></p>]]></content:encoded>
             <category>Diary</category>
-        </item>
-        <item>
-            <title><![CDATA[懒、快节奏与赛博巨婴]]></title>
-            <link>https://sansui233.com/posts/2024-11-13-懒-快节奏与赛博巨婴 (copy)</link>
-            <guid>https://sansui233.com/posts/2024-11-13-懒-快节奏与赛博巨婴 (copy)</guid>
-            <pubDate>Wed, 13 Nov 2024 22:55:00 GMT</pubDate>
-            <description><![CDATA[科技为了便利，可便利是否有尽头]]></description>
-            <content:encoded><![CDATA[<p>1</p>
-<p>今天我想把一张图从 iPad 传到 iPhone 时，突然感觉很麻烦，因为需要打开并解锁，ipad，打开照片，再点击分享，点击AirDrop。</p>
-<p>然后猛然意识到，我是不是越来越懒了？</p>
-<p>对于懒与对于快节奏的追求本质上是一回事，都是简化简化再简化。我对简化的追求似乎有无止境的趋势，也喜欢比对市面上的效率工具，但这真的能提高生产力吗？</p>
-<p>从前拿着U盘传照片，会感叹信息化的便利。我学习计算机也想做让生活便利的事情，在更短的时间去体验到更多原本无法体验到的东西。后来用 qq 传照片，也感觉很方便。是什么时候开始连 AirDrop 都嫌弃太麻烦了呢？是不是对于我，只有意念传输才是终点？可那之后又能如何呢？</p>
-<p>2</p>
-<p>生活的意义来自于过程，而非终点。而衡量事物价格来自于终点，而非过程。</p>
-<p>毫无疑问，工作、劳动力是商品化的，意义与复杂性从不等于价格。不如说以找寻意义的方式寻找工作，很大程度上会面临吃不上饭。</p>
-<p>3</p>
-<p>从前会写书信，后来能随时短信联系变得好方便，一个月发几十块的短信。再后来即时通讯工具出来，联络更便宜更方便了，可人渐渐变成了24小时 oncall 状态，隔几个小时不看微信就会被说太慢了。大概一天只看两次微信的已经是异端了。</p>
-<p>也许和人有关，微信从一个方便联系感情的软件，变成了生产力工具，是随时随地接受需求的怪物。我起初能理解在微信同时加工作的人和亲人，之后变得难以理解，到现在又变得可以理解，感受是大不相同。从前是四海为友，后来是要把社交分开，到现在是感觉其实都是一回事，亲人不会更特别。</p>
-<p>当真的想要放松联络时，就会使用其他软件了。为什么 qq 依然在年轻人中流行？其实就是长辈不用。qq 的用户群有特别老的和特别年轻的，中间有明显的断层。</p>
-<p>4</p>
-<p>国人非常喜欢开发效率类工具，也喜欢记录。近几年新的效率工具，我所知道的绝大部分是国人在开发。可能与老中整体的环境相关。在我记忆中，如果一件事做得不好，就是要反省的，如果一件事做得好但慢，那就是没有效率。「效率」这个词似乎成为了魔咒。</p>
-<p>再加上不要自大、时刻谦逊、居安思危等等，于是养成了无法接受任何夸赞的性格。夸就是客套，真夸就是直冒冷汗。嗯，只要还面对着别人，没有一件事是我满意的。满意的东西现在会小心收藏起来，像 led 屏一样，不要轻易就被弄碎了。</p>
-<p>5</p>
-<p>人类造就科技成长，但又被科技裹挟，造就一个个被高度封装的便利化包裹的巨婴。从逻辑上说，国内早就已经进入赛博朋克，只是社会形态还没有跟上。</p>
-<p>这类抽象思考的空虚感令人害怕，时常觉得早已非人。也可能只是我的个人想法。希望脱离宏大叙事，去做出微小的选择。</p>
-<p>想画漫画了，草。</p>
-<p>写于2024年11月13日03时15分。</p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/Diary">Diary</category>
         </item>
         <item>
             <title><![CDATA[懒、快节奏与赛博巨婴]]></title>
@@ -788,6 +760,109 @@ winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
 <hr/>
 <p>好困😴 睡觉</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/Diary">Diary</category>
+        </item>
+        <item>
+            <title><![CDATA[关于 typescript 泛型中返回值类型约束的问题]]></title>
+            <link>https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322</link>
+            <guid>https://sansui233.com/posts/2023-11-11-typescript-generatic-type-proble-ts2322</guid>
+            <pubDate>Sat, 11 Nov 2023 22:26:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>最近遇到这么一个需求。</p>
+<blockquote>
+<p>定义一个函数接口，要求其返回值类型是 type A 的任意超集。</p>
+</blockquote>
+<p>于是我按直觉写下了：</p>
+<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
+<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
+}
+</code></pre>
+<p>人来看非常简单知道是什么意思，就是返回值包含所有 a 的属性，其他属性全是可有可无的。</p>
+<p>这段代码扔给 GPT，它也看不出什么毛病。但事实上，在 return 时报了一个错：</p>
+<pre><code class="hljs language-text">Type &#x27;() =&gt; A&#x27; is not assignable to type &#x27;FuncA&#x27;.
+  Type &#x27;A&#x27; is not assignable to type &#x27;T&#x27;.
+    &#x27;A&#x27; is assignable to the constraint of type &#x27;T&#x27;, but &#x27;T&#x27; could be instantiated with a different subtype of constraint &#x27;A&#x27;.ts(2322)
+</code></pre>
+<p>这个报错非常的不 helpful。因为平时， typescript 可以根据返回值推测出具体函数标注。比如</p>
+<pre><code class="hljs language-ts"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>){
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;1&quot;</span>
+} <span class="hljs-comment">// 自动推断出函数的具体签名为 () =&gt; string</span>
+</code></pre>
+<p>那为什么上面的报错例子，不能做这样的推断呢？</p>
+<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
+<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
+} 
+<span class="hljs-comment">/* 推断出具体的签名类似于
+() =&gt; {
+  a: string;
+  [name: string]: any
+}
+*/</span>
+</code></pre>
+<p>也就是说，a 是必选属性，其他属性全是 optional。</p>
+<p>（先不讨论 Object 的 key 可以是 Symbol，只是为了看起来好理解，我只写了 string。要写全这里又要多写一个类型推断。）</p>
+<p>当然这里又引发了另一个问题：你为什么不直接把 type A 定义附加任意可选属性？</p>
+<p>好问题，这是一个正常的解决 TS2322 问题的思路。但是我就是想知道为什么泛型推断不能直接做这个……</p>
+<p>我查了很多资料，没有人完美解释这个问题。但有一个相似的问题：如何让参数和返回值持有相同的泛型类型？</p>
+<p>在 typescript 的 <a href="https://github.com/microsoft/TypeScript/issues/50027">github issue</a> 里有详细的案例说明，务必看看，很好懂，说是故意这么设计的。这里我将理由简短概括如下：</p>
+<blockquote>
+<p>如果 f 是上有一个额外的属性 prop，编译器如果推导出了返回值类型成 typeof f。之后你调用 f.prop，静态编译不会报错，但实际上有一个 runtime error，因为你的真实的返回值只是一个 <code>()=&gt;{}</code> ，没有prop 属性。</p>
+</blockquote>
+<p>但个人觉得这里静态编译应该报错，并不是一个 runtime 错误。前面说了，typescript 可以对返回值进行静态的类型的检查。以上面 issue 为例，理想的报错设计是长这样：</p>
+<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
+<span class="hljs-keyword">type</span> B = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
+
+<span class="hljs-comment">// 类型签名为 &lt;T extends A | B&gt;(value: T) =&gt; T 的实现</span>
+<span class="hljs-keyword">function</span> f1&lt;T <span class="hljs-keyword">extends</span> A | B&gt;(<span class="hljs-attr">value</span>: T): T {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {};  <span class="hljs-comment">// 推断出 T 此时是 typeof ()=&gt;{}，也就是 ()=&gt;{}</span>
+}
+
+<span class="hljs-keyword">let</span> <span class="hljs-attr">f</span>: <span class="hljs-built_in">any</span>= <span class="hljs-function">()=&gt;</span>{}
+f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha&quot;</span>
+
+<span class="hljs-title function_">f1</span>(f) <span class="hljs-comment">// 这里传参报错，因为 typeof f 和 typeof ()=&gt;{} 不一致。本质上就是 ts2322 描述的问题，但不应该在上面报错</span>
+</code></pre>
+<p>当然上面的例子返回值类型已经定了是 <code>typeof ()=&gt;{}</code>，返回值再标注 T 显得十分多此一举。但是 f1 对只是对这个函数签名的一种实现。完全可以实现对这个函数签名有不同的实现，返回不同的 subtype。</p>
+<blockquote>
+<p>什么是 subtype？T extends A，T 就是 A 的 subtype</p>
+</blockquote>
+<p>这又引发了另一个问题：这和函数重载有什么区别？</p>
+<p>当然有区别啊，最大的区别就是我能定义一个统一的函数接口，只要返回值满足最基本的约束 <code>A</code>。但可以是返回不同的 subtype，实现也分开写到不同的文件里，类似于 oop 语言中返回所有某基类的派生类。这才是完全体。</p>
+<p>但现在的 typescript 完全做不到这一点，返回值只能是一个非常具体的 type，要么就抛出一个毫无说服力的 ts2322 错误。</p>
+<p>如果要解决开头的问题，大概是以下三个思路：</p>
+<ul>
+<li>定义 A 时，把所有可能要用到的属性都写到可选属性里，或直接 <code>[name: string]: any</code>。</li>
+<li>考虑业务场景，其他未知属性不留下会影响到什么吗。99% 的场景是没有必要的，也就是说这个需求就是没意义的。剩下的 1% 我没有遇到/想到。</li>
+<li>根据输入参数的 T 写一个类型推导，手动将返回的类型设置为 a 的具体扩展类型。类似这样</li>
+</ul>
+<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Extend</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span>&gt; = {
+  [<span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>
+} &amp; {
+  [K <span class="hljs-keyword">in</span> keyof T]: T[K]
+}
+
+<span class="hljs-keyword">type</span> A  = {<span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span>}
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = <span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Extend</span>&lt;A&gt;
+<span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span>, <span class="hljs-attr">b</span>:<span class="hljs-string">&quot;extra&quot;</span>} 
+} 
+<span class="hljs-title function_">f</span>().<span class="hljs-property">a</span> <span class="hljs-comment">// a is string</span>
+<span class="hljs-title function_">f</span>().<span class="hljs-property">b</span> <span class="hljs-comment">// b is any</span>
+</code></pre>
+<p>总之，在目前的 typescript 中，<strong>返回值类型不能是泛型</strong>。</p>
+<p>当然这样也失去了扩展的类型检查，等于是用了函数的签名来检查的，和返回值的类型一点关系也没有。</p>
+<p>现在 typescript 的静态检查器其实已经做了一些运行时的功能，比如条件语句判断以排除属性。但是，这些像运行时一样的检查只在静态类型不明确时才起作用。就这个 if，我已经遇到了好几次无法判断的 bug ，清空缓存并重启才恢复。</p>
+<p>说回第二点，既然你允许传了任意值，也就说明在你这个库中，你也不知道其他附加值具体是拿来干什么的，大多无非遍历一下再过滤一下。如果是静态类型检查器来遍历，诶诶扩展属性怎么全是 any。最终还得用 JS 的运行时来做这个事情……所以有拿来做什么的话早就在 A 里增加 optional 属性了。这也是为什么说 99% 的场景这个需求其实不存在。</p>
+<p>还有一个更重要的原因，那就是，ts 的类型体操，实在太他妈难写了。</p>
+<hr/>
+<p>可能没用的参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/56505560/how-to-fix-ts2322-could-be-instantiated-with-a-different-subtype-of-constraint">typescript - How to fix TS2322: &quot;could be instantiated with a different subtype of constraint &#x27;object&#x27;&quot;? - Stack Overflow</a></li>
+<li><a href="https://github.com/microsoft/TypeScript/issues/50027">Could be instantiated with a different subtype of constraint · Issue #50027 · microsoft/TypeScript</a></li>
+</ul>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/学习">学习</category>
         </item>
     </channel>
 </rss>

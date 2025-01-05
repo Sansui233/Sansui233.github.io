@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-01-04T20:12:36.298Z</updated>
+    <updated>2025-01-05T11:27:26.858Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -19,7 +19,7 @@
         <id>https://sansui233.com/posts/2025-01-05-2024-summary</id>
         <link href="https://sansui233.com/posts/2025-01-05-2024-summary"/>
         <updated>2025-01-05T01:21:00.000Z</updated>
-        <summary type="html"><![CDATA[还是太宅了！]]></summary>
+        <summary type="html"><![CDATA[怎么全在写游戏……]]></summary>
         <content type="html"><![CDATA[<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp"/><p>印象中之前每年其实都有写去年主要干了什么，看了什么作品。但又忘了都写在了哪里。今年想起来还是在这里写吧。</p>
 <p>主要说说看了些什么吧。</p>
 <h2>实用小技术</h2>
@@ -32,7 +32,7 @@
 </ol>
 <p>后面，我又嫌无线的码率不稳定，组装了个便携显示屏，变成了躺着用电脑副屏……配件全部拼多多的。</p>
 <ul>
-<li>显示屏，京东方 NVM156N69</li>
+<li>显示屏，京东方 NV156FHM N69</li>
 <li>驱动版、按键板、软排线</li>
 <li>外壳、音响</li>
 </ul>
@@ -140,18 +140,31 @@
 <p>游戏，给 MC 服务器写了 彩虹帽子 数据包。想来这其实是第一次和游戏有关的编程，经典入口是帧更新 tick()。</p>
 </li>
 <li>
-<p>画画，学了平面设计的课，作业也很肝完了，有一些收获。然后又看了些曼奇的网课，素描关系有提升，就是增加了短调子、空间感、体积感的意识。我之前也不是感受不到，而是没觉得差一点明度就会差很多。这就是 Ti - Se 画画相比于 Se - Ti 的劣势，一定是有理论后才能画得好……</p>
+<p>画画，学了平面设计的课，作业也很肝完了，有一些收获。然后又看了些曼奇的网课，素描关系有提升，就是增加了短调子、空间感、体积感的意识。我之前也不是感受不到，而是没觉得差一点明度就会差很多。这是 Ti - Se 画画相比于 Se - Ti 的劣势，需要有理论后才能画得好……</p>
 </li>
 <li>
 <p>原神里头一回赶上音游的版本，写了几首比较难的谱面，这个非常满意，是我自己都可以反复玩的！</p>
 </li>
 </ul>
 <h2>专业相关</h2>
-<p>这随便吧又没人看。</p>
-<p>开源这边笔记主题没怎么更。</p>
+<p><del>这随便吧又没人看。</del></p>
+<ul>
+<li>
+<p>笔记主题没怎么更，我也用得越来越少了</p>
+</li>
+<li>
+<p>博客有更新，但忘了！</p>
+</li>
+<li>
 <p>新写了个服务器的监控页。</p>
+</li>
+<li>
 <p>论文挣扎着狂补。</p>
+</li>
+<li>
 <p>有去接触 GPU 相关的，不想只停留在业务 MVC 再 CRUD。但看了发现没需求的话确实用不上。</p>
+</li>
+</ul>
 <p>公司的相关还是不说了……主要是图形学和，久违的 OOP 编程，新的语言 C<span class="tag">#，但长得非常通用面向对象，没有太多的入门门槛。不禁感叹外面世界的语言真是五花八门……但要说写界面好用还是声明式的，OOP </span>写界面特别过程式就，扭曲，痛苦，但无疑性能会更好。</p>]]></content>
         <category label="Diary"/>
         <published>2025-01-05T01:21:00.000Z</published>
@@ -161,13 +174,33 @@
         <id>https://sansui233.com/memos?id=2025-01-05 08:53</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2025-01-05T00:53:00.000Z</updated>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050057822.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050056661.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp"/><h2>2025-01-05 01:03:27</h2>
+        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501051922436.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050057822.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050056915.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp"/><h2>2025-01-05 18:37:39</h2>
+<p>对啦，元旦是去和雨疏一起玩啦一下午啦！然后她真的已经对汉服妆造炉火纯青了！</p>
+<p>然后回去她家看了uni（一只猫）。</p>
+<p>希望今后也能有机会再见吧。</p>
+<p><strong>=== 有关天赋 ===</strong></p>
+<p>在商场的时候，照例玩苹果店。发现 CSP 有演示版，还有 SketchUp 也有演示版。</p>
+<p>然后csp画了几笔的侧脸，旁边的店员小哥突然说，你是天才。</p>
+<p>我冷汗：不……我，不是……</p>
+<p>雨疏：她是专业的。</p>
+<p>我：不，我不专业……</p>
+<p>只有从前被说没有画画天赋的人才能感受到其中的无奈。</p>
+<p>有许多人会觉得对于艺术设计是天赋，比不上天赋佬就别学了。</p>
+<p>但这句话其实放在应试教育也是一样的。如果给小学生开放大学课程，一定也有天赋小学生很快学会，特别是数字电路这类逻辑课。</p>
+<p>画画和音乐也是一样，我确实没有画画天赋。从前因为究极的理科思维，我也许能够做得临摹每个像素点，但不明白画画与创作本身。因为我不明白如何做视觉表达，尤其是聚焦于形式而非内容。</p>
+<p>即便不知道如何通过视觉表达感受，我依然可以观察总结我喜欢的图，可以学习别人的经验。虽然过程慢了很多，要花很多很多时间练习。但，如果一直学，只要还有提高画面安排的意识，时间久了感受也会提高。这个过程最需要的只有一点，那便是喜欢。</p>
+<p>所以今时我能几笔画二次元侧脸，只是因为，画了几千几万遍而已，写实的概括的不同脸形的骨骼肌肉，都有画过，不是天赋。</p>
+<p>我也理解为什么店员会说天才。二次元极度概括，概括的风格就是前面每一笔都好像不知道在干什么，但画几笔之后突然就出现了某个东西，速度非常快。而且看起来就几笔很好学，但实际自己画又完全不是那样。小时候我看青山岗昌的签绘也是这种感觉，不打草稿不用橡皮几笔就把一个东西顺利画出来了，简直像魔法。</p>
+<p>现在也只是学会了看每一根平平无奇的线，知道每一个细微的转折都是在画什么，为什么这里有转折那里没有。如果线画歪了，能不能用，影响有多大，这样的意识是可以练习的，需要的只是喜欢，和一点点的动脑。</p>
+<p>（附图是鄙人工位的上的极简小摸鱼，没有纸片美少女的工位是没有生机的！）</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501051922436.webp" alt="IMG_3233"/></p>
+<h2>2025-01-05 01:03:27</h2>
 <p>找个时候总结一下去年看过的玩过的一些新作品吧。不知道还能记得多少，记性差这一点实在太不好了。好多时候会回小号看看之前发过什么点子一类的，感觉真有趣。虽然很多地方都在记，但会回去看的还是社媒……而且由于现是天天和 meme 大师交换 meme，许多有趣的东西也都没有发微博了——因为太多了，发不过来！</p>
 <h2>2025-01-05 00:51:17</h2>
 <p><span class="tag">#游戏 </span>打完了传说之下，非常好经典游戏！非常温暖的剧情，日式 rpg 的角色塑造。</p>
 <p>最近一年觉得好玩的游戏也就传说之下和动物井了。还是觉得脑洞大的比较好……再看看之前画的同人，当时脑洞觉得已经很大了，评论也说有那种脑干缺失的感觉了。但现在还是觉得有点不够，时代已经在抽象赛道上已经一去不复返了。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050057822.webp" alt="传说之下2"/></p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050056661.webp" alt="传说之下"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050056915.webp" alt=""/></p>
 <p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp" alt="传说之下"/></p>]]></content>
         <category label="Diary"/>
         <published>2025-01-05T00:53:00.000Z</published>

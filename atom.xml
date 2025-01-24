@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-01-05T11:27:26.858Z</updated>
+    <updated>2025-01-24T14:52:18.946Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -174,7 +174,15 @@
         <id>https://sansui233.com/memos?id=2025-01-05 08:53</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2025-01-05T00:53:00.000Z</updated>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501051922436.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050057822.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050056915.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp"/><h2>2025-01-05 18:37:39</h2>
+        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501051922436.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050057822.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050056915.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp"/><h2>2025-01-24 22:21:38</h2>
+<p>放假了最。最后狂改 Bug 和加新功能。本来是写个 Debug UI，再扩展一下要写成地编了……</p>
+<p>然后感觉过程式编程的动画写法还挺不一样的。我已经被 React 的函数式思路荼毒了，动不动想传回调，用事件也都带参数……实际上过程式的写法还是依赖状态机和统一状态管理。然后我就觉得函数式的思维说得对，共享状态就是引起不一致性，看别人代码时尤其明显，完全不知道突然给 Set 了个什么，要对整个架构非常清晰，否则维护就变成屎山……</p>
+<p>但是出于性能考虑，游戏还是只能过程式的写法，嗯。看 react 那垃圾性能就知道了。就像知乎上一句话说的</p>
+<blockquote>
+<p>React再不转向以subscription（订阅式响应）为主的reactivity响应，还固守comparison（比较式响应），迟早会被Solidjs、Svelte 甚至是Vue干掉。</p>
+</blockquote>
+<p>而用了 zustand 这样的订阅式响应库，注定就会开始有状态维护上的问题。我在 Debug UI 里拆成这样的写法了。</p>
+<h2>2025-01-05 18:37:39</h2>
 <p>对啦，元旦是去和雨疏一起玩啦一下午啦！然后她真的已经对汉服妆造炉火纯青了！</p>
 <p>然后回去她家看了uni（一只猫）。</p>
 <p>希望今后也能有机会再见吧。</p>

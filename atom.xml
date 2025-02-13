@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-02-13T13:43:48.224Z</updated>
+    <updated>2025-02-13T18:22:35.677Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -175,8 +175,8 @@
         <link href="https://sansui233.com/memos"/>
         <updated>2025-01-05T00:53:00.000Z</updated>
         <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501051922436.webp"/><h2>2025-02-13 21:41:05</h2>
-<p>📅 今日进度：半夜抠了6小时 JS 的动画。反正没有按计划。</p>
-<p>⚙️ 状态：比昨天有精神，按时吃饭，做了家务，洗澡洗头。现在吃了碳水好困，想困着把星铁的剧情过了。然后正常睡觉……</p>
+<p>📅 今日进度：半夜抠了6小时 JS 的动画。反正没有按计划。抠了长文页的 Image PlaceHolder 处理，应该不会对 RSS 有影响吧，吧……</p>
+<p>⚙️ 状态：比昨天有精神，按时吃饭，做了家务，洗澡洗头。现在吃了碳水好困，想困着把星铁的剧情过了。然后正常睡觉……可能定时播客真的有效果，今天播的是一个心理学相关的，爱听。14日凌晨写代码时差点以为是第二天了。</p>
 <p>📌 预计明日：还是想看 JS 书。然后改改论文。</p>
 <h2>2025-02-13 00:50:12</h2>
 <p>📅 今日进度：什么也没做。</p>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-04-19T01:23:17.714Z</updated>
+    <updated>2025-04-19T01:52:17.615Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -21,12 +21,12 @@
         <updated>2025-04-19T01:21:00.000Z</updated>
         <summary type="html"><![CDATA[颜狗就是得样式和功能性全要，怎么了]]></summary>
         <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp"/><p>（发现简中圈居然没有人写这个事，写个草稿发别的地方）</p>
-<p>Windows11 右键菜单问题被诟病已有，网上很多还原为 win10 菜单的教程……但 win10 有 win10 的问题，什么狗皮膏药的右键菜单都往里放，常用的不常用的都在这。有没有一种方法可以兼顾好看，同时有合理的菜单层级呢？</p>
+<p>Windows11 右键菜单问题被诟病已有，网上很多还原为 win10 菜单的教程……但 win10 有 win10 的问题，有用的没用的都往里放，常用的不常用的混在一起。有没有一种方法可以兼顾好看，同时有合理的菜单层级呢？</p>
 <p>有的 —— Nilesoft Shell。可以自定义的 Win11 右键菜单。已经用了两年多了很好用（以至于差点忘了有这个软件）。</p>
 <h2>下载并安装</h2>
 <p>下载在官网： <a href="https://nilesoft.org/">https://nilesoft.org/</a></p>
 <p>安装完后，新菜单应该已经生效了，并且会开机自启。这时候可以点点看，如果感觉效果满意就不用再看下去了。</p>
-<p>当然颜狗是不满意的，大部分一级菜单我都用不上，我只想保留我常用的，不用的塞到更多选项。如图</p>
+<p>当然颜狗是不满意的，大部分一级菜单我用不上，我只想保留我常用的，不用的塞到更多选项。如图</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp" alt=""/></p>
 <h2>挪动菜单层级</h2>
 <p>如果你是默认安装，<code>C:\Program Files\Nilesoft Shell</code> 应该能看见以下的文件结构</p>
@@ -39,8 +39,8 @@
 └── ...
 </code></pre>
 <p>以 <code>.nss</code> 结尾的是配置文件，可以用记事本打开。以下是几个案例：</p>
-<h3>1. “QQ”或“百度” 等菜单项塞到 “更多选项”</h3>
-<p>在 <code>modify.nss</code> 添加如下：</p>
+<h3>1. 收纳不常用菜单至 “更多选项”</h3>
+<p>例如，收纳所有名称里带有 “QQ” 和 “百度” 的菜单项，在 <code>modify.nss</code> 添加如下：</p>
 <pre><code>modify(mode=mode.multiple find=&quot;QQ|百度|网盘&quot; menu=title.more_options)
 </code></pre>
 <p>find 中包含的字符串会被匹配，“|”是或。表示匹配“QQ”或“百度”或“网盘”的任意项都会被挪走。</p>

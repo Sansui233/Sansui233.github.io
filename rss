@@ -4,12 +4,87 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Fri, 18 Apr 2025 14:15:18 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 19 Apr 2025 01:23:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Windows11 右键菜单自定义 - NileSoft Shell]]></title>
+            <link>https://sansui233.com/posts/2025-04-19-windows-context-menu</link>
+            <guid>https://sansui233.com/posts/2025-04-19-windows-context-menu</guid>
+            <pubDate>Sat, 19 Apr 2025 01:21:00 GMT</pubDate>
+            <description><![CDATA[颜狗就是得样式和功能性全要，怎么了]]></description>
+            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp"/><p>（发现简中圈居然没有人写这个事，写个草稿发别的地方）</p>
+<p>Windows11 右键菜单问题被诟病已有，网上很多还原为 win10 菜单的教程……但 win10 有 win10 的问题，什么狗皮膏药的右键菜单都往里放，常用的不常用的都在这。有没有一种方法可以兼顾好看，同时有合理的菜单层级呢？</p>
+<p>有的 —— Nilesoft Shell。可以自定义的 Win11 右键菜单。已经用了两年多了很好用（以至于差点忘了有这个软件）。</p>
+<h2>下载并安装</h2>
+<p>下载在官网： <a href="https://nilesoft.org/">https://nilesoft.org/</a></p>
+<p>安装完后，新菜单应该已经生效了，并且会开机自启。这时候可以点点看，如果感觉效果满意就不用再看下去了。</p>
+<p>当然颜狗是不满意的，大部分一级菜单我都用不上，我只想保留我常用的，不用的塞到更多选项。如图</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp" alt=""/></p>
+<h2>挪动菜单层级</h2>
+<p>如果你是默认安装，<code>C:\Program Files\Nilesoft Shell</code> 应该能看见以下的文件结构</p>
+<pre><code>Nilesoft Shell/
+├── shell.exe
+├── shell.nss
+├── imports/
+│   ├── modify.nss
+│   └── ...
+└── ...
+</code></pre>
+<p>以 <code>.nss</code> 结尾的是配置文件，可以用记事本打开。以下是几个案例：</p>
+<h3>1. “QQ”或“百度” 等菜单项塞到 “更多选项”</h3>
+<p>在 <code>modify.nss</code> 添加如下：</p>
+<pre><code>modify(mode=mode.multiple find=&quot;QQ|百度|网盘&quot; menu=title.more_options)
+</code></pre>
+<p>find 中包含的字符串会被匹配，“|”是或。表示匹配“QQ”或“百度”或“网盘”的任意项都会被挪走。</p>
+<p>这是主要的挪菜单的方式，我实际上挪了一大堆。</p>
+<pre><code>modify(mode=mode.multiple
+	find=&quot;收藏夹|打印|共享|PowerRename|Microsoft Defender|Change Attributes|File Locksmith|upic|火绒|百度|QQ|Acrobat|Adobe|OneDrive|在沙盒中运行|PicList|旧版 Windows Media Player&quot;
+	menu=title.more_options)
+</code></pre>
+<h3>2. “创建快捷方式”挪到顶层</h3>
+<p>有人可能看不惯 创建快捷方式 放在了 更多选项 里。要恢复把 <code>modify.nss</code> 中一行注释掉就好。</p>
+<pre><code>modify(mode=mode.multiple
+	where=this.id(
+		id.send_to,
+		id.share,
+		// id.create_shortcut, 这行注释掉
+		id.set_as_desktop_background,
+		id.rotate_left,
+		...
+</code></pre>
+<h3>3. 顶层添加新菜单项 “使用 vscode 打开”</h3>
+<p>在 <code>shell.nss</code> 中，新起一行添加</p>
+<pre><code>item(title=&#x27;Open with VS Code&#x27; image=[\uE272, #22A7F2] cmd=&#x27;code&#x27; args=&#x27;&quot;@sel.path&quot; &amp;&amp; exit&#x27; sep=&#x27;top&#x27;)
+</code></pre>
+<p>添加的这行可以不在最后，添加的位置决定它在菜单中的位置。我添加在了中间，最后的几个 &quot;import&quot; 之间。</p>
+<p>要是问为什么我不用 vscode 自带的右键菜单……我的 vscode 装得太早了，那时还没有右键菜单关联，现在也懒得再装了就将就用吧……</p>
+<h3>4. 顶层菜单添加新目录</h3>
+<p>你要是在图片上右键，会发现系统自带有“使用 Windows 画图编辑”“使用照片编辑”“向左旋转”“向右旋转”……我的天，哪个天才设计的，你不知道自家照片 App 打开后能编辑也能旋转吗？（我知道这肯定是两波人开发的但还是想吐槽）</p>
+<p>秉持着只挪不删的原则，在“更多选项”前加了个“编辑”目录。以下加在了 <code>shell.nss</code></p>
+<pre><code>menu(mode=&quot;multiple&quot; title=&quot;编辑&quot; image=image.glyph(&quot;\uE0A1&quot;))
+{
+}
+</code></pre>
+<p>然后在 <code>modify.nss</code> 里加了</p>
+<pre><code>modify(mode=mode.multiple
+	find=&quot;*编辑|旋转|PDF&quot;
+	menu=&quot;编辑&quot;)
+</code></pre>
+<p>这样等于说，编辑和旋转相关都被归到了新的“编辑”目录下。加上 PDF 相关操作挪进去。我没有装 WPS，装了 WPS 也可以把 WPS 挪一个目录。</p>
+<h2>生效</h2>
+<p>管理员权限运行安装目录下的 <code>shell.exe</code>，点 Register 生效</p>
+<h2>其他</h2>
+<p>按 shift 后右键菜单，会有一个“Developer” 目录。没错 shift 显示隐藏菜单也可以实现，配置的属性有 <code>vis=key.shift()</code> ，但不是实时变化的所以没有mac 上的好用。除此之外还有喜闻乐见的能配置主题、颜色、图标等……我不管了。</p>
+<h2>参考</h2>
+<p>官网的文档很详细，但是非常面向程序员。不过大部分的需求被人在论坛上问过了，也有人在 issue 里问。不会就去论坛翻一下。看不懂英文开翻译，看不懂文档丢给 AI。</p>
+<p>文档： <a href="https://nilesoft.org/docs">https://nilesoft.org/docs</a></p>
+<p>论坛： <a href="https://github.com/moudey/Shell/discussions">https://github.com/moudey/Shell/discussions</a></p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/工具">工具</category>
+        </item>
         <item>
             <title><![CDATA[2024 年的总结与分享]]></title>
             <link>https://sansui233.com/posts/2025-01-05-2024-summary</link>
@@ -906,65 +981,6 @@ winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
 <h2>ZSH</h2>
 <p>有关 zsh 相关的配置，我放在了 <a href="https://sansui233.github.io/posts/windows-zsh-conf">Windows 命令行相关配置之 msys2+zsh+zi</a> 。</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
-        </item>
-        <item>
-            <title><![CDATA[大概是关于五笔打字更慢的一点碎碎念？]]></title>
-            <link>https://sansui233.com/posts/thoughts-about-wubi-im</link>
-            <guid>https://sansui233.com/posts/thoughts-about-wubi-im</guid>
-            <pubDate>Fri, 17 Nov 2023 01:59:00 GMT</pubDate>
-            <content:encoded><![CDATA[<p>每次看到打字的视频，总是会有人说五笔是最快的。五笔我打了八年。突发奇想去测试了一下五笔打字的输入速度，结果在我意料之内——在不刻意飙手速（以不被室友打）的情况下，大概是 60 字/min，全拼大概是 70 字/min。</p>
-<p>虽然拼音我现在已经非常不熟练了，但速度还是比五笔快。而五笔在日常使用也并没有感觉到有什么不顺畅的地方，为什么测速还是会更慢呢？</p>
-<h2>五笔更慢的原因</h2>
-<p>网上说五笔打得更快大多是指「看打下的极限速度」。这里有两个条件，一个是看打，一个是极限。</p>
-<h3>看打和听打</h3>
-<p>看打，指看着一段文字打出来，在早期没有各种扫描技术时，录文件就是这样的纯手工录入方式。</p>
-<p>看打有利于五笔的拆字输入，而且不论一个人的普通话是否标准，只要认字都能使用。早期学者非常多会看字但念不准的。</p>
-<p>早期输入法（智能 ABC）没有云计算，也没有词库，几乎一个字一个字蹦出来，非常非常慢。我小学拼音打冰灯用尽全力的记录也就 55 字/min，不算快的但也不算慢了。但现在五笔随意打初见就 70 字/min，途中还有好几个字不会拆的。想想在当时的那个环境，只靠打单字和少量词组，就能达到百字每分，是多么牛逼的一件事。</p>
-<p>但在日常打字的时候，大部分人纯聊天，更多是使用的听打，想到什么说什么，就算口中没有真的发出声音。这明显是利于拼音打字的。另外，拼音打字的韵母键位非常固定，像 ing 这样的三字母韵母，打起来非常连贯，在这瞬间可以一秒按 8 个键，任何人打字多一点都能做到。真正意义上想说什么打什么。</p>
-<p>我的名字拼音一共有 (10-15) 个字母，可以在 1.5 秒内打完全拼。拼音的输入速度完全不慢，重码问题也几乎靠技术解决了。在纠错、词库、上下文联想早就发展起来的情况下，五笔在日常使用上真的没有什么优势。</p>
-<h3>极限速度？</h3>
-<p>这就是一个老生常谈的问题了———学习成本。</p>
-<p>如果仅仅靠日常打字，五笔要多久，拆字的顺畅程度可以达到打拼音一年的水平？</p>
-<p>我的答案是：除非刻意练习，否则永远达不到。拆字顺畅，不会卡住自己的表达，是一个需要长期刻意练习的技能。</p>
-<p>听起来可能有点夸张，但事实如此。</p>
-<p>我在日常使用时，对于常用字，五笔输入也已经是条件反射，不太去想字形，和拼音差距也不大。但是测速文章就是另一回事了。各种领域的名词、人名等，总有你不适应的那一款（五笔大佬请无视）。不会拆时那个感觉真的难受，一分钟打一个字。</p>
-<p>比如「凿个洞」「凹凸不平」「藏族」一类的词，对于拼音都非常简单且没有重码。但对于五笔，不是常用词且难拆，测速文里这类词很多。我有一个长长的清单，随时记录这类难以练到的字。</p>
-<p>注意，以上的前提是「日常打字」。这里可能会有人对「日常」有一点误解，需要再澄清一下，日常不等于简单，而是「日常生活交流中的常用语言」。比如「藏族」，小学生都会念，还会写，但不日常。</p>
-<p>五笔变小众的原因正在于高昂的学习成本，有没有不那么痛的学习方法吗？</p>
-<p>有。我自己一向不是死记硬背型的人，基本是用什么学什么直接开干。日语没背五十音图，靠记了一首歌词入门，五笔也没有背码表，看了原理后，一个区一个区地打一级简码二级简码入门。遇到不会的就查，会的就越来越多。</p>
-<p>但是不那么痛的学习方法问题就是上面所说的，仅靠日常打字，想在遇到任何情况下都拆字顺畅，永远也不可能（记忆超群的五笔大佬当我没说）。</p>
-<p>那个「不熟悉的列表」，我专门打了也有七八遍了，里面的所有字能顺利拆出来了，但每个字还是要花时间反应。</p>
-<p>同学妈妈打了几十年五笔工作，也只是在她的专业领域得心应手，换到不熟悉的领域同样卡壳。不要看贴子说打得越久越熟悉，这个年头没有几个人是为了打字而打字的，打字说是表达，是个有应用场景的事，有场景就有范围限定，有范围限定就有上限。你平时能练到的字，就这么多。</p>
-<p>诚然，五笔的极限是很快，但为此需要付出的刻意练习，并不值得，除非你喜欢。</p>
-<h3>软件问题</h3>
-<p>86 版编码是经典的五笔编码，但我现在使用的 98 版五笔，因为有一天实在不能忍受 86 版那个莫名其妙的笔顺了，还有一些为了降低重码而设置的不合理末笔码。</p>
-<p>但是后来我发现，有很长一段时间，我都在把 98 版的字根表和 86 版弄混——我在学 86 版五笔时从来没有去背过字根表，都是靠肌肉记忆，肌肉和脑袋打架，于是混乱了。</p>
-<p>另外，对于不会拆的字，想不起来的字，我会使用拼音反查。自从 ios 有 98 五笔后我就在使用苹果的输入法，因为可以接第三方键盘，还可以输入 emoji。但我反查了很长一段时间后才发现，苹果的编码，可以说是有巨量的错误，把 86 和 98 版混到了一起，一字完全不同的两码什么的，有时候打 86 版的拆法也能出字，反查编码的时候更是灾难。我对 98 版的拆字方式长期处于一种混乱状态。</p>
-<p>所以在初期</p>
-<h2>输入法推荐</h2>
-<p>需求</p>
-<ol>
-<li>基本词库+方便的自造词功能</li>
-<li>精确的拼音反查</li>
-<li>打重复字和 z 键特殊符号</li>
-<li>良好的中英混输</li>
-<li>可以方便地输入日期</li>
-</ol>
-<p>我觉得还不错的：</p>
-<ul>
-<li>windows 冰凌五笔，默认设置基本不用改，除了空码需要上屏编码用来中英混输。还有 shift + 空格的快捷键最好是关掉。加自造词非常方便</li>
-<li>mac 上清歌五笔，中英之间支持加空格，加自造词非常方便</li>
-<li>rime 98五笔，自己再魔改版。我觉得可以满足大部分需要，除了特殊符号不是 z 键没有提示。这个输入法现在是备用来查拆字的，是的，直接是显示的字根而不是编码。</li>
-</ul>
-<h2>为什么我还要用五笔</h2>
-<p>话说回来，既然五笔打得没有拼音快，还费脑子，为什么我还要用五笔呢？</p>
-<p>一是，当习惯了不重码后，很难再接受重码的输入法。不论是不是日常用语，99% 的情况下五笔都不需要选字，不需要翻列表。你可以轻易打出「艹」和「卄」，同时也不会影响你正常打「草」。</p>
-<p>当然，拆不出字时也会很难受。</p>
-<p>二是，永远不需要联网，隐私问题。</p>
-<p>三是，好的输入法设计真的好。当时知道 z 键万能键打特殊符号原来这么好用时简直惊呆了。自从用了五笔，我从来都没有使用 -&gt; 打箭头过，从来都是 →。希腊字母、带圈数字、拼音音标也非常好打。当朋友提醒我写的 logseq theme 没有连字箭头时，我才发现压根没有注意到原来 logseq 后来加入了连字字体。</p>
-<hr/>
-<p>好困😴 睡觉</p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/Diary">Diary</category>
         </item>
     </channel>
 </rss>

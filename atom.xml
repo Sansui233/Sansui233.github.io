@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-04-19T01:52:17.615Z</updated>
+    <updated>2025-04-21T20:22:12.979Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,72 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[Title]]></title>
+        <id>https://sansui233.com/posts/2025-04-22-techs-about-steam-crack</id>
+        <link href="https://sansui233.com/posts/2025-04-22-techs-about-steam-crack"/>
+        <updated>2025-04-21T19:59:00.000Z</updated>
+        <summary type="html"><![CDATA[入库不仅仅是入库]]></summary>
+        <content type="html"><![CDATA[<p>很久以前被淘宝的 Steam 假 CDKey 给坑过，因为价格其实也不便宜，打的正版宣传，其实是盗版，后来感觉太可疑了查了一下确认被坑了。现在突然想起来了解了一下。本文概述是日常语境中的 “Steam假入库”需要的一些步骤，概括起来为五个方面：解锁、下载、入库、DRM、API验证。</p>
+<h2>下载验证</h2>
+<p>steam 的下载鉴权流程是</p>
+<ol>
+<li>查找账号是否有拥有此游戏，有则显示下载按钮</li>
+<li>点击下载后，把游戏软件 Manifest 对应的密钥（DecryptionKey）明文写入一个本地文件 <code>Steam\config\config.vdf</code></li>
+<li>Steam （原版）根据 <code>config.vdf</code>中的信息，发送下载请求至 Steam CDN 进行下载</li>
+</ol>
+<p>“Steam 解锁” “Steam 假入库” 指的是绕过上述机制。具体而言，如果没有购买游戏，可以：</p>
+<ol>
+<li>将按钮变为可下载（至于是伪造请求实现还是逆向 hook 实现，我不知道，都可以，因为甚至不需要变按钮，给个外部的下载按钮也可以）</li>
+<li>点击按钮后，从不知名渠道获取一个正版账号的 Manifest（下载清单）和 Decryption Key（下载密码），写入<code>Steam\config\config.vdf</code></li>
+<li>Steam（原版）根据 <strong><code>config.vdf</code></strong>，发送下载请求至 Steam CDN 进行下载</li>
+</ol>
+<p>Steam 的下载验证可以说是相当简单，明文本地存密码，CDN 无状态的验证，这么多年没有改过流程，给入库工具空间（虽然说前端的事总有办法 Hack 但也是可以让 Hack 成本变高很多的）。不过 Steam 理念本来就是以平台服务留住玩家的，反倒是扩大了其影响力与营收。</p>
+<p>一些名词解释：</p>
+<ul>
+<li>解锁：指对没有购买的游戏，“可以显示下载按钮”。和能不能下载没有关系。</li>
+<li>下载：Steam 根据 <strong><code>Steam\config\config.vdf</code></strong> 的信息下载游戏文件。</li>
+<li>入库：指把下载好的游戏，在当前电脑的 Steam 库中显示。</li>
+</ul>
+<p>以上过程均不涉及对游戏本身的破解，只是对 Steam 下载过程的破解。也就是，破解的是 Steam，不是游戏。</p>
+<h2>运行时验证</h2>
+<p>这里开始才会涉及到游戏破解。</p>
+<p>有的 Steam 游戏下载下来后是不用破解的，直接找到游戏目录，点 exe 可以正常游玩（比如星露谷）。只是无法通过原版 Steam 打开，也就只能离线。</p>
+<p>有的游戏是无法脱离 Steam 直接运行的。这里涉及两层验证：</p>
+<h3>加密算法层</h3>
+<p>这是一层 DRM（数字版权加密保护）。Steam DRM 系统的名称为 SteamStub。SteamStub 的加密有各种的变体，每个游戏使用的不一致。只对 exe 的算法加密，是一个离线的步骤。不涉及 Steam 平台的验证。</p>
+<p>网上有一个开源工具叫 Steamless，可以破除 SteamStub 对游戏的 DRM，称为脱壳。但脱壳本身不处理 Steam 在线验证相关，只进行了脱壳的游戏也是无法正常游戏的。</p>
+<blockquote>
+<p>SteamStub DRM 和 Steamworks API 是两个独立层。Steamless <strong>仅移除 SteamStub 加密外壳</strong>，但游戏代码中与 Steam 平台功能（如成就、云存档、联机）相关的 API 调用（通过 <code>steam_api.dll</code>）仍会保留。</p>
+</blockquote>
+<h3>Steam API 验证</h3>
+<p>游戏还可能调用 Steam api 进行在线通信，如成就、云存档、联机相关的 API 调用。</p>
+<p>这是使用入库工具玩破解游戏可能被红信或封号的根本原因，因为对 API 的调用是发送到 Steam 官方服务器的。在小红书上了解到，有的玩的盗版可以与正版联机，说明 Steam 在联机时并不会验证账号是否拥有该游戏。包括 Steamtools 实现的家庭共享联机，也说明了 Steam 对于是否账号可以进行联机鉴权不足。但只要留有记录就有可能导致被封号，取决于 Steam 什么时候想管理盗版现象。</p>
+<p>反之，如果伪造一个 Steam 的服务器，并且替换游戏中的 Steam 相关的动态链接库，如 <code>steam_api.dll</code> ，游戏里所有对 Steam API 的调用被发送到假服务器上，返回一个假的结果。这种工具也已经有了，项目为 goldberg_emulator，简称 GBE。破解版的游戏通常会内置一个这样的虚拟 Steam 环境。</p>
+<h3>第三方厂商验证</h3>
+<p>很多大厂的游戏有自己的联机服务器和验证机制、不仅走 Steam API 的验证。这种也是可以通过虚拟环境破解，但没人做，除非专门对这个游戏的所有 API 做逆向。难度比逆向通用的 Steam API 高很多。</p>
+<h2>Steamtools 是什么</h2>
+<p>已知 Steamtools 主要是做 <strong>解锁</strong> 和 <strong>入库</strong>。对于会不会破解游戏，网上没有更多的信息。我也不想冒风险尝试使用它。</p>
+<p>根据官网的解释，Steamtools 可以离线运行（不如说破解游戏只能是离线运行），是提供了类似 GBE 的验证环境。有没有对 DRM 脱壳不清楚，但个人倾向于有，很多游戏都有 DRM 的保护，除了 SteamStub，还有其他的 DRM 验证方式，不脱壳玩不了。</p>
+<p>因此个人推测是，Steamtools 是集 <strong>解锁、下载、入库、破解、运行时验证</strong> 为一体的工具集。</p>
+<h2>SteamAutoCrack 是什么</h2>
+<p>只做 DRM 脱壳和 Steam API 验证。项目在 Github 上，破解后的游戏会运行在 GBE 的环境下。这种方式是完全离线运行的单机。</p>
+<h2>风险来源</h2>
+<p>完全脱离 Steam 运行没有风险，只要在线就可能有风险。</p>
+<p>假入库阶段的风险主要来自于入库工具对 Steam 请求拦截的覆盖程度不足。例如 Steam 版本更新了，使得 API 和下载流程有变化，而入库工具没有对其做处理，无法完全欺骗下载流程。网上看到假入库的人可能有囤积癖或者是打算做灰产，一次性入库了几十个游戏，直接导致被 SteamCDN 拉黑。</p>
+<p>运行时的风险也是来自于在线验证，如果是开着 Steam 玩的破解游戏，没有离线时甚至尝试联机，使得游玩信息发送到了 Steam 的服务器（比如不该有的存档、不该有的联机等等）。</p>
+<p>另外，入库工具会侵入式修改 Steam的客户端，直接打开 Steam 可能会有检测文件是否被修改。 Steamtools 提供了三种启动模式，可以随时恢复为原版 Steam 的运行。但淘宝卖的入库工具说不准是什么样的，当年骗我的店家那个用的是早期的 steamtools，使用店家的账号下载游戏后，使用 steamtools 离线运行（本来已经忘记了，努力想想竟然想得起来一点细节）。但现在的店家说不准是什么样的，在 B 站看到说有的是直接修改文件，从此都是盗版Steam 客户端，只能卸载重装。</p>
+<p>没有风险的方式：如果你有方式得到 Steam 正版的游戏文件，然后用 SteamAutoCrack 破解，能直接脱离 steam 运行则没有风险。</p>
+<p>对于更多的人而言，下载木马是最大的风险。</p>
+<h2>参考资料</h2>
+<ul>
+<li>bbs.steamtools论坛</li>
+<li>SteamManifestCache wiki</li>
+<li>SteamLess Readme</li>
+</ul>]]></content>
+        <category label="Diary"/>
+        <published>2025-04-21T19:59:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Windows11 右键菜单自定义 - NileSoft Shell]]></title>
         <id>https://sansui233.com/posts/2025-04-19-windows-context-menu</id>
@@ -884,116 +950,5 @@ fi<span class="hljs-meta prompt_">
 <p>发现我的语言完全丧失了中文原有的简洁性，Sad。</p>]]></content>
         <category label="乱七八糟的分享"/>
         <published>2023-12-29T22:09:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows 命令行相关配置]]></title>
-        <id>https://sansui233.com/posts/2023-11-29-windows-shell-configuration</id>
-        <link href="https://sansui233.com/posts/2023-11-29-windows-shell-configuration"/>
-        <updated>2023-11-29T04:07:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>常用 shell</h2>
-<p>一直以来 windows 的命令行方案都很多，个人感觉都有不太好用的点，怎么配置也是仁者见仁智者见智的一个事情。先总结一下常用shell 方案</p>
-<ul>
-<li><code>powershell</code> 官方shell，各种工具库支持最全，缺点自带的命令太长，以至于完全没有日常使用的想法。</li>
-<li><code>msys2</code> windows 上的类 unix 环境，基于现代 Cygwin (POSIX兼容层) 和 MinGW-w64（工具包）。确实像 unix，一般命令可以无缝迁移。缺点是兼容性，需要手动配置很多东西，比如是否继承 windows 环境变量，不继承的话不想维护两份环境，继承了又容易冲突。</li>
-<li><code>git bash</code> msys2 阉割版，无包管理，多了 git。</li>
-<li><code>wsl</code> 完全的 Linux 子系统，但太占内存。</li>
-</ul>
-<h2>方案选择</h2>
-<p>我需求</p>
-<ul>
-<li>常用命令必须是类 unix 命令</li>
-<li>有包管理器，各类命令行工具配置友好且兼容性不错。</li>
-<li>不要太占内存</li>
-</ul>
-<p>结果发现这就是经典的三圈相交，没有任何一个常用方案能满足以上要求。</p>
-<p>最后，我决定用 powershell。除了第一条外都满足。后面两条属于难以解决的硬伤，而第一条可以编写脚本，将常用的命令模拟。</p>
-<h3>powershell 配置流程</h3>
-<p>包含工具包、终端美化。</p>
-<ol>
-<li>Install the latest Powershell Core</li>
-<li>Install <a href="https://gitforwindows.org/">git-bash</a> for basic bash and git tools</li>
-<li>Install <a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=zh-cn&amp;gl=cn&amp;rtc=1">Windows Terminal</a> and open Powershell</li>
-<li>Install <a href="https://github.com/PowerShell/PSReadLine">PSReadLine</a></li>
-<li>Install <a href="https://github.com/dahlbyk/posh-git">posh-git</a></li>
-<li>Install <a href="https://ohmyposh.dev/">oh-my-posh</a> for showing extra info in term.</li>
-<li>Install <a href="https://github.com/gerardog/gsudo">gsudo</a> for softlink</li>
-<li>Install <a href="https://eza.rocks/">eza</a> for listing</li>
-<li>open <code>$PROFILE</code> in powershell, append the contents of <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a></li>
-</ol>
-<p>大致介绍一下用途。</p>
-<ul>
-<li>git-bash，一系列类 unix 工具，git 一类的</li>
-<li>Windows Terminal，微软的终端。我拒绝终端用 electron 去套的……</li>
-<li>PSReadLine，改变一系列 powershell 的行为。比如复制粘贴的快捷键。可惜在 vscode 里会没用，只能右键粘贴。</li>
-<li>posh-git，显示 git 的状态</li>
-<li>oh-my-posh，美化。具体主题可能需要会自己改一下，要么丑，要么不支持提示 conda 环境或者 npm 环境。</li>
-<li>gsudo，提权，类似 unix 的 sudo。可能运行时会被杀软报毒，需要加入信任区。</li>
-<li>eza，2024年了，终于有了一个像样的 ls 替代……</li>
-</ul>
-<p>powershell 的用户配置文件输入 <code>$PROFILE</code> 就能找到。</p>
-<p>我的配置文件上传到了 <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a>。需要挂代理打开。配置文件包含 <code>ls</code> <code>ln</code> <code>open</code> <code>grep</code> <code>which</code> 等命令模拟。powershell 的缩写默认支持了 <code>mv</code> <code>cat</code> <code>rm</code> 等命令，配合起来日常基本够用。</p>
-<h2>终端代理</h2>
-<p>我在配置文件中设置了<code>proxy</code>和<code>unproxy</code>函数，以快速设置与取消终端的代理连接。自己改下端口就能用。因为我自己习惯上不开系统代理，都是软件内的 http 连接。</p>
-<pre><code class="hljs language-powershell"># Proxy Togglers
-function proxy {
-	$portInUse = netstat -ano | findstr &quot;LISTENING&quot; | findstr &quot;7890&quot;
-	$portInUse2 = netstat -ano | findstr &quot;LISTENING&quot; | findstr &quot;10808&quot;
-	if ($portInUse -ne $null) {
-		$env:HTTP_PROXY = &quot;socks5://127.0.0.1:7890&quot;
-		$env:HTTPS_PROXY = &quot;socks5://127.0.0.1:7890&quot;
-		Write-Host &quot;Proxy set to socks port 7890&quot;
-	} elseif ($portInUse2 -ne $null) {
-		$env:HTTP_PROXY = &quot;socks5://127.0.0.1:10808&quot;
-		$env:HTTPS_PROXY = &quot;socks5://127.0.0.1:10808&quot;
-		Write-Host &quot;Proxy set to socks port 10808&quot;
-	} else {
-		$env:HTTP_PROXY = &quot;socks5://127.0.0.1:1080&quot;
-		$env:HTTPS_PROXY = &quot;socks5://127.0.0.1:1080&quot;
-		Write-Host &quot;Proxy set to socks port &quot;
-	}
-}
-function unproxy {
-	$env:HTTP_PROXY = &quot;&quot;
-	$env:HTTPS_PROXY = &quot;&quot;
-}
-</code></pre>
-<h2>其他常用工具</h2>
-<ul>
-<li>
-<p>winget：自带的包管理器，命令行工具都是这个装的。部分用的 scoop，非常少。还有的直接用的官网 setup。</p>
-</li>
-<li>
-<p>nvim：命令行编辑器，vim 的替代品。我用的是发行版 AstroNvim。之前也有自己折腾插件，太懒得维护了，算了。</p>
-</li>
-<li>
-<p>nodejs：JS 环境，nvim 的插件要用，开发也要用</p>
-</li>
-<li>
-<p>zoxide：快速跳转目录。最有用的功能没有之一。类似 unix 的 autojump</p>
-</li>
-<li>
-<p>Terminal-Icons：ls 命令加 icon，还能解决 ls 不高亮的问题。但是，颜色很丑。但是，我不也想再配置了，配置真的心好累。</p>
-</li>
-<li>
-<p>ripgrep：类似 grep 的用法。我在模拟 grep 命令时只是单纯替换成了 findstr，真的 grep 建议用 ripgrep (rg) 替代。nvim 的 telescope 一些插件也会用到。</p>
-</li>
-</ul>
-<p>安装脚本汇总：</p>
-<pre><code class="hljs language-powershell">winget install conda
-
-winget install neovim
-git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-
-winget install gerardog.gsudo
-winget install OpenJS.NodeJSLTS
-Install-Module -Name Terminal-Icons -Repository PSGallery; Import-Module -Name Terminal-Icons
-# z-jump
-winget install zoxide # z-jump, see https://github.com/ajeetdsouza/zoxide
-winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
-</code></pre>
-<h2>ZSH</h2>
-<p>有关 zsh 相关的配置，我放在了 <a href="https://sansui233.github.io/posts/windows-zsh-conf">Windows 命令行相关配置之 msys2+zsh+zi</a> 。</p>]]></content>
-        <category label="工具"/>
-        <published>2023-11-29T04:07:00.000Z</published>
     </entry>
 </feed>

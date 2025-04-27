@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 21 Apr 2025 20:22:12 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 27 Apr 2025 19:24:55 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -309,7 +309,10 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2025-01-05 08:53</guid>
             <pubDate>Sun, 05 Jan 2025 00:53:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2025-04-18 22:12:23</h2>
+            <content:encoded><![CDATA[<h2>2025-04-28 03:19:26</h2>
+<p>快乐不是来源于多能把东西做得多方便，而是来自于“居然这么东西还能这么做的”的好奇。</p>
+<p>换个人的话……快乐不是来源于东西本身有多美，而是来源于发现美的眼睛（好土）。</p>
+<h2>2025-04-18 22:12:23</h2>
 <p>本来想发长文那边，但最终还是太过于自我与情绪化了，也没了修改的力气，算了。</p>
 <hr/>
 <blockquote>
@@ -363,11 +366,7 @@
 <p>不看论文难受，看了更难受，想死。</p>
 <h2>2025-03-28 17:50:50</h2>
 <p>笑死我了，喜欢看吐槽写茴的 <a href="https://frostming.com/2025/singleton/">再也别问 Singleton 了好吗？ - Frost&#x27;s Blog</a>。但是在知道够多茴，有比较下才会感到写茴没必要，矛盾……</p>
-<p>我到今天也是比较喜欢 Go 的，整体的简洁避免了很多写茴，每一行的调用都是可预期的，没有魔法。好多几年前见室友看不懂 python 库里一个类的代码调用的哪，也没有注意到原来类像函数一样调用是很怪的，一查原来是 <code>__call__</code>……如果说一定要掌握很多深入的特性才能看懂库的执行逻辑，那就是魔法过多了，需要考一个 mastering python 资格证（某厂真有）</p>
-<h2>2025-03-27 21:13:05</h2>
-<p>看了 spark-tts，因为生成特别慢想看看改进空间。结果发现是把音频特征全塞到 Qwen 做 Tokenize，输出巨长的长度因此很慢。但如果输出的特征减少，要么架构会变复杂增加一些后处理，要么就是舍弃一些 performance……</p>
-<p>只要开始写论文，nami 就会对一切感兴趣，甚至其它领域论文……</p>
-<p>至于为什么看 TTS，因为晚上睡不了，在找听书的用的语音。然后就是，念咯噔 BL 文绝赞推荐 GPT-SoVITS 的流浪者微调语音当旁白……</p>]]></content:encoded>
+<p>我到今天也是比较喜欢 Go 的，整体的简洁避免了很多写茴，每一行的调用都是可预期的，没有魔法。好多几年前见室友看不懂 python 库里一个类的代码调用的哪，也没有注意到原来类像函数一样调用是很怪的，一查原来是 <code>__call__</code>……如果说一定要掌握很多深入的特性才能看懂库的执行逻辑，那就是魔法过多了，需要考一个 mastering python 资格证（某厂真有）</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>

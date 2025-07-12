@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-07-11T08:41:41.838Z</updated>
+    <updated>2025-07-12T05:30:51.252Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,119 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[踩了一圈 CSS 构建方案的坑]]></title>
+        <id>https://sansui233.com/posts/2025-07-12-compare-css-solutions</id>
+        <link href="https://sansui233.com/posts/2025-07-12-compare-css-solutions"/>
+        <updated>2025-07-12T12:49:00.000Z</updated>
+        <summary type="html"><![CDATA[前端代码中质量最薄弱的一环]]></summary>
+        <content type="html"><![CDATA[<p>css 的写法一直算比较混乱的。层叠的样式表与 DOM 结构的分离看似清晰，但也因此容易产生屎山，组合太自由，哪些选择器用了哪些选择器没用，共用的嵌套的，分离的。今天小编就带你一探究竟（……）</p>
+<h2>CSS类复用粒度</h2>
+<p>我自己把 css 选择器（类）的复用粒度分三个层级。</p>
+<h3>组件类</h3>
+<p>粒度最大的层级，通常按组件级别语义化。选择器一般是下面这些名字</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-class">.wrapper</span>
+<span class="hljs-selector-class">.container</span>
+<span class="hljs-selector-class">.list-item</span>
+</code></pre>
+<p>组件化的选择器下面通常有很多条的 css。</p>
+<h3>功能类</h3>
+<p>通常是共用的样式或状态，比如</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-class">.open</span>
+<span class="hljs-selector-class">.close</span>
+<span class="hljs-selector-class">.light</span>
+<span class="hljs-selector-class">.dark</span>
+<span class="hljs-selector-class">.glass-effect</span>
+</code></pre>
+<p>这个看起来好像和组件类不冲突，但硬说的话组件类其实应该是这样</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.open</span> { 此处将 <span class="hljs-selector-class">.open</span> 的所有样式全覆盖 }
+<span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.close</span> { 此处将 <span class="hljs-selector-class">.close</span> 的所有样式全覆盖 }
+<span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.light</span> { 此处将 <span class="hljs-selector-class">.light</span> 的所有样式全覆盖 }
+<span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.dark</span> { 此处将 <span class="hljs-selector-class">.dark</span> 的所有样式全覆盖 }
+</code></pre>
+<p>组件类的状态严格在组件的 scope 下。功能类则是可以不限 Scope 的复用。</p>
+<p>这 CSS 容易混乱的根源。在工程维护角度，功能类是最不敢乱动的类，不知道动了后哪里样式就会出问题。但在设计角度，用功能类复用一些状态又确实很方便，统一设计也好用。比如增加统一的圆角、描边、阴影样式。</p>
+<p>功能类的优缺点是一体两面——图像的只有主观的好看与否，没有客观的对错。</p>
+<h3>原子类</h3>
+<p>定义海量常用的基础样式类，在 class 上直接写类名就能获得对应效果。就是 tailwind css。</p>
+<p>原子类相较于功能类粒度更小，也不会轻易改动 css 属性。</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-class">.flex</span>
+<span class="hljs-selector-class">.col-1</span>
+<span class="hljs-selector-class">.text-sm</span>
+</code></pre>
+<h2>方案</h2>
+<p>通常来说，一个库的样式会着重在一个某一个粒度上。</p>
+<h3>原生 css</h3>
+<p>用原生 css 时通常会以 <strong>组件化</strong> 的粒度为主，带极少的功能类。现在配合 css 变量使用。早期的网页简单，一个 CSS 文件就能搞定全站，设计上并没有考虑项目变得越来越复杂后的实践。</p>
+<p><strong>优点</strong>：性能好，扁平的结构利好小项目。适合写研究新样式。</p>
+<p><strong>缺点</strong>：过于扁平，大量工程化后易屎山，存在样式与 DOM 分离带来的维护混乱。</p>
+<h3>SCSS</h3>
+<p>古法预处理器，可能多层嵌套 css，可组合。是 <strong>组件化</strong> 的粒度。在 CSS.module 出来前，用 SCSS 分割 Scope 挺好用。</p>
+<p><strong>优点</strong>：结构非常清晰</p>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>编译后的选择器很长一串，从浏览器渲染角度，匹配DOM是耗性能的</li>
+<li>难以应对复杂项目 DOM 结构的改变，需要考虑扁平化 + 命名，但这样做和原生 CSS 的维护体验也不相上下。</li>
+</ol>
+<h3>CSS Module</h3>
+<p>CSS Module 是完全 <strong>组件化</strong> 的粒度。相比起 SCSS 的样式与 DOM 分离，CSS Module 为组件内部样式耦合，组件间样式分离。</p>
+<p><strong>优点：</strong> 在组件粒度分割合理的情况下，清晰易维护。</p>
+<p><strong>缺点</strong>：依赖预构建，写类名写起来太磨叽了。整体我用得不多没法评价。</p>
+<h3>BootStrap</h3>
+<p><strong>组件化</strong> 为主，少量原子化修饰的预置样式库，拿来即用是不错的。早期 CSS 框架大多是指预制样式，和预构建的库有本质区别。</p>
+<h3>Tailwind css</h3>
+<p>完全原子化的神奇之库，通过编译可以有功能类和组件类。它更像是重新定义了 css 语法。</p>
+<p><strong>优点</strong></p>
+<ol>
+<li>灵活，快，好看</li>
+<li>工具链齐全，可以裁剪掉不用的原子类。</li>
+</ol>
+<p><strong>缺点</strong></p>
+<ol>
+<li>稍微要写复杂一点的样式，DOM 就会被一大堆 class 埋没。</li>
+<li>从浏览器渲染角度，匹配、合并大量 CSS 样式是需要更多性能开销的</li>
+<li>要做到同种样式的复用，必须组合原子类，变成功能类或组件类，否则维护起来相当麻烦。这似乎违背了用 tailwind css 的初衷，熟悉了 css 的不如直接自己用 css 手撮功能类和组件类。</li>
+<li>其实我是 tailwind 黑，嗯。但无法否认开发时确实很快很方便。</li>
+</ol>
+<h3>原生 css in js</h3>
+<p>指 JS Object 转译为 CSS。由于写起来太不像 CSS，复杂的功能写起来过于不直观 ，我直接 PASS。</p>
+<h3>Styled-components</h3>
+<p><strong>组件化</strong>的 CSS in JS 方案，写起来像 CSS 实际是 JS。支持客户端动态修改 CSS 具体属性（其他方案做状态改变主要依靠 selector 的匹配）</p>
+<p><strong>优点</strong>：</p>
+<p>灵活好拓展，比如主题管理不仅仅是颜色，还可以是图片资源一类的。</p>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>因为是 JS 转 CSS，服务器编译慢和客户端渲染慢得选一个</li>
+<li>React 的 useContext 要被废弃了，而 styled-components 严重依赖此 hook，导致进入了维护状态。JS 框架发展太快了。</li>
+</ol>
+<h3>Linaria</h3>
+<p>自定义 <strong>功能类</strong> 的 CSS in js 方案，同时也支持 <strong>组件化</strong> 写法</p>
+<p><strong>优点</strong>：</p>
+<p>是预构建方案，和原始的 CSS 写法和思路差不多。</p>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>组件化鸡肋， 功能类和组件化过于割裂，反而使得组件化样式管理困难（比如组件样式和自定义原子样式写两个地方，加上DOM 上写 classname，等于写个样式得看三个窗口）</li>
+<li>使用功能类有点像原子化，又完全不如 tailwind 已经给你预设好一堆东西的效率。写类名和 cssmodule 一样，太磨叽了</li>
+</ol>
+<p>总之有点四不像。</p>
+<h2>构建组建库</h2>
+<p>每一个 CSS 方案都有对应的构建组件库的实践。 <a href="https://github.com/shadcn-ui/ui">shadcn</a> 是基于 tailwind 构建组件库实践。</p>
+<h2>CSS 框架选择要素</h2>
+<ol>
+<li>样式复用</li>
+<li>样式组合</li>
+<li>动态样式</li>
+<li>主题切换</li>
+<li>代码提示</li>
+<li>自动裁剪</li>
+<li>随意重构</li>
+<li>渲染性能</li>
+<li>实践的统一性</li>
+</ol>
+<p>最重要的还是自己的需求。</p>]]></content>
+        <category label="学习"/>
+        <published>2025-07-12T12:49:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[碎碎念2025]]></title>
         <id>https://sansui233.com/memos?id=2025-07-10 16:20</id>
@@ -838,108 +951,5 @@ fi<span class="hljs-meta prompt_">
 <p>如果想让滚动的交互产生的动画不在主线程而在合成线程执行，需要强制 will-transform 分层</p>]]></content>
         <category label="学习"/>
         <published>2024-02-29T23:45:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[白嫖怪的经验]]></title>
-        <id>https://sansui233.com/posts/白嫖怪的经验</id>
-        <link href="https://sansui233.com/posts/白嫖怪的经验"/>
-        <updated>2023-12-29T22:09:00.000Z</updated>
-        <summary type="html"><![CDATA[降本增效？嗯？]]></summary>
-        <content type="html"><![CDATA[<p>作为一个合格的白嫖怪，列举一些个人用过的免费/低价云服务。</p>
-<blockquote>
-<p>注：不要滥用，白嫖在很多时候都是违反 TOS（服务条款）的。</p>
-</blockquote>
-<p>依据项目结构，主要分类为：</p>
-<ol>
-<li>免费域名购买</li>
-<li>静态前端托管</li>
-<li>api 服务托管</li>
-<li>数据库服务托管</li>
-<li>服务器购买</li>
-<li>GPU 平台（AI）</li>
-</ol>
-<h2>域名相关</h2>
-<p>由于国内存在对热门国外服务 ban 域名的情况，先持有个人域名是有必要的。有免费的，付费域名也不贵。但要注意国内域名要走备案，而备案又要求买国内的服务器，这不符合白嫖的认知。所以域名只看国外。</p>
-<h3><a href="https://www.freenom.com/">Freenom</a></h3>
-<p>可注册免费域名。1 个域名免费 1 年，续费要钱，1 年后想继续免费需要注册新域名。不适合长期持有。通常用于一些不想被人发现的临时服务。</p>
-<h3><a href="https://www.namecheap.com/">Namecheap</a></h3>
-<p>6 位纯数字 + xyz 域名，一年只要 1 刀，个人开发值得拥有。只要不抢热门，域名普遍不贵。</p>
-<h3><a href="https://cloudflare.com/">Cloudflare</a></h3>
-<p>著名的慈善 CDN 机构（不是）。在 CF 买域名要钱，但可以转入域名，并进行免费 DNS 解析，免费的防火墙和访问控制，免费的数据统计，免费的 SSL……</p>
-<p>我个人非常喜欢 CF 的 dashboard，很直接。对域名进行管理，从输入网址开始只需要点三步，登录（切页面）=&gt; 选域名 =&gt; 选功能，全程只切了两个页面。</p>
-<p>对比一下阿里云。点登录按钮（切页面）=&gt; 登录（切页面）=&gt; 点控制台（切页面）=&gt; 选域名控制台 =&gt; 选域名列表 =&gt; 选管理（切页面）。</p>
-<h2>静态资源托管</h2>
-<h3><a href="https://github.com">Github pages</a></h3>
-<p>静态网页托管。hexo + github pages。静态博客，经典搭配，原汁原味。</p>
-<p>不过被墙得厉害，即使没有墙，域名也被国内浏览器屏蔽。</p>
-<h3><a href="https://www.jsdelivr.com/">Jsdelivr</a></h3>
-<p>静态资源托管。Github 的加速网站。很多人拿来当图床。也容易被屏蔽。相当于把 github 当 cms 用，所以管理文件没有那么好用。</p>
-<p>如果是目的不是用于开发，是明确违反了 TOS 的，只是量小的话没有人管罢了。Github 本身也不是拿来存二进制的。</p>
-<h3><a href="https://vercel.com/">Vercel</a></h3>
-<p>静态网页托管（其实可以不静态）。特点是国内 ping 值低，自动绑免费的 SSL。不过有一段时间 vercel 的 ip 也是被墙了的。所有没有在国内备案的服务都不保证直连的可访问性，特别是在量比较大的情况下。</p>
-<h3>Cloudflare pages</h3>
-<p>静态前端页面部署，类似 Vercel，优点大概是比 vercel 更难被墙。</p>
-<h2>网盘，OSS</h2>
-<p>嗯……网盘的资源，怎么能不算资源呢？</p>
-<p>不过，要获取网盘资源的直链，至少要经过两层的 API，延迟相当高。而且国内的服务防滥用机制相当严格（国内带宽贵啊）</p>
-<p>但有一个好处……现在网盘普遍在卷内容管理系统 (CMS)，面向用户的产品，管理文件比 OSS 好用。主要稳定性在 API 上。</p>
-<h3><a href="https://alist.nn.ci/">Alist</a> 网盘列表程序</h3>
-<p>文档必看，这是一个集合了阿里云盘、百度网盘、Onedrive 等的网盘列表程序，利用各个网盘的 API，对各个网盘资源直接下载。看文档直接了解有什么服务可以白嫖，可以白嫖到什么程度。我在这照抄一下常用的不走服务器流量时的网盘：</p>
-<ol>
-<li>百度网盘：可直接下载 20M 以内的文件，限速。</li>
-<li>阿里云盘：可下载所有文件，分享的链接限速，自己的网盘不限速。</li>
-<li>Onedrive：可下载所有文件，不限速，但在国外。有 API 调用上限。</li>
-</ol>
-<p>当然，Alist 本身还是要有服务器的，但还有 paas 可以白嫖。</p>
-<h3><a href="https://www.backblaze.com/cloud-backup/personal">BackBlaze</a></h3>
-<p>对象存储，有一定的免费额度，cloudflare CDN 下行流量免费，可以说是个人白嫖图床最优选吧。知道这个是因为 rclone。</p>
-<h2>API 托管</h2>
-<p>主要列举 PaaS 平台。</p>
-<h3><a href="https://vercel.com/">Vercel</a></h3>
-<p>没错又是 Vercel。Vercel 还可以托管 Node.js 和 Python 脚本等等，拿来托管小的 API 服务是非常适合的。比如 <a href="https://waline.js.org/">Waline</a>。</p>
-<blockquote>
-<p>支持的语言：nodejs、php、python、ruby、go</p>
-</blockquote>
-<p>纯读取的 API 只用 Vercel 就可以了。如果需要上传下载动态内容，使用 Vercel + 任意数据库就可以，大部分网页应用的本质就是 CRUD。</p>
-<p>Vercel 的免费版 <a href="https://vercel.com/docs/limits/overview">有限制</a>，对于个人站点来讲绰绰有余的限制。付费不便宜。</p>
-<h3><a href="https://fly.io/">Fly.io</a></h3>
-<p>有很小的免费额度。曾经用过，长期无访问会休眠。休眠不删数据。</p>
-<h3>Heroku</h3>
-<p>曾经白嫖界的王者，现在没有免费的实例了，只有 Github 学生包还有免费。会休眠，据说现在会删数据。</p>
-<h3>国内平台边缘计算</h3>
-<p>阿里云函数计算，腾讯云函数计算，都不是很贵。用边缘函数当服务主要是麻烦在不同平台的适配上。还有，国内走公网流量计费，也不适合大带宽的服务。</p>
-<h2>数据库，BaaS</h2>
-<p>BaaS 这里主要是指是数据库加上部分的后端服务，比如以 restful api 的方式访问数据库，而不是对数据库服务建立连接后写 sql。Headless CMS 也是一种 BaaS。</p>
-<ol>
-<li><a href="https://leancloud.cn/pricing/">LeanCloud</a> 开发版有一点免费额度。</li>
-<li><a href="https://supabase.com/pricing">Supabase</a> 有 10G 免费额度。实例需要每周至少一触发，目前在用。知道的人不多，国内的薅羊毛大军没有进发到这。</li>
-<li><a href="https://firebase.google.cn/pricing?hl=zh-cn">Firabase</a> 有一点点免费额度。</li>
-</ol>
-<p>总体用得不多，可以看文章结尾的参考。</p>
-<h2>低价服务器</h2>
-<p>常逛 hostloc 会知道几个被大量滥用、不保证在线率、随时可能跑路的商家。主打一个买了买不了吃亏，买了买不了上当。个人用来做实验倒是挺适合吧，多买几个，白嫖一个靠谱的 API 重定向做一下负载均衡还算也 OK。</p>
-<ol>
-<li><a href="https://www.racknerd.com/">racknerd</a> 12 刀 1 年的小服务器，普遍 DC 02 机房三网直连。</li>
-<li><a href="https://virmach.com">virmach</a> 价格同上。有日本的机房，速度啥的挺好的。我是第一批迁过去的，传家宝系列，至今 10 刀一年。但发生过严重宕机，unavailable 了两天。</li>
-<li><a href="https://greencloudvps.com/">greencloud</a> 没用过，有一年独服很便宜倒是，记得一年才 22 刀。好像日本和 virmach 是一个机房，和 virmach 一起宕机。</li>
-</ol>
-<h2>AI 服务</h2>
-<ol>
-<li><a href="http://colab.google">Colab</a> github 很多项目在这白嫖 demo，跑跑小项目用可以，实例不保存环境，大模型启动很慢。可以充钱，充钱后可能抽到 A100（我抽到过 233）</li>
-<li><a href="https://www.autodl.com/">autodl</a> 收费但便宜，分钟级动态租用，环境给得非常方便，接入国内网盘符合国内环境，有时候要抢实例。</li>
-<li><a href="https://huggingface.co/">huggingface</a> 有免费的 cpu space，充钱用 gpu。</li>
-<li><a href="https://www.kaggle.com/">Kaggle</a> 有一点免费的 gpu 时间，体验用。</li>
-</ol>
-<h2>参考</h2>
-<ol>
-<li><a href="https://gist.github.com/imba-tjd/d73258f0817255dbe77d64d40d985e76">☁️ 一些免费的云资源</a></li>
-<li><a href="https://blog.lv5.moe/p/website-hosting-and-function-computing-service-selection">Cloudflare or Vercel——网站托管与函数计算服务选择</a></li>
-<li><a href="https://github.com/tzhangchi/awesome-free-saas">tzhangchi/awesome-free-saas: an awesome list of free SaaS (software as a service) for you.</a></li>
-<li><a href="https://ldo.one/post/backblaze-yes/">愉快的白嫖 Backblaze 的 10G 对象存储 - Hub | ldo.one</a></li>
-</ol>
-<hr/>
-<p>发现我的语言完全丧失了中文原有的简洁性，Sad。</p>]]></content>
-        <category label="乱七八糟的分享"/>
-        <published>2023-12-29T22:09:00.000Z</published>
     </entry>
 </feed>

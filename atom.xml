@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-07-24T13:36:55.246Z</updated>
+    <updated>2025-07-24T13:39:01.871Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -19,7 +19,7 @@
         <id>https://sansui233.com/posts/2025-07-24-embed-python-with-uv</id>
         <link href="https://sansui233.com/posts/2025-07-24-embed-python-with-uv"/>
         <updated>2025-07-24T20:12:00.000Z</updated>
-        <summary type="html"><![CDATA[沐神]]></summary>
+        <summary type="html"><![CDATA[沐神都解决不了的……]]></summary>
         <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/07/202507242029977.webp"/><h2>conda 的问题</h2>
 <p>Python 新项目使用 uv 管理容易，但是总是有一些老项目不用。 conda 包管理一直以来都是 AI 的标配。我用 python 99% 都是在扒别人代码运行。这就导致了我运行了多少个项目，就装了多少份 torch……硬盘再大也经不起十几次折腾。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2025/07/202507242029977.webp" alt="沐神都解决不了的"/></p>

@@ -4,12 +4,92 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 12 Jul 2025 05:30:51 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Jul 2025 13:36:55 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[uv 管理 conda 项目依赖]]></title>
+            <link>https://sansui233.com/posts/2025-07-24-embed-python-with-uv</link>
+            <guid>https://sansui233.com/posts/2025-07-24-embed-python-with-uv</guid>
+            <pubDate>Thu, 24 Jul 2025 20:12:00 GMT</pubDate>
+            <description><![CDATA[沐神]]></description>
+            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/07/202507242029977.webp"/><h2>conda 的问题</h2>
+<p>Python 新项目使用 uv 管理容易，但是总是有一些老项目不用。 conda 包管理一直以来都是 AI 的标配。我用 python 99% 都是在扒别人代码运行。这就导致了我运行了多少个项目，就装了多少份 torch……硬盘再大也经不起十几次折腾。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/07/202507242029977.webp" alt="沐神都解决不了的"/></p>
+<p>conda 的问题在于</p>
+<ol>
+<li>requirements.txt <strong>全手写</strong>！很多人可能忘更新配置，导致扒拉下来缺库运行不了，先解决一个小时的依赖问题再说。</li>
+<li>依赖和安装顺序强相关。比如项目需要更新的 numpy，但你可能要装个别的项目的库，然后 python 发了论文和仓库就跑的项目是很多的。安装一个旧项目导致之前安装 numpy 被卸载，然后整个项目就垮掉。这种情况相当之多，又解决两个小时的依赖问题。</li>
+<li>（至少我不愿意看到）电脑里十几个相同版本的 torch 和 cuda。当时的硬盘还只有 256G，多装几个 torch 无法接受，嗯……</li>
+</ol>
+<p>直到现在都还是这样的，大家主打一个能跑完实验就行。包的更新是激进的，包管理是落后的。在几年前有人说用 PDM，后面有 poetry。这两是不用再手写 <code>requirements.txt</code> 了，依赖也会自动 resolve 不会覆盖来覆盖去的了。但还是会装十几个 torch。直到 uv 开始用全硬链接包管理了。</p>
+<h2>uv 之于 conda 项目</h2>
+<p>uv 管理所有依赖按理说已经没什么问题。但实际情况是，很多项目还是在用 conda。除非哪天 torch 和 HF 都把 uv 设置为首推，否则就得一直与  conda 存在的问题战斗。</p>
+<h3>1. 不提供 venv 的项目</h3>
+<p>用于研究的项目一般都是不提供的打包好的环境的，主要是太大了，每个人设备情况也不一样。所以下载后第一件事是</p>
+<pre><code class="hljs language-sh">uv venv
+./.venv/Script/activate
+</code></pre>
+<p>如果这个项目不再更新了，或者是打算迁移到 uv，可以直接使用 uv 的方式管理依赖。uv 会自动维护 <code>pyproject.toml</code> 和 <code>uv.lock</code> 文件。</p>
+<pre><code>uv add -r requirements.in -c requirements.txt
+</code></pre>
+<p>如果这个项目，他还在更新，你时不时就得去拉一下分支。这时候最好用 <code>uv pip</code> 。至于依赖混乱问题，听天由命吧。<del>跑得起来就得了</del></p>
+<pre><code>uv pip install -r requirement.txt
+</code></pre>
+<h3>2. 提供 venv 的项目</h3>
+<p>提供 venv 的项目通常是给人用的，b 站的整合包一大堆。这种已经配好环境的项目也意味着你最好只用 pip。通常还是非常原始地调用 pip</p>
+<pre><code>./.venv/python -m pip install xxx
+</code></pre>
+<p>……等于说又开始了安装十几份 torch 的依赖管理模式。用 uv 是可以重复利用缓存的。这个时候 uv 的问题在于无法接管 python 环境，需要设置一下环境变量：</p>
+<pre><code class="hljs language-sh"><span class="hljs-built_in">export</span> UV_PYTHON=<span class="hljs-string">&quot;./.venv/python&quot;</span>
+uv pip list
+</code></pre>
+<p>然后就可以利用 uv 的缓存了。</p>
+<p>当然，依赖混乱问题使用 <code>uv pip</code> 是无法避免的。这对于发行版也是一种麻烦。因为发行版的环境全给你配好了，但有的项目设计了插件系统，插件系统又需要装插件的 requirement.txt，安一个许久没更新的插件让主项目废掉的情况也不是不可能……</p>
+<p>如果让插件作者指定的兼容版本？只靠规范做不到，必须像MC那样检查版本号，不更新版本号就不放行。这样就算不更新代码了，也得倒逼作者每个版本都进行一次（至少是与主项目的）依赖兼容性测试。</p>
+<p>我觉得以当前 python 的运行方式，不 lock 子依赖的版本，这个问题是没法解决的。</p>
+<h2>uv 管理 torch 下载源</h2>
+<p>通常而言，在不指定 index 时 uv add torch 是去 pypi 或清华镜像源找 CPU 版本。如果打算每个项目都采用一样的 torch 版本 和 cuda ——</p>
+<h3>uv 创建的新项目</h3>
+<p>共用的 <code>uv.toml</code> 指定下载源。</p>
+<p>Linux 在 <code>.config/uv/</code> 下，Windows 在 <code>%APPDATA%/uv/</code> 下。</p>
+<pre><code class="hljs language-toml"><span class="hljs-section">[[index]]</span>
+<span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/&quot;</span>
+<span class="hljs-attr">default</span> = <span class="hljs-literal">true</span>
+<span class="hljs-section">[[index]]</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>
+<span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://download.pytorch.org/whl/cu128&quot;</span>
+<span class="hljs-attr">explicit</span> = <span class="hljs-literal">true</span>
+</code></pre>
+<p>项目级别的 <code>pyproject.toml</code></p>
+<pre><code class="hljs language-toml"><span class="hljs-attr">dependencies</span> = [
+  <span class="hljs-string">&quot;torch==2.7.1&quot;</span>,
+  <span class="hljs-string">&quot;torchvision==0.22.1&quot;</span>,
+  <span class="hljs-string">&quot;torchaudio==2.7.1&quot;</span>,
+]
+
+<span class="hljs-section">[tool.uv.sources]</span>
+<span class="hljs-attr">torch</span> = [
+  { index = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>},
+]
+<span class="hljs-attr">torchvision</span> = [
+  { index = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>},
+]
+<span class="hljs-attr">torchaudio</span> = [
+  { index = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>},
+]
+</code></pre>
+<p>然后执行 <code>uv sync</code> 安装。</p>
+<h3>uv pip 管理老项目</h3>
+<p>直接指定命令行 的 <code>--index-url</code></p>
+<pre><code class="hljs language-shell">uv pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+</code></pre>
+<p>和用 pip 的方式差不多，区别是会硬链接到集中的缓存，不会重复占用十几份 torch。当然。该有的依赖冲突还是会有的。<del>关键是装好后就不要更新了</del></p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/学习">学习</category>
+        </item>
         <item>
             <title><![CDATA[踩了一圈 CSS 构建方案的坑]]></title>
             <link>https://sansui233.com/posts/2025-07-12-compare-css-solutions</link>
@@ -127,7 +207,9 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2025-07-10 16:20</guid>
             <pubDate>Thu, 10 Jul 2025 08:20:00 GMT</pubDate>
-            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/06/202506232219346.webp"/><h2>2025-07-10 05:03:50</h2>
+            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/06/202506232219346.webp"/><h2>2025-07-23 14:51:23</h2>
+<p><a href="https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-886489356">这个光标</a> 质量很不错，在<a href="https://zhutix.com/ico/windows-11-cursors-design/">致美化</a>上也能下载到。</p>
+<h2>2025-07-10 05:03:50</h2>
 <p>这是一篇日常的看电视、看剧、看游戏的生活记录。用时三小时二十分钟。</p>
 <p><strong>看电视</strong></p>
 <p>看了《歌手2025》，然后循环了好几天的李佳薇的天后。唱得感人肺腑，没有花里胡哨的表演，就是纯粹的好听且有感情。想想要是我还是14岁的话，大概不太会喜欢来这种老派唱法，当时太注重音色好听了。现在觉得，扎实的歌手真的厉害。</p>
@@ -174,9 +256,7 @@
 <h2>2025-06-20 17:47:21</h2>
 <p>看了眼新的 next.js，感觉真是啥方案都补全了……当时感觉 styled-component 的ssr 方案也是到处找不到，最后跑去个小仓库看怎么在 _document.js 里插 style。结果现在直接看到各个文档直接把相关写出来了……嗯……行吧……然后当时觉得一个页面一直在 pages和 components 之间切也是挺烦的，其实也根本不会复用 UI 组件，只是拆出去能好看点。现在一看可以写一个目录下了……嗯……行吧……省得找了。网页真是挺标准化的东西，游戏不太能……</p>
 <p>看了下 subgrid……很有用。之前首页grid 其实预想的设计是右下角放标签的，但最终放弃了放标签的想法，原因是标题和描述长度不同，导致每个 card 标签的高度不一致，反而乱乱的。如果想做到标签高度一致，只能固定每个卡片的各个部分高度，做不了响应式的高度。现在 subgrid 可以做这种二级对齐了。不过鉴于 subgrid 是一个很新的feature，css 没法 polyfill 还是不用的好……</p>
-<p>什么，已经3年了吗……确实不知道我在干什么，其实是看了很多 AI 相关的，但基本都是被要求重写创新点所以只是看论文，加上复现边边角角的论文其实是相当困难的事情。我当时一直讨厌跑别人的 python 的工程，主要因为包管理太狗屎了，几乎到毕业时，我都只有一个 256G 的 mac，对于空间要求非常抠。实验室的服务器没权限让人自己搭环境，也没有任何做工程的氛围，在入学时根本还没有跑过任何一个 ML 的 Hello world，完全不理解原理的时候，导师就在说代码就是重复造轮子，不要多花时间在这上面，只要读论文和写论文讲故事。那时候 ML 入门的东西还比较少，还在 tensorflow 占主流 pytorch 刚有苗头的时候，Seq2Seq 还能每年有很多论文，沐神也还没开始写书，感觉整个实验室的工程能力都极其烂……我到现在也不能理解为什么能有人在工程能力为0的情况下写论文，该说写吗，就是编吧，没有任何实践的证明靠几十篇 paper 延伸一个假想的算法，最后 code 一下说，我们的方法好，没有实践上的各种问题，没有因为缺乏实践踩坑效果不好而推翻整个前期方案的情况，只会有看起不太创新而推翻整个前期方案的情况。怎么可能那么顺利？不可能的啊！当然不是所有组都是这样的，但不合的组是真的吃屎而且不能中途退出……</p>
-<h2>2025-05-12 03:00:00</h2>
-<p>我觉得前端越来越无聊的原因是发现总在茴……感觉是自从开始卷设计之后写茴就快到头了。卷设计之前还在卷客户端，最早学的时候还是jQuery那确实不方便。后面出框架解决数据绑定算是真正的革新。但近几年好像都在卷设计，你要说框架没有更新吗也更新了，但是更新地好像你用之前的东西也没有什么不便，rsc 出来之前 next 的 ssr 不照样能做吗成本也差不多。用 swr ？无限列表不也是超老的思想吗，而且频繁取新数据这事就没什么好说的，重点是在于维持正确的 playceholder 和判定交互行为那一套，硬要解耦重点也是在交互埋点上吧，这个又是和业务强项关的……除数据绑定之外还解决了什么呢……还有什么八股总是问virtual node解决了什么问题，标准答案是可以端……我真的一脸懵逼，我请问呢，没有virtual node就不能全端通用吗？都是抽象层，不能全端通用难道不是看有没有人适配 native gui 吗……也就是 React 闲得拓展业务搞了个跨平台api维护。当然谷歌也闲直接跨平台重绘，直接调图形引擎属实老本行……虽然我更喜欢后者的做法，但商业上确实会偏向前者…感到更无聊了。</p>]]></content:encoded>
+<p>什么，已经3年了吗……确实不知道我在干什么，其实是看了很多 AI 相关的，但基本都是被要求重写创新点所以只是看论文，加上复现边边角角的论文其实是相当困难的事情。我当时一直讨厌跑别人的 python 的工程，主要因为包管理太狗屎了，几乎到毕业时，我都只有一个 256G 的 mac，对于空间要求非常抠。实验室的服务器没权限让人自己搭环境，也没有任何做工程的氛围，在入学时根本还没有跑过任何一个 ML 的 Hello world，完全不理解原理的时候，导师就在说代码就是重复造轮子，不要多花时间在这上面，只要读论文和写论文讲故事。那时候 ML 入门的东西还比较少，还在 tensorflow 占主流 pytorch 刚有苗头的时候，Seq2Seq 还能每年有很多论文，沐神也还没开始写书，感觉整个实验室的工程能力都极其烂……我到现在也不能理解为什么能有人在工程能力为0的情况下写论文，该说写吗，就是编吧，没有任何实践的证明靠几十篇 paper 延伸一个假想的算法，最后 code 一下说，我们的方法好，没有实践上的各种问题，没有因为缺乏实践踩坑效果不好而推翻整个前期方案的情况，只会有看起不太创新而推翻整个前期方案的情况。怎么可能那么顺利？不可能的啊！当然不是所有组都是这样的，但不合的组是真的吃屎而且不能中途退出……</p>]]></content:encoded>
             <category>Diary</category>
         </item>
         <item>
@@ -723,7 +803,7 @@
 <li>zi 的安装：<a href="https://wiki.zshell.dev/docs/getting_started/installation">https://wiki.zshell.dev/docs/getting_started/installation</a></li>
 </ul>
 <p>安装过程最好在 msys2 的 GUI 终端下进行，因为需要登录的默认目录是在 home 的当前用户下。但这里又有另一个问题 —— msys2 不带 git。如果系统有另外安装 git，想复用，可以 cmd 启动 zsh，不指定启动的目录，指定继承环境变量。</p>
-<pre><code class="hljs language-cmd">C:\\msys64\\msys2_shell.cmd -defterm -no-start -mingw64 -use-full-path -shell zsh
+<pre><code class="hljs language-cmd">C:\\msys64\\msys2_shell.cmd -defterm -no-start -ucrt64 -use-full-path -shell zsh
 </code></pre>
 <h3>zi 的配置与插件</h3>
 <p><a href="https://wiki.zshell.dev/docs/getting_started/installation">安装Wiki</a> 在不断更新，检查最新版的安装方法。</p>
@@ -765,9 +845,9 @@ zi light zdharma/fast-syntax-highlighting
 <h2>Windows Terminal 设置</h2>
 <p>在设置里改 json，加相应的 profile。可以使用 <code>-use-full-path</code> 继承 windows 系统的环境变量。</p>
 <pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;commandline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -here -no-start -mingw64 -use-full-path -shell zsh&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;commandline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -here -no-start -ucrt64 -use-full-path -shell zsh&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;guid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;{c420e0af-28d9-4742-a6b8-83d5fcf424e9}&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\mingw64.ico&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\ucrt64.ico&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;msys2 zsh&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;startingDirectory&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;%USERPROFILE%&quot;</span>
 <span class="hljs-punctuation">}</span>
@@ -776,8 +856,8 @@ zi light zdharma/fast-syntax-highlighting
 <pre><code class="hljs language-json"><span class="hljs-attr">&quot;terminal.integrated.profiles.windows&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">&quot;MSYS2 zsh&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
         <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\msys2_shell.cmd&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-defterm&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-here&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-no-start&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-mingw64&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-use-full-path&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-shell&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;zsh&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;MSYSTEM&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;MINGW64&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-defterm&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-here&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-no-start&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-ucrt64&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-use-full-path&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-shell&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;zsh&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;MSYSTEM&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UCRT64&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;overrideName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
     <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
@@ -786,7 +866,7 @@ zi light zdharma/fast-syntax-highlighting
 <p>Mintty 是 msys2 里默认的终端 GUI，默认 shell 是 bash。修改 <code>mingw64.ini</code> 为如下内容。</p>
 <pre><code>MSYS=winsymlinks:lnk
 MSYS2_PATH_TYPE=inherit
-MSYSTEM=MINGW64
+MSYSTEM=UCRT64
 SHELL=/usr/bin/zsh
 </code></pre>
 <h2>npm设置</h2>
@@ -814,129 +894,6 @@ fi<span class="hljs-meta prompt_">
 <p><a href="https://hustlei.github.io/2018/11/msys2-for-win.html#%E5%AE%89%E8%A3%85git%E5%92%8Cvim">msys2-for-win</a></p>
 <p><a href="https://sdl.moe/post/zsh-conf/">https://sdl.moe/post/zsh-conf/</a></p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
-        </item>
-        <item>
-            <title><![CDATA[笔记 - 像素的一生]]></title>
-            <link>https://sansui233.com/posts/2024-02-29_像素的一生</link>
-            <guid>https://sansui233.com/posts/2024-02-29_像素的一生</guid>
-            <pubDate>Thu, 29 Feb 2024 23:45:00 GMT</pubDate>
-            <description><![CDATA[浏览器渲染原理]]></description>
-            <content:encoded><![CDATA[<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342847.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342848.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342849.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342850.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342851.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342852.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342853.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342854.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342856.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342857.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342858.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342859.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342860.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342861.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342862.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342863.webp"/><link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342864.webp"/><p>内容来自于 2018 年谷歌的一个视频。原视频不长但内容很多，非常值得一看。Chrome 的渲染机制是在不断变化的。</p>
-<p>笔记原存于 Logseq，如果有类似于，“见CSS/图层”一类的语句，为笔记内超链接。相关概念需自行了解。</p>
-<p>📚 <strong>资料</strong></p>
-<ul>
-<li>
-<p><a href="https://www.bilibili.com/video/av35265997/?vd_source=a94b8ba67535fb1431364b8c5fac341d">b站视频 - 2018</a></p>
-</li>
-<li>
-<p><a href="https://docs.google.com/presentation/d/1boPxbgNrTU0ddsc144rcXayGA_WF53k96imRH8Mp34Y/edit?pli=1">英文slides</a></p>
-</li>
-<li>
-<p><a href="https://segmentfault.com/a/1190000020102554">思否文章</a></p>
-</li>
-</ul>
-<p><strong>渲染流程</strong>：web content → magic(rendering) → pixels</p>
-<h2>1. Web content</h2>
-<p>最常见的 HTML + CSS + Javascript API</p>
-<p>还有图片、视频、音频、web assembly、WebGL、Canvas、PDF等等</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342847.webp" alt="Web Content"/></p>
-<h2>2. 渲染</h2>
-<p>渲染是在一个 sandbox 进行的。渲染引擎 Blink 是渲染代码的一个子集。</p>
-<p>操作系统渲染 API：OpenGL，DirectX(Windows), vulkan。包含 textures shaders 等等。</p>
-<h3>2.1 渲染目标</h3>
-<ol>
-<li>
-<p>把 web content 渲染为 openGL 的调用</p>
-</li>
-<li>
-<p>为更新渲染建立起对应的数据结构</p>
-</li>
-</ol>
-<h3>2.2 基本渲染流程</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342848.webp" alt="渲染流程"/></p>
-<p>渲染流程太复杂，会被分为几个阶段进行数据结构的转换</p>
-<p>不是每一次更新渲染，都要走全部的流程。相关看 浏览器/渲染原理 中的回流与重绘。</p>
-<h4>HTML to DOM</h4>
-<p>解析 HTML 为 DOM 树。DOM树的作用有两个，一个表示文档结构，二是暴露 API 给 Javascript，由 V8 JS引擎进行 API 绑定。</p>
-<h4>CSS to ComputedStyle</h4>
-<p>CSS 转换为 StyleRule 集，每个 StyleRule 包含 CSSSelector 和 CSSPropertyValue。流程如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342849.webp" alt="css parser"/></p>
-<p>根据 css 样式规则，计算出每个 DOM 元素样式属性的最终值，存储于 <strong>ComputedStyle</strong> 对象模型中，是一个 style properties 与 values 的超大映射。这个过程被称为 Style Resolution。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342850.webp" alt="style resolution"/></p>
-<p><strong>ComputedStyle</strong> 对象已经暴露给了 JS。使用<code>getComputedStyle(element)[&#x27;padding-top&#x27;]</code>即可获取。在 Dev tools 的 Elements 中的 Computed 选项卡的值就是依据此 对象来的。</p>
-<h4>Layout Stage</h4>
-<p>例子：</p>
-<ul>
-<li>Web 最基础的 Block Flow 布局，需要计算出 Block 的 x、y、width、height。</li>
-<li>由于 Block 自适应高度，需要根据内容的尺寸，找到文字换行的地方，以计算每个 Block  的高度。</li>
-<li>每一个 Block 的矩形有多种边界（在CSS/盒模型中说得很清楚）。内容 overflow 时，需要计算两个矩形，一个是<strong>实际内容区域</strong>，一个是<strong>能显示出的内容的区域</strong>。如果内容可滚动，还要计算<strong>滚动边界</strong>和<strong>滚动条边界</strong>。</li>
-</ul>
-<p>Document 的根节点本身就是 overflow 且可滚动的。</p>
-<p>Layout Objects 也树结构存在，几乎与 DOM 是一对一，但并非总是如此。比如伪元素、浮动元素。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342851.webp" alt="layout"/></p>
-<p>在 style 计算后会构建一个没有填入任何数据的 <strong>Layout Tree</strong>。</p>
-<p><strong>更新布局</strong>的本质就是遍历 layout tree 并向里面填充所有数据。</p>
-<p>Slides里说目前没有把 Layout Stage 的输入输出区分开，但没细说，只是说下个版本会改。放个图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342852.webp" alt="Layout Stage NG"/></p>
-<h4>Paint to display item lists</h4>
-<p>做类似于在指定坐标内画一个红色的矩形这样的动作。代码结构上 ，是 LayoutObject 有一个 Paint 方法。去调用更底层的 Paint  API。</p>
-<p><strong>此阶段生成“作画步骤”，还没有真的画出像素</strong>。步骤是可以重放的。至于为什么这样做，之后再说（然而之后并没有说）。</p>
-<p>Paint 是从 z-index 最大到最小进行的，而不是 DOM 的前后顺序。而两个并列的层叠上下文时，后覆盖前。在一个 CSS/层叠上下文 内，按层叠上下文的堆叠规则绘制（z轴的层叠规则），如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342853.webp" alt="image.png"/></p>
-<h4>Rasterization 栅格化</h4>
-<p>将 Display Item（位于 CC Layer 中，之后说）中记录的 Paint 操作转化为<strong>位图</strong>(bitmap)。</p>
-<p>raster bitmap 通常保存于 GPU 内存中，被 <strong>OpenGL Texture Object</strong> 引用。GPU 不仅可以保存 bitmap，也可以生成 bitmap。叫 <strong>accelerated rasterization</strong>。</p>
-<p><strong>此时像素纹理已经生成到内存，但还是没有画到屏幕上。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342854.webp" alt="Rasterization"/></p>
-<p>栅格化通过 <strong>SKIA 库</strong>生成对 <strong>OpenGL</strong> 的调用。SKIA 提供了一系列对硬件的抽象。具体而言，PaintOps 会调用 SKIA 中的 SkCanvas 对象。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342856.webp" alt="SKIA"/></p>
-<p>由于渲染过程是在 sandbox 进行的， 不能产生系统调用，OpenGL 调用是通过 command buffer 塞进另一个进程 <strong>GPU Process</strong> 执行的。GPU Process 接受到绘制命令后通过 GL API 去产生真正的 GL 调用。</p>
-<p>使用 GPU process 隔离渲染进程除了渲染进程有沙盒机制外，OpenGL 可能也不太稳定或者是有漏洞。GPU Process 可以做一些保护措施。</p>
-<p>GL API 来源于系统动态库 <code>libGLESv2.so</code>。但是 windows 中来自于 Google 的 ANGLE 库 <code>libglesv2.dll</code>，因为 Windows 上渲染不是用的 OpenGL，而是 DirectX API。ANGLE 库可以翻译 OpenGL 调用为 DirectX 调用。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342857.webp" alt="GL API"/></p>
-<h2>3. 图层合成</h2>
-<h3>3.1 帧与动画</h3>
-<p>每一帧是当前 Web 内容的完整呈现。</p>
-<p>动画是连续的帧。针对第一部分提到的 style、layout、paint、raster，浏览器都做了跟踪失效的处理，只重绘改变的部分，其他部分复用。</p>
-<h3>3.2 合成线程</h3>
-<p>一个单独的渲染线程，减少 JS 主线程的其他操作和渲染之间 block。</p>
-<p><strong>图层</strong>给合成线程渲染。比如 video 和 gif 在单独的图层，还有 transform3D, will-change 等 css 属性也会新建图层进行处理。</p>
-<p>合成线程也需要处理交互。能处理的先合成线程处理（比如滚动），处理不了的就进主线程。</p>
-<p><strong>Layer Tree</strong>（CC Layer Tree）</p>
-<p>图层也是以树结构存在，前序遍历。</p>
-<p>有的图层的存在不是绘制，而是图层效果，比如剪贴蒙版、滤镜。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342858.webp" alt="layer tree"/></p>
-<p>图层的合成位于 CC (Chronium compositor) namspace, 所以代码里有很多 <code>cc::layer</code>。</p>
-<p>如果一个 Layout Object 没有指定单独的 layer(比如没有 will-change 属性)，就会被绘制到父 layer 的图层。</p>
-<p>Paint Layer 是要被分到 CC LayerTree 的。这就是CSS/层叠上下文与CSS/图层之间的关系。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342859.webp" alt="image.png"/></p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342860.webp" alt="paint layer map"/></p>
-<h3>3.3 compositioning update</h3>
-<p>在上一章的流程中，没有讲到合成这步，实际要加上。因为合成不是必须的，但合成步骤能优化渲染。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342861.webp" alt="更新合成"/></p>
-<p>未来，创建图层的工作会放到 paint 之后（slimming paint）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342862.webp" alt="commit"/></p>
-<p><strong>commit</strong></p>
-<p>提交一次合成。这里合成线程与主线程都存在 layer tree，需要同步合成线程与主线程的状态。</p>
-<h3>3.4 Tilling</h3>
-<p>在 rastering 阶段，把 CC layer 分块成 tile。</p>
-<p><strong>tile 是 raster 的最小单位</strong>，在专门的 <strong>raster 线程</strong> 进行栅格化。</p>
-<p>合成线程有一个 <strong>tile manager</strong> 安排 tile 优先级。</p>
-<p>不同分辨率的 tile 策略是不同的。</p>
-<h3>3.5 Drawing</h3>
-<p>不同 tile 合成为 <strong>Quad</strong>。Quad 引用内存中的 raster output，封装在合成进程中，再提交到浏览器进程。浏览器动画帧的<strong>帧</strong>概念就是 Quad。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342863.webp" alt="Quad"/></p>
-<p>不同 commit 有先后顺序，需要从 pending <strong>激活</strong>再绘制。</p>
-<h3>3.6 Display</h3>
-<p>浏览器进程将 Quad 展示到屏幕上的过程。位于 Viz 组件中，调用 OpenGL 绘制 GPU 进程中的 Quad 资源，和 rastering 的 GL call 一样。</p>
-<p>大部分平台的显示合成输出是双倍缓冲（有过游戏画面撕裂经验的应该对这有概念），quad 是在后台缓冲器（GPU的还是Viz？）中绘制的，用 swap 命令让后台的 quad 到前台展示。</p>
-<h2>4. 总结</h2>
-<p>Blink 引擎严格执行了主线程的步骤。但由于要实现 Web 平台化，是有一些合成线程的权限的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202402292342864.webp" alt="总结"/></p>
-<h2>其他</h2>
-<p>渲染器和浏览器都用到了 GPU，都有向GPU进程的IPC通道。</p>
-<p>如果想让滚动的交互产生的动画不在主线程而在合成线程执行，需要强制 will-transform 分层</p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/学习">学习</category>
         </item>
     </channel>
 </rss>

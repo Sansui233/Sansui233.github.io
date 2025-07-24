@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 24 Jul 2025 13:39:01 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Jul 2025 13:40:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -22,12 +22,12 @@
 <p>conda 的问题在于</p>
 <ol>
 <li>requirements.txt <strong>全手写</strong>！很多人可能忘更新配置，导致扒拉下来缺库运行不了，先解决一个小时的依赖问题再说。</li>
-<li>依赖和安装顺序强相关。比如项目需要更新的 numpy，但你可能要装个别的项目的库，然后 python 发了论文和仓库就跑的项目是很多的。安装一个旧项目导致之前安装 numpy 被卸载，然后整个项目就垮掉。这种情况相当之多，又解决两个小时的依赖问题。</li>
+<li>依赖和安装顺序强相关。比如项目需要更新的 numpy，但你可能要装个别的项目的库，python 发了论文和仓库就跑的项目是很多的。安装一个旧项目导致之前安装 numpy 被卸载，然后整个项目就垮掉。这种情况相当之多，又解决两个小时的依赖问题。</li>
 <li>（至少我不愿意看到）电脑里十几个相同版本的 torch 和 cuda。当时的硬盘还只有 256G，多装几个 torch 无法接受，嗯……</li>
 </ol>
-<p>直到现在都还是这样的，大家主打一个能跑完实验就行。包的更新是激进的，包管理是落后的。在几年前有人说用 PDM，后面有 poetry。这两是不用再手写 <code>requirements.txt</code> 了，依赖也会自动 resolve 不会覆盖来覆盖去的了。但还是会装十几个 torch。直到 uv 开始用全硬链接包管理了。</p>
+<p>直到现在都还是这样的，大家主打一个能跑完实验就行。包的更新是激进的，包管理是落后的。在几年前有人说用 PDM，后面有 poetry。这两是不用再手写 <code>requirements.txt</code> 了，依赖也会自动 resolve 不会覆盖来覆盖去的了。但还是会装十几个 torch。直到 uv 开始用硬链接进行包管理。</p>
 <h2>uv 之于 conda 项目</h2>
-<p>uv 管理所有依赖按理说已经没什么问题。但实际情况是，很多项目还是在用 conda。除非哪天 torch 和 HF 都把 uv 设置为首推，否则就得一直与  conda 存在的问题战斗。</p>
+<p>uv 接管 python 界的依赖管理按理说已经没什么问题。但实际情况是，很多项目还是在用 conda。除非哪天 torch 和 HF 都把 uv 设置为首推，否则就得一直与  conda 存在的问题战斗。</p>
 <h3>1. 不提供 venv 的项目</h3>
 <p>用于研究的项目一般都是不提供的打包好的环境的，主要是太大了，每个人设备情况也不一样。所以下载后第一件事是</p>
 <pre><code class="hljs language-sh">uv venv

@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 26 Jul 2025 18:29:40 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 26 Jul 2025 20:01:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -148,8 +148,16 @@ uv pip list
 <p>CSS Module 是完全 <strong>组件化</strong> 的粒度。相比起 SCSS 的样式与 DOM 分离，CSS Module 为组件内部样式耦合，组件间样式分离。</p>
 <p><strong>优点：</strong> 在组件粒度分割合理的情况下，清晰易维护。</p>
 <p><strong>缺点</strong>：依赖预构建，写类名写起来太磨叽了。整体我用得不多没法评价。</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Button</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{styles.button}</span>&gt;</span>
+      Click me
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+  );
+};
+</code></pre>
 <h3>BootStrap</h3>
-<p><strong>组件化</strong> 为主，少量原子化修饰的预置样式库，拿来即用是不错的。早期 CSS 框架大多是指预制样式，和预构建的库有本质区别。</p>
+<p><strong>组件化</strong> 为主，少量原子化修饰的预制样式库，拿来即用是不错的。早期 CSS 框架大多是指预制样式，和预构建的库有本质区别。</p>
 <h3>Tailwind css</h3>
 <p>完全原子化的神奇之库，通过编译可以有功能类和组件类。它更像是重新定义了 css 语法。</p>
 <p><strong>优点</strong></p>
@@ -164,8 +172,42 @@ uv pip list
 <li>要做到同种样式的复用，必须组合原子类，变成功能类或组件类，否则维护起来相当麻烦。这似乎违背了用 tailwind css 的初衷，熟悉了 css 的不如直接自己用 css 手撮功能类和组件类。</li>
 <li>其实我是 tailwind 黑，嗯。但无法否认开发时确实很快很方便。</li>
 </ol>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Card</span>(<span class="hljs-params">{ title, description, imageUrl, imageAlt }</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;max-w-sm rounded overflow-hidden shadow-lg&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;w-full&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{imageUrl}</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">{imageAlt}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;px-6 py-4&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-xl mb-2&quot;</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;text-gray-700 text-base&quot;</span>&gt;</span>{description}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;px-6 pt-4 pb-2&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2&quot;</span>&gt;</span>#photography<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2&quot;</span>&gt;</span>#travel<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2&quot;</span>&gt;</span>#adventure<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
 <h3>原生 css in js</h3>
 <p>指 JS Object 转译为 CSS。由于写起来太不像 CSS，复杂的功能写起来过于不直观 ，我直接 PASS。</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">InlineStyleExample</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> myStyle = {
+    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;blue&#x27;</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;lightgray&#x27;</span>,
+    <span class="hljs-attr">padding</span>: <span class="hljs-string">&#x27;10px&#x27;</span>,
+    <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">&#x27;5px&#x27;</span>
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{myStyle}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">fontSize:</span> &#x27;<span class="hljs-attr">18px</span>&#x27;, <span class="hljs-attr">fontWeight:</span> &#x27;<span class="hljs-attr">bold</span>&#x27; }}&gt;</span>
+        This text is styled with inline CSS.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+};
+</code></pre>
 <h3>Styled-components</h3>
 <p><strong>组件化</strong>的 CSS in JS 方案，写起来像 CSS 实际是 JS。支持客户端动态修改 CSS 具体属性（其他方案做状态改变主要依靠 selector 的匹配）</p>
 <p><strong>优点</strong>：</p>
@@ -175,16 +217,85 @@ uv pip list
 <li>因为是 JS 转 CSS，服务器编译慢和客户端渲染慢得选一个</li>
 <li>React 的 useContext 要被废弃了，而 styled-components 严重依赖此 hook，导致进入了维护状态。JS 框架发展太快了。</li>
 </ol>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;styled-components&#x27;</span>;
+
+<span class="hljs-comment">// Create a styled button component</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">StyledButton</span> = styled.<span class="hljs-property">button</span><span class="hljs-string">`
+  background-color: blue;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  &amp;:hover {
+    background-color: darkblue;
+  }
+`</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">StyledButton</span>&gt;</span>Click Me<span class="hljs-tag">&lt;/<span class="hljs-name">StyledButton</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
 <h3>Linaria</h3>
-<p>自定义 <strong>功能类</strong> 的 CSS in js 方案，同时也支持 <strong>组件化</strong> 写法</p>
+<p>自定义 <strong>功能类</strong> 的 CSS in js 方案，同时也支持 <strong>组件化</strong> 写法。生成的是完全静态的 css，样式值的复用靠变量，片段的复用靠 <code>css</code> 生成的类。</p>
 <p><strong>优点</strong>：</p>
-<p>是预构建方案，和原始的 CSS 写法和思路差不多。</p>
+<p>是预构建方案，在服务端渲染。和原始的 CSS 写法和思路差不多。</p>
 <p><strong>缺点</strong>：</p>
 <ol>
-<li>组件化鸡肋， 功能类和组件化过于割裂，反而使得组件化样式管理困难（比如组件样式和自定义原子样式写两个地方，加上DOM 上写 classname，等于写个样式得看三个窗口）</li>
-<li>使用功能类有点像原子化，又完全不如 tailwind 已经给你预设好一堆东西的效率。写类名和 cssmodule 一样，太磨叽了</li>
+<li>
+<p>值复用靠变量，但是由于是 <strong>静态 css</strong>，这个并不会变。所以变量插值<strong>其实是常量</strong>。比如下面的 font-size 并不会变化。</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> fontSize = <span class="hljs-number">16</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Title</span> = styled.<span class="hljs-property">h1</span><span class="hljs-string">`
+  font-size: <span class="hljs-subst">${fontSize}</span>px;
+`</span>
+</code></pre>
+<p>也就是说，你如果想在客户端随意改变字体，用 context/zustand 这种 runtime 的 fontSize，这样写报错。不过，Linaria 允许你借助 react 的 props 来实现客户端的值变化。</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Title</span> = styled.<span class="hljs-property">h1</span><span class="hljs-string">`
+  font-size: <span class="hljs-subst">${props =&gt; props.size}</span>px;
+`</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">MyComponent</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> fontSize = <span class="hljs-title function_">useAppStore</span>(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state.<span class="hljs-property">fontSize</span>)
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Title</span> <span class="hljs-attr">fontSize</span>=<span class="hljs-string">{fontSize}</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span></span>
+}
+</code></pre>
+<p>相当于生成</p>
+<pre><code class="hljs language-jsx">&lt;h1
+  className=<span class="hljs-string">&quot;_title_xyz&quot;</span>
+  style={{ <span class="hljs-string">&#x27;--linaria-font-size&#x27;</span>: <span class="hljs-string">`<span class="hljs-subst">${size}</span>px`</span> }}
+&gt;
+</code></pre>
+<p>那这和 styled-components 写起来已经差不多了。而且要做主题化的值都得用快要废弃的 <code>useContext</code> API。只不过 linaria 改的 style 属性，styled 是改的 css  API。改 style 属性其实已经不能算静态了。</p>
+</li>
+<li>
+<p>组件间的<strong>样式复用方案</strong>只有原生的 CSS 方案，上述的奇妙客户端插值做不了这个需求。如果你要做一个主题化的 <code>css</code> 类，比如对话框的卡片阴影，只能使用原生 css 类中加原生 css 变量。上述动态改变样式的因为依赖 props，<code>css</code> 对象的生成只能写到组件内部，无法在组件之间共享。这也是为什么我说 Linaria 是原生 css 的替代，而不是 styled-components 的替代，构建方式就决定他们差得太了远。</p>
+</li>
+<li>
+<p>基于2，导致你写组件又要检查 <code>styled</code> 又要确认 <code>css</code> 类又要检查 JSX classname 的顺序。如果用组件继承会被迫连 DOM 类型都继承。</p>
+</li>
+<li>
+<p>使用功能类有点像原子化，又完全不如 tailwind 已经给你预设好一堆东西的效率。写类名和 cssmodule 一样，太磨叽了</p>
+</li>
 </ol>
-<p>总之有点四不像。</p>
+<p>我博客本想迁移至此方案，但由于工作量实在巨大而放弃。linaria 主要还是解决了个命名空间冲突的问题，想用得更深入一点就会四不像。</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">import</span> { css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@linaria/core&#x27;</span>;
+
+<span class="hljs-keyword">const</span> eleStyle = css`<span class="css">
+  <span class="hljs-attribute">color</span>: red;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">3rem</span>;
+  &amp;<span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-attribute">color</span>: blue;
+  }
+`</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{eleStyle}</span>&gt;</span>Hello Linaria!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">App</span>;
+</code></pre>
 <h2>构建组建库</h2>
 <p>每一个 CSS 方案都有对应的构建组件库的实践。 <a href="https://github.com/shadcn-ui/ui">shadcn</a> 是基于 tailwind 构建组件库实践。</p>
 <h2>CSS 框架选择要素</h2>

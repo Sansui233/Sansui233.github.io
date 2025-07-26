@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 26 Jul 2025 20:01:05 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 26 Jul 2025 20:07:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -252,7 +252,7 @@ uv pip list
   font-size: <span class="hljs-subst">${fontSize}</span>px;
 `</span>
 </code></pre>
-<p>也就是说，你如果想在客户端随意改变字体，用 context/zustand 这种 runtime 的 fontSize，这样写报错。不过，Linaria 允许你借助 react 的 props 来实现客户端的值变化。</p>
+<p>也就是说，你如果想在客户端随意改变字体，用 context/zustand 这种 runtime 的 fontSize，这样写报错。不过，Linaria 允许你借助 react 的 props 和 <code>styled</code> 组件来实现客户端的值变化。</p>
 <pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Title</span> = styled.<span class="hljs-property">h1</span><span class="hljs-string">`
   font-size: <span class="hljs-subst">${props =&gt; props.size}</span>px;
 `</span>
@@ -270,7 +270,7 @@ uv pip list
 <p>那这和 styled-components 写起来已经差不多了。而且要做主题化的值都得用快要废弃的 <code>useContext</code> API。只不过 linaria 改的 style 属性，styled 是改的 css  API。改 style 属性其实已经不能算静态了。</p>
 </li>
 <li>
-<p>组件间的<strong>样式复用方案</strong>只有原生的 CSS 方案，上述的奇妙客户端插值做不了这个需求。如果你要做一个主题化的 <code>css</code> 类，比如对话框的卡片阴影，只能使用原生 css 类中加原生 css 变量。上述动态改变样式的因为依赖 props，<code>css</code> 对象的生成只能写到组件内部，无法在组件之间共享。这也是为什么我说 Linaria 是原生 css 的替代，而不是 styled-components 的替代，构建方式就决定他们差得太了远。</p>
+<p>组件间的<strong>样式复用方案</strong>只有原生的 CSS 方案，上述的奇妙客户端插值做不了这个需求。假设，你要做一个主题化的对话框的卡片阴影，只能使用原生 css 类中加原生 css 变量。上述动态改变样式的因为依赖 props，只能使用 <code>styled</code> 的写法，但这样就会把 html 标签了也继承了，不同的样式也无法随意组合。这也是为什么我说 Linaria 是原生 css 的替代，而不是 styled-components 的替代，构建方式就决定他们差得太了远。</p>
 </li>
 <li>
 <p>基于2，导致你写组件又要检查 <code>styled</code> 又要确认 <code>css</code> 类又要检查 JSX classname 的顺序。如果用组件继承会被迫连 DOM 类型都继承。</p>

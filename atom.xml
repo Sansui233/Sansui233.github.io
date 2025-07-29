@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-07-26T20:07:00.888Z</updated>
+    <updated>2025-07-29T23:25:20.469Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -88,8 +88,8 @@ uv pip list
 </code></pre>
 <p>然后执行 <code>uv sync</code> 安装。</p>
 <h3>uv pip 管理老项目</h3>
-<p>直接指定命令行 的 <code>--index-url</code></p>
-<pre><code class="hljs language-shell">uv pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+<p>直接指定命令行 的 <code>--index-url</code> 和 <code>--torch-backend</code></p>
+<pre><code class="hljs language-shell">uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126 --torch-backend=cu126
 </code></pre>
 <p>和用 pip 的方式差不多，区别是会硬链接到集中的缓存，不会重复占用十几份 torch。当然。该有的依赖冲突还是会有的。<del>关键是装好后就不要更新了</del></p>]]></content>
         <category label="学习"/>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-07-29T23:25:20.469Z</updated>
+    <updated>2025-07-30T19:05:44.953Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -324,7 +324,10 @@ uv pip list
         <id>https://sansui233.com/memos?id=2025-07-10 16:20</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2025-07-10T08:20:00.000Z</updated>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/06/202506232219346.webp"/><h2>2025-07-25 00:48:53</h2>
+        <content type="html"><![CDATA[<h2>2025-07-31 02:40:38</h2>
+<p><span class="tag">#字体 </span>IBM Plex Mono 也好看诶。IBM Ples Sans 本来就够好看了。</p>
+<p>另外这个 Overview <a href="https://marketplace.visualstudio.com/items?itemName=ARRRRNY.zed-one-theme">ZED One Theme - Visual Studio Marketplace</a> 写得太抽象了，草，没见过这么好笑的。</p>
+<h2>2025-07-25 00:48:53</h2>
 <p>#动画</p>
 <p><strong>灵笼</strong>：6分。看了一下第一季，不是很喜欢，再看时发现之前姐给我看过三集。一是画风，我不太理解为什么 3D 怪兽设计都爱长得和侏罗纪再现一样再加上器官质感（早年CG角色设计书也是这么讲生物拼接，实在喜欢不起来），二是开头就全是大场面特效动作戏不走剧情，后面马克的剧情推起来还行，虽然还是俗了点，几个角色的性格和剧情都很重的商业套路化的，有点腻。</p>
 <p><strong>罗小黑战记2</strong>：9分。看完把1和tv又看了一遍。罗小黑还是太正常了，好久没见过动画角色的性格这么像普通生活中的正常人的了，没有吵架没有咯噔的很舒服的成年人卡通动画。然后打戏很爽很精彩，拆飞机那场戏惊到我了。笑点还是很足，维持着冷幽默的风格。剧情上相比1是要稍微弱一些的，但有的地方还是真的很好笑。</p>
@@ -374,10 +377,7 @@ uv pip list
 <p>说起来为什么会有老说不的习惯，因为一直以来我说不都是没用的，比如不想吃这么多饭，不想打半个小时电话。当然说是没用的，我计时说只有一分钟也没用，所以最近才直接挂电话拒绝情感索取……总之我已经被这种情感索取消耗掉了所有可能培养 Fe 的可能性。</p>
 <p>再说到，捞女游戏出来时，我没有觉得这游戏有什么过分的，讽刺这类群体没什么不好，有这类想法的人我不敢说有多少，但身边统计学有人是这样的，就会感觉这样的人并不少，至少比死宅二次元多……当然说可以成是利益导向，我并不觉得利益导向有问题，只是维持家庭到后期的需要是责任感，因利益结婚的人也可以有责任感，只是捞一把的人大概是不会想负责任的没得捞就跑了。</p>
 <p>感觉最近一年看了实在太多乱七八糟的东西，然后记忆力更差了……与其说差其实也是不用的就会渐渐忘掉。表达能力也下降地很厉害，东一句西一句。还是要尝试去体系化地表达同一个主题不要太跳脱。那首先要少写 meme……</p>
-<p>雀</p>
-<h2>2025-06-23 22:14:04</h2>
-<p>60天的速写牢嗯嗯。我觉得画画和写代码真的是不太能同时做到的事情，状态比较冲突。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/06/202506232219346.webp" alt="60天速写"/></p>]]></content>
+<p>雀</p>]]></content>
         <category label="Diary"/>
         <published>2025-07-10T08:20:00.000Z</published>
     </entry>

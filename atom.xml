@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-08-07T19:57:57.852Z</updated>
+    <updated>2025-08-07T20:25:40.762Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -325,10 +325,12 @@ uv pip list
         <link href="https://sansui233.com/memos"/>
         <updated>2025-07-10T08:20:00.000Z</updated>
         <content type="html"><![CDATA[<h2>2025-08-08 03:48:28</h2>
+<p><a href="https://www.nytimes.com/2025/07/18/opinion/ai-chatgpt-school.html#">Opinion | I Teach Creative Writing. This Is What A.I. Is Doing to Students. - The New York Times</a></p>
+<p>💬 浪漫的是人类本身，雀之前真的把 AI 当人聊天，惊异于AI的回复，久了也失望于AI的回复。而我，以上都没有，只会从各种话语的间隙感受到这个是基于注意力机制的概率模型。注意力机制的理念几乎可以等同于人在 Ne-Ti 维度上的思考方式了，算法架构可以算做一种 DNA，但还是没有人味，因为没有人类在其他维度的数值是 0。</p>
 <p><a href="https://onevcat.com/2025/08/claude-code/">一个半月高强度 Claude Code 使用后感受 | OneV&#x27;s Den</a></p>
-<p>我自己觉得：</p>
+<p>💬 我自己觉得</p>
 <ul>
-<li>前端代码质量比较高。写流行程度中等以下的技术栈=垃圾</li>
+<li>前端代码质量算能用。流行程度在中等以下的技术栈=垃圾堆，对不了一点</li>
 <li>必须参考AI自己分析的架构文件，人为重构修改了必须重新分析，否则垃圾。这会导致极其消耗 prompt。贵不奇怪。</li>
 <li>我一直觉得模型真的要用得做好持续学习（Continue Learning），而不是当前训练好一个大模型，让做应用的靠超长上下文 predict。当然，如果上下文能无限长还让推理保持同样的效果，那怎么不算一种持续学习呢。某种意义上来说也算是一种伪概念。</li>
 </ul>

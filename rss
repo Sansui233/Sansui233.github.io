@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 18 Dec 2025 00:50:27 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 Dec 2025 18:18:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,14 +15,20 @@
             <link>https://sansui233.com/memos</link>
             <guid>https://sansui233.com/memos?id=2025-12-18 11:18</guid>
             <pubDate>Thu, 18 Dec 2025 03:18:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2025-12-18 02:58:11</h2>
-<p><strong>工具</strong> 协议和插件 API 规范有什么区别</p>
+            <content:encoded><![CDATA[<h2>2025-12-27 02:11:50</h2>
+<p>唉，想做设计。真的论文会塑造得人挺无聊的，好不容易摒弃了因果学术那套，也好不容易终于有了点想表达的方向，又被拉回去。在大模型时代反而冷静下来不再追求将人工具化的效率，而更珍视人与想法本身。</p>
+<h2>2025-12-18 02:58:11</h2>
+<p><strong>工具</strong></p>
 <ul>
 <li><a href="https://github.com/farion1231/cc-switch">cc-switch</a> 中转站API切换GUI，MCP、Skill 管理和配置<br/>
 在国内只能使用中转，因此有个 GUI 管理还是方便一点，另外 Skill 也 MCP 也能管理。我不太用 MCP，原因是烧不起，有那种 5 倍 token 干 1.5 倍的事的感觉。Claude Code 的调用方式已经觉得烧不起了。在这之前是终端写了几个设置环境变量的函数来凑合一下的。</li>
 </ul>
-<p>真的蛮想复刻一下 ChatGPT 的深度研究 的，做好了帮找论文确实好用，但同时也是 token 杀手。Gemini 的深度研究我觉得不太好用，有太多不够权威的结果。Chatgpt 查的都是专门的学术网站，查不到会触发近义词搜索什么的，非常接近人类找论文的状态了，但调研一次 5刀 token 真的是轻轻松松，论文那四五个点的调研天天查天天改，反复迭代，最后留的都有百篇 reference，真的是查吐了。<br/>
-至于国内豆包那个结果，我只能说，图一乐……</p>
+<p>真的蛮想复刻一下 ChatGPT 的深度研究 的，做好了帮找论文确实好用，但同时也是 token 杀手。Gemini 的深度研究我觉得不太好用，有太多不够权威的结果。Chatgpt 查的都是专门的学术网站，查不到会触发近义词搜索什么的，非常接近人类找论文的状态了，但调研一次 5刀 token 真的是轻轻松松，论文那四五个点的调研天天查天天改，反复迭代，最后留的都有百篇 reference，真的是查吐了。</p>
+<p>至于国内豆包那个结果，我只能说，图一乐……</p>
+<p>另外 MCP 我觉得是一个概念先于应用的东西。与其是协议，更像插件 API 规范，MCP 的 P 不应该和 HTTP 的 P 坐一桌，而是和 command/API 坐一桌。LSP 和 DAP 的 P 都比 MCP 像协议，好歹人家是需要全程起一个进程才能给这个进程发消息的。</p>
+<p>因为老被说是协议关系，经常会有一些令人误解的描述，比如：“LLM 调用 MCP 工具”。如果说 MCP 真的是印象中的协议，应该是 LLM 发送特定协议格式 <code>mcp://</code> 给 MCP Server， MCP Server 返回结果给 LLM。但实际上呢？ 是 AI 客户端在 把 MCP 和 toolcall 这两种 API 互相翻译两边倒。MCP Server 也不需要“在线”，只需要是一个随时被 AI 客户端调用的二进制。换个说法，难道你会使用把 「“今天需要commit&quot; -&gt; 使用 git GUI 调用 git commit-&gt; ”告诉 leader 我commit了“」的全过程称为一种协议吗……</p>
+<p>甚至可以说 MCP Server 一整圈的定义和 LLM 毫无关系。反正都是处理用户输入，MCP只参与到 「“今天需要commit&quot; -&gt; 使用 git GUI 调用 git commit」，后续结果告诉不告诉大模型关 MCP 什么事 。连第一步 ”今天需要commit“ 也可以不需要 LLM 的参与，你可以直接做成 <code>/commit</code> 调用 MCP。这就是 tool，是个被调用的东西。</p>
+<p>另外就 RAG 这个东西总感觉最近风头已经过了。总觉得没理由做好用，瓶颈在向量相似度计算方式上，因为到客户端的相似度计算阶段是简单的线性的数学方法，拟合空间极其有限。前期 embedding 生成模型怎么优化都救不了。新生成的两段 Embedding 等于两个东西之前没有上下文信息也不存在注意力映射一类的，直接线性计算个几层太简单了。如果要做基于注意力机制的相似度推理，检索速度就不行。</p>
 <h2>2025-12-15 10:53:00</h2>
 <p><strong>剧</strong></p>
 <ul>
@@ -45,14 +51,6 @@
 <ul>
 <li>如何有人说什么岗位在摸鱼，不要信一点，那是在能够胜任已有工作的基础上才有的事情。类似于一些自称五道口职业技术学校的人，他说是这么说，能这么做的门槛大家自己心理清楚。上班就是牛马，先需要做好上班的事情，做不好至少表现出负责认真。</li>
 <li>以前觉得很小市民的思维，其实真的就是小市民，别想，世界上没有那么多好事，大部分人都是苦逼的。不是我把事情想得很困难，而是有的事情本来就很困难，强行打破规定随心所欲的事，我干不出，有人习惯了人治社会下的人情世故，他干习惯了就等他吧，他说我不主动是他的问题。人不可以太自私利己，即便自己会觉得不舒服，忍着，世界塌不了。</li>
-</ul>
-<h2>2025-11-20 00:00:01</h2>
-<p><strong>妆造专场</strong></p>
-<ul>
-<li><a href="http://xhslink.com/o/93eYXk54q9k">如何剪法式刘海</a> 很粗略但有用</li>
-<li><a href="http://xhslink.com/o/4dBt4wviMzM">如何科学剪刘海</a> 很详细，轻盈化边缘那个手好用。以上这两都没讲打薄。</li>
-<li><a href="https://b23.tv/KdimlKv">如何涂口红</a> 口红涂法有讲究的，深唇得买个唇线笔。画成女差不多也是一个喷枪糊嘴，现在趋势就是喜欢雾化渐变浅裸色，原生像没眉毛和嘴巴最好。眉毛太黑几</li>
-<li>[伪素颜变帅教程](<a href="https://v.douyin.com/sm64cRaYOKA/">https://v.douyin.com/sm64cRaYOKA/</a> 04/22 <a href="mailto:z@G.VL">z@G.VL</a> wFu:/ ) 发型决定90%。脸上最重要的是眉毛，其余只用干净就行。画成男就是在狂画结构。</li>
 </ul>]]></content:encoded>
             <category>Diary</category>
         </item>

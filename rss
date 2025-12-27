@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 27 Dec 2025 18:48:13 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 27 Dec 2025 19:24:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -19,6 +19,11 @@
 <ul>
 <li><a href="https://floor796.com/#b1l1,282,992">Floor 796</a>一个全是角色的网站，好喜欢的风格</li>
 </ul>
+<p>看了下网页几个轻拟物做得比较好的，比较有趣的是 box-shadow 的 inset 属性在加投影前都是凹进去的，一加投影就变凸了。所以<strong>要做凸先做投影</strong>，外部的颜色必须要更深，不然不符合凸的素描关系。</p>
+<p>（顺便凹凸的五笔还是那么难打……）</p>
+<p>另外，如果要模拟更真实的效果，需要<strong>多重投影</strong> 模拟光线的弥散。</p>
+<p>以及<strong>悬浮效果</strong>，需要让投影的面积更小。感觉是模拟的真实世界的漫反射光线。直接投影的效果更像是有磨砂镜面反射。也能够说明为什么用单层外扩的 spread 颜色一深就丑了，这不符合白天光线的素描关系，只在夜晚/摄影棚出现，会显脏。</p>
+<hr/>
 <p>听黎明和萤火虫还是很好哭，即便拿不拿是一个确实不太会唱歌的人，但这首是真的很喜欢……我相信声音比视觉更容易传递情绪。</p>
 <h2>2025-12-27 02:11:50</h2>
 <p>唉，想做设计。真的论文会塑造得人挺无聊的，好不容易摒弃了因果学术那套，也好不容易终于有了点想表达的方向，又被拉回去。在大模型时代反而冷静下来不再追求将人工具化的效率，而更珍视人与想法本身。</p>

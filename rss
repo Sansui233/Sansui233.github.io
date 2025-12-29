@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 29 Dec 2025 22:20:27 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 23:00:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -30,6 +30,13 @@
 <p>虽然这本书写在八年前，在互联网平面设计风格迭代如此之快的今天，它讨论的核心规则却依然稳固。甚至可以说，如今主流的网页排版方向，就如书中的所言。如果你想摆脱“凭感觉”排版，真正理解排版的美学逻辑，倾情您阅读推荐这本书。</p>
 <h2>简介</h2>
 <p>Better Web Typography for a Better Web 是一本源自高分在线课程的著作，旨在向网页设计师和开发人员等网站构建者讲解排版。作者 Matej Latin 将垂直节奏（vertical rhythm）、模块化比例（modular scale）和页面构成（page composition）等复杂概念，以通俗易懂的方式进行了深入浅出的解析。本书配有实时代码示例，读者在阅读过程中将亲历设计并构建一个示例网站的完整流程。这是一本针对新媒介的排印新书：基本规则虽未改变，但除此之外的一切都已焕然一新。</p>
+<h2>摘录</h2>
+<ol>
+<li>“……如果说我希望你们从这次演讲中记住一个关键要点，那就是以下内容——要获得完美的段落，需要三样东西：字体大小、行高和行宽。它们需要达到平衡。”</li>
+<li>大多数网站都会犯的一个错误，就是将主体文本设置得过小。早在21世纪初，将主体文本大小设置在大约11像素是常见的做法。但当时的屏幕更小，分辨率也较低，这意味着11像素的字体在当时看起来比现在更大。</li>
+<li>推荐文本行长度为45至75个字符。需考虑所用语言的平均词长。</li>
+<li>我认为，我们开始创建网站时，首先应该审视网站的主要目的。不仅仅是我们正在设计的特定网站，而是其真正、根本的目的。我指的是——<strong>内容</strong>。试想，没有内容的网站是什么？它是一个空壳。内容糟糕但外观精美的网站是什么？它就像一个外表好看但缺乏个性的人。那么反过来说呢——内容出色但外观贫乏的网站？它就像是一个个性鲜明、趣味十足的人，却因为“外表不够标准”而无人关注。</li>
+</ol>
 <h2>资源链接</h2>
 <p>CloudFlare - R2 直链下载：</p>
 <ul>

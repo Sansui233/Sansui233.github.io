@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-12-27T21:15:53.881Z</updated>
+    <updated>2025-12-29T22:20:27.818Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,35 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[Better Web Typography for a Better Web 中文版]]></title>
+        <id>https://sansui233.com/posts/2025-12-30-Better-Web-Typography-for-a-Better-Web-Chinese-Version</id>
+        <link href="https://sansui233.com/posts/2025-12-30-Better-Web-Typography-for-a-Better-Web-Chinese-Version"/>
+        <updated>2025-12-29T22:10:00.000Z</updated>
+        <summary type="html"><![CDATA[我的排版启蒙书]]></summary>
+        <content type="html"><![CDATA[<p>这是一本讲网页排版书籍，书中内容有在线示例与代码，是这么多年来对我极其有用的平面设计书籍之一，说是我的排版启蒙也不为过。此博客的采用的正文排版均构建于此书所介绍的基础上。</p>
+<ul>
+<li>书名：Better Web Typography for a Better Web</li>
+<li>译名：更好的网页排版，造就更好的互联网</li>
+</ul>
+<blockquote>
+<p>此书为 90% 的 AI 翻译，完全保留原书排版，由人工校对以确保大部分用词统一。</p>
+</blockquote>
+<h2>推荐语</h2>
+<p>2018 年，我还在大学社团做海报，那时候对排版的理解更多是靠“直觉”。直到接触到了 Matej Latin 的网页排版公开课，也就是这本书的起源。课和中提出“排版的完美等边三角形”——即字号、行高与行宽之间的动态平衡，以及“模块化比例”的概念，彻底改变了我观察网页的视角。我至今铭记在心：“要获得完美的段落，需要三样东西：字体大小、行高和行宽。它们需要达到平衡。”</p>
+<p>从那以后，这三要素就成了我做阅读文字时绕不开的底层直觉。每当我看到一个网页，总会下意识地去拆解它的文字比例是否协调。尽管此书以英文为基准，其中的排版规律对多种语言均适用。</p>
+<p>虽然这本书写在八年前，在互联网平面设计风格迭代如此之快的今天，它讨论的核心规则却依然稳固。甚至可以说，如今主流的网页排版方向，就如书中的所言。如果你想摆脱“凭感觉”排版，真正理解排版的美学逻辑，倾情您阅读推荐这本书。</p>
+<h2>简介</h2>
+<p>Better Web Typography for a Better Web 是一本源自高分在线课程的著作，旨在向网页设计师和开发人员等网站构建者讲解排版。作者 Matej Latin 将垂直节奏（vertical rhythm）、模块化比例（modular scale）和页面构成（page composition）等复杂概念，以通俗易懂的方式进行了深入浅出的解析。本书配有实时代码示例，读者在阅读过程中将亲历设计并构建一个示例网站的完整流程。这是一本针对新媒介的排印新书：基本规则虽未改变，但除此之外的一切都已焕然一新。</p>
+<h2>资源链接</h2>
+<p>CloudFlare - R2 直链下载：</p>
+<ul>
+<li><a href="https://img-cf.sansui233.com/books/%E6%9B%B4%E5%A5%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%EF%BC%8C%E9%80%A0%E5%B0%B1%E6%9B%B4%E5%A5%BD%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%20-%20Matej%20Latin.epub">更好的网页排版，造就更好的互联网 - Matej Latin</a></li>
+</ul>
+<p>标签： 排版，字体排印，平面设计，网页设计</p>]]></content>
+        <category label="书和剧"/>
+        <published>2025-12-29T22:10:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[每日见闻 - 说说]]></title>
         <id>https://sansui233.com/memos?id=2025-12-18 11:18</id>
@@ -892,124 +921,5 @@ uv pip list
 <p>更新于 2024-08-19 01:45:31</p>]]></content>
         <category label="工具"/>
         <published>2024-08-01T18:08:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows 命令行相关配置之 msys2+zsh+zi]]></title>
-        <id>https://sansui233.com/posts/windows-zsh-conf</id>
-        <link href="https://sansui233.com/posts/windows-zsh-conf"/>
-        <updated>2024-03-15T20:35:00.000Z</updated>
-        <content type="html"><![CDATA[<p>长久以来，遇到 bash 脚本会临时切 git-bash 中的 bash。由于用的语言都有自己的包管理器，倒也一直够用。但是最近涉及到一些 c++，由 git-bash 提供的最小化环境东西缺得太多，几乎不能当个日常 shell 用，也没有 pacman 包管理，最后决定还是单独安装 msys2。</p>
-<p>git-bash 和 msys2 同时安装不会冲突。msys2 是独立的 home 目录，而 git-bash 是与 windows 当前用户通用的。我本来想卸载 git-bash，但由于我现在还是用 powershell，最终发现 git-bash 不能卸载。一是 posh-git 只支持 git-bash 的 git；其次是，astro-nvim 中的一些插件需要 <code>git.exe</code> 在环境变量下，使用 alias 链接的 git 不行，而手动加环境变量会把 git 以外的程序也加进去，造成 msys2 的工具与 powershell 本身工具的冲突。</p>
-<p>想来想去，决定保留 git-bash 到最小化的状态，当成 powershell 的插件用。unix-like shell 以及相应的包管理还是 msys2。</p>
-<h2>安装 msys2</h2>
-<p>见 <a href="https://www.msys2.org/">https://www.msys2.org/</a> 。安装过程没什么好说的，唯一要注意的在于安装目录的权限必须是当前用户可以完全控制，否则后续各种包的安装都会有一大堆问题。如果因为强迫症安装到 Program Files 下，则需要手动添加当前用户的权限。</p>
-<h3>软链接问题</h3>
-<p>windows 的软链接本来也是个很麻烦的问题。到 msys2 下，还多了一个软链接方式兼容问题。msys2 默认是 <code>ln -s</code> 是复制，要用 windows 风格的软链接，可以改安装目录下的各种 <code>.ini</code> 文件中的配置。</p>
-<pre><code>MSYS=&quot;winsymlinks:lnk&quot;
-</code></pre>
-<h2>zsh + zi</h2>
-<h3>zsh 的安装</h3>
-<pre><code class="hljs language-bash">pacman -S zsh
-</code></pre>
-<p>老实说个人觉得和 linux 上的 zsh 相比还是差了一大截，用起来和 bash 感觉差不多。只是 zsh 插件管理的选择比较多</p>
-<h3>zi 的安装</h3>
-<p>关于 zsh 插件管理，之前在 git-bash 上我也安装了 oh-my-zsh，但是环境原因，遇到的 bug 着实太多，基本不用。另外，最大的问题是启动太慢，每次启动长达 10 秒。我分析了一下初始化脚本的执行时长，发现拖慢速度的罪魁祸首是初始化命令补全（就不能异步吗啊！）当然用 mac 时 omz 也有点慢，但显然没有 msys2 里这么离谱。</p>
-<p>下午吐槽这个事情后，Antarx 说他换 zi 了。我试了下，确实很快，从没超过3s，令人偷税。</p>
-<ul>
-<li>zi 的安装：<a href="https://wiki.zshell.dev/docs/getting_started/installation">https://wiki.zshell.dev/docs/getting_started/installation</a></li>
-</ul>
-<p>安装过程最好在 msys2 的 GUI 终端下进行，因为需要登录的默认目录是在 home 的当前用户下。但这里又有另一个问题 —— msys2 不带 git。如果系统有另外安装 git，想复用，可以 cmd 启动 zsh，不指定启动的目录，指定继承环境变量。</p>
-<pre><code class="hljs language-cmd">C:\\msys64\\msys2_shell.cmd -defterm -no-start -ucrt64 -use-full-path -shell zsh
-</code></pre>
-<h3>zi 的配置与插件</h3>
-<p><a href="https://wiki.zshell.dev/docs/getting_started/installation">安装Wiki</a> 在不断更新，检查最新版的安装方法。</p>
-<p>安装好后，<code>.zshrc</code> 里添加如下，写好重启 zsh 即可。</p>
-<pre><code class="hljs language-bash">$ vi ~/.zshrc
-
-<span class="hljs-comment"># zsh</span>
-<span class="hljs-built_in">setopt</span> AUTO_PUSHD
-
-<span class="hljs-built_in">export</span> CLICOLOR=1
-<span class="hljs-built_in">export</span> LSCOLORS=ExGxFxdaCxDaDahbadeche
-<span class="hljs-built_in">zstyle</span> <span class="hljs-string">&#x27;:completion:*&#x27;</span> list-colors <span class="hljs-string">&quot;<span class="hljs-variable">${(@s.:.)LS_COLORS}</span>&quot;</span>
-<span class="hljs-built_in">alias</span> <span class="hljs-built_in">ls</span>=<span class="hljs-string">&#x27;ls --color=auto&#x27;</span>
-<span class="hljs-built_in">alias</span> la=<span class="hljs-string">&#x27;la --color=auto&#x27;</span>
-
-<span class="hljs-comment"># zi</span>
-<span class="hljs-built_in">typeset</span> -A ZI
-ZI[BIN_DIR]=<span class="hljs-string">&quot;<span class="hljs-variable">${HOME}</span>/.zi/bin&quot;</span>
-<span class="hljs-built_in">source</span> <span class="hljs-string">&quot;<span class="hljs-variable">${ZI[BIN_DIR]}</span>/zi.zsh&quot;</span>
-
-<span class="hljs-built_in">autoload</span> -Uz _zi
-(( <span class="hljs-variable">${+_comps}</span> )) &amp;&amp; _comps[zi]=_zi
-<span class="hljs-comment"># source &lt;(curl -sL init.zshell.dev); zzinit</span>
-
-
-<span class="hljs-comment"># 插件</span>
-<span class="hljs-comment"># 提前运行一次 zi ice pick&quot;async.zsh&quot; src&quot;pure.zsh&quot;</span>
-zi light sindresorhus/pure 
-zi light agkozak/zsh-z  <span class="hljs-comment"># 不能用 eval &quot;$(zoxide init zsh)&quot; 会冲突</span>
-zi snippet OMZP::git
-zi light zsh-users/zsh-completions
-<span class="hljs-comment"># 提前运行一次 zi ice wait lucid atload&#x27;_zsh_autosuggest_start&#x27;</span>
-zi light zsh-users/zsh-autosuggestions 
-<span class="hljs-comment"># 提前运行一次 zi ice wait lucid atinit=&#x27;zpcompinit&#x27;</span>
-zi light zdharma/fast-syntax-highlighting
-
-
-</code></pre>
-<h2>Windows Terminal 设置</h2>
-<p>在设置里改 json，加相应的 profile。可以使用 <code>-use-full-path</code> 继承 windows 系统的环境变量。</p>
-<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;commandline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -here -no-start -ucrt64 -use-full-path -shell zsh&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;guid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;{c420e0af-28d9-4742-a6b8-83d5fcf424e9}&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\ucrt64.ico&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;msys2 zsh&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;startingDirectory&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;%USERPROFILE%&quot;</span>
-<span class="hljs-punctuation">}</span>
-</code></pre>
-<h2>Vscode Terminal 设置</h2>
-<pre><code class="hljs language-json"><span class="hljs-attr">&quot;terminal.integrated.profiles.windows&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;MSYS2 zsh&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C:\\msys64\\msys2_shell.cmd&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-defterm&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-here&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-no-start&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-ucrt64&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-use-full-path&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;-shell&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;zsh&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;MSYSTEM&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UCRT64&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;overrideName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
-    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-</code></pre>
-<h2>Mintty 设置</h2>
-<p>Mintty 是 msys2 里默认的终端 GUI，默认 shell 是 bash。修改 <code>mingw64.ini</code> 为如下内容。</p>
-<pre><code>MSYS=winsymlinks:lnk
-MSYS2_PATH_TYPE=inherit
-MSYSTEM=UCRT64
-SHELL=/usr/bin/zsh
-</code></pre>
-<h2>npm设置</h2>
-<p>如果有使用 npm 进行包管理，继承自环境变量的 npm 补全时会报错。需要设置为</p>
-<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="bash">npm config edit</span>
-script-shell=C:\msys64\usr\bin\bash.exe
-shell=C:\msys64\msys2\usr\bin\bash.exe # 重要<span class="hljs-meta prompt_">
-$ </span><span class="bash">npm config list</span>
-</code></pre>
-<h2>conda 设置</h2>
-<p>如果有使用 conda 进行 python 开发，继承自环境变量的 conda 默认初始化脚本也有问题……从 Github 上查到的解决方法……</p>
-<pre><code class="hljs language-shell"><span class="hljs-meta prompt_"># </span><span class="bash">&gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span><span class="hljs-meta prompt_">
-# </span><span class="bash">!! Contents within this block are managed by <span class="hljs-string">&#x27;conda init&#x27;</span> !!</span>
-if [ -f &#x27;/c/Users/me/miniconda3/Scripts/conda.exe&#x27; ]; then
-    #eval &quot;$(&#x27;/c/Users/me/miniconda3/Scripts/conda.exe&#x27; &#x27;shell.zsh&#x27; &#x27;hook&#x27;)&quot;
-    eval &quot;$(&#x27;/c/Users/me/miniconda3/Scripts/conda.exe&#x27; &#x27;shell.zsh&#x27; &#x27;hook&#x27; | sed -e &#x27;s/&quot;$CONDA_EXE&quot; $_CE_M $_CE_CONDA &quot;$@&quot;/&quot;$CONDA_EXE&quot; $_CE_M $_CE_CONDA &quot;$@&quot; | tr -d \x27\\r\x27/g&#x27;)&quot;
-fi<span class="hljs-meta prompt_">
-# </span><span class="bash">&lt;&lt;&lt; <span class="hljs-string">conda initialize &lt;&lt;&lt;</span></span>
-</code></pre>
-<h3>ssh配置共用</h3>
-<p>如果有多个 ssh 账户的密钥，最好是软链接一下配置目录。注意需要前面的修改软链接方式，否则还是去资源管理器手动软链接吧。</p>
-<pre><code class="hljs language-shell">ln -s /c/Users/me/.ssh ~/.ssh
-</code></pre>
-<h2>参考</h2>
-<p><a href="https://hustlei.github.io/2018/11/msys2-for-win.html#%E5%AE%89%E8%A3%85git%E5%92%8Cvim">msys2-for-win</a></p>
-<p><a href="https://sdl.moe/post/zsh-conf/">https://sdl.moe/post/zsh-conf/</a></p>]]></content>
-        <category label="工具"/>
-        <published>2024-03-15T20:35:00.000Z</published>
     </entry>
 </feed>

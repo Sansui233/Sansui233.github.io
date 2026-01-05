@@ -2,18 +2,123 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2025-12-30T00:02:55.544Z</updated>
+    <updated>2026-01-05T23:29:49.148Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
         <email>sansuilnm@gmail.com</email>
-        <uri>https://sansui233.com/about.ico</uri>
+        <uri>https://sansui233.com/about</uri>
     </author>
     <link rel="alternate" href="https://sansui233.com"/>
     <link rel="self" href="https://sansui233.com/atom.xml"/>
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[每日见闻 - 说说]]></title>
+        <id>https://sansui233.com/memos?id=2026-01-03T20:22:56.000Z</id>
+        <link href="https://sansui233.com/memos"/>
+        <updated>2026-01-03T20:22:56.000Z</updated>
+        <content type="html"><![CDATA[<h2>2026-01-06 04:10:28</h2>
+<p>草，有瓜</p>
+<ul>
+<li><a href="">这是一篇号商无能狂怒的聚集地：This is a gathering place for the incompetence and rage of a number merchant</a></li>
+</ul>
+<p>全被删了。有贴子看了一眼风格</p>
+<ul>
+<li>
+<p>总结：https://linux.do/t/topic/1408515</p>
+</li>
+<li>
+<p>贴子风格：https://x.com/flyiiawei/status/2008124574379212830</p>
+</li>
+<li>
+<p>https://linux.do/t/topic/1408358</p>
+</li>
+</ul>
+<p>怎么传播广的不是骂人就是黄段子……</p>
+<hr/>
+<h2>2026-01-04 20:32:00</h2>
+<p>#react 一个没有预料到的状态管理问题：如果组件层级 A&gt;B&gt;C，A负责获取数据源，C负责渲染。那 State 缓存数据不要给到 B。</p>
+<p>为什么？因为 C 同时应用 A 的更新数据和 B 的缓存数据时，B的缓存数据更新会慢一拍，因为B需要去订阅A的更新再通知C更新 props（useEffect 是异步的）。如果 C 中有 state 的初始化依赖缓存数据，那这个初始化也会慢一拍。导致渲染结果（随着缓存更新）和 C_state（只随初始化更新）不一致。</p>
+<p>可能会想，那 C_state 也去订阅 B 缓存就好了？不行，订阅 B 缓存，C_state 更新也还是比渲染慢一拍。此时如果渲染会更新 C_state，那就和对于 B 的订阅冲突了。</p>
+<p>使用缓存是副作用，谨慎处理副作用。</p>
+<p>为什么有这么奇葩的结构……因为A和C都是库啊！！只能存到B。好消息是C库自己实现的，改成C库自己存数据，有数据更新后通知B了。但要是真只能写B，C不存数据，那 C 的 props<strong>需要全部用同步更新的缓存</strong>。</p>
+<p>这其实提到了一个叫派生状态，知乎上有说，但最终也没提出来解决办法。派生状态至今没有检测。 https://zhuanlan.zhihu.com/p/349372515</p>
+<p>这是我使用 react-router clientLoader 最大的坑。非常容易遇到反模式。</p>
+<hr/>
+<h3>Lazy import 组件</h3>
+<p>好好了解一下 Lazy 的概念，看 SSG 这种重 SEO 场景首屏能不能用。</p>
+<p>首先是要明白，Lazy 导入的组件必须被 Suspense 包裹，不然会 Throw 一个异常向上报错直到遇到了 Suspense 组件进行一个 fallback。</p>
+<p>其次是分情况</p>
+<ul>
+<li>函数 await import，以 show State 加载 -&gt; 无首屏，不显示在Dom</li>
+<li>Lazy import，以 show State 加载 Suspense -&gt; 无首屏，不显示在Dom，用 Lazy 属于多此一举。</li>
+<li>Lazy import ，以 Suspense 加载 -&gt; 大致能用（Dom 能显示，有短时间不可交互，直到浏览器自动下载完代码分割）</li>
+<li>仅以 Suspense 加载 -&gt; 能用（Dom能显示，显示就能交互，没有代码分割）（RSC核心）</li>
+</ul>
+<p>对于以上第三个点，“大致能用”是有个坑</p>
+<ul>
+<li>如果 JS 加载慢，React 在客户端运行时发现代码没到，它可能会判定为“未准备好”，于是<strong>扔掉</strong>服务端渲染好的完美 HTML，转而显示 <code>Suspense</code> 的 <code>fallback</code> (即 &quot;Loading JS...&quot;)。</li>
+</ul>
+<p><strong>需求2</strong>：需要手动点击后再下载 JS，下载 JS 过程中显示一个 Fallback 。使用 <code>Lazy import</code> + <code>useState</code> + <code>Suspense</code> 可做。<code>Suspense</code> 可以让人少写一个 state 三目运算符，显得好看一点，别的没用。</p>
+<p><strong>需求3</strong>： 首屏不加载，但首屏挂载后偷偷下载 JS chunk 之后用。可以直接使用 <code>useEffect</code> 普通 import。但是这边有个问题，这个import的结果是在副作用里，你要暂时存到一个变量才能在需要的时候调用。如果嫌组件存变量占内存，可以 <code>useEffect</code> + 顶层<code>Lazy import</code> + <code>Suspense</code> 。</p>
+<p>总之： <strong>用 <code>useEffect</code> 触发网络请求，用 <code>lazy</code> 管理组件引用，用 <code>Suspense</code> 处理加载状态。</strong></p>
+<h3>Suspense</h3>
+<p><code>Suspense</code> 的本质并不是为了服务 <code>lazy</code> 组件的，它的本质是：<strong>让组件“暂停”渲染，等待某个异步操作（Promise）完成。</strong></p>
+<p>Suspense 里挂载一个<strong>异步组件</strong>，就可以等异步组件有返回后再显示。比如子组件里使用 await fetch 阻塞了结果返回。而Lazy 组件，也这么一种异步组件。</p>
+<p>Suspense 里挂载一个带有 <code>use hook</code> 的组件在 use hook 完成前，都会使用最近的 Suspense。</p>
+<h3>use hook</h3>
+<p>在最新的 React 版本中，推出了 <code>use</code> Hook，它允许你在组件内部直接“解包”一个 Promise。如果 Promise 没完成，它会触发最近的 <code>Suspense</code>。</p>
+<hr/>
+<h2>2026-01-04 03:34:48</h2>
+<p>#博客 重构记录</p>
+<ul>
+<li>
+<p>切换路由框架为 React Router 7 做 SSG。至于为什么……一是 Next.js 虽然比较自动，但真的很慢。主要我做 Memo 页需要混合路由，并不是单纯的 SSG 或者 SPA。
+天知道我为了在 Next.js 12那个基于文件系统的路由框架上整个混合渲染有多麻烦，点个什么都要靠手动劫持路由还要小心状态机防止循环渲染。Suspense 是 AppRouter 出了才有的，感觉也是很不直观。就算现在，也做不到访问 query 时劫持掉静态内容直接显示 CSR 的骨架，一定要闪一下，因为分割渲染方式的入口是组件而不是路由。</p>
+</li>
+<li>
+<p>CSS 切换为 tailiwind 预构建。我虽然不喜欢 tailwind 的丑，但是也不太想用 css in js 去水合页面，有构建时水合的开销就算了还有运行时开销。此外原生 css 也混着用。</p>
+</li>
+<li>
+<p>markdown 内容用 velite 预构建。这个管线是真的好用，但也不担心类型问题（感谢 zod），rss 和搜索索引构建和应该写哪里的问题也一块解决了。其实还是要自己引入 mdx-js 去做 compile，因为静态 memos 对 markdown 的使用方式非常特殊。</p>
+</li>
+<li>
+<p>这个博客非常多的部分都靠预构建，路由自己写是有点麻烦但写好了也是自动生成了不用再动了。我觉得也正是这些预构建的步骤变多了，生成才能快得起来了。</p>
+</li>
+<li>
+<p>另外我彻底摒弃了 memos 多个来源混合的预留接口。真的不知道发在哪个 CMS 上，还有谁天天看在博客看即时消息啊。但是啊，如果说有同样的人构建同样的博客，并且允许跨域，那确实是可以把一堆建同样博客的人的消息混在一堆的……</p>
+</li>
+<li>
+<p>巨量 debug。你永远不知道为什么本来工作地好好的 Virtualist 换个框架变 key 后不强制刷新了。我看了很多可变高度 Virtualist 的实现，感觉还是自己的实现使用起来最傻瓜（因为自动布局逻辑简单不了，落泪，状态机很麻烦的）。网上实现全是要手动算一堆高度的，连 fixed 高度也要指定，用起来实在太蠢了。</p>
+</li>
+<li>
+<p>Memo 的 Image Browser 用 claude 迁移之后自动做了一个缩略图预览，笑死。感觉这样的话，相册页面也有着落了，但是相册页最麻烦的其实是，Memo 没有缩略图……也就是说需要超大图片展示相册以免自己一边开发着一边狂刷流量。</p>
+</li>
+<li>
+<p>SearchEngine 也改了下接口以不限制任何的 searchObj。当然匹配还是有 bug 的，但懒得测试了。以前老担心东西多了搜太慢，现在觉得这个问题永远不用担心，因为网永远更慢……怎么分割索引加快网速比客户端执行时间重要得多。</p>
+</li>
+</ul>
+<p>总之，是改了超多的，经常在发呆不知道还要改什么。</p>
+<hr/>
+<h2>2026-01-02 18:39:54</h2>
+<p>tailwind 的局限：做不了出入非对称的动画。</p>
+<pre><code>The key difference:
+- On hover: width transition has a 0.2s delay (bar appears after moving)
+- On unhover: width transition has NO delay (bar shrinks immediately)
+Tailwind&#x27;s group-hover:before:delay-200 only applies delay on hover, but the transition property itself doesn&#x27;t change. I need to use CSS to handle this properly since Tailwind can&#x27;t easily express different transition timings for hover vs unhover states.
+</code></pre>
+<p>这是 Claude 说的，我对 tailwind 的了解着实很浅。怎么说，用高层包装的东西就是会感觉有一些受限吧。并且用原生 css，非常非常明显的渲染性能更好，感觉是 DOM 匹配样式表没那么大开销，tailwind 写出来渲染是掉帧的（不应该啊已经算好了为什么要卡）……</p>
+<hr/>
+<h2>2026-01-02 06:39:34</h2>
+<p>woc Inter 的 variable font 居然和 static version 不一样，还是说有更新过？不应该啊。我本地安装 的是可变字体，然后百思不得其解完全同样的写法怎么字变小了。事实证明是 Static version 字距什么都比较好。但我更百思不得其解的是为什么同样的 CSS 引入 font，现在的博客 fontback 到了本地字体上，我的天因为我这字体很全一直没发现。</p>
+<hr/>
+<h2>2026-01-01 22:53:40</h2>
+<p>在迁移用 Velite 当本地 CMS。落泪，2022 年重写博客时哪有这么好的条件。是我喜爱的预构建 0 运行时开销。顺便 RSS 问题也是不用在那自己 Pre-render 了，太 Ugly 了。当时也没想到再做一个外置的 CMS 工具，有的问题是到了要做搜索和 rss 后才发现需要的。当时在 Next.js 做 rss 真的就是把生成工具写到 getStaticProps 里面，这样导出时就能顺便调用了，也是服了。</p>
+<p>另外，路由准备迁移到 RR 7。我近一年多受够 Next.js 了，感觉是如果是在框架内做事会很方便，想跳脱他的框架加点东西就会变得非常 messy……Transition api? 呵呵呵，因为你不是真正到了一个新 Document，所以无法 Transition。那就 CSR？呵呵呵，SEO 不想要了吗。我说的就是 Topbar，在 SSG 下，新点链接其实没有跳转页面，而是整个 tree 卸载掉再挂上整个新 tree，既不是到了一个新页面，也无法像真正的 CSR 那样只更新部分属性，直接导致两种东西动画都没法用。因此想要对预渲染方式有更细的粒度和更大的自由度。要说体验最流畅的肯定是纯 CSR 没跑，但是没 SEO 这点对于博客不可接受。可能会说 <code>use client</code> 不是很方便吗？不，不能，我还是需要 SSR 的，只有部分点击的内容需要 CSR。可定义的粒度还是太低了。</p>]]></content>
+        <published>2026-01-03T20:22:56.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Better Web Typography for a Better Web 中文版]]></title>
         <id>https://sansui233.com/posts/2025-12-30-Better-Web-Typography-for-a-Better-Web-Chinese-Version</id>
@@ -51,63 +156,14 @@
         <published>2025-12-29T22:10:00.000Z</published>
     </entry>
     <entry>
-        <title type="html"><![CDATA[每日见闻 - 说说]]></title>
-        <id>https://sansui233.com/memos?id=2025-12-18 11:18</id>
-        <link href="https://sansui233.com/memos"/>
-        <updated>2025-12-18T03:18:00.000Z</updated>
-        <content type="html"><![CDATA[<h2>2025-12-28 02:41:52</h2>
-<ul>
-<li><a href="https://floor796.com/#b1l1,282,992">Floor 796</a>一个全是角色的网站，好喜欢的风格</li>
-</ul>
-<p>看了下网页几个轻拟物做得比较好的，比较有趣的是 box-shadow 的 inset 属性在加投影前都是凹进去的，一加投影就变凸了。所以<strong>要做凸先做投影</strong>，外部的颜色必须要更深，不然不符合凸的素描关系。</p>
-<p>（顺便凹凸的五笔还是那么难打……）</p>
-<p>另外，如果要模拟更真实的效果，需要<strong>多重投影</strong> 模拟光线的弥散。</p>
-<p>以及<strong>悬浮效果</strong>，需要让投影的面积更小。感觉是模拟的真实世界的漫反射光线。直接投影的效果更像是有磨砂镜面反射。也能够说明为什么用单层外扩的 spread 颜色一深就丑了，这不符合白天光线的素描关系，只在夜晚/摄影棚出现，会显脏。</p>
-<hr/>
-<p>听黎明和萤火虫还是很好哭，即便拿不拿是一个确实不太会唱歌的人，但这首是真的很喜欢……我相信声音比视觉更容易传递情绪。</p>
-<h2>2025-12-27 02:11:50</h2>
-<p>唉，想做设计。真的论文会塑造得人挺无聊的，好不容易摒弃了因果学术那套，也好不容易终于有了点想表达的方向，又被拉回去。在大模型时代反而冷静下来不再追求将人工具化的效率，而更珍视人与想法本身。</p>
-<h2>2025-12-18 02:58:11</h2>
-<p><strong>工具</strong></p>
-<ul>
-<li><a href="https://github.com/farion1231/cc-switch">cc-switch</a> 中转站API切换GUI，MCP、Skill 管理和配置<br/>
-在国内只能使用中转，因此有个 GUI 管理还是方便一点，另外 Skill 也 MCP 也能管理。我不太用 MCP，原因是烧不起，有那种 5 倍 token 干 1.5 倍的事的感觉。Claude Code 的调用方式已经觉得烧不起了。在这之前是终端写了几个设置环境变量的函数来凑合一下的。</li>
-</ul>
-<p>真的蛮想复刻一下 ChatGPT 的深度研究 的，做好了帮找论文确实好用，但同时也是 token 杀手。Gemini 的深度研究我觉得不太好用，有太多不够权威的结果。Chatgpt 查的都是专门的学术网站，查不到会触发近义词搜索什么的，非常接近人类找论文的状态了，但调研一次 5刀 token 真的是轻轻松松，论文那四五个点的调研天天查天天改，反复迭代，最后留的都有百篇 reference，真的是查吐了。</p>
-<p>至于国内豆包那个结果，我只能说，图一乐……</p>
-<p>另外 MCP 我觉得是一个概念先于应用的东西。与其是协议，更像插件 API 规范，MCP 的 P 不应该和 HTTP 的 P 坐一桌，而是和 command/API 坐一桌。LSP 和 DAP 的 P 都比 MCP 像协议，好歹人家是需要全程起一个进程才能给这个进程发消息的。</p>
-<p>因为老被说是协议关系，经常会有一些令人误解的描述，比如：“LLM 调用 MCP 工具”。如果说 MCP 真的是印象中的协议，应该是 LLM 发送特定协议格式 <code>mcp://</code> 给 MCP Server， MCP Server 返回结果给 LLM。但实际上呢？ 是 AI 客户端在 把 MCP 和 toolcall 这两种 API 互相翻译两边倒。MCP Server 也不需要“在线”，只需要是一个随时被 AI 客户端调用的二进制。换个说法，难道你会使用把 「“今天需要commit&quot; -&gt; 使用 git GUI 调用 git commit-&gt; ”告诉 leader 我commit了“」的全过程称为一种协议吗……</p>
-<p>甚至可以说 MCP Server 一整圈的定义和 LLM 毫无关系。反正都是处理用户输入，MCP只参与到 「“今天需要commit&quot; -&gt; 使用 git GUI 调用 git commit」，后续结果告诉不告诉大模型关 MCP 什么事 。连第一步 ”今天需要commit“ 也可以不需要 LLM 的参与，你可以直接做成 <code>/commit</code> 调用 MCP。这就是 tool，是个被调用的东西。</p>
-<p>另外就 RAG 这个东西总感觉最近风头已经过了。总觉得没理由做好用，瓶颈在向量相似度计算方式上，因为到客户端的相似度计算阶段是简单的线性的数学方法，拟合空间极其有限。前期 embedding 生成模型怎么优化都救不了。新生成的两段 Embedding 等于两个东西之前没有上下文信息也不存在注意力映射一类的，直接线性计算个几层太简单了。如果要做基于注意力机制的相似度推理，检索速度就不行。</p>
-<h2>2025-12-15 10:53:00</h2>
-<p><strong>剧</strong></p>
-<ul>
-<li>流星花园
-看到说是台湾超雄情侣搞笑片所以补了，放到现在这剧情可能会被喷死。当年看剧大家都不带脑子，只是觉得很欢乐。现在看剧都比较上纲上线。不过确实是嗑不到了，男主幼稚和自我中心得有点无语，但放在从前不像现在，从前基本上就是谁爱得多就是谁在付出的观念，也因此道德绑架现象比现多。道明寺吼得厉害，事实上是没有付出什么，他一直在向女主求爱，可女主经历的一切都是他带来的，而他没有能力解决问题，反而在女主最困难的时候视而不见。花泽类是F4里唯一一个靠谱的人。然后女主的塑造也是反复横跳，编剧为了写感情线硬让女主欠男主100万。倒是里面的姐姐都很靠谱，gl真的好嗑。<br/>
-感觉看太晚了，这部剧好多人撑起了后面十几年的星周刊。</li>
-</ul>
-<p>我好困，写两小时躺两小时，又通宵了，感觉心脏乱跳像要猝死了。而且好饿。没有皮质醇完全醒不了。</p>
-<h2>2025-12-13 02:59:22</h2>
-<p>小红书莫名其妙有一条画给推了出去……之前我高强度改画了几天有点 Get 到小红书算法给人的推流感觉了。初始互动率高于一切，评论&gt;点赞，有人评论就多下场聊，得让人感觉能有话讲而不是真好看赞一个就完了。况且画得又没有那么好看。</p>
-<p>最近领悟到一个事情是，画画就是一个纯感觉的事情。现在越来越多讲画画技法的了，和从前的条件天差地别。但画画用学技术的目的是和纯技术工种不一样的，学技术是还为了提升感受，去拼效率的话是打不过AI的，真的画得很好的人最终胜在表达而不是技法论。不过以上前提是基础好，真正扎实的基础说实话是无关技法的，如果说换个笔刷都画得很烂了只能是基础本身不够好，就和写字一样，基础好的用啥写都好看，换了个烂笔可能感觉很痛苦效率下降，但如果时间足够，对成品质量不会有太大的影响。</p>
-<p>另一个感觉是，画画基础其实是种感受，而不是理论。诚然你可以画透视线去推算是否正确，通过建模分析光影与亮暗，但这样可能会把“体积就是要画得伦伯朗那样黑”奉为圭臬。然后近代流行了对比后，又加上“体积就是在短调子里画得伦伯朗那样黑”。直到你看到一张图，几乎是色彩关系画的超强体积……嗯这次又要加个什么理论进去呢？到底什么决定了体积感呢？物体距离人眼的呈现的规律性色彩变化？但你看平设Icon，他们体积感又很强吗？然后再加一条，有规律变化且有明确的面的拐点……我觉得我理解体积是什么这事真的花了有五年，最终不得不承认回到了原点……体积是种感受。而我是那种体积感天崩选手，仅有的天赋点全去色彩上了。</p>
-<p>说回来在 AI 出来之前我是把喜欢分条列点的大纲的，视觉形式的实用主义者觉得这样很清晰。论文那样的写法对于Ne人非常不友好直接一整个大分心重点跑偏。但思维链 AI 出来之后，这所有东西都是分条列点的 Ne 味已经被滥用了……我觉得seq2seq本来就是天然Ne，使用大纲能增强抓重点的逻辑能力不奇怪，但有的东西真的不是 Ne-Ti 能解释的，过于强调逻辑也是一种非人感的 Pattern，但不强调逻辑上下文一长又在胡说八道……Fine，也不能说是一无是处吧。但是处不多。</p>
-<h2>2025-12-12 22:33:55</h2>
-<p>说来为什么静态博客能不能依赖就不用，其实只是我不想经常更新依赖。总想写点新东西不想把时间耗在维护上，而且维护这个什么也得不到。社区的项目大抵也是一样。其实我想把nextjs也换掉，ssg能力严重影响我细化过渡动画。</p>
-<h2>2025-12-04 23:22:51</h2>
-<p>大毛又是被赛博挖坟了，不知道遇到这第几个了。世界上确实是有人讨厌谁就看不得别人有找钱的能力的，并且呼吁所有人都别买他的课。感觉像那种拉帮结伙的校园霸凌的网络放大版。</p>]]></content>
-        <category label="Diary"/>
-        <published>2025-12-18T03:18:00.000Z</published>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[uv 管理 conda 项目依赖]]></title>
         <id>https://sansui233.com/posts/2025-07-24-embed-python-with-uv</id>
         <link href="https://sansui233.com/posts/2025-07-24-embed-python-with-uv"/>
-        <updated>2025-07-24T20:12:00.000Z</updated>
+        <updated>2025-07-24T12:12:32.000Z</updated>
         <summary type="html"><![CDATA[沐神都解决不了的……]]></summary>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/07/202507242029977.webp"/><h2>conda 的问题</h2>
+        <content type="html"><![CDATA[<h2>conda 的问题</h2>
 <p>Python 新项目使用 uv 管理容易，但是总是有一些老项目不用。 conda 包管理一直以来都是 AI 的标配。我用 python 99% 都是在扒别人代码运行。这就导致了我运行了多少个项目，就装了多少份 torch……硬盘再大也经不起十几次折腾。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/07/202507242029977.webp" alt="沐神都解决不了的"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/07/202507242029977.webp" alt="沐神都解决不了的"></p>
 <p>conda 的问题在于</p>
 <ol>
 <li>requirements.txt <strong>全手写</strong>！很多人可能忘更新配置，导致扒拉下来缺库运行不了，先解决一个小时的依赖问题再说。</li>
@@ -119,7 +175,7 @@
 <p>uv 接管 python 界的依赖管理按理说已经没什么问题。但实际情况是，很多项目还是在用 conda。除非哪天 torch 和 HF 都把 uv 设置为首推，否则就得一直与  conda 存在的问题战斗。</p>
 <h3>1. 不提供 venv 的项目</h3>
 <p>用于研究的项目一般都是不提供的打包好的环境的，主要是太大了，每个人设备情况也不一样。所以下载后第一件事是</p>
-<pre><code class="hljs language-sh">uv venv
+<pre><code class="language-sh">uv venv
 ./.venv/Script/activate
 </code></pre>
 <p>如果这个项目不再更新了，或者是打算迁移到 uv，可以直接使用 uv 的方式管理依赖。uv 会自动维护 <code>pyproject.toml</code> 和 <code>uv.lock</code> 文件。</p>
@@ -133,7 +189,7 @@
 <pre><code>./.venv/python -m pip install xxx
 </code></pre>
 <p>……等于说又开始了安装十几份 torch 的依赖管理模式。用 uv 是可以重复利用缓存的。这个时候 uv 的问题在于无法接管 python 环境，需要设置一下环境变量：</p>
-<pre><code class="hljs language-sh"><span class="hljs-built_in">export</span> UV_PYTHON=<span class="hljs-string">&quot;./.venv/python&quot;</span>
+<pre><code class="language-sh">export UV_PYTHON="./.venv/python"
 uv pip list
 </code></pre>
 <p>然后就可以利用 uv 的缓存了。</p>
@@ -145,70 +201,70 @@ uv pip list
 <h3>uv 创建的新项目</h3>
 <p>共用的 <code>uv.toml</code> 指定下载源。</p>
 <p>Linux 在 <code>.config/uv/</code> 下，Windows 在 <code>%APPDATA%/uv/</code> 下。</p>
-<pre><code class="hljs language-toml"><span class="hljs-section">[[index]]</span>
-<span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/&quot;</span>
-<span class="hljs-attr">default</span> = <span class="hljs-literal">true</span>
-<span class="hljs-section">[[index]]</span>
-<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>
-<span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://download.pytorch.org/whl/cu128&quot;</span>
-<span class="hljs-attr">explicit</span> = <span class="hljs-literal">true</span>
+<pre><code class="language-toml">[[index]]
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
+default = true
+[[index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
 </code></pre>
 <p>项目级别的 <code>pyproject.toml</code></p>
-<pre><code class="hljs language-toml"><span class="hljs-attr">dependencies</span> = [
-  <span class="hljs-string">&quot;torch==2.7.1&quot;</span>,
-  <span class="hljs-string">&quot;torchvision==0.22.1&quot;</span>,
-  <span class="hljs-string">&quot;torchaudio==2.7.1&quot;</span>,
+<pre><code class="language-toml">dependencies = [
+  "torch==2.7.1",
+  "torchvision==0.22.1",
+  "torchaudio==2.7.1",
 ]
 
-<span class="hljs-section">[tool.uv.sources]</span>
-<span class="hljs-attr">torch</span> = [
-  { index = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>},
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu128"},
 ]
-<span class="hljs-attr">torchvision</span> = [
-  { index = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>},
+torchvision = [
+  { index = "pytorch-cu128"},
 ]
-<span class="hljs-attr">torchaudio</span> = [
-  { index = <span class="hljs-string">&quot;pytorch-cu128&quot;</span>},
+torchaudio = [
+  { index = "pytorch-cu128"},
 ]
 </code></pre>
 <p>然后执行 <code>uv sync</code> 安装。</p>
 <h3>uv pip 管理老项目</h3>
 <p>直接指定命令行 的 <code>--index-url</code> 和 <code>--torch-backend</code></p>
-<pre><code class="hljs language-shell">uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126 --torch-backend=cu126
+<pre><code class="language-shell">uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126 --torch-backend=cu126
 </code></pre>
 <p>和用 pip 的方式差不多，区别是会硬链接到集中的缓存，不会重复占用十几份 torch。当然。该有的依赖冲突还是会有的。<del>关键是装好后就不要更新了</del></p>]]></content>
         <category label="学习"/>
-        <published>2025-07-24T20:12:00.000Z</published>
+        <published>2025-07-24T12:12:32.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[踩了一圈 CSS 构建方案的坑]]></title>
         <id>https://sansui233.com/posts/2025-07-12-compare-css-solutions</id>
         <link href="https://sansui233.com/posts/2025-07-12-compare-css-solutions"/>
-        <updated>2025-07-12T12:49:00.000Z</updated>
+        <updated>2025-07-12T04:49:09.000Z</updated>
         <summary type="html"><![CDATA[前端代码中质量最薄弱的一环]]></summary>
         <content type="html"><![CDATA[<p>css 的写法一直算比较混乱的。层叠的样式表与 DOM 结构的分离看似清晰，但也因此容易产生屎山，组合太自由，哪些选择器用了哪些选择器没用，共用的嵌套的，分离的。今天小编就带你一探究竟（……）</p>
 <h2>CSS类复用粒度</h2>
 <p>我自己把 css 选择器（类）的复用粒度分三个层级。</p>
 <h3>组件类</h3>
 <p>粒度最大的层级，通常按组件级别语义化。选择器一般是下面这些名字</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-class">.wrapper</span>
-<span class="hljs-selector-class">.container</span>
-<span class="hljs-selector-class">.list-item</span>
+<pre><code class="language-css">.wrapper
+.container
+.list-item
 </code></pre>
 <p>组件化的选择器下面通常有很多条的 css。</p>
 <h3>功能类</h3>
 <p>通常是共用的样式或状态，比如</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-class">.open</span>
-<span class="hljs-selector-class">.close</span>
-<span class="hljs-selector-class">.light</span>
-<span class="hljs-selector-class">.dark</span>
-<span class="hljs-selector-class">.glass-effect</span>
+<pre><code class="language-css">.open
+.close
+.light
+.dark
+.glass-effect
 </code></pre>
 <p>这个看起来好像和组件类不冲突，但硬说的话组件类其实应该是这样</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.open</span> { 此处将 <span class="hljs-selector-class">.open</span> 的所有样式全覆盖 }
-<span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.close</span> { 此处将 <span class="hljs-selector-class">.close</span> 的所有样式全覆盖 }
-<span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.light</span> { 此处将 <span class="hljs-selector-class">.light</span> 的所有样式全覆盖 }
-<span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.dark</span> { 此处将 <span class="hljs-selector-class">.dark</span> 的所有样式全覆盖 }
+<pre><code class="language-css">.container.open { 此处将 .open 的所有样式全覆盖 }
+.container.close { 此处将 .close 的所有样式全覆盖 }
+.container.light { 此处将 .light 的所有样式全覆盖 }
+.container.dark { 此处将 .dark 的所有样式全覆盖 }
 </code></pre>
 <p>组件类的状态严格在组件的 scope 下。功能类则是可以不限 Scope 的复用。</p>
 <p>这 CSS 容易混乱的根源。在工程维护角度，功能类是最不敢乱动的类，不知道动了后哪里样式就会出问题。但在设计角度，用功能类复用一些状态又确实很方便，统一设计也好用。比如增加统一的圆角、描边、阴影样式。</p>
@@ -216,9 +272,9 @@ uv pip list
 <h3>原子类</h3>
 <p>定义海量常用的基础样式类，在 class 上直接写类名就能获得对应效果。就是 tailwind css。</p>
 <p>原子类相较于功能类粒度更小，也不会轻易改动 css 属性。</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-class">.flex</span>
-<span class="hljs-selector-class">.col-1</span>
-<span class="hljs-selector-class">.text-sm</span>
+<pre><code class="language-css">.flex
+.col-1
+.text-sm
 </code></pre>
 <h2>方案</h2>
 <p>通常来说，一个库的样式会着重在一个某一个粒度上。</p>
@@ -238,11 +294,11 @@ uv pip list
 <p>CSS Module 是完全 <strong>组件化</strong> 的粒度。相比起 SCSS 的样式与 DOM 分离，CSS Module 为组件内部样式耦合，组件间样式分离。</p>
 <p><strong>优点：</strong> 在组件粒度分割合理的情况下，清晰易维护。</p>
 <p><strong>缺点</strong>：依赖预构建，写类名写起来太磨叽了。整体我用得不多没法评价。</p>
-<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Button</span> = (<span class="hljs-params"></span>) =&gt; {
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{styles.button}</span>&gt;</span>
+<pre><code class="language-jsx">const Button = () => {
+  return (
+    &#x3C;button className={styles.button}>
       Click me
-    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+    &#x3C;/button>
   );
 };
 </code></pre>
@@ -262,39 +318,39 @@ uv pip list
 <li>要做到同种样式的复用，必须组合原子类，变成功能类或组件类，否则维护起来相当麻烦。这似乎违背了用 tailwind css 的初衷，熟悉了 css 的不如直接自己用 css 手撮功能类和组件类。</li>
 <li>其实我是 tailwind 黑，嗯。但无法否认开发时确实很快很方便。</li>
 </ol>
-<pre><code class="hljs language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Card</span>(<span class="hljs-params">{ title, description, imageUrl, imageAlt }</span>) {
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;max-w-sm rounded overflow-hidden shadow-lg&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;w-full&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{imageUrl}</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">{imageAlt}</span> /&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;px-6 py-4&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-xl mb-2&quot;</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;text-gray-700 text-base&quot;</span>&gt;</span>{description}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;px-6 pt-4 pb-2&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2&quot;</span>&gt;</span>#photography<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2&quot;</span>&gt;</span>#travel<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2&quot;</span>&gt;</span>#adventure<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<pre><code class="language-jsx">function Card({ title, description, imageUrl, imageAlt }) {
+  return (
+    &#x3C;div className="max-w-sm rounded overflow-hidden shadow-lg">
+      &#x3C;img className="w-full" src={imageUrl} alt={imageAlt} />
+      &#x3C;div className="px-6 py-4">
+        &#x3C;div className="font-bold text-xl mb-2">{title}&#x3C;/div>
+        &#x3C;p className="text-gray-700 text-base">{description}&#x3C;/p>
+      &#x3C;/div>
+      &#x3C;div className="px-6 pt-4 pb-2">
+        &#x3C;span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography&#x3C;/span>
+        &#x3C;span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel&#x3C;/span>
+        &#x3C;span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#adventure&#x3C;/span>
+      &#x3C;/div>
+    &#x3C;/div>
   );
 }
 </code></pre>
 <h3>原生 css in js</h3>
 <p>指 JS Object 转译为 CSS。由于写起来太不像 CSS，复杂的功能写起来过于不直观 ，我直接 PASS。</p>
-<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">InlineStyleExample</span> = (<span class="hljs-params"></span>) =&gt; {
-  <span class="hljs-keyword">const</span> myStyle = {
-    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;blue&#x27;</span>,
-    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;lightgray&#x27;</span>,
-    <span class="hljs-attr">padding</span>: <span class="hljs-string">&#x27;10px&#x27;</span>,
-    <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">&#x27;5px&#x27;</span>
+<pre><code class="language-jsx">const InlineStyleExample = () => {
+  const myStyle = {
+    color: 'blue',
+    backgroundColor: 'lightgray',
+    padding: '10px',
+    borderRadius: '5px'
   };
 
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{myStyle}</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">fontSize:</span> &#x27;<span class="hljs-attr">18px</span>&#x27;, <span class="hljs-attr">fontWeight:</span> &#x27;<span class="hljs-attr">bold</span>&#x27; }}&gt;</span>
+  return (
+    &#x3C;div style={myStyle}>
+      &#x3C;p style={{ fontSize: '18px', fontWeight: 'bold' }}>
         This text is styled with inline CSS.
-      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+      &#x3C;/p>
+    &#x3C;/div>
   );
 };
 </code></pre>
@@ -307,25 +363,25 @@ uv pip list
 <li>因为是 JS 转 CSS，服务器编译慢和客户端渲染慢得选一个</li>
 <li>React 的 useContext 要被废弃了，而 styled-components 严重依赖此 hook，导致进入了维护状态。JS 框架发展太快了。</li>
 </ol>
-<pre><code class="hljs language-jsx"><span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;styled-components&#x27;</span>;
+<pre><code class="language-jsx">import styled from 'styled-components';
 
-<span class="hljs-comment">// Create a styled button component</span>
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">StyledButton</span> = styled.<span class="hljs-property">button</span><span class="hljs-string">`
+// Create a styled button component
+const StyledButton = styled.button`
   background-color: blue;
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 5px;
 
-  &amp;:hover {
+  &#x26;:hover {
     background-color: darkblue;
   }
-`</span>;
+`;
 
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">StyledButton</span>&gt;</span>Click Me<span class="hljs-tag">&lt;/<span class="hljs-name">StyledButton</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+function App() {
+  return (
+    &#x3C;div>
+      &#x3C;StyledButton>Click Me&#x3C;/StyledButton>
+    &#x3C;/div>
   );
 }
 </code></pre>
@@ -337,25 +393,25 @@ uv pip list
 <ol>
 <li>
 <p>值复用靠变量，但是由于是 <strong>静态 css</strong>，这个并不会变。所以变量插值<strong>其实是常量</strong>。比如下面的 font-size 并不会变化。</p>
-<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> fontSize = <span class="hljs-number">16</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">Title</span> = styled.<span class="hljs-property">h1</span><span class="hljs-string">`
-  font-size: <span class="hljs-subst">${fontSize}</span>px;
-`</span>
+<pre><code class="language-jsx">const fontSize = 16;
+const Title = styled.h1`
+  font-size: ${fontSize}px;
+`
 </code></pre>
 <p>也就是说，你如果想在客户端随意改变字体，用 context/zustand 这种 runtime 的 fontSize，这样写报错。不过，Linaria 允许你借助 react 的 props 和 <code>styled</code> 组件来实现客户端的值变化。</p>
-<pre><code class="hljs language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Title</span> = styled.<span class="hljs-property">h1</span><span class="hljs-string">`
-  font-size: <span class="hljs-subst">${props =&gt; props.size}</span>px;
-`</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">MyComponent</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-keyword">const</span> fontSize = <span class="hljs-title function_">useAppStore</span>(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state.<span class="hljs-property">fontSize</span>)
-  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Title</span> <span class="hljs-attr">fontSize</span>=<span class="hljs-string">{fontSize}</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span></span>
+<pre><code class="language-jsx">const Title = styled.h1`
+  font-size: ${props => props.size}px;
+`
+export default function MyComponent() {
+  const fontSize = useAppStore(state => state.fontSize)
+  return &#x3C;Title fontSize={fontSize}>Hello&#x3C;/Title>
 }
 </code></pre>
 <p>相当于生成</p>
-<pre><code class="hljs language-jsx">&lt;h1
-  className=<span class="hljs-string">&quot;_title_xyz&quot;</span>
-  style={{ <span class="hljs-string">&#x27;--linaria-font-size&#x27;</span>: <span class="hljs-string">`<span class="hljs-subst">${size}</span>px`</span> }}
-&gt;
+<pre><code class="language-jsx">&#x3C;h1
+  className="_title_xyz"
+  style={{ '--linaria-font-size': `${size}px` }}
+>
 </code></pre>
 <p>那这和 styled-components 写起来已经差不多了。而且要做主题化的值都得用快要废弃的 <code>useContext</code> API。只不过 linaria 改的 style 属性，styled 是改的 css  API。改 style 属性其实已经不能算静态了。</p>
 </li>
@@ -370,21 +426,21 @@ uv pip list
 </li>
 </ol>
 <p>我博客本想迁移至此方案，但由于工作量实在巨大而放弃。linaria 主要还是解决了个命名空间冲突的问题，想用得更深入一点就会四不像。</p>
-<pre><code class="hljs language-jsx"><span class="hljs-keyword">import</span> { css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@linaria/core&#x27;</span>;
+<pre><code class="language-jsx">import { css } from '@linaria/core';
 
-<span class="hljs-keyword">const</span> eleStyle = css`<span class="css">
-  <span class="hljs-attribute">color</span>: red;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">3rem</span>;
-  &amp;<span class="hljs-selector-pseudo">:hover</span> {
-    <span class="hljs-attribute">color</span>: blue;
+const eleStyle = css`
+  color: red;
+  font-size: 3rem;
+  &#x26;:hover {
+    color: blue;
   }
-`</span>;
+`;
 
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{eleStyle}</span>&gt;</span>Hello Linaria!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+function App() {
+  return &#x3C;h1 className={eleStyle}>Hello Linaria!&#x3C;/h1>;
 }
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">App</span>;
+export default App;
 </code></pre>
 <h2>构建组建库</h2>
 <p>每一个 CSS 方案都有对应的构建组件库的实践。 <a href="https://github.com/shadcn-ui/ui">shadcn</a> 是基于 tailwind 构建组件库实践。</p>
@@ -402,7 +458,7 @@ uv pip list
 </ol>
 <p>最重要的还是自己的需求。</p>]]></content>
         <category label="学习"/>
-        <published>2025-07-12T12:49:00.000Z</published>
+        <published>2025-07-12T04:49:09.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[Steam 假入库是怎么做的]]></title>
@@ -474,16 +530,16 @@ uv pip list
         <title type="html"><![CDATA[Windows11 右键菜单自定义 - NileSoft Shell]]></title>
         <id>https://sansui233.com/posts/2025-04-19-windows-context-menu</id>
         <link href="https://sansui233.com/posts/2025-04-19-windows-context-menu"/>
-        <updated>2025-04-19T01:21:00.000Z</updated>
+        <updated>2025-04-18T17:21:04.000Z</updated>
         <summary type="html"><![CDATA[颜狗就是得样式和功能性全要，怎么了]]></summary>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp"/><p>（发现简中圈居然没有人写这个事，写个草稿发别的地方）</p>
+        <content type="html"><![CDATA[<p>（发现简中圈居然没有人写这个事，写个草稿发别的地方）</p>
 <p>Windows11 右键菜单问题被诟病已有，网上很多还原为 win10 菜单的教程……但 win10 有 win10 的问题，有用的没用的都往里放，常用的不常用的混在一起。有没有一种方法可以兼顾好看，同时有合理的菜单层级呢？</p>
 <p>有的 —— Nilesoft Shell。可以自定义的 Win11 右键菜单。已经用了两年多了很好用（以至于差点忘了有这个软件）。</p>
 <h2>下载并安装</h2>
 <p>下载在官网： <a href="https://nilesoft.org/">https://nilesoft.org/</a></p>
 <p>安装完后，新菜单应该已经生效了，并且会开机自启。这时候可以点点看，如果感觉效果满意就不用再看下去了。</p>
 <p>当然颜狗是不满意的，大部分一级菜单我用不上，我只想保留我常用的，不用的塞到更多选项。如图</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp" alt=""/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp" alt=""></p>
 <h2>挪动菜单层级</h2>
 <p>如果你是默认安装，<code>C:\Program Files\Nilesoft Shell</code> 应该能看见以下的文件结构</p>
 <pre><code>Nilesoft Shell/
@@ -497,12 +553,12 @@ uv pip list
 <p>以 <code>.nss</code> 结尾的是配置文件，可以用记事本打开。以下是几个案例：</p>
 <h3>1. 收纳不常用菜单至 “更多选项”</h3>
 <p>例如，收纳所有名称里带有 “QQ” 和 “百度” 的菜单项，在 <code>modify.nss</code> 添加如下：</p>
-<pre><code>modify(mode=mode.multiple find=&quot;QQ|百度|网盘&quot; menu=title.more_options)
+<pre><code>modify(mode=mode.multiple find="QQ|百度|网盘" menu=title.more_options)
 </code></pre>
 <p>find 中包含的字符串会被匹配，“|”是或。表示匹配“QQ”或“百度”或“网盘”的任意项都会被挪走。</p>
 <p>这是主要的挪菜单的方式，我实际上挪了一大堆。</p>
 <pre><code>modify(mode=mode.multiple
-	find=&quot;收藏夹|打印|共享|PowerRename|Microsoft Defender|Change Attributes|File Locksmith|upic|火绒|百度|QQ|Acrobat|Adobe|OneDrive|在沙盒中运行|PicList|旧版 Windows Media Player&quot;
+	find="收藏夹|打印|共享|PowerRename|Microsoft Defender|Change Attributes|File Locksmith|upic|火绒|百度|QQ|Acrobat|Adobe|OneDrive|在沙盒中运行|PicList|旧版 Windows Media Player"
 	menu=title.more_options)
 </code></pre>
 <h3>2. “创建快捷方式”挪到顶层</h3>
@@ -518,21 +574,21 @@ uv pip list
 </code></pre>
 <h3>3. 顶层添加新菜单项 “使用 vscode 打开”</h3>
 <p>在 <code>shell.nss</code> 中，新起一行添加</p>
-<pre><code>item(title=&#x27;Open with VS Code&#x27; image=[\uE272, #22A7F2] cmd=&#x27;code&#x27; args=&#x27;&quot;@sel.path&quot; &amp;&amp; exit&#x27; sep=&#x27;top&#x27;)
+<pre><code>item(title='Open with VS Code' image=[\uE272, #22A7F2] cmd='code' args='"@sel.path" &#x26;&#x26; exit' sep='top')
 </code></pre>
-<p>添加的这行可以不在最后，添加的位置决定它在菜单中的位置。我添加在了中间，最后的几个 &quot;import&quot; 之间。</p>
+<p>添加的这行可以不在最后，添加的位置决定它在菜单中的位置。我添加在了中间，最后的几个 "import" 之间。</p>
 <p>要是问为什么我不用 vscode 自带的右键菜单……我的 vscode 装得太早了，那时还没有右键菜单关联，现在也懒得再装了就将就用吧……</p>
 <h3>4. 顶层菜单添加新目录</h3>
 <p>你要是在图片上右键，会发现系统自带有“使用 Windows 画图编辑”“使用照片编辑”“向左旋转”“向右旋转”……我的天，哪个天才设计的，你不知道自家照片 App 打开后能编辑也能旋转吗？（我知道这肯定是两波人开发的但还是想吐槽）</p>
 <p>秉持着只挪不删的原则，在“更多选项”前加了个“编辑”目录。以下加在了 <code>shell.nss</code></p>
-<pre><code>menu(mode=&quot;multiple&quot; title=&quot;编辑&quot; image=image.glyph(&quot;\uE0A1&quot;))
+<pre><code>menu(mode="multiple" title="编辑" image=image.glyph("\uE0A1"))
 {
 }
 </code></pre>
 <p>然后在 <code>modify.nss</code> 里加了</p>
 <pre><code>modify(mode=mode.multiple
-	find=&quot;*编辑|旋转|PDF&quot;
-	menu=&quot;编辑&quot;)
+	find="*编辑|旋转|PDF"
+	menu="编辑")
 </code></pre>
 <p>这样等于说，编辑和旋转相关都被归到了新的“编辑”目录下。加上 PDF 相关操作挪进去。我没有装 WPS，装了 WPS 也可以把 WPS 挪一个目录。</p>
 <h2>生效</h2>
@@ -544,15 +600,15 @@ uv pip list
 <p>文档： <a href="https://nilesoft.org/docs">https://nilesoft.org/docs</a></p>
 <p>论坛： <a href="https://github.com/moudey/Shell/discussions">https://github.com/moudey/Shell/discussions</a></p>]]></content>
         <category label="工具"/>
-        <published>2025-04-19T01:21:00.000Z</published>
+        <published>2025-04-18T17:21:04.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[2024 年的总结与分享]]></title>
         <id>https://sansui233.com/posts/2025-01-05-2024-summary</id>
         <link href="https://sansui233.com/posts/2025-01-05-2024-summary"/>
-        <updated>2025-01-05T01:21:00.000Z</updated>
+        <updated>2025-01-04T17:21:04.000Z</updated>
         <summary type="html"><![CDATA[怎么全在写游戏……]]></summary>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp"/><p>印象中之前每年其实都有写去年主要干了什么，看了什么作品。但又忘了都写在了哪里。今年想起来还是在这里写吧。</p>
+        <content type="html"><![CDATA[<p>印象中之前每年其实都有写去年主要干了什么，看了什么作品。但又忘了都写在了哪里。今年想起来还是在这里写吧。</p>
 <p>主要说说看了些什么吧。</p>
 <h2>实用小技术</h2>
 <ol>
@@ -580,7 +636,7 @@ uv pip list
 </ol>
 <p>我的天，有生之年我居然打通了这个8年前的破游戏！</p>
 <p>打通的那一瞬间，我感觉觉得自己已经可能面对任何困难无所不能了。但是山顶的聊天室早已空无一人，有一点寂寞。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp" alt="Getting over it"/></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp" alt="Getting over it"></p>
 <ol start="2">
 <li><a href="https://store.steampowered.com/agecheck/app/1086940/?l=schinese">博德之门3</a></li>
 </ol>
@@ -594,7 +650,7 @@ uv pip list
 </ol>
 <p>新出的休闲建筑游戏，最不像游戏的游戏。建筑方式新颖，而且好好看哦！</p>
 <p>玩了后做了个视频，竟然被 HR 联系了……差点当诈骗私信……</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp" alt="Tiny Glade"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp" alt="Tiny Glade"></p>
 <ol start="5">
 <li><a href="https://www.nintendo.com/hk/switch/animal_crossing_new_horizons/">动物森友会</a></li>
 </ol>
@@ -604,7 +660,7 @@ uv pip list
 </ol>
 <p>meme 大师带飞的经典 FPS，有剧情，非常好游戏！我只用跟在后面捡各种好玩的枪就好了（不是）</p>
 <ol start="7">
-<li><a href="https://store.steampowered.com/app/620/Portal_2/?l=schinese&amp;curator_clanid=31468181">传送门2</a></li>
+<li><a href="https://store.steampowered.com/app/620/Portal_2/?l=schinese&#x26;curator_clanid=31468181">传送门2</a></li>
 </ol>
 <p>十几年前的解谜神作，好丸！多人模式也是 meme 大师带飞的。</p>
 <ol start="8">
@@ -615,23 +671,23 @@ uv pip list
 <li>零大陆</li>
 </ol>
 <p>这是个超老的 Minecraft1.8 原版 RPG 整合包。真的非常震撼能做到这个程度，流程设计、地图设计上超级完整……可惜循环有问题，卡在一个冒险模式下的银河城地下区域了。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp" alt="零大陆"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp" alt="零大陆"></p>
 <ol start="10">
 <li>模拟地铁</li>
 </ol>
 <p>休闲小游戏，也是老游戏了，极简地铁规划，最后发现还是开滴滴比较好。内容对得起价格。也因此和喜欢地铁的朋友有聊些城建游戏。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp" alt="模拟地铁"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp" alt="模拟地铁"></p>
 <ol start="11">
 <li><a href="https://store.steampowered.com/app/813230/ANIMAL_WELL/?l=schinese">动物井 (Animal Well)</a></li>
 </ol>
 <p>解谜 + 平台跳跃。太好玩了，这才是真正的 2024 年度游戏！！而且只 33 M，性能也超好！是像素美术但是是很现代的赛博梦幻像素美术，好看的！</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp" alt="Animal Well"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp" alt="Animal Well"></p>
 <ol start="12">
-<li><a href="https://store.steampowered.com/app/391540/Undertale/?l=schinese&amp;curator_clanid=31318556">传说之下 (UnderTale)</a></li>
+<li><a href="https://store.steampowered.com/app/391540/Undertale/?l=schinese&#x26;curator_clanid=31318556">传说之下 (UnderTale)</a></li>
 </ol>
 <p>经典日式 RPG，脑洞超大角色有意思，剧情很温暖。是Meme 依据本人的游戏时长与偏好定制的 steam 礼物……非常喜欢！</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp" alt="UnderTale"/></p>
-<h2>动画&amp;漫画</h2>
+<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp" alt="UnderTale"></p>
+<h2>动画&#x26;漫画</h2>
 <ol>
 <li><a href="https://www.bilibili.com/bangumi/media/md21087073">葬送的芙莉莲</a></li>
 </ol>
@@ -697,15 +753,15 @@ uv pip list
 <p>有去接触 GPU 相关的，不想只停留在业务 MVC 再 CRUD。但看了发现没需求的话确实用不上。</p>
 </li>
 </ul>
-<p>公司的相关还是不说了……主要是图形学和，久违的 OOP 编程，新的语言 C<span class="tag">#，但长得非常通用面向对象，没有太多的入门门槛。不禁感叹外面世界的语言真是五花八门……但要说写界面好用还是声明式的，OOP </span>写界面特别过程式就，扭曲，痛苦，但无疑性能会更好。</p>]]></content>
+<p>公司的相关还是不说了……主要是图形学和，久违的 OOP 编程，新的语言 C#，但长得非常通用面向对象，没有太多的入门门槛。不禁感叹外面世界的语言真是五花八门……但要说写界面好用还是声明式的，OOP 写界面特别过程式就，扭曲，痛苦，但无疑性能会更好。</p>]]></content>
         <category label="Diary"/>
-        <published>2025-01-05T01:21:00.000Z</published>
+        <published>2025-01-04T17:21:04.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[懒、快节奏与赛博巨婴]]></title>
         <id>https://sansui233.com/posts/2024-11-13-懒-快节奏与赛博巨婴</id>
         <link href="https://sansui233.com/posts/2024-11-13-懒-快节奏与赛博巨婴"/>
-        <updated>2024-11-13T22:55:00.000Z</updated>
+        <updated>2024-11-13T14:55:09.000Z</updated>
         <summary type="html"><![CDATA[科技为了便利，可便利是否有尽头]]></summary>
         <content type="html"><![CDATA[<p>1</p>
 <p>今天我想把一张图从 iPad 传到 iPhone 时，突然感觉很麻烦，因为需要打开并解锁，ipad，打开照片，再点击分享，点击AirDrop。</p>
@@ -728,16 +784,16 @@ uv pip list
 <p>想画漫画了，草。</p>
 <p>写于2024年11月13日03时15分。</p>]]></content>
         <category label="Diary"/>
-        <published>2024-11-13T22:55:00.000Z</published>
+        <published>2024-11-13T14:55:09.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[把 draw.io 装修为简单且现代的白板应用]]></title>
         <id>https://sansui233.com/posts/2024-11-12-把drawio装修为简单美观的白板应用</id>
         <link href="https://sansui233.com/posts/2024-11-12-把drawio装修为简单美观的白板应用"/>
-        <updated>2024-11-12T05:19:00.000Z</updated>
+        <updated>2024-11-11T21:19:03.000Z</updated>
         <summary type="html"><![CDATA[装修无止境！]]></summary>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120511240.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120511552.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120516688.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120513014.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120514766.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120511067.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120515358.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/11/202411120516990.webp"/><p><a href="http://draw.io">draw.io</a> 是一个功能丰富的流程图绘制软件。此前写论文时我一直使用这个软件画图。在没有系统性的画图需要，转而变成了有时想要随手画矢量示意图后，这个软件启动交互流程步骤繁琐，我便极少使用它了。但在使用了 tldraw, excalidraw 后，又回到了 <a href="http://draw.io">draw.io</a>，才发现这个软件的可定制性其实非常强，完全能满足随手画图的需要。这里记录一下如何把 draw.io 变成一个更适合打开即用的、默认效果更加现代的白板应用。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511240.webp" alt="image.png"/></p>
+        <content type="html"><![CDATA[<p><a href="http://draw.io">draw.io</a> 是一个功能丰富的流程图绘制软件。此前写论文时我一直使用这个软件画图。在没有系统性的画图需要，转而变成了有时想要随手画矢量示意图后，这个软件启动交互流程步骤繁琐，我便极少使用它了。但在使用了 tldraw, excalidraw 后，又回到了 <a href="http://draw.io">draw.io</a>，才发现这个软件的可定制性其实非常强，完全能满足随手画图的需要。这里记录一下如何把 draw.io 变成一个更适合打开即用的、默认效果更加现代的白板应用。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511240.webp" alt="image.png"></p>
 <p>（草……windows 截图这边缘的黑框好丑啊！）</p>
 <h2>为什么是 draw.io</h2>
 <p>先对比一下适合需求的竞品（不想看请跳转下一节）：</p>
@@ -763,11 +819,11 @@ uv pip list
 <p>默认的 UI 较为传统的重型设计，熟悉这类UI是相当好用的，但按钮组过多会显得不够轻便。在 <code>其它→主题→外观</code> 中可以更换为其他的主题，有5套可用：经典、极简、简易、草图、atlas。</p>
 <p>我个人用得比较多的是「简易」，并且关掉了左侧栏形状库的栏，改为用顶栏，右侧格式栏在顶部有快速按钮展开。</p>
 <p>习惯 tldraw、excalidraw 的用户应该还是更适合「草图」主题，绑定了基础形状的快捷键。需要去手动调出格式栏。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511552.webp" alt="image.png"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511552.webp" alt="image.png"></p>
 <h2>更改启动流程</h2>
 <p>默认情况下，启动时会弹出选择保存位置的框。新建画布时，又会先看到一大串模板的选择题，还得去想命名。但很多时候，随便画图是不需要保存的。</p>
 <p>在经典主题下，需要去「其它」→「显示开始画面」上取消勾选。在其它的主题下，则需要去菜单的「设置」→「配置」里取消勾选「显示开始画面」。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516688.webp" alt="image.png"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516688.webp" alt="image.png"></p>
 <h2>配置默认样式</h2>
 <p>要做到更改默认样式，需要写 JSON 配置。尽管可以在侧栏按「设置为默认样式」，但只能当前打开的窗口生效，刷新、新开文档都会导致默认样式回到最初的样子。</p>
 <p>在经典主题下，需要通过 「其它」→「配置」打开，其它主题下，则是「设置」→「配置」。</p>
@@ -784,34 +840,34 @@ uv pip list
 <p>整体采用的粗线条粗体，比较契合现代简约又活泼的趋势。edge 采用黑色，与高饱和的 vertex 非常好搭配。</p>
 <p>直接抄的无边记的颜色，有的有轻微的改动。不过无边记最印象化的水蓝色没有抄上去。</p>
 <p>默认的配色改为了最后一个蓝色。以下配色均可以在右侧的「格式栏」中找到并应用。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120513014.webp" alt="配色方案.png"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120513014.webp" alt="配色方案.png"></p>
 <h3>关于圆角矩形</h3>
 <p>现代设计中圆角矩形用得更多。对于圆角的弧度，可以通过属性 Arc Size 去调整。可以点击设置为默认样式，也可以配置到 JSON 里。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120514766.webp" alt="image.png"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120514766.webp" alt="image.png"></p>
 <p>如果你使用的「经典」主题，需要自己选择圆角矩形的图形。在「草图」主题下，按 <code>D</code> 就是默认配置好的圆角矩形，相当简单。「简易」主题下的位置如图：</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511067.webp" alt="image.png"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511067.webp" alt="image.png"></p>
 <h3>关于曲线设置</h3>
 <p>曲线设置不对会变得很难调整，一张图说明大多数情况下的曲线操作与设置：</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120515358.webp" alt="曲线.png"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120515358.webp" alt="曲线.png"></p>
 <h3>想更换为手写风格？</h3>
 <p>在不选中任何东西的情况下，把右侧格式栏的草图勾选上即可，就可以获得类似 excalidraw 的手写风格啦！</p>
 <p>另外，如果没有自定义 JSON， 「草图」主题下的默认样式也是手写风格的。</p>
 <h3>关于默认字体（附网页用字号推荐）</h3>
 <p>JSON 中这几个字段设置默认字体。我默认英文是 Inter，中文是使用的系统黑体。文字大小我设置为了网页标准 16px。</p>
-<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
-  <span class="hljs-attr">&quot;customFonts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-    <span class="hljs-string">&quot;Inter&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-string">&quot;pingfang sc&quot;</span>
-  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;defaultVertexStyle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;fontSize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">16</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;fontFamily&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Inter&quot;</span>
-  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;defaultEdgeStyle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;fontSize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">16</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;fontFamily&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Inter&quot;</span>
-  <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">}</span>
+<pre><code class="language-json">{
+  "customFonts": [
+    "Inter",
+    "pingfang sc"
+  ],
+  "defaultVertexStyle": {
+    "fontSize": 16,
+    "fontFamily": "Inter"
+  },
+  "defaultEdgeStyle": {
+    "fontSize": 16,
+    "fontFamily": "Inter"
+  }
+}
 </code></pre>
 <p>另外介绍一下常用网页文字大小的规范，现代的美术设计由于自己屏幕很大，或者对标准视距缩放大小没太多概念，非常容易把字给设置得很小（点名星穹铁道）</p>
 <ul>
@@ -823,10 +879,10 @@ uv pip list
 <p>再小的字号不推荐作为内容性文本使用。</p>
 <h3>关于背景网格</h3>
 <p>在简易主题中默认关闭的，经典主题中可以通过配置 JSON 为默认关闭。关掉背景网格会显得比较现代化。</p>
-<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
-  <span class="hljs-attr">&quot;defaultGridEnabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;defaultPageVisible&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
-<span class="hljs-punctuation">}</span>
+<pre><code class="language-json">{
+  "defaultGridEnabled": false,
+  "defaultPageVisible": false
+}
 </code></pre>
 <p>但还是有时可能需要开启网格，那就什么都不选中，右侧栏开启网格就可以了。</p>
 <h2>其他使用 Tips</h2>
@@ -840,20 +896,20 @@ uv pip list
 <h3>从 Mermaid 生成图、嵌入 Notion</h3>
 <p>mermaid 是一种画流程图的代码，比较适合不想可视化排列对齐的强迫症。</p>
 <p>draw.io 可以在菜单中的「高级」使用 mermaid 生成图，下面的图就是导入 mermaid 生成的。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516990.webp" alt="未命名绘图.png"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516990.webp" alt="未命名绘图.png"></p>
 <p>由于 notion 无法画图，在 notion 我都是用的 mermaid，有点不好看但至少目的达到了。不过最近发现，<a href="http://draw.io">draw.io</a> 的导出可以选择直接嵌入notion，点开还能进行编辑……实现方式是图像数据全部存放在了链接里……不得不说 draw.io 自主兼容性做得很强，从接入了那么多网盘就可见一斑。</p>
 <h3>自定义CSS</h3>
 <p>如果还是觉得 UI 太丑了，在 <a href="https://www.drawio.com/doc/faq/configure-diagram-editor">Configure the draw.io editor</a> 中可以找到自定义 CSS 的部分（但我觉得 UI 排列上还是不错的，这足够了）</p>]]></content>
         <category label="工具"/>
-        <published>2024-11-12T05:19:00.000Z</published>
+        <published>2024-11-11T21:19:03.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[Windows 调整之中文字体]]></title>
         <id>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</id>
         <link href="https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment"/>
-        <updated>2024-08-01T18:08:00.000Z</updated>
+        <updated>2024-08-01T10:08:25.000Z</updated>
         <summary type="html"><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></summary>
-        <content type="html"><![CDATA[<link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/08/202408190158527.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/08/202408190318888.webp"/><link rel="preload" as="image" href="https://img-cf.sansui233.com/imgs/2024/07/202407260100518.webp"/><blockquote>
+        <content type="html"><![CDATA[<blockquote>
 <p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
 </blockquote>
 <p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。</p>
@@ -866,11 +922,11 @@ uv pip list
 <li>在 21 寸时，100% 缩放字体会偏小，比较锻炼眼睛。150% 缩放字体大小比较合适，效果更细腻，但字型会比较怪，且屏幕可用空间与 1080p 相同。</li>
 <li>在 16 寸时，150% 缩放字体稍微偏小，效果比较细腻，但非整数倍缩放+ClearType 的加持下，一些像素被吞掉，笔画的间距不平衡，有种“ windows 特有的字被虫噬的美”。</li>
 </ul>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408190158527.webp" alt="字形"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408190158527.webp" alt="字形"></p>
 <p>可以看到，上图的 100% 200% 缩放没有字形变形问题，可以说微软雅黑小字优化是考虑的 100% 缩放。100% 缩放显得糊则是因为图片放大放大倍率过高，实际不会有糊，而是有锯齿感。</p>
 <p>150% 缩放会由于 clearType 的“锐化”导致字形变化，不知道的还以为换了个字体。如果是125%、175%的缩放，字体变形更加糟糕。</p>
 <p>造成缩放问题的原因大概可以用下图进行简要解释：</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408190318888.webp" alt="缩放"/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/08/202408190318888.webp" alt="缩放"></p>
 <p>Mac 上的 Retina 渲染相当于 4k 200% 缩放起步。而 windows 下， 2k-2.5k 的屏幕都在 200% 以下的缩放中挣扎。如果软件没有适配高分屏，没有 clearType，强制进行双线性缩放（常见于图片UI），就会显得非常糊。想体验这样的糊，可以下载旧版的原神启动器。</p>
 <h2>需要准备</h2>
 <ul>
@@ -892,7 +948,7 @@ uv pip list
 </li>
 </ul>
 <h2>常用正文黑体简述</h2>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/07/202407260100518.webp" alt=""/></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2024/07/202407260100518.webp" alt=""></p>
 <h3>苹方</h3>
 <p>苹方是一款设计上很优秀的字体，其间架结构、中宫非常平衡，既兼顾了传统的汉字笔画细节又有规整而现代的几何化，间距合理，阅读起来非常舒适。</p>
 <p>但是……苹方的设计缺字重。</p>
@@ -923,10 +979,10 @@ uv pip list
 <li>把 Microsoft Sans Serif 的值中 SIMSUN.TTC 那一行去掉。这样默认的无衬线体就会往后 fallback 到系统的微软雅黑上。</li>
 <li>把 <code>Segoe UI</code> 的 <code>TAHOMA.TTF,Tahoma</code> 挪到 <code>MSYH.TTC,Microsoft </code>后面</li>
 </ul>
-<hr/>
+<hr>
 <p>创建于 2023-09-29 02:25:44</p>
 <p>更新于 2024-08-19 01:45:31</p>]]></content>
         <category label="工具"/>
-        <published>2024-08-01T18:08:00.000Z</published>
+        <published>2024-08-01T10:08:25.000Z</published>
     </entry>
 </feed>

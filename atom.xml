@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-01-06T22:19:02.463Z</updated>
+    <updated>2026-01-06T22:44:51.417Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -28,17 +28,10 @@
 <p>层叠上下文是代码逻辑上的画布 一旦一个元素产生了层叠上下文，它内部的所有子元素就被包裹在这个范围里。</p>
 <p><strong>层叠上下文的产生</strong></p>
 <ul>
-<li>
-<p>根元素：</p>
-</li>
-<li>
-<p>定位 + 层级：position 为 relative / absolute 且 z-index 不是 auto。</p>
-</li>
-<li>
-<p>固定定位：position: fixed 或 sticky。</p>
-</li>
-<li>
-<p>CSS3 属性：</p>
+<li>根元素：<code>&#x3C;html></code></li>
+<li>定位 + 层级：<code>position</code> 为 <code>relative</code> / <code>absolute</code> 且 <code>z-index</code> 不是 <code>auto</code>。</li>
+<li>固定定位：<code>position: fixed</code> 或 <code>sticky</code>。</li>
+<li>CSS3 属性：
 <ul>
 <li>opacity 小于 1。</li>
 <li>transform 不为 none（比如旋转、缩放）。</li>
@@ -52,42 +45,22 @@
 <p><strong>层叠内元素关系</strong></p>
 <p>为了好解释，我使用 context-level 说明绝对的上下覆盖关系。</p>
 <ul>
-<li>
-<p>CL-1: 背景和边框（最底层）</p>
-</li>
-<li>
-<p>CL-2: 定位元素（如absolute）且负 z-index</p>
-</li>
-<li>
-<p>CL-3: 块级元素（static 定位的普通 div 等）</p>
-</li>
-<li>
-<p>CL-4: 浮动元素（float）</p>
-</li>
-<li>
-<p>CL-5: 内联/行内块元素（文字、图片）</p>
-</li>
-<li>
-<p>CL-6: 定位元素（如absolute）且 z-index 没有设定为负，还有 opacity，transform 等。</p>
-</li>
-<li>
-<p>CL-7: 定位元素（如absolute）正 z-index（最顶层）</p>
-</li>
+<li>CL-1: 背景和边框（最底层）</li>
+<li>CL-2: 定位元素（如absolute）且负 z-index</li>
+<li>CL-3: 块级元素（static 定位的普通 div 等）</li>
+<li>CL-4: 浮动元素（float）</li>
+<li>CL-5: 内联/行内块元素（文字、图片）</li>
+<li>CL-6: 定位元素（如absolute）且 z-index 没有设定为负，还有 opacity，transform 等。</li>
+<li>CL-7: 定位元素（如absolute）正 z-index（最顶层）</li>
 </ul>
 <p>z-index 在其中的作用相当于是一个算层叠关系的插件。<strong>必须和定位配套使用，否则不生效。</strong></p>
 <p>用功能上说，<strong>层叠上下文才是真正面向用户的Z轴</strong>，z-index属性只是这个 z轴的一个插件。</p>
 <h2>视觉画布</h2>
 <p>可以发现，被提升到 <strong>CL-6</strong> 的层，其规则和产生一个层叠上下文高度重合，<strong>就像产生了一个新的画布</strong>。这也是为什么说，容易把 CL-6 层等同于产生层叠上下文的层，但是不是的，<strong>CL-6 是描述自己作为子元素的层级</strong>，而“产生层叠上下文”描述的自己作为父元素的行为。</p>
 <ul>
-<li>
-<p>opacity 且 z-index: 0。位于 CL-3，产生了层叠上下层文，但是其实层级很低，z-index 是无效的。</p>
-</li>
-<li>
-<p>CL6: relative 且 z-index: auto。位于 CL-6，产生不了层叠上下文，其子元素如果有更低的层级，可能会被盖掉。子元素有更高的层级，会盖掉别人。</p>
-</li>
-<li>
-<p>CL6: relative 且 z-index: 0。位于 CL-6，产生不层叠上下层文，其子元素层级和当前元素严格一致。</p>
-</li>
+<li>opacity 且 z-index: 0。位于 CL-3，产生了层叠上下层文，但是其实层级很低，z-index 是无效的。</li>
+<li>CL6: relative 且 z-index: auto。位于 CL-6，产生不了层叠上下文，其子元素如果有更低的层级，可能会被盖掉。子元素有更高的层级，会盖掉别人。</li>
+<li>CL6: relative 且 z-index: 0。位于 CL-6，产生不层叠上下层文，其子元素层级和当前元素严格一致。</li>
 </ul>
 <p>理解了这一点，可以记住。在做目录头时，并不是设置了 <code>relative</code> 就万事大吉了，如果你的后面的元素也是 relative，很容易被覆盖。</p>
 <h2>Z-Index 划分</h2>
@@ -113,27 +86,13 @@
 <h3>0-20 层</h3>
 <p>根据基础的逻辑，0-20 层我会如下划分。</p>
 <ul>
-<li>
-<p>移动端菜单栏 -> 中偏小，重要，9</p>
-</li>
-<li>
-<p>浮动按钮 -> 中偏小，但不重要，5</p>
-</li>
-<li>
-<p>侧边栏 -> 大，但重要。你很难说和浮动按钮哪个在上面。这两个要权衡一下，给到 4。</p>
-</li>
-<li>
-<p>Hover tips -> 小，重要，19</p>
-<ul>
-<li>如果 Hover tip 也可能本身是一个大画布，则按画布间规则使用 10。虽然放在最后的合成层元素也能做到，但你新画布必须开 z-index 以强制设定关系。</li>
-</ul>
-</li>
-<li>
-<p>目录头：暂时一下冒头，给到 0（注意是 z-index:0，不能是 z-index:auto）</p>
-</li>
-<li>
-<p>拖拽：暂时冒一下头，给到0。</p>
-</li>
+<li>移动端菜单栏 -> 中偏小，重要，9</li>
+<li>浮动按钮 -> 中偏小，但不重要，5</li>
+<li>侧边栏 -> 大，但重要。你很难说和浮动按钮哪个在上面。这两个要权衡一下，给到 4。</li>
+<li>Hover tips -> 小，重要，19<br>
+如果 Hover tip 也可能本身是一个大画布，则按画布间规则使用 10。虽然放在最后的合成层元素也能做到，但你新画布必须开 z-index 以强制设定关系。</li>
+<li>目录头：暂时一下冒头，给到 0（注意是 z-index:0，不能是 z-index:auto）</li>
+<li>拖拽：暂时冒一下头，给到0。</li>
 </ul>
 <p>在海浪模型里，<strong>带 9 的数字被表示为重要，而整十数表示为新的起点</strong>。</p>
 <h3>20、40、60层</h3>

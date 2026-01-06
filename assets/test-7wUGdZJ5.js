@@ -1,0 +1,1 @@
+import{w as s,p as t}from"./chunk-JMJ3UQ3L-BVFOw7ai.js";const n=s(function({loaderData:e}){return t.jsx("div",{className:"flex h-screen flex-col bg-gray-50 p-4",children:e.slug})});export{n as default};

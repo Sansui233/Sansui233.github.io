@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 06 Jan 2026 19:59:35 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 06 Jan 2026 22:19:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -73,7 +73,7 @@
 <p>z-index 在其中的作用相当于是一个算层叠关系的插件。<strong>必须和定位配套使用，否则不生效。</strong></p>
 <p>用功能上说，<strong>层叠上下文才是真正面向用户的Z轴</strong>，z-index属性只是这个 z轴的一个插件。</p>
 <h2>视觉画布</h2>
-<p>可以发现，被提升到 <strong>CL-6</strong> 的层，其规则和产生一个层叠上下文高度重合，**就像产生了一个新的画布。**这也是为什么说，容易把 CL-6 层等同于产生层叠上下文的层，但是不是的，<strong>CL-6 是描述自己作为子元素的层级</strong>，而“产生层叠上下文”描述的自己作为父元素的行为。</p>
+<p>可以发现，被提升到 <strong>CL-6</strong> 的层，其规则和产生一个层叠上下文高度重合，<strong>就像产生了一个新的画布</strong>。这也是为什么说，容易把 CL-6 层等同于产生层叠上下文的层，但是不是的，<strong>CL-6 是描述自己作为子元素的层级</strong>，而“产生层叠上下文”描述的自己作为父元素的行为。</p>
 <ul>
 <li>
 <p>opacity 且 z-index: 0。位于 CL-3，产生了层叠上下层文，但是其实层级很低，z-index 是无效的。</p>

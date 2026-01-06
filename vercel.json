@@ -3,5 +3,7 @@
   "github": {
     "silent": true
   },
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/404.html", "status": 404 }
+  ]
 }

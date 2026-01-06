@@ -1,1 +1,0 @@
-const i={author:"Sansui",social:{email:"sansuilnm@gmail.com",github:"https://github.com/sansui233"},timeZone:"Asia/Shanghai",friends:[{name:"Gawain Antarx",link:"https://gawainx.github.io/"},{name:"ABYSS WHALE",link:"https://starfish.yuzhehao.com/"}],domain:"https://sansui233.com",walineApi:"https://vc-cm.sansui233.com",GAId:"G-EDE15EB3W8"};export{i as s};

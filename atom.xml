@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-01-06T13:14:03.653Z</updated>
+    <updated>2026-01-06T16:56:48.996Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -19,7 +19,10 @@
         <id>https://sansui233.com/memos?id=2026-01-03T20:22:56.000Z</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2026-01-03T20:22:56.000Z</updated>
-        <content type="html"><![CDATA[<h2>2026-01-06 04:10:28</h2>
+        <content type="html"><![CDATA[<h2>2026-01-06 23:15:00</h2>
+<p>呕……好想吐，很难说是精神原因还是生理原因。我觉得有点偏向于精神上想吐。</p>
+<hr/>
+<h2>2026-01-06 04:10:28</h2>
 <p>草，有瓜</p>
 <ul>
 <li><a href="">这是一篇号商无能狂怒的聚集地：This is a gathering place for the incompetence and rage of a number merchant</a></li>
@@ -112,11 +115,7 @@ Tailwind&#x27;s group-hover:before:delay-200 only applies delay on hover, but th
 <p>这是 Claude 说的，我对 tailwind 的了解着实很浅。怎么说，用高层包装的东西就是会感觉有一些受限吧。并且用原生 css，非常非常明显的渲染性能更好，感觉是 DOM 匹配样式表没那么大开销，tailwind 写出来渲染是掉帧的（不应该啊已经算好了为什么要卡）……</p>
 <hr/>
 <h2>2026-01-02 06:39:34</h2>
-<p>woc Inter 的 variable font 居然和 static version 不一样，还是说有更新过？不应该啊。我本地安装 的是可变字体，然后百思不得其解完全同样的写法怎么字变小了。事实证明是 Static version 字距什么都比较好。但我更百思不得其解的是为什么同样的 CSS 引入 font，现在的博客 fontback 到了本地字体上，我的天因为我这字体很全一直没发现。</p>
-<hr/>
-<h2>2026-01-01 22:53:40</h2>
-<p>在迁移用 Velite 当本地 CMS。落泪，2022 年重写博客时哪有这么好的条件。是我喜爱的预构建 0 运行时开销。顺便 RSS 问题也是不用在那自己 Pre-render 了，太 Ugly 了。当时也没想到再做一个外置的 CMS 工具，有的问题是到了要做搜索和 rss 后才发现需要的。当时在 Next.js 做 rss 真的就是把生成工具写到 getStaticProps 里面，这样导出时就能顺便调用了，也是服了。</p>
-<p>另外，路由准备迁移到 RR 7。我近一年多受够 Next.js 了，感觉是如果是在框架内做事会很方便，想跳脱他的框架加点东西就会变得非常 messy……Transition api? 呵呵呵，因为你不是真正到了一个新 Document，所以无法 Transition。那就 CSR？呵呵呵，SEO 不想要了吗。我说的就是 Topbar，在 SSG 下，新点链接其实没有跳转页面，而是整个 tree 卸载掉再挂上整个新 tree，既不是到了一个新页面，也无法像真正的 CSR 那样只更新部分属性，直接导致两种东西动画都没法用。因此想要对预渲染方式有更细的粒度和更大的自由度。要说体验最流畅的肯定是纯 CSR 没跑，但是没 SEO 这点对于博客不可接受。可能会说 <code>use client</code> 不是很方便吗？不，不能，我还是需要 SSR 的，只有部分点击的内容需要 CSR。可定义的粒度还是太低了。</p>]]></content>
+<p>woc Inter 的 variable font 居然和 static version 不一样，还是说有更新过？不应该啊。我本地安装 的是可变字体，然后百思不得其解完全同样的写法怎么字变小了。事实证明是 Static version 字距什么都比较好。但我更百思不得其解的是为什么同样的 CSS 引入 font，现在的博客 fontback 到了本地字体上，我的天因为我这字体很全一直没发现。</p>]]></content>
         <published>2026-01-03T20:22:56.000Z</published>
     </entry>
     <entry>

@@ -1,8 +1,0 @@
-import{q as i,a as c,w as p,t as d,p as t,M as u,L as l,S as g,v as h,O as f,i as m}from"./chunk-JMJ3UQ3L-CM_uFqsX.js";import{s as a}from"./site.config-B03RtX8f.js";function w(){const s=i();c.useEffect(()=>{typeof window.gtag<"u"&&window.gtag("config",a.GAId,{page_path:s.pathname})},[s,a.GAId])}const y=()=>[{rel:"preconnect",href:"https://fonts.googleapis.com"},{rel:"preconnect",href:"https://fonts.gstatic.com",crossOrigin:"anonymous"},{rel:"stylesheet",href:"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"}];function E({children:s}){return w(),t.jsxs("html",{lang:"en",children:[t.jsxs("head",{children:[t.jsx("meta",{charSet:"utf-8"}),t.jsx("meta",{name:"viewport",content:"width=device-width, initial-scale=1"}),t.jsx(u,{}),t.jsx(l,{}),t.jsx("script",{async:!0,src:`https://www.googletagmanager.com/gtag/js?id=${a.GAId}`}),t.jsx("script",{dangerouslySetInnerHTML:{__html:`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${a.GAId}', {
-                page_path: window.location.pathname,
-              });
-            `}})]}),t.jsxs("body",{children:[s,t.jsx(g,{}),t.jsx(h,{})]})]})}const L=p(function(){return t.jsx(f,{})}),I=d(function({error:e}){let o="Oops!",n="An unexpected error occurred.",r;return m(e)&&(o=e.status===404?"404":"Error",n=e.status===404?"The requested page could not be found.":e.statusText||n),t.jsxs("main",{className:"container mx-auto p-4 pt-16",children:[t.jsx("h1",{children:o}),t.jsx("p",{children:n}),r]})});export{I as ErrorBoundary,E as Layout,L as default,y as links};

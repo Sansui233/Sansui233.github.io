@@ -1,8 +1,0 @@
-import{a as i,p as t,q as u,w as d,t as g,M as l,L as p,S as m,v as x,O as f,i as h}from"./chunk-JMJ3UQ3L-BVFOw7ai.js";import{s}from"./i18nInstance-DPKwMV5N.js";import{d as j,i as o}from"./i18n-C8hHMX00.js";function w({children:a}){return i.useEffect(()=>{const e=j();o.language,o.language!==e&&o.changeLanguage(e)},[]),t.jsx(t.Fragment,{children:a})}function y(){const a=u();i.useEffect(()=>{typeof window.gtag<"u"&&window.gtag("config",s.GAId,{page_path:a.pathname})},[a,s.GAId])}const A=()=>[];function G({children:a}){return y(),t.jsxs("html",{lang:"en",children:[t.jsxs("head",{children:[t.jsx("meta",{charSet:"utf-8"}),t.jsx("meta",{name:"viewport",content:"width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"}),t.jsx(l,{}),t.jsx(p,{}),t.jsx("script",{async:!0,src:`https://www.googletagmanager.com/gtag/js?id=${s.GAId}`}),t.jsx("script",{dangerouslySetInnerHTML:{__html:`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${s.GAId}', {
-                page_path: window.location.pathname,
-              });
-            `}})]}),t.jsxs("body",{children:[a,t.jsx(m,{}),t.jsx(x,{})]})]})}const S=d(function(){return t.jsx(w,{children:t.jsx(f,{})})}),b=g(function({error:e}){let r="Oops!",n="An unexpected error occurred.",c;return h(e)&&(r=e.status===404?"404":"Error",n=e.status===404?"The requested page could not be found.":e.statusText||n),t.jsxs("main",{className:"container mx-auto p-4 pt-16",children:[t.jsx("h1",{children:r}),t.jsx("p",{children:n}),c]})});export{b as ErrorBoundary,G as Layout,S as default,A as links};

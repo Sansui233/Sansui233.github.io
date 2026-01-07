@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EDE15EB3W8"></script><title>Mac上如何开机与关机时自动运行Shell脚本</title><meta name="description" content="网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。
+<!DOCTYPE html><html lang="zh"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EDE15EB3W8"></script><title>Mac上如何开机与关机时自动运行Shell脚本</title><meta name="description" content="网上讲如何开机运行脚本的很多，但我有关机时关闭远程服务的需求。于是上外网查了一下如何在关机时执行一段脚本。
 新建一个shell文件
 这个shell中包含了你需要开机关机时运行的脚本。
 #!/bin/bash
@@ -34,7 +34,17 @@ function shutdown()
   exit 0
 }
 
-functi"/><link rel="modulepreload" href="/assets/manifest-5ae0a2c5.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-9XXsdlsG.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-CHJAEIqd.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CMwV3QjS.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-DRWishpF.js"/><link rel="modulepreload" href="/assets/MDXComponent-BzBGnsZ7.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><link rel="stylesheet" href="/assets/root-CwPMOqH0.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
+functi"/><link rel="modulepreload" href="/assets/manifest-0f3fadd0.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-BR3ANwdi.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-CHttVE2X.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CEQRVl7u.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-DRWishpF.js"/><link rel="modulepreload" href="/assets/MDXComponent-BzBGnsZ7.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
+              (function() {
+                var theme = localStorage.getItem("theme");
+                if (theme === "system" || !theme) {
+                  theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark" : "light";
+                }
+                console.debug("theme", theme);
+                document.documentElement.classList.add(theme);
+              })();
+            </script><link rel="stylesheet" href="/assets/root-CwPMOqH0.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -76,9 +86,9 @@ functi"/><link rel="modulepreload" href="/assets/manifest-5ae0a2c5.js"/><link re
       console.error(error);
       sessionStorage.removeItem(storageKey2);
     }
-  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-5ae0a2c5.js";
-import * as route0 from "/assets/root-9XXsdlsG.js";
-import * as route1 from "/assets/RootLayout-CHJAEIqd.js";
+  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-0f3fadd0.js";
+import * as route0 from "/assets/root-BR3ANwdi.js";
+import * as route1 from "/assets/RootLayout-CHttVE2X.js";
 import * as route2 from "/assets/posts._slug-DRWishpF.js";
   
   window.__reactRouterRouteModules = {"root":route0,"components/RootLayout":route1,"routes/posts.$slug":route2};

@@ -1,0 +1,1 @@
+import{p as x}from"./chunk-JMJ3UQ3L-BVFOw7ai.js";import"./index-CEQRVl7u.js";const p=(...n)=>n.filter(Boolean).join(" "),i=({className:n,children:o,...m})=>x.jsx("div",{className:p("mx-auto px-5 pb-12","w-full max-w-full","min-[580px]:max-w-145","min-[780px]:max-w-none min-[780px]:w-175","min-[1080px]:w-200",n),...m,children:o});export{i as O};

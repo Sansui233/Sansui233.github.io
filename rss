@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 06 Jan 2026 23:46:44 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Jan 2026 02:55:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -221,7 +221,7 @@ Tailwind&#x27;s group-hover:before:delay-200 only applies delay on hover, but th
             <guid isPermaLink="false">https://sansui233.com/posts/2025-12-30-Better-Web-Typography-for-a-Better-Web-Chinese-Version</guid>
             <pubDate>Mon, 29 Dec 2025 22:10:00 GMT</pubDate>
             <description><![CDATA[我的排版启蒙书]]></description>
-            <content:encoded><![CDATA[<p>这是一本讲网页排版书籍，书中内容有在线示例与代码，是这么多年来对我极其有用的平面设计书籍之一，说是我的排版启蒙也不为过。此博客的采用的正文排版均构建于此书所介绍的基础上。</p>
+            <content:encoded><![CDATA[<p>这是一本讲网页排版的书籍，书中内容有在线示例与代码，是这么多年来对我极其有用的平面设计书籍之一，说是我的排版启蒙也不为过。此博客的采用的正文排版均构建于此书所介绍的基础上。</p>
 <ul>
 <li>书名：Better Web Typography for a Better Web</li>
 <li>译名：更好的网页排版，造就更好的互联网</li>

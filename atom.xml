@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-01-06T23:46:44.943Z</updated>
+    <updated>2026-01-07T02:55:24.645Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -227,7 +227,7 @@ Tailwind&#x27;s group-hover:before:delay-200 only applies delay on hover, but th
         <link href="https://sansui233.com/posts/2025-12-30-Better-Web-Typography-for-a-Better-Web-Chinese-Version"/>
         <updated>2025-12-29T22:10:00.000Z</updated>
         <summary type="html"><![CDATA[我的排版启蒙书]]></summary>
-        <content type="html"><![CDATA[<p>这是一本讲网页排版书籍，书中内容有在线示例与代码，是这么多年来对我极其有用的平面设计书籍之一，说是我的排版启蒙也不为过。此博客的采用的正文排版均构建于此书所介绍的基础上。</p>
+        <content type="html"><![CDATA[<p>这是一本讲网页排版的书籍，书中内容有在线示例与代码，是这么多年来对我极其有用的平面设计书籍之一，说是我的排版启蒙也不为过。此博客的采用的正文排版均构建于此书所介绍的基础上。</p>
 <ul>
 <li>书名：Better Web Typography for a Better Web</li>
 <li>译名：更好的网页排版，造就更好的互联网</li>

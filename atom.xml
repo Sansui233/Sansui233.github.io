@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-01-08T08:28:20.823Z</updated>
+    <updated>2026-01-08T19:53:13.233Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -122,7 +122,13 @@
         <id>https://sansui233.com/memos?id=2026-01-03T20:22:56.000Z</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2026-01-03T20:22:56.000Z</updated>
-        <content type="html"><![CDATA[<h2>2026-01-08 14:14:49</h2>
+        <content type="html"><![CDATA[<h2>2026-01-09 03:25:00</h2>
+<p>#社会</p>
+<ul>
+<li><a href="https://b23.tv/lKNoN9d">【十分钟解读社会学神书《日常生活中的自我呈现》-哔哩哔哩】</a></li>
+</ul>
+<hr/>
+<h2>2026-01-08 14:14:49</h2>
 <p>回看 next mdx remote 的实现，当时我是着实不知道是为什么要分 rsc 和非 rsc。我知道 rsc 是服务端渲染的，但难道非 rsc compile 出来的组件就不能服务端渲染了吗。因为我看了下两个组件反序列化的过程可以说是一模一样一致，都是在客户端水合一下。唯一的区别就是非 rsc 把 mdx.js 暴露的全部组件都传了进去，</p>
 <pre><code class="language-typescript">// Compile Options
 providerImportSource: rsc ? undefined : &#x27;@mdx-js/react&#x27;,
@@ -130,7 +136,7 @@ providerImportSource: rsc ? undefined : &#x27;@mdx-js/react&#x27;,
 import * as mdx from &#x27;@mdx-js/react&#x27;
 // 因为反序列化后的函数字符串可能会调用到 mdx-js 的内容，也就是 useMDXComponent，RSC 不支持，所以序列化前必须指明编译参数。
 </code></pre>
-<p>也就是rsc 的组件实现是 mdx-js 是零依赖的。所以到底有什么必要在非 RSC 里的组件里把 mdx.js 所有的组件都传进去呢。主要就是是否注入 mdx-js 库里的 <code>useMDXComponent</code>的调用。但不编译能有什么影响呢</p>
+<p>也就是rsc 的组件实现对 mdx-js 零依赖的。所以到底有什么必要在非 RSC 里的组件里把 mdx.js 所有的组件都传进去呢。主要就是是否注入 mdx-js 库里的 <code>useMDXComponent</code>的调用。但不编译能有什么影响呢</p>
 <p>问了 Gemini，他是这么说的：</p>
 <pre><code>// 纯 Props 模式，每次用都要传，累死人
 &lt;MDXContent components={{ YouTube, Tweet, Chart, ... }} /&gt;
@@ -204,38 +210,7 @@ import * as mdx from &#x27;@mdx-js/react&#x27;
 <p>Suspense 里挂载一个<strong>异步组件</strong>，就可以等异步组件有返回后再显示。比如子组件里使用 await fetch 阻塞了结果返回。而Lazy 组件，也这么一种异步组件。</p>
 <p>Suspense 里挂载一个带有 <code>use hook</code> 的组件在 use hook 完成前，都会使用最近的 Suspense。</p>
 <h3>use hook</h3>
-<p>在最新的 React 版本中，推出了 <code>use</code> Hook，它允许你在组件内部直接“解包”一个 Promise。如果 Promise 没完成，它会触发最近的 <code>Suspense</code>。</p>
-<hr/>
-<h2>2026-01-04 03:34:48</h2>
-<p>#博客 重构记录</p>
-<ul>
-<li>
-<p>切换路由框架为 React Router 7 做 SSG。至于为什么……一是 Next.js 虽然比较自动，但真的很慢。主要我做 Memo 页需要混合路由，并不是单纯的 SSG 或者 SPA。
-天知道我为了在 Next.js 12那个基于文件系统的路由框架上整个混合渲染有多麻烦，点个什么都要靠手动劫持路由还要小心状态机防止循环渲染。Suspense 是 AppRouter 出了才有的，感觉也是很不直观。就算现在，也做不到访问 query 时劫持掉静态内容直接显示 CSR 的骨架，一定要闪一下，因为分割渲染方式的入口是组件而不是路由。</p>
-</li>
-<li>
-<p>CSS 切换为 tailiwind 预构建。我虽然不喜欢 tailwind 的丑，但是也不太想用 css in js 去水合页面，有构建时水合的开销就算了还有运行时开销。此外原生 css 也混着用。</p>
-</li>
-<li>
-<p>markdown 内容用 velite 预构建。这个管线是真的好用，但也不担心类型问题（感谢 zod），rss 和搜索索引构建和应该写哪里的问题也一块解决了。其实还是要自己引入 mdx-js 去做 compile，因为静态 memos 对 markdown 的使用方式非常特殊。</p>
-</li>
-<li>
-<p>这个博客非常多的部分都靠预构建，路由自己写是有点麻烦但写好了也是自动生成了不用再动了。我觉得也正是这些预构建的步骤变多了，生成才能快得起来了。</p>
-</li>
-<li>
-<p>另外我彻底摒弃了 memos 多个来源混合的预留接口。真的不知道发在哪个 CMS 上，还有谁天天看在博客看即时消息啊。但是啊，如果说有同样的人构建同样的博客，并且允许跨域，那确实是可以把一堆建同样博客的人的消息混在一堆的……</p>
-</li>
-<li>
-<p>巨量 debug。你永远不知道为什么本来工作地好好的 Virtualist 换个框架变 key 后不强制刷新了。我看了很多可变高度 Virtualist 的实现，感觉还是自己的实现使用起来最傻瓜（因为自动布局逻辑简单不了，落泪，状态机很麻烦的）。网上实现全是要手动算一堆高度的，连 fixed 高度也要指定，用起来实在太蠢了。</p>
-</li>
-<li>
-<p>Memo 的 Image Browser 用 claude 迁移之后自动做了一个缩略图预览，笑死。感觉这样的话，相册页面也有着落了，但是相册页最麻烦的其实是，Memo 没有缩略图……也就是说需要超大图片展示相册以免自己一边开发着一边狂刷流量。</p>
-</li>
-<li>
-<p>SearchEngine 也改了下接口以不限制任何的 searchObj。当然匹配还是有 bug 的，但懒得测试了。以前老担心东西多了搜太慢，现在觉得这个问题永远不用担心，因为网永远更慢……怎么分割索引加快网速比客户端执行时间重要得多。</p>
-</li>
-</ul>
-<p>总之，是改了超多的，经常在发呆不知道还要改什么。</p>]]></content>
+<p>在最新的 React 版本中，推出了 <code>use</code> Hook，它允许你在组件内部直接“解包”一个 Promise。如果 Promise 没完成，它会触发最近的 <code>Suspense</code>。</p>]]></content>
         <published>2026-01-03T20:22:56.000Z</published>
     </entry>
     <entry>

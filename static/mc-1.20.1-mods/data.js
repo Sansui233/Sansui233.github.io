@@ -36,7 +36,6 @@ const MODS_DATA = [
     { name: "Open Parties and Claims", file: "open-parties-and-claims-fabric-1.20.1-0.25.8.jar", category: "gameplay", deps: ["Fabric API", "Forge Config API Port"], desc: "领地保护和队伍系统", mcVersion: "1.20.1" },
     { name: "Gliders", file: "gliders-fabric-1.2.0.jar", category: "gameplay", deps: [], desc: "可制作的滑翔翼，鞘翅的早期替代品", mcVersion: "1.20.1" },
     { name: "Create", file: "create-fabric-6.0.8.1+build.1744-mc1.20.1.jar", category: "gameplay", deps: ["Fabric API"], desc: "机械动力：齿轮、传送带、自动化机械", mcVersion: "1.20.1" },
-    { name: "Polymorph", file: "polymorph-fabric-0.49.10+1.20.1.jar", category: "gameplay", deps: ["Fabric API"], desc: "合成冲突解决：选择想要的配方", mcVersion: "1.20.1" },
 
     // 装饰物品
     { name: "Windchimes", file: "windchimes-1.2.4+1.20.jar", category: "decoration", deps: [], desc: "装饰性风铃", mcVersion: "1.20" },
@@ -67,7 +66,8 @@ const MODS_DATA = [
     { name: "WorldEditCUI", file: "WorldEditCUI-1.20+01.jar", category: "utility", deps: ["Fabric API", "WorldEdit"], desc: "WorldEdit 选区可视化", mcVersion: "1.20+" },
     { name: "Axiom", file: "Axiom-5.2.1-for-MC1.20.1.jar", category: "utility", deps: [], desc: "现代化世界编辑工具", mcVersion: "1.20.1" },
     { name: "Fabric Carpet", file: "fabric-carpet-1.20-1.4.112+v230608.jar", category: "utility", deps: [], desc: "技术玩家工具集", mcVersion: "1.20" },
-    { name: "LotTweaks", file: "LotTweaks-mc1.20.1-fabric-2.3.4.jar", category: "utility", deps: [], desc: "色轮调色工具", mcVersion: "1.20.1" }
+    { name: "LotTweaks", file: "LotTweaks-mc1.20.1-fabric-2.3.4.jar", category: "utility", deps: [], desc: "色轮调色工具", mcVersion: "1.20.1" },
+    { name: "Polymorph", file: "polymorph-fabric-0.49.10+1.20.1.jar", category: "utility", deps: ["Fabric API"], desc: "合成冲突解决：选择想要的配方", mcVersion: "1.20.1" },
 ];
 
 const CATEGORIES = { library: '核心库', optimization: '性能优化', gameplay: '玩法机制', decoration: '装饰物品', utility: '实用工具', disabled: '已禁用' };

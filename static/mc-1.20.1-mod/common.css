@@ -82,6 +82,8 @@ h1 { color: var(--text-primary); margin-bottom: 6px; font-size: 28px; font-weigh
 .mod-card.gameplay { border: 1px solid var(--color-gameplay); background: rgba(147, 189, 87, 0.05); }
 .mod-card.decoration { border: 1px solid var(--color-decoration); background: rgba(203, 166, 247, 0.05); }
 .mod-card.utility { border: 1px solid var(--color-utility); background: rgba(249, 226, 175, 0.05); }
+.mod-card.disabled { border: 1px solid var(--text-muted); background: rgba(128, 128, 128, 0.05); }
+.mod-card.disabled .mod-name { color: var(--text-muted); }
 .mod-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
 .mod-header-right { display: flex; align-items: center; gap: 10px; }
 .mod-name { color: var(--text-primary); font-weight: 700; font-size: 15px; }

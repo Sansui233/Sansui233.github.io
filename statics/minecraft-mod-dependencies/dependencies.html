@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Mod 依赖关系可视化</title>
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <div class="layout">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">📦 模组列表 (48)</div>
+                <input type="text" class="sidebar-search" id="sidebarSearch" placeholder="搜索模组...">
+            </div>
+            <div class="sidebar-list" id="sidebarList"></div>
+        </div>
+
+        <div class="main">
+            <h1>🎮 Minecraft Mod 依赖关系可视化</h1>
+            <div class="subtitle">MC 1.21.10 Fabric - 48 个模组</div>
+
+            <div class="stats">
+                <div class="stat-card"><div class="stat-value">48</div><div class="stat-label">总模组数</div></div>
+                <div class="stat-card"><div class="stat-value">12</div><div class="stat-label">核心库模组</div></div>
+                <div class="stat-card"><div class="stat-value">9</div><div class="stat-label">性能优化</div></div>
+                <div class="stat-card"><div class="stat-value">27</div><div class="stat-label">功能模组</div></div>
+            </div>
+
+            <div id="warningBanner"></div>
+
+            <div id="modsContainer"></div>
+        </div>
+    </div>
+
+    <script src="./data.js"></script>
+    <script src="./common.js"></script>
+    <script>
+        renderSidebar();
+        renderWarningBanner();
+        renderMain();
+        initSearch();
+    </script>
+</body>
+</html>

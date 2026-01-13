@@ -1,5 +1,18 @@
 const MODS_MAP = new Map(MODS_DATA.map(m => [m.name, m]));
 
+// 计算被依赖关系
+MODS_DATA.forEach(mod => mod.depBy = []);
+MODS_DATA.forEach(mod => {
+    if (mod.deps) {
+        mod.deps.forEach(depName => {
+            const depMod = MODS_MAP.get(depName);
+            if (depMod && !depMod.depBy.includes(mod.name)) {
+                depMod.depBy.push(mod.name);
+            }
+        });
+    }
+});
+
 // 统计非 disabled 的模组
 const ACTIVE_MODS = MODS_DATA.filter(m => !m.disabled);
 
@@ -13,30 +26,35 @@ function detectMCVersion() {
     return Object.keys(versions).sort((a, b) => versions[b] - versions[a])[0];
 }
 
+let currentFilter = null;
+
 // 渲染页面标题和统计信息
 function renderPageInfo() {
     const mcVersion = detectMCVersion();
     const totalMods = ACTIVE_MODS.length;
+    const topLevelMods = ACTIVE_MODS.filter(m => !m.depBy || m.depBy.length === 0).length;
 
-    // 更新副标题
     document.getElementById('subtitle').textContent = `MC ${mcVersion} Fabric - ${totalMods} 个模组`;
-
-    // 更新侧边栏标题
     document.getElementById('sidebarTitle').textContent = `📦 模组列表 (${totalMods})`;
 
-    // 统计各类别数量
     const categoryCounts = {};
-    ACTIVE_MODS.forEach(m => {
-        categoryCounts[m.category] = (categoryCounts[m.category] || 0) + 1;
-    });
+    ACTIVE_MODS.forEach(m => categoryCounts[m.category] = (categoryCounts[m.category] || 0) + 1);
+    const warningMods = MODS_DATA.filter(m => m.warning).length;
 
-    // 渲染统计卡片
-    const statsHtml = `
-        <div class="stat-card"><div class="stat-value">${totalMods}</div><div class="stat-label">总模组数</div></div>
-        <div class="stat-card"><div class="stat-value">${categoryCounts.library || 0}</div><div class="stat-label">核心库模组</div></div>
-        <div class="stat-card"><div class="stat-value">${categoryCounts.optimization || 0}</div><div class="stat-label">性能优化</div></div>
-        <div class="stat-card"><div class="stat-value">${(categoryCounts.gameplay || 0) + (categoryCounts.decoration || 0)}</div><div class="stat-label">功能模组</div></div>
-    `;
+    let statsHtml = '<div class="stats-row">';
+    statsHtml += `<div class="stat-card${currentFilter === null ? ' active' : ''}" onclick="filterByCategory(null)"><div class="stat-value">${totalMods}</div><div class="stat-label">总模组</div></div>`;
+    statsHtml += `<div class="stat-card${currentFilter === 'top' ? ' active' : ''}" onclick="filterByCategory('top')"><div class="stat-value">${topLevelMods}</div><div class="stat-label">顶层模组</div></div>`;
+    if (warningMods > 0) {
+        statsHtml += `<div class="stat-card${currentFilter === 'warning' ? ' active' : ''}" onclick="filterByCategory('warning')"><div class="stat-value">${warningMods}</div><div class="stat-label">版本警告</div></div>`;
+    }
+    statsHtml += '</div><div class="stats-row">';
+    Object.entries(CATEGORIES).forEach(([cat, title]) => {
+        if (categoryCounts[cat] && cat !== 'disabled') {
+            statsHtml += `<div class="stat-card${currentFilter === cat ? ' active' : ''}" onclick="filterByCategory('${cat}')"><div class="stat-value">${categoryCounts[cat]}</div><div class="stat-label">${title}</div></div>`;
+        }
+    });
+    statsHtml += '</div>';
+
     document.getElementById('stats').innerHTML = statsHtml;
 }
 
@@ -133,9 +151,24 @@ function renderSidebar(filtered = MODS_DATA) {
     });
 }
 
-function renderMain(filtered = MODS_DATA) {
+function filterByCategory(category) {
+    currentFilter = category;
+    renderPageInfo();
+    renderMain();
+}
+
+function renderMain() {
     const container = document.getElementById('modsContainer');
     container.innerHTML = '';
+
+    let filtered = ACTIVE_MODS;
+    if (currentFilter === 'top') {
+        filtered = ACTIVE_MODS.filter(m => !m.depBy || m.depBy.length === 0);
+    } else if (currentFilter === 'warning') {
+        filtered = MODS_DATA.filter(m => m.warning);
+    } else if (currentFilter) {
+        filtered = ACTIVE_MODS.filter(m => m.category === currentFilter);
+    }
 
     Object.entries(CATEGORIES).forEach(([cat, title]) => {
         const catMods = filtered.filter(m => m.category === cat);
@@ -199,7 +232,6 @@ function initSearch() {
         const search = e.target.value.toLowerCase();
         const filtered = search ? MODS_DATA.filter(m => m.name.toLowerCase().includes(search) || m.file.toLowerCase().includes(search)) : MODS_DATA;
         renderSidebar(filtered);
-        renderMain(filtered);
     });
 }
 
@@ -219,4 +251,21 @@ function renderWarningBanner() {
     });
     html += '</div></div>';
     banner.innerHTML = html;
+}
+
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    const main = document.querySelector('.main');
+
+    main.addEventListener('scroll', () => {
+        if (main.scrollTop > 300) {
+            btn.classList.add('show');
+        } else {
+            btn.classList.remove('show');
+        }
+    });
+
+    btn.addEventListener('click', () => {
+        main.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }

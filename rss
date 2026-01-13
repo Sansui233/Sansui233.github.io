@@ -4,12 +4,140 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 13 Jan 2026 09:49:20 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 13 Jan 2026 13:56:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Minecraft v1.20.1 常用设置]]></title>
+            <link>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</link>
+            <guid isPermaLink="false">https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</guid>
+            <pubDate>Mon, 12 Jan 2026 18:38:09 GMT</pubDate>
+            <content:encoded><![CDATA[<blockquote>
+<p>更新：<a href="/static/mc-1.20.1-mods/dependencies.html">1.20.1 版本 mod 列表</a>，有详细的 mod 分类与依赖关系。大部分为实用工具</p>
+</blockquote>
+<p>在 Minecraft 1.20 版本光照引擎被大幅改写，使得帧数提升，模组的数量似乎又多了起来。另外在 fabric 发展起来以后，mod的社区生态有了很大的变化，有很多老牌模组有了更新的替代。现在记录一下实现常用的基本功能需要的模组与修改设置。</p>
+<p>我使用的 hmcl 启动器，在其中进行模组下载可显示模组间的依赖情况。以下内容在 1.20.1 中完全兼容，且项目均在维护中。</p>
+<h2>1. Mods</h2>
+<p>MC 是一款肝度明显过高的游戏。mod 的选用主要是为了：</p>
+<ol>
+<li>使画面养眼</li>
+<li>降低肝度，同时少引入额外的快捷键</li>
+<li>优化细节使用体验</li>
+</ol>
+<p>使用以 fabric-api 构建的模组。</p>
+<h3>1.1 渲染类</h3>
+<ul>
+<li>Sodium: 渲染优化之神，许多模组的前置</li>
+<li>Sodium-extra: 渲染优化之神的扩展，相应 GUI 为reeses sodium options</li>
+<li>Lithium: 原版机制的算法改进</li>
+<li>Iris: Sodium 加光影</li>
+<li>Custom Entity Models: 自定义实体模型，增强对 optifine 材质包的支持</li>
+<li>Continuity: 无缝纹理，安装后需要启用相应的材质包。对第三方材质包支持一般，主要和 optifine 的格式还是不一样。</li>
+<li>Indium: 许多模组的前置，提供 Fabric Rendering API的支持</li>
+</ul>
+<h3>1.2 功能类</h3>
+<ul>
+<li>modmenu: 显示所有模组和相应的设置页面（如果有的话）设置为 <code>\</code> 开配置</li>
+<li>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</li>
+<li>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）<code>f5</code>以获得更好的摄影视角，zoom 开启类似 optifine 的按 <code>c</code> 视角放大，handrestock 可自动补货手里的工具、方块</li>
+<li>xaero's minimap: 小地图，降肝度必备。需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了网格显示和生物显示。有世界地图和世界地图的 Plus 版本，联动领地声明功能（虽然单人用不太到）</li>
+<li>Carry on：手里没有东西时，<code>shift+右键</code> 搬运箱子，降低装饰的肝度。</li>
+<li>JEI + EMI + 通用拼音搜索: 物品搜索，查看合成配方、查看方块用途，EMI 增加了<strong>查看合成树</strong>，在 JEI 的 <code>r</code> 键可看。切换可合成物品。</li>
+<li>Invertory Profile Next: 高版本的 R 键背包整理（但被我改成 <code>z</code> 键整理，R 键通常是 JEI 查看合成表）。自动补充工具、连续合成、捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品。关掉快破损时替换工具。</li>
+<li>imblock: 输入法冲突修复</li>
+<li>Panda's falling tree：砍树时树会倒下，降低砍树的肝度。</li>
+<li>Leawind's Third Person: 更好的第三视角。这算是第一个可以日常使用的第三视角模组，挖方块瞄准都很方便。日常的垂直平滑 0.5 以上，不然爬山能晕死。特点是不绑快捷键。</li>
+<li>better combat: 动作战斗优化，攻速和攻击范围都有反馈了。</li>
+<li>Litematica：投影。辅助红石机械建造，也算是一种降生存建筑的肝度。使用相当简单，一根木棍，control+滚动切换模式，快捷键进菜单。最难的其实是收集足够多的预置模型。但这个模组，要抢 Map 的 M 键……键位需要大改。</li>
+<li>Hey Wiki: 在指向物品时按 h 键查询wiki。在物品越来越多的高版本具有一些引导作用。</li>
+</ul>
+<h3>1.3 新物品</h3>
+<ul>
+<li>Gliders：类似塞尔达的滑翔伞，防摔。在空中按空格展开滑翔。使用方式和大部分游戏一致。只是要占一个盔甲位。动画做得很不错。</li>
+<li>Waystones：传送石碑，后期物品，降低交通的肝度。如果用地图作弊路径点传送就不需要这个东西了，但理想的玩法还是地图只是用来看的，让传送石碑在地图上显示（需要前期多刷小黑），只能传送石碑处，禁止任意传送。传送石不是个好设计，MC背包不能放下更多东西了。除非有单纯扩容用的背包模组。</li>
+<li>travelersbackpack：背包模组，终于有了 fabric 版。虽然 mojang 一直很谨慎地加入新的方块，但似乎从未考虑过方块越来越多时的背包使用问题。再者模组整合包也因为方块种类数爆炸的问题增加背包模组。在 1.12 版本时，背包容量是刚好够的。个人并不是很喜欢背包的设计。</li>
+</ul>
+<h2>2. 设置</h2>
+<ul>
+<li>画面尺寸: 1920*1080@60fps，窗口化</li>
+<li>视场角: 85</li>
+<li>鼠标灵敏度: 75</li>
+<li>模拟距离：8</li>
+<li>渲染距离：12</li>
+</ul>
+<h3>2.1 快捷键修改</h3>
+<p>总体的键位映射图如下。深绿色为原版的功能。橘色为Mod功能，蓝色为创造模式功能。键位分为直接按键、组合键、修饰键（长按）。MC 原版只能定义直接按键，组合键与修饰键在复杂的 mod 中用得多，并且会覆盖原版的直接按键。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/01/202601132155912.webp" alt="KeyMaps"></p>
+<h4>游戏主界面</h4>
+<p>首先把 ctrl 改到 capslock 键位，方便疾跑。系统全局 powertoys 改的（吐槽一万句control的键位）</p>
+<ul>
+<li>长按 <code>tab</code>，滚轮切换物品栏。在tweakroo 的「工具」中开启 hotbarscroll，再在 tweakroo  的「快捷键」中把 hotbarscroll 的快捷键设置为 Tab。</li>
+<li><code>v</code>: 切换第三人称视角(visual)，很常用的功能。原本是f5，实在太远了</li>
+<li><code>f4</code>: Leawind's Third Person 第三人称视角相机调位置。同时关掉左右切换。点按左右，长按居中</li>
+<li><code>f5</code>:  灵魂出窍，在 tweakroo 的 freecamera 中设定</li>
+<li><code>c</code>: 望远镜，在 tweakroo 的 zoomactivate 中设定</li>
+<li><code>b</code>：开背包（如果物品栏有的话）</li>
+<li><code>t</code>: 路标点传送管理(transport)。聊天改 <code>enter</code> 键</li>
+<li><code>x</code>: 锦致装饰-箭袋</li>
+<li><code>m</code>:  显示大地图和设定。地图的其他快捷键全关掉。</li>
+<li><code>n</code> Litematica 投影菜单</li>
+<li><code>h</code> Hey Wiki 查询指向的物品 Wiki</li>
+<li><code>shift+右键</code> 空手时搬运箱子，carry on 自带。</li>
+<li><code>\</code> Mod Menu配置</li>
+<li><code>n+c</code> Litematica 配置。n系列特别多键。</li>
+<li><code>x+c</code> tweakroo 配置</li>
+</ul>
+<p>特定工具下的修饰键：</p>
+<ul>
+<li>木棍工具
+<ul>
+<li><code>~</code>  Litematica 木棍工具修饰键，改变区域大小</li>
+<li><code>n+enter</code> Litematica 木棍工具模式5且创造模式下放置投影</li>
+</ul>
+</li>
+</ul>
+<p>预留键位：</p>
+<ul>
+<li><code>g</code> 圆盘菜单</li>
+<li><code>~</code>  特定工具修饰键，比如连锁挖矿</li>
+<li><code>b</code> 背包(backpack)</li>
+<li><code>j</code> FTB任务书(journal)</li>
+<li><code>左alt</code> 创造模式下，建筑模组 axiom 用 alt 切换专用物品栏。</li>
+</ul>
+<h4>合成台、箱子UI</h4>
+<ul>
+<li><code>r</code> : JEI 查看光标下物品的合成方式</li>
+<li><code>u</code> : JEI 查看光标下物品的用途</li>
+<li><code>ctrl + 左键点击</code> JEI的物品，移动物品到合成台</li>
+<li><code>z</code> : 一键整理。在 IPN 的设置中修改。</li>
+<li>使用滚轮以在背包和箱子间移动物品，按shift移动整组</li>
+</ul>
+<h2>3. 光影</h2>
+<ul>
+<li>BSL v8.2.04，默认配置High，把 Camera 中的 Bloom 关闭，把 Atmosphere 中的 fog 调到 0，开启 lighting 中的handDynamicLight。抗锯齿的TAA随便开不开，取决于风扇响不响</li>
+<li>Complementary Reimagined，配置 medium，high 会开启材质的反射运算量明显变大。夜晚也比较亮，适合生存。</li>
+<li>itt 3.0，更适合搭配了写实系材质的建筑，风格最写实的 shader 没有之一。不适合生存。</li>
+</ul>
+<h2>4. 材质</h2>
+<ul>
+<li>任意矿物发光材质。比如 <a href="https://www.curseforge.com/minecraft/texture-packs/new-glowing-ores">New Glowing Ores</a>。主要是因为 BSL 光影没有矿物发光，所以要加一个材质以确保有 fallback。</li>
+<li><a href="https://afdian.net/a/Nan2uu">彩虹像素</a>，非常优秀的免费猛男材质包，原版风但更精致。有很多更可爱的附加包。</li>
+</ul>
+<h2>5. 创造模式附加</h2>
+<h3>5.1 Mod</h3>
+<p>Axiom 高版本环境必备，可以创建实体方块随意拉伸模型，相当好用。</p>
+<p>effortLess structure 快速建造几何体。原 effortless buidling。</p>
+<p>lotweaks 自定义材质轮盘</p>
+<p>wordedit 经典创世神</p>
+<h3>快捷键</h3>
+<p><code>tab</code>: effortLess structure 轮盘。</p>
+<p><code>r</code>: lotweaks 轮盘，和手中方块有关。会禁用丢东西（但创造模式本来就不用丢东西除了篝火灭火，何不用 Axiom 的调试棒？）</p>
+<p><code>左 alt</code>： Axiom 的大菜单</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/游戏">游戏</category>
+        </item>
         <item>
             <title><![CDATA[z-index 设计与海浪模型]]></title>
             <link>https://sansui233.com/posts/z-index-and-context-management-and-design-logic</link>
@@ -821,122 +949,6 @@ export default App;
 <p>想画漫画了，草。</p>
 <p>写于2024年11月13日03时15分。</p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/Diary">Diary</category>
-        </item>
-        <item>
-            <title><![CDATA[把 draw.io 装修为简单且现代的白板应用]]></title>
-            <link>https://sansui233.com/posts/2024-11-12-把drawio装修为简单美观的白板应用</link>
-            <guid isPermaLink="false">https://sansui233.com/posts/2024-11-12-把drawio装修为简单美观的白板应用</guid>
-            <pubDate>Mon, 11 Nov 2024 21:19:03 GMT</pubDate>
-            <description><![CDATA[装修无止境！]]></description>
-            <content:encoded><![CDATA[<p><a href="http://draw.io">draw.io</a> 是一个功能丰富的流程图绘制软件。此前写论文时我一直使用这个软件画图。在没有系统性的画图需要，转而变成了有时想要随手画矢量示意图后，这个软件启动交互流程步骤繁琐，我便极少使用它了。但在使用了 tldraw, excalidraw 后，又回到了 <a href="http://draw.io">draw.io</a>，才发现这个软件的可定制性其实非常强，完全能满足随手画图的需要。这里记录一下如何把 draw.io 变成一个更适合打开即用的、默认效果更加现代的白板应用。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511240.webp" alt="image.png"></p>
-<p>（草……windows 截图这边缘的黑框好丑啊！）</p>
-<h2>为什么是 draw.io</h2>
-<p>先对比一下适合需求的竞品（不想看请跳转下一节）：</p>
-<ul>
-<li><a href="https://www.microsoft.com/en-us/microsoft-365/visio/flowchart-software">visio</a>: 收费，而且 mac 上没有。</li>
-<li><a href="https://www.tldraw.com/">tldraw</a>, <a href="https://excalidraw.com/">excalidraw</a>: 更适合作为 sdk 使用，作为成品有些过于简单，在易用的同时，想多做一点非流程图的东西又很复杂，中文字体也不契合其默认的手写设计。而且并没有打包为桌面 App，文件关联是个问题。</li>
-<li><a href="https://www.processon.io/">processon</a>: 要登录</li>
-<li><a href="https://www.figma.com/">figma</a>: 要用梯子登录</li>
-<li>powerpoint: ……我只是想偶尔画个示意图</li>
-<li>飞书: 每30天要扫码登录 ……我只是想偶尔画个示意图</li>
-<li>adobe illustrator: 没有常用预制样式库，漫长的启动时间，对于没接触过的人学习成本很高。</li>
-<li>无边记、goodnotes: 苹果移动端生态 only</li>
-</ul>
-<p><a href="http://draw.io">draw.io</a> 没有上述的问题，但它由于设计之初不是个草图应用，所以：</p>
-<ul>
-<li>默认较为重型的 UI</li>
-<li>启动先选择储存位置，太慢了</li>
-<li>默认组件样式很丑，看起来只适合工控图</li>
-<li>有时会感觉曲线箭头很难调，怎么都不流畅</li>
-</ul>
-<p>我根据以上三点问题大致说一下如何改进。</p>
-<h2>更换UI布局</h2>
-<p>默认的 UI 较为传统的重型设计，熟悉这类UI是相当好用的，但按钮组过多会显得不够轻便。在 <code>其它→主题→外观</code> 中可以更换为其他的主题，有5套可用：经典、极简、简易、草图、atlas。</p>
-<p>我个人用得比较多的是「简易」，并且关掉了左侧栏形状库的栏，改为用顶栏，右侧格式栏在顶部有快速按钮展开。</p>
-<p>习惯 tldraw、excalidraw 的用户应该还是更适合「草图」主题，绑定了基础形状的快捷键。需要去手动调出格式栏。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511552.webp" alt="image.png"></p>
-<h2>更改启动流程</h2>
-<p>默认情况下，启动时会弹出选择保存位置的框。新建画布时，又会先看到一大串模板的选择题，还得去想命名。但很多时候，随便画图是不需要保存的。</p>
-<p>在经典主题下，需要去「其它」→「显示开始画面」上取消勾选。在其它的主题下，则需要去菜单的「设置」→「配置」里取消勾选「显示开始画面」。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516688.webp" alt="image.png"></p>
-<h2>配置默认样式</h2>
-<p>要做到更改默认样式，需要写 JSON 配置。尽管可以在侧栏按「设置为默认样式」，但只能当前打开的窗口生效，刷新、新开文档都会导致默认样式回到最初的样子。</p>
-<p>在经典主题下，需要通过 「其它」→「配置」打开，其它主题下，则是「设置」→「配置」。</p>
-<blockquote>
-<p><strong>我的配置已经上传到 <a href="https://gist.github.com/Sansui233/a7f5b88e35194f82b1a76a7e05df4f5c">gist</a>。</strong></p>
-</blockquote>
-<p>JSON 写法参考了如下文档：</p>
-<ul>
-<li><a href="https://drawio-app.com/blog/customise-default-shape-libraries-templates-and-plugins-in-draw-io-for-confluence-cloud/">Customise default shape libraries, templates and plugins in draw.io for Confluence Cloud - draw.io</a></li>
-<li><a href="https://www.drawio.com/doc/faq/configure-diagram-editor">Configure the draw.io editor</a></li>
-</ul>
-<p><a href="http://draw.io">draw.io</a> 的图形分为 vertex（顶点图形） 和 edge（箭头、线段）两类，选中按 <code>ctrl + e</code> 即可查看当前图形应用的样式。</p>
-<h3>配色与样式设计</h3>
-<p>整体采用的粗线条粗体，比较契合现代简约又活泼的趋势。edge 采用黑色，与高饱和的 vertex 非常好搭配。</p>
-<p>直接抄的无边记的颜色，有的有轻微的改动。不过无边记最印象化的水蓝色没有抄上去。</p>
-<p>默认的配色改为了最后一个蓝色。以下配色均可以在右侧的「格式栏」中找到并应用。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120513014.webp" alt="配色方案.png"></p>
-<h3>关于圆角矩形</h3>
-<p>现代设计中圆角矩形用得更多。对于圆角的弧度，可以通过属性 Arc Size 去调整。可以点击设置为默认样式，也可以配置到 JSON 里。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120514766.webp" alt="image.png"></p>
-<p>如果你使用的「经典」主题，需要自己选择圆角矩形的图形。在「草图」主题下，按 <code>D</code> 就是默认配置好的圆角矩形，相当简单。「简易」主题下的位置如图：</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120511067.webp" alt="image.png"></p>
-<h3>关于曲线设置</h3>
-<p>曲线设置不对会变得很难调整，一张图说明大多数情况下的曲线操作与设置：</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120515358.webp" alt="曲线.png"></p>
-<h3>想更换为手写风格？</h3>
-<p>在不选中任何东西的情况下，把右侧格式栏的草图勾选上即可，就可以获得类似 excalidraw 的手写风格啦！</p>
-<p>另外，如果没有自定义 JSON， 「草图」主题下的默认样式也是手写风格的。</p>
-<h3>关于默认字体（附网页用字号推荐）</h3>
-<p>JSON 中这几个字段设置默认字体。我默认英文是 Inter，中文是使用的系统黑体。文字大小我设置为了网页标准 16px。</p>
-<pre><code class="language-json">{
-  "customFonts": [
-    "Inter",
-    "pingfang sc"
-  ],
-  "defaultVertexStyle": {
-    "fontSize": 16,
-    "fontFamily": "Inter"
-  },
-  "defaultEdgeStyle": {
-    "fontSize": 16,
-    "fontFamily": "Inter"
-  }
-}
-</code></pre>
-<p>另外介绍一下常用网页文字大小的规范，现代的美术设计由于自己屏幕很大，或者对标准视距缩放大小没太多概念，非常容易把字给设置得很小（点名星穹铁道）</p>
-<ul>
-<li>16px 为默认正文大小，但由于主要是考虑了希腊字母面积比较小，所以也有的中文网站会设置为 15px。</li>
-<li>14px 偏次级小段落、不重要的文字，长时间阅读会累。</li>
-<li>13px 为代码常用大小。</li>
-<li>12px 已经非常小了，是正常视距下最小可视大小，适合做脚注、引用。</li>
-</ul>
-<p>再小的字号不推荐作为内容性文本使用。</p>
-<h3>关于背景网格</h3>
-<p>在简易主题中默认关闭的，经典主题中可以通过配置 JSON 为默认关闭。关掉背景网格会显得比较现代化。</p>
-<pre><code class="language-json">{
-  "defaultGridEnabled": false,
-  "defaultPageVisible": false
-}
-</code></pre>
-<p>但还是有时可能需要开启网格，那就什么都不选中，右侧栏开启网格就可以了。</p>
-<h2>其他使用 Tips</h2>
-<h3>导出设置</h3>
-<p>导出时注意一下缩放。网页标准大小字体为 16px，编辑时画布 100% 缩放下一切正常。但是当导出为位图（jpg, png）时，需要根据你的显示器缩放进行放大，否则文字一定会糊。</p>
-<p>我的显示器为 150% 界面缩放，因此需要缩放到 150% 才能大概清晰，如果要让 4k 屏也看得无比清晰，最好导出 200% 缩放，且 dpi 尽量在 180 以上。</p>
-<p>另外可以直接框选后右键复制，不一定要导出。</p>
-<h3>一个文件画多张图</h3>
-<p>经常会遇到多张同系列图的需求。为此，你可以选择都画在一页上，要用时框选特定范围，右键复制为 png 。这样很适合边聊天边画图发给别人，但也会失去缩放、加白底、加白边等设置。至少你得打个组，把 16px 的文字放大后再复制，以确保结果不会糊。</p>
-<p><a href="http://draw.io">draw.io</a> 也可以分页，建议是一页一个图，可批量导出。</p>
-<h3>从 Mermaid 生成图、嵌入 Notion</h3>
-<p>mermaid 是一种画流程图的代码，比较适合不想可视化排列对齐的强迫症。</p>
-<p>draw.io 可以在菜单中的「高级」使用 mermaid 生成图，下面的图就是导入 mermaid 生成的。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2024/11/202411120516990.webp" alt="未命名绘图.png"></p>
-<p>由于 notion 无法画图，在 notion 我都是用的 mermaid，有点不好看但至少目的达到了。不过最近发现，<a href="http://draw.io">draw.io</a> 的导出可以选择直接嵌入notion，点开还能进行编辑……实现方式是图像数据全部存放在了链接里……不得不说 draw.io 自主兼容性做得很强，从接入了那么多网盘就可见一斑。</p>
-<h3>自定义CSS</h3>
-<p>如果还是觉得 UI 太丑了，在 <a href="https://www.drawio.com/doc/faq/configure-diagram-editor">Configure the draw.io editor</a> 中可以找到自定义 CSS 的部分（但我觉得 UI 排列上还是不错的，这足够了）</p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
     </channel>
 </rss>

@@ -109,20 +109,6 @@ function initTooltip() {
     activeTooltip = tooltip;
 }
 
-function handleOutsideTouch(e) {
-    if (!activeTooltip || activeTooltip.style.display === 'none') return;
-
-    const touch = e.touches[0];
-    const tooltipRect = activeTooltip.getBoundingClientRect();
-
-    if (touch.clientX < tooltipRect.left ||
-        touch.clientX > tooltipRect.right ||
-        touch.clientY < tooltipRect.top ||
-        touch.clientY > tooltipRect.bottom) {
-        hideTooltip();
-    }
-}
-
 function showTooltip(e, modName) {
     if (!activeTooltip) initTooltip();
 
@@ -155,17 +141,11 @@ function showTooltip(e, modName) {
     activeTooltip.style.left = left + 'px';
     activeTooltip.style.top = top + 'px';
     activeTooltip.style.transform = transform;
-
-    document.removeEventListener('touchstart', handleOutsideTouch);
-    setTimeout(() => {
-        document.addEventListener('touchstart', handleOutsideTouch);
-    }, 0);
 }
 
 function hideTooltip() {
     if (activeTooltip) {
         activeTooltip.style.display = 'none';
-        document.removeEventListener('touchstart', handleOutsideTouch);
     }
 }
 
@@ -194,9 +174,7 @@ function renderSidebar(filtered = MODS_DATA) {
                 document.getElementById(`mod-${mod.name}`)?.scrollIntoView({ behavior: 'smooth' });
             });
 
-            if (isMobile) {
-                item.addEventListener('touchstart', e => showTooltip(e, mod.name));
-            } else {
+            if (!isMobile) {
                 item.addEventListener('mouseenter', e => showTooltip(e, mod.name));
                 item.addEventListener('mouseleave', hideTooltip);
             }
@@ -276,10 +254,13 @@ function renderMain() {
         container.appendChild(section);
     });
 
-    document.querySelectorAll('.dep-tag[data-mod]').forEach(tag => {
-        tag.addEventListener('mouseenter', e => showTooltip(e, e.target.dataset.mod));
-        tag.addEventListener('mouseleave', hideTooltip);
-    });
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) {
+        document.querySelectorAll('.dep-tag[data-mod]').forEach(tag => {
+            tag.addEventListener('mouseenter', e => showTooltip(e, e.target.dataset.mod));
+            tag.addEventListener('mouseleave', hideTooltip);
+        });
+    }
 }
 
 function initSearch() {

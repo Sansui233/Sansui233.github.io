@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./common.css">
 </head>
 <body>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="切换侧边栏">☰</button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <div class="layout">
         <div class="sidebar">
             <div class="sidebar-header">
@@ -39,6 +42,7 @@
         renderMain();
         initSearch();
         initBackToTop();
+        initSidebarToggle();
     </script>
 </body>
 </html>

@@ -101,25 +101,51 @@ function createTooltip(modName) {
 
 let activeTooltip = null;
 
-function showTooltip(e, modName) {
-    hideTooltip();
+function initTooltip() {
     const tooltip = document.createElement('div');
     tooltip.className = 'tooltip tooltip-floating';
-    tooltip.innerHTML = createTooltip(modName);
+    tooltip.style.display = 'none';
     document.body.appendChild(tooltip);
+    activeTooltip = tooltip;
+}
+
+function showTooltip(e, modName) {
+    if (!activeTooltip) initTooltip();
+
+    activeTooltip.innerHTML = createTooltip(modName);
+    activeTooltip.style.display = 'block';
 
     const rect = e.target.getBoundingClientRect();
-    tooltip.style.left = rect.left + rect.width / 2 + 'px';
-    tooltip.style.top = rect.top - 10 + 'px';
-    tooltip.style.transform = 'translate(-50%, -100%)';
+    const tooltipRect = activeTooltip.getBoundingClientRect();
 
-    activeTooltip = tooltip;
+    let left = rect.left + rect.width / 2;
+    let top = rect.top - 10;
+    let transform = 'translate(-50%, -100%)';
+
+    // 检查顶部溢出，如果溢出则显示在下方
+    if (top - tooltipRect.height < 0) {
+        top = rect.bottom + 10;
+        transform = 'translate(-50%, 0)';
+    }
+
+    // 检查左侧溢出
+    if (left - tooltipRect.width / 2 < 10) {
+        left = tooltipRect.width / 2 + 10;
+    }
+
+    // 检查右侧溢出
+    if (left + tooltipRect.width / 2 > window.innerWidth - 10) {
+        left = window.innerWidth - tooltipRect.width / 2 - 10;
+    }
+
+    activeTooltip.style.left = left + 'px';
+    activeTooltip.style.top = top + 'px';
+    activeTooltip.style.transform = transform;
 }
 
 function hideTooltip() {
     if (activeTooltip) {
-        activeTooltip.remove();
-        activeTooltip = null;
+        activeTooltip.style.display = 'none';
     }
 }
 
@@ -142,10 +168,9 @@ function renderSidebar(filtered = MODS_DATA) {
             item.textContent = mod.name + (mod.warning ? ' ⚠️' : '');
             item.onclick = () => document.getElementById(`mod-${mod.name}`).scrollIntoView({ behavior: 'smooth' });
 
-            const tooltip = document.createElement('div');
-            tooltip.className = 'tooltip';
-            tooltip.innerHTML = createTooltip(mod.name);
-            item.appendChild(tooltip);
+            item.addEventListener('mouseenter', e => showTooltip(e, mod.name));
+            item.addEventListener('mouseleave', hideTooltip);
+
             list.appendChild(item);
         });
     });
@@ -267,5 +292,23 @@ function initBackToTop() {
 
     btn.addEventListener('click', () => {
         main.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+function initSidebarToggle() {
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    if (!toggleBtn) return;
+
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('show');
+        overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
     });
 }

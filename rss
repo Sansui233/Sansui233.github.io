@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 27 Jan 2026 05:47:43 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Jan 2026 08:03:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -392,9 +392,9 @@ explicit = true
 </code></pre>
 <p>项目级别的 <code>pyproject.toml</code></p>
 <pre><code class="language-toml">dependencies = [
-  "torch==2.7.1",
-  "torchvision==0.22.1",
-  "torchaudio==2.7.1",
+  "torch>=2.8.0",
+  "torchvision>=0.23.0",
+  "torchaudio>=2.8.0",
 ]
 
 [tool.uv.sources]

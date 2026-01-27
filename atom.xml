@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-01-27T05:47:43.387Z</updated>
+    <updated>2026-01-27T08:03:09.289Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -400,9 +400,9 @@ explicit = true
 </code></pre>
 <p>项目级别的 <code>pyproject.toml</code></p>
 <pre><code class="language-toml">dependencies = [
-  "torch==2.7.1",
-  "torchvision==0.22.1",
-  "torchaudio==2.7.1",
+  "torch>=2.8.0",
+  "torchvision>=0.23.0",
+  "torchaudio>=2.8.0",
 ]
 
 [tool.uv.sources]

@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 27 Jan 2026 08:03:09 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Jan 2026 17:39:56 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,10 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-01-23T18:58:54.000Z</guid>
             <pubDate>Fri, 23 Jan 2026 18:58:54 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-01-26 20:37:38</h2>
+            <content:encoded><![CDATA[<h2>2026-01-29 01:32:56</h2>
+<p><a href="https://yazi-rs.github.io/">Yazi</a> 确实好用，早日干掉 Windows 资源管理器（不是）。Windows 资源管理器现在都没有多栏 View，UI 在 23h2 上卡爆炸。 25h2 现在好像修了，其实还不错的。那只剩没有多栏  view 了。</p>
+<hr/>
+<h2>2026-01-26 20:37:38</h2>
 <p>挺看好  anrigravity 的。我倒希望和 vscode 差别越来越大。能干的事不只有写纯文本。</p>
 <p>但是模型写代码能力真的不太行，gemini 系列的幻觉还是太重了喜欢乱猜原因，然后把代码改得一团乱，而不是使用一些方法验证。这点还是 GPT5.2 和 cc 比较强。</p>
 <hr/>
@@ -66,10 +69,7 @@
 <li><a href="https://huggingface.co/spaces/Xenova/whisper-web">Whisper Web - a Hugging Face Space by Xenova</a></li>
 <li><a href="https://huggingface.co/spaces/webml-community/YOLO26-WebGPU">YOLO26 WebGPU - a Hugging Face Space by webml-community</a></li>
 </ul>
-<p>我觉得超分辨率模型还挺适合做这个的。列入 #TODO 吧。还有抠图，真的没有做纯客户端的抠图吗全都去服务器排队…… seg 模型 CPU 算个几秒也是完全可以接受的啊。哦对，这倒是有商业模式的问题。</p>
-<hr/>
-<h2>2026-01-16 21:50:19</h2>
-<p>看了下 zed 的 <a href="https://www.gpui.rs/">gui 库</a>，wow，DOM 之青春版，蛮喜欢的。zed 团队的复刻轮子能力是真的强。</p>]]></content:encoded>
+<p>我觉得超分辨率模型还挺适合做这个的。列入 #TODO 吧。还有抠图，真的没有做纯客户端的抠图吗全都去服务器排队…… seg 模型 CPU 算个几秒也是完全可以接受的啊。哦对，这倒是有商业模式的问题。</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Minecraft v1.20.1 常用设置]]></title>

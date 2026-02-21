@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 28 Jan 2026 17:39:56 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Feb 2026 10:50:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,16 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-01-23T18:58:54.000Z</guid>
             <pubDate>Fri, 23 Jan 2026 18:58:54 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-01-29 01:32:56</h2>
+            <content:encoded><![CDATA[<h2>2026-02-21 18:31:09</h2>
+<p>有时还是不可避免地觉得很无奈，人没办法既要又要，你没法要求同一个人同时具备躺平和探索前沿，没法要求一个人又要保守遵循传统又要冒险和创新。他们什么时候工作不会因为工作季的到来从天而降，我需要学习很多东西，花大量的时间去实践很多东西，我不觉得这很辛苦，凭什么就说这样没有生活。连续10天接连不断的亲戚与接待，想着我必须要面对的一切，烦躁又爬上了顶峰，人没办法既要又要。你要教育人抛弃自己的理念听很多人的意见患得患失深谋远虑，代价就是长远的踌躇不前；你大谈国际形势金价飞涨，就算再对也远不如早就行动的股民。你一边畅想科技发展十年后人人开飞机一边说你考虑去电网。我听着亲戚的敲门声突然又陷入了崩溃，你知道为什么我在家就是这样，根本没法学习，没法写完一句提示词，我整个人再次陷入了崩溃。永远都是这样被烦死的状态，永远永远。30分钟内被叫走的概率为 100 %。</p>
+<p>那我要带上耳机，把音乐放到最大声，即便我的门锁再次被撞坏也在所不惜。</p>
+<hr/>
+<h2>2026-02-08 06:01:00</h2>
+<p>不知道从哪里看到了再次西西弗斯，在搜索中 AI 总结的寥寥数语有着对于人生「荒诞」的理解，因此而对加缪的此本随笔产生了兴趣。尽管我厌恶哲学一类的词，总是被贴上晦涩难懂的标签，也少不了一些阴阳怪气的话。小时候对此感觉不明觉厉，不过就是以「嘻嘻，还是小孩子」打发。而人到三十岁后还谈论这些，便是「都扯到哲学上了，多宏大多难懂啊」。诚然十三岁和三十岁对于意义的追求不尽相同，十三岁总会往生活上加「重」，幻想文学中二文学盛行；三十岁不再会为赋新辞强说愁，只道是寻常。从所谓的“哲学”意义上说，人和人之间的差距，比人和狗之间的差距都大。</p>
+<p>承认生命的无意义，便可以避免自杀。此种体验早发生在尚未来得及做出反应的时候，我认可所有人对生命意义的理解，却又不认可是属于我的事实。于我而言，「活着的意义只是活着本身」而已。不曾想到加缪开篇便道明了一切，真正会自杀的人反而是对于生的意义明确之人。这个国家这个年代几乎不见对待生命之轻，充满了生命之重，当你不可承受这样的重量，那就是人人诛之，就像 35 岁失业极为死刑一般。“网暴”对人的精神摧残也是如此，倘若你接受这样的叙事，就是自杀之时。</p>
+<p>网络上“及时享乐”主义的盛行，是大家普遍活在宏观叙事意义的重压下的结果。「重」到极致，从而衍生出了「轻」到极致的追求。我无法忍受这样的「轻」真正践行于生活之中，却也无法忍受被赋予的「重」。真正破局的方法唯有行动本身，不为行动而做的计划（画大饼、讲故事）没有任何作用，正如同对于未曾到来的未来而散播的语言焦虑一般。可破局之法唯有行动本身，唯有行动本身。</p>
+<hr/>
+<h2>2026-01-29 01:32:56</h2>
 <p><a href="https://yazi-rs.github.io/">Yazi</a> 确实好用，早日干掉 Windows 资源管理器（不是）。Windows 资源管理器现在都没有多栏 View，UI 在 23h2 上卡爆炸。 25h2 现在好像修了，其实还不错的。那只剩没有多栏  view 了。</p>
 <hr/>
 <h2>2026-01-26 20:37:38</h2>
@@ -43,33 +52,7 @@
 <p><strong>3D</strong> #分享</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=gdOaUv0_TC8">Blender Bones For Beginners - EASY - YouTube</a></li>
-</ul>
-<hr/>
-<h2>2026-01-19 21:09:44</h2>
-<p><strong>技术</strong> #分享</p>
-<ul>
-<li>
-<p><a href="https://cacm.acm.org/blogcacm/two-concepts-of-intelligence/">智能的两种概念 – Communications of the ACM</a></p>
-<p>我觉得可以折中一下，是在无相关经验情况下给出正确答案能力，既有了明确指标也避免了“归纳式智能”。这在现实世界是很确定的出题方式了吧，IQ 测试题都是被设计为无需先验知识的，不会有语言题，你甚至可以给猩猩做。看看图像模型看这么多图后，能不能补全呀哈哈的最后一颗石头就行了。我觉得 AI 是可以有逻辑的，要是有合适的无监督聚类算法，训练了说不定真的可以完成这种任务。但是没有这种无监督随便迁移领域的聚类算法，现在说的无监督实际是自动生成标注/不需要额外人力标注的有监督。</p>
-<p>对于情商我自己定义为，“在自我有相关经验情况下，能给出被社会接纳的答案，并强烈遵守此答案” 的能力。</p>
-<p>刚问了 GPT 下面这个问题，嗯，一塌糊涂。</p>
-</li>
-<li>
-<p><a href="https://austinhenley.com/blog/ladybugclock.html">一个随机游走问题</a></p>
-<p>结论应该是这样的：每个数字上的停留概率是一样的，这是一个理论上稳态分布 stationary distribution，有限次数内只能逼近无法到达的完美分布。如果限定到在有限次数内完成遍历，在 1 和 11 停留的概率是最大的，停留在 6 的概率是最小的。或者说，在 6 停留的平均步数要比其他的数字长，停留在 6 的 step 比 停留在 1 上的步数上要多个十几次，这已经超过了一圈的距离。</p>
-</li>
-</ul>
-<hr/>
-<h2>2026-01-18 18:05:29</h2>
-<p>感觉 rust 的出现一统 shell 体验的天下……尤其是 windows 版本的。没有 rust 就不会出现 starship zoxide eza 这些东西，跨平台还要用到系统库 c++ 够得受了。如果 tree-sitter 生在现在就不会有各种 libc 的破事了。</p>
-<p>另外就是小模型的浏览器 C 端运行…… onnx 还真是可以试一下，小工具狂魔又有玩的了。</p>
-<ul>
-<li><a href="https://github.com/microsoft/onnxruntime-web-demo">onnxruntime demo</a></li>
-<li><a href="https://github.com/vietanhdev/samexporter">SAMexporter</a></li>
-<li><a href="https://huggingface.co/spaces/Xenova/whisper-web">Whisper Web - a Hugging Face Space by Xenova</a></li>
-<li><a href="https://huggingface.co/spaces/webml-community/YOLO26-WebGPU">YOLO26 WebGPU - a Hugging Face Space by webml-community</a></li>
-</ul>
-<p>我觉得超分辨率模型还挺适合做这个的。列入 #TODO 吧。还有抠图，真的没有做纯客户端的抠图吗全都去服务器排队…… seg 模型 CPU 算个几秒也是完全可以接受的啊。哦对，这倒是有商业模式的问题。</p>]]></content:encoded>
+</ul>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Minecraft v1.20.1 常用设置]]></title>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-03-25T16:42:57.804Z</updated>
+    <updated>2026-03-25T16:46:40.857Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -52,7 +52,7 @@
 </li>
 </ul>
 <blockquote>
-<p>除了苹方加粗版本的 hinting 有问题以外，其他版本直接替换的都还不错。</p>
+<p>除了苹方加粗版本不一致性问题太多不建议使用外，其他版本直接替换的都还不错。</p>
 </blockquote>
 <ul>
 <li>系统字体替换工具：搜索 “<a href="https://www.fishlee.net/soft/SysFontReplacer/">字体替换工具 by 随风飘扬</a>”。替换完后重启，否则可能有缩放错误。另外，github 上有一个非侵入式的系统字体替换工具 <a href="https://github.com/Tatsu-syo/noMeiryoUI">noMeiryoUI</a>，可惜换不全 windows 11，只是作为预览不同字体在系统上的效果倒是个很不错的工具。</li>

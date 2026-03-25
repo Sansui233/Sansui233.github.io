@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 25 Mar 2026 17:09:45 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Mar 2026 17:24:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -17,9 +17,6 @@
             <pubDate>Wed, 25 Mar 2026 15:33:14 GMT</pubDate>
             <description><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></description>
             <content:encoded><![CDATA[<blockquote>
-<p>2026-03-25 更新：针对苹方字体资讯更新，增加字体替换说明。</p>
-</blockquote>
-<blockquote>
 <p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
 </blockquote>
 <p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。</p>
@@ -110,7 +107,9 @@
 </ul>
 <hr>
 <p>创建于 2023-09-29 02:25:44</p>
-<p>更新于 2024-08-19 01:45:31</p>]]></content:encoded>
+<ul>
+<li>2026-03-25 更新：针对苹方字体资讯更新，增加字体替换说明。</li>
+</ul>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
         <item>

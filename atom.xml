@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-03-25T17:09:45.478Z</updated>
+    <updated>2026-03-25T17:24:49.786Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -21,9 +21,6 @@
         <updated>2026-03-25T15:33:14.000Z</updated>
         <summary type="html"><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></summary>
         <content type="html"><![CDATA[<blockquote>
-<p>2026-03-25 更新：针对苹方字体资讯更新，增加字体替换说明。</p>
-</blockquote>
-<blockquote>
 <p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
 </blockquote>
 <p>微软雅黑作为随着 Windows7 出现的字体，加上遥遥领先（？）的 ClearType，在当时的 1080p 显示器上十分清晰易读。</p>
@@ -114,7 +111,9 @@
 </ul>
 <hr>
 <p>创建于 2023-09-29 02:25:44</p>
-<p>更新于 2024-08-19 01:45:31</p>]]></content>
+<ul>
+<li>2026-03-25 更新：针对苹方字体资讯更新，增加字体替换说明。</li>
+</ul>]]></content>
         <category label="工具"/>
         <published>2026-03-25T15:33:14.000Z</published>
     </entry>

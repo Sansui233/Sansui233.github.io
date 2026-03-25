@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 25 Mar 2026 15:36:43 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Mar 2026 16:42:57 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -17,7 +17,7 @@
             <pubDate>Wed, 25 Mar 2026 15:33:14 GMT</pubDate>
             <description><![CDATA[让 windows11 字体更好看的一些设置与字体浅谈]]></description>
             <content:encoded><![CDATA[<blockquote>
-<p>2026-03-25 更新：针对苹方字体资讯更新。</p>
+<p>2026-03-25 更新：针对苹方字体资讯更新，增加字体替换说明。</p>
 </blockquote>
 <blockquote>
 <p>以下仅适用于低于 4k 缩放 200% 的显示器</p>
@@ -55,6 +55,20 @@
 <li><a href="https://www.mactype.net/"><strong>MacType</strong></a> 改善 ClearType 的虫噬渲染方式带来的不均匀，使用后提升非常非常大。</li>
 <li><strong><a href="https://source.typekit.com/source-han-serif/cn/">思源宋体</a></strong>：推荐将浏览器的 Serif 字体设置为此字体。默认的宋体真的，不论中文英文，都很丑……只适合打印。</li>
 </ul>
+<h2>字体替换说明</h2>
+<p>位于 <code>C:\Windows\Fonts</code> 下有三个文件。这个三个文件可以使用上述的<strong>系统字体替换工具</strong>替换（推荐），或者安全模式下 <code>xcopy</code> 命令也可以替换。但是自己替换时要注意备份，这是真正意义上的替换了底层字体。网上也许会说用 PE 启动，但其实并不需要从 PE 启动这么麻烦。</p>
+<ul>
+<li><code>msyhbd.ttc</code></li>
+<li><code>msyh.ttc</code></li>
+<li><code>msyhl.ttc</code></li>
+</ul>
+<p>位于 <code>C:\Users\你的用户名\AppData\Local\Microsoft\Windows\Fonts</code> 也有三个文件，这三个文件可以不用管，直接安装对应新字体就可以让新字体生效，同时老字体也没有被删除，只是会生成 <code>msyhhv_0.ttc</code>，等于是修改了注册表中的字体文件Link。</p>
+<ul>
+<li><code>msyhhv.ttc</code></li>
+<li><code>msyhsb.ttc</code></li>
+<li><code>msyhsl</code>.ttc</li>
+</ul>
+<p>当然，其实你也可以生成注册表</p>
 <h2>常用正文黑体简述</h2>
 <p><img src="https://img-cf.sansui233.com/imgs/2024/07/202407260100518.webp" alt=""></p>
 <h3>苹方</h3>

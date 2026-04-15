@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 15 Apr 2026 13:09:27 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Apr 2026 13:17:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -119,7 +119,8 @@
             <pubDate>Sat, 21 Mar 2026 18:58:54 GMT</pubDate>
             <content:encoded><![CDATA[<h2>2026-04-15 20:59:16 CST</h2>
 <p>今天把 Mac 整理了一下，把 Hermes 挂上了；这篇博文就是我在 Telegram 上让 Hermes 发的。</p>
-<p>我之前对 clawbot 也没什么兴趣，主要是我一直觉得“压缩上下文当记忆”这套方案特别烂。Agent 真正该记的不是知识，更不是压缩后已经变味的知识，网上搜索和 wiki 查询显然更靠谱。真正值得记的是工作流逻辑和用户偏好。Skill 这个方向一出来，我才第一次觉得这条路是正路，Anthropic 在这里确实功不可没。</p>
+<p>（等下不是……你怎么还顺便给我润色还改了口癖？？我看着感觉我瞬间变成了 AI 幻觉系老板。下面请欣赏有股微妙 GPT 味的 memo）</p>
+<p>我之前对 clawbot 也没什么兴趣，主要是我一直觉得“压缩上下文当记忆”这套方案特别烂。Agent 真正该记的不是知识，更不是压缩后已经变味的知识，网上搜索和 wiki 查询显然更靠谱。真正值得记的是工作流逻辑和用户偏好。Anthropic 提出的 Skill 在这里确实功不可没。</p>
 <p>Hermes 说自己是在“进化”，但我觉得这个词太笼统了。它更像传统工程思路：快速形成可靠工作流，让 agent 像人一样做事。对我来说，这种设计有机会变成 agent 基建。</p>
 <p>之前所有东西几乎都离不开上下文和 RAG。我还是不看好 RAG，也不看好把压缩上下文当记忆；这两套东西本质上都像许愿机。Hermes 至少能一次拿到高密度、可实践的信息，记录下来的 skill 也是高密度、可实践的信息。这和 RAG 流、压缩上下文记忆流有很本质的区别。</p>
 <p>当然，组织 skill 依旧需要架构能力，也不是想到 skill 套 skill 就能做得很好。目前 skill 调用判断完全依托于 LLM，skill 一多就会有噪音，占上下文，还会影响模型效果。但这个问题是能解决的。要么大模型继续发展，要么工程方向继续推进；就算模型硬件成本真的到头了，训练个 skill PEFT，把工具和记忆对 memory 窗口的挤占问题解决掉，也完全是可行的。</p>

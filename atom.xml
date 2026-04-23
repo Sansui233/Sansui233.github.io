@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-04-21T11:57:59.721Z</updated>
+    <updated>2026-04-23T17:13:40.598Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -142,6 +142,8 @@
 <p>这是我第一次感觉到 AI 的应用流程开始变可靠了。从成本到架构方式到落地到发展方向，不再全是些许愿不可控的东西了。唯一的问题还是出在大模型那边，稳不下来的许愿池。</p>
 <p>你会发现这些 agent 接 ds 和 glm 效果都不太好，还不如 gpt 5.4 mini。国外的模型已经在向工具调用方向去特化训练了。虽然说数据可以蒸馏，但是一直蒸就会一直造成这种吃屎的赶不上热乎的现象……</p>
 <p>国内也没可能出现搞研究/训练和工程一体化的独角兽公司。硅谷那种环境国内复刻不了，也并不适合国家的体系。即便到民营企业，每家大公司都有研发部门，界限也划得太清了，研发卷研发的产品卷产品的，锤子是锤子螺丝是螺丝。只除了一家，第一次面试的超大包 offer，流动超大、内部废掉的产品超多、重组也超多的那家，确实做出了一些很棒的东西。现在大概已经进不去了，因为五年过去我已经极速腐化了，简历也从不断被捞变成废纸一张了。</p>
+<p>还看到个有意思的：</p>
+<p>0424  - <a href="https://mp.weixin.qq.com/s?__biz=MzA5NDYyNDI0MA==&amp;mid=2651960454&amp;idx=1&amp;sn=4f80bd8d5539a8888c3586bf8bc6a36e&amp;poc_token=HFZS6mmjLUQ3V8oeJs8ZbjxdLzWGyA8gfKP2H6Gx">我们发现了 Hermes Agent 的第一个远程代码执行漏洞，但这已经不重要了</a></p>
 <hr/>
 <h2>2026-04-13 20:25:01</h2>
 <p>#博客 关于全文搜索功能，其实有考虑很多，毕竟我是既要又要的类型</p>

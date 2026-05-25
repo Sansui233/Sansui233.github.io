@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-05-25T12:13:06.677Z</updated>
+    <updated>2026-05-25T12:14:37.451Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -21,11 +21,11 @@
         <updated>2026-05-25T09:36:00.000Z</updated>
         <content type="html"><![CDATA[<p>最近打印论文发现一个问题，我的超高清流程图 PNG，打印出来非常糊。</p>
 <p>然后检查了一下 PDF，确实是导出时糊成一坨。</p>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C1_padded_padded.png" alt="1_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012853.webp" alt="1_padded_padded"></p>
 <p>我用后期画图用的都是 draw.io，之前也写过 <a href="/posts/2024-11-12-%E6%8A%8Adrawio%E8%A3%85%E4%BF%AE%E4%B8%BA%E7%AE%80%E5%8D%95%E7%BE%8E%E8%A7%82%E7%9A%84%E7%99%BD%E6%9D%BF%E5%BA%94%E7%94%A8">draw.io 相关设置的文章</a>，研究了一下，大概分为两种情况。</p>
 <h2>使用像素图（PNG）</h2>
 <p>如果使用 PNG 之类的像素图，首先要<strong>确保原图像素足够大</strong>，在 draw.io 中我会导出为 400% 大小。然后在 Word 选项 -> 高级中：</p>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C2_padded_padded.png" alt="2_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012855.webp" alt="2_padded_padded"></p>
 <p>可以选择以下两种任意其一</p>
 <ul>
 <li>不压缩文件中的图像</li>
@@ -36,24 +36,24 @@
 <p>但是导出 PDF 或者打印的时，像素图始终是以图像打印的，没有文字那么清晰。而且<strong>流程图用矢量图无疑是更好的</strong>。</p>
 <h2>使用矢量图（SVG）</h2>
 <p>在使用 draw.io 的 SVG 导出矢量图后，在 Word 中显示不糊了，但是导出为 PDF 发现还是会糊的。</p>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C3_padded_padded.png" alt="3_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012856.webp" alt="3_padded_padded"></p>
 <p>PDF 中明显依然是把 SVG 转换为了像素图。并且，「dobj」 的上框线也被截断了一半，因为 bounding box 是从线条中间算的，导出时 SVG 必须加点边距来避免这个情况。</p>
 <p>如果想要 Word 能完全按照矢量图处理 SVG，draw.io 导出时需要取消勾选「嵌入字体」和「嵌入图形」。</p>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C4_padded_padded.png" alt="4_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012857.webp" alt="4_padded_padded"></p>
 <p>但此时渲染更不对了。一是<strong>字体不对</strong>，其次是 <strong>SVG 内的文字默认不换行</strong>。</p>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C5_padded_padded.png" alt="5_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012858.webp" alt="5_padded_padded"></p>
 <p>这是因为 draw.io 的 SVG 默认面向 HTML 的，Word 的对于很多 HTML SVG 的渲染特性是不支持的。如果需要做到 draw.io 的呈现和 Word 一致</p>
 <ol>
 <li>在图形框上设置字体，而不是选中文字内部设置字体。</li>
 <li>在导出前需要全选图形，然后在右侧栏的文字选项卡中勾选「转换标签为 SVG」。</li>
 </ol>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C6_padded_padded.png" alt="6_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012859.webp" alt="6_padded_padded"></p>
 <p>但是就算是这样，你还是有可能会发现字体还是有问题。</p>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C7_padded_padded.png" alt="7_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012860.webp" alt="7_padded_padded"></p>
 <p>我看了下<a href="https://www.drawio.com/doc/faq/SVG-export-text-problems">官网的说明</a>，应该要取消前两项。</p>
-<p><img src="C:%5CUsers%5Clingn%5CDesktop%5C8_padded_padded.png" alt="8_padded_padded"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012861.webp" alt="8_padded_padded"></p>
 <p>这样最终效果就完全一致，导出为 PDF 打印后，图表内的文字也和正文一样清晰，而且可以被选中。
-<img src="C:%5CUsers%5Clingn%5CDesktop%5C9_padded_padded.png" alt="9_padded_padded"></p>
+<img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012862.webp" alt="9_padded_padded"></p>
 <h2>总结</h2>
 <p>如果用标量图，记得图像够大，让图像不要压缩即可。</p>
 <p>如果用矢量图，需要</p>

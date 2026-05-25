@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-05-25T12:01:31.084Z</updated>
+    <updated>2026-05-25T12:04:50.573Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -19,9 +19,10 @@
         <id>https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</id>
         <link href="https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print"/>
         <updated>2026-05-25T09:36:00.000Z</updated>
-        <content type="html"><![CDATA[<p>最近打印论文发现一个是，就是我的超高清流程图 PNG，打印出现非常糊。然后检查了一下 PDF，确实是导出时糊成一坨。</p>
+        <content type="html"><![CDATA[<p>最近打印论文发现一个问题，我的超高清流程图 PNG，打印出来非常糊。</p>
+<p>然后检查了一下 PDF，确实是导出时糊成一坨。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251957041.webp" alt="1_padded"></p>
-<p>研究了一下，大概分为两种情况</p>
+<p>我用后期画图用的都是 draw.io，之前也写过 <a href="/posts/2024-11-12-%E6%8A%8Adrawio%E8%A3%85%E4%BF%AE%E4%B8%BA%E7%AE%80%E5%8D%95%E7%BE%8E%E8%A7%82%E7%9A%84%E7%99%BD%E6%9D%BF%E5%BA%94%E7%94%A8">draw.io 相关设置的文章</a>，研究了一下，大概分为两种情况。</p>
 <h2>使用像素图（PNG）</h2>
 <p>如果使用 PNG 之类的像素图，首先要<strong>确保原图像素足够大</strong>，在 draw.io 中我会导出为 400% 大小。然后在 Word 选项 -> 高级中：</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251957043.webp" alt="2_padded"></p>

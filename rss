@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 25 May 2026 12:14:37 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 May 2026 12:30:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -28,8 +28,8 @@
 <li>默认分辨率设置为「高保真」</li>
 </ul>
 <p>之后把糊图全部替换一遍，这样至少设置后图像不会被压缩。</p>
-<p><strong>检验方式</strong>：放大 Word 界面到 250% 后看看图像的清晰度情况是否可接受。</p>
-<p>但是导出 PDF 或者打印的时，像素图始终是以图像打印的，没有文字那么清晰。而且<strong>流程图用矢量图无疑是更好的</strong>。</p>
+<p><strong>检查方式</strong>：放大 Word 界面到 250% 后看看图像的清晰度是否可接受。</p>
+<p>但是导出 PDF 或者打印时，像素图始终是以图像像素打印的，带有抗锯齿，没有矢量文字那么清晰。而且<strong>流程图用矢量图无疑是更好的</strong>。</p>
 <h2>使用矢量图（SVG）</h2>
 <p>在使用 draw.io 的 SVG 导出矢量图后，在 Word 中显示不糊了，但是导出为 PDF 发现还是会糊的。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012856.webp" alt="3_padded_padded"></p>
@@ -51,7 +51,7 @@
 <p>这样最终效果就完全一致，导出为 PDF 打印后，图表内的文字也和正文一样清晰，而且可以被选中。
 <img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012862.webp" alt="9_padded_padded"></p>
 <h2>总结</h2>
-<p>如果用标量图，记得图像够大，让图像不要压缩即可。</p>
+<p>如果用像素图，记得图像够大，让图像不要压缩即可。</p>
 <p>如果用矢量图，需要</p>
 <ul>
 <li>全选图像，「文本」中取消「自动换行」和「格式化文本」。手动换行</li>

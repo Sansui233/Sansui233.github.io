@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-05-25T11:38:20.491Z</updated>
+    <updated>2026-05-25T11:41:05.745Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -15,7 +15,7 @@
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
     <entry>
-        <title type="html"><![CDATA[Draw.io SVG 的 Word 打印流程图不糊指南]]></title>
+        <title type="html"><![CDATA[Word 打印与转 PDF 的图像不糊指南]]></title>
         <id>https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</id>
         <link href="https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print"/>
         <updated>2026-05-25T09:36:00.000Z</updated>

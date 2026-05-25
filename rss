@@ -4,14 +4,14 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 25 May 2026 11:38:20 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 May 2026 11:41:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[Draw.io SVG 的 Word 打印流程图不糊指南]]></title>
+            <title><![CDATA[Word 打印与转 PDF 的图像不糊指南]]></title>
             <link>https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</link>
             <guid isPermaLink="false">https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</guid>
             <pubDate>Mon, 25 May 2026 09:36:00 GMT</pubDate>

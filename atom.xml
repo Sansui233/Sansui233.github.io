@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-05-25T12:30:34.111Z</updated>
+    <updated>2026-05-25T12:35:00.952Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -42,15 +42,15 @@
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012857.webp" alt="4_padded_padded"></p>
 <p>但此时渲染更不对了。一是<strong>字体不对</strong>，其次是 <strong>SVG 内的文字默认不换行</strong>。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012858.webp" alt="5_padded_padded"></p>
-<p>这是因为 draw.io 的 SVG 默认面向 HTML 的，Word 的对于很多 HTML SVG 的渲染特性是不支持的。如果需要做到 draw.io 的呈现和 Word 一致</p>
+<p>这是因为 draw.io 的 SVG 默认面向 HTML 的，Word 对于很多 HTML SVG 的渲染特性是不支持的。如果需要 draw.io 的渲染和 Word 一致：</p>
 <ol>
 <li>在图形框上设置字体，而不是选中文字内部设置字体。</li>
 <li>在导出前需要全选图形，然后在右侧栏的文字选项卡中勾选「转换标签为 SVG」。</li>
 </ol>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012859.webp" alt="6_padded_padded"></p>
-<p>但是就算是这样，你还是有可能会发现字体还是有问题。</p>
+<p>但是就算是这样，你还是有可能会发现英文字体间距（kerning）有问题。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012860.webp" alt="7_padded_padded"></p>
-<p>我看了下<a href="https://www.drawio.com/doc/faq/SVG-export-text-problems">官网的说明</a>，应该要取消前两项。</p>
+<p>我看了下<a href="https://www.drawio.com/doc/faq/SVG-export-text-problems">官网的说明</a>，这种情况应该要取消前两项。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012861.webp" alt="8_padded_padded"></p>
 <p>这样最终效果就完全一致，导出为 PDF 打印后，图表内的文字也和正文一样清晰，而且可以被选中。
 <img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012862.webp" alt="9_padded_padded"></p>

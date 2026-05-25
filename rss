@@ -4,12 +4,61 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sat, 23 May 2026 08:17:48 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 May 2026 11:38:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Draw.io SVG 的 Word 打印流程图不糊指南]]></title>
+            <link>https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</link>
+            <guid isPermaLink="false">https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</guid>
+            <pubDate>Mon, 25 May 2026 09:36:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>最近打印论文发现一个是，就是我的超高清流程图 PNG，打印出现非常糊。然后检查了一下 PDF，确实是导出时糊成一坨。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251916691.webp" alt="1-图像清晰度"></p>
+<p>研究了一下，大概分为两种情况</p>
+<h2>使用像素图（PNG）</h2>
+<p>如果使用 PNG 之类的像素图，首先要<strong>确保原图像素足够大</strong>，在 draw.io 中我会导出为 400% 大小。然后在 Word 选项 -> 高级中：</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917703.webp" alt="WORD 设置"></p>
+<p>可以选择以下两种任意其一</p>
+<ul>
+<li>不压缩文件中的图像</li>
+<li>默认分辨率设置为「高保真」</li>
+</ul>
+<p>之后把糊图全部替换一遍，这样至少设置后图像不会被压缩。</p>
+<p>**检验方式：**放大 Word 界面到 250% 后看看图像的清晰度情况是否可接受。</p>
+<p>但是导出 PDF 或者打印的时，像素图始终是以图像打印的，没有文字那么清晰。而且<strong>流程图用矢量图无疑是更好的</strong>。</p>
+<h2>使用矢量图（SVG）</h2>
+<p>在使用 draw.io 的 SVG 导出矢量图后，在 Word 中显示不糊了，但是导出为 PDF 发现还是会糊的。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917704.webp" alt="drawio 默认SVG"></p>
+<p>PDF 中明显依然是把 SVG 转换为了像素图。并且，「dobj」 的上框线也被截断了一半，因为 bounding box 是从线条中间算的，导出时 SVG 必须加点边距来避免这个情况。</p>
+<p>如果想要 Word 能完全按照矢量图处理 SVG，draw.io 导出时需要取消勾选「嵌入字体」和「嵌入图形」。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917705.webp" alt="Draw.io 导出"></p>
+<p>但此时渲染更不对了。一是<strong>字体不对</strong>，其次是 <strong>SVG 内的文字默认不换行</strong>。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917706.webp" alt="Word 效果"></p>
+<p>这是因为 draw.io 的 SVG 默认面向 HTML 的，Word 的对于很多 HTML SVG 的渲染特性是不支持的。如果需要做到 draw.io 的呈现和 Word 一致</p>
+<ol>
+<li>在图形框上设置字体，而不是选中文字内部设置字体。</li>
+<li>在导出前需要全选图形，然后在右侧栏的文字选项卡中勾选「转换标签为 SVG」。</li>
+</ol>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917707.webp" alt=""></p>
+<p>但是就算是这样，你还是有可能会发现字体还是有问题。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917708.webp" alt="Word 效果2"></p>
+<p>我看了下<a href="https://www.drawio.com/doc/faq/SVG-export-text-problems">官网的说明</a>，应该要取消前两项。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917710.webp" alt="最终设置"></p>
+<p>这样最终效果就完全一致，导出为 PDF 打印后，图表内的文字也和正文一样清晰，而且可以被选中。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605251917711.webp" alt="最终效果"></p>
+<h2>总结</h2>
+<p>如果用标量图，记得图像够大，让图像不要压缩即可。</p>
+<p>如果用矢量图，需要</p>
+<ul>
+<li>全选图像，「文本」中取消「自动换行」和「格式化文本」。手动换行</li>
+<li>draw.io 导出 SVG 时取消「嵌入字体」和「嵌入图像」，并添加一点边距</li>
+</ul>
+<p>这样 Word 转 SVG 为 PDF 时，文字可以保持矢量状态，而且可以被选中。</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/工具">工具</category>
+        </item>
         <item>
             <title><![CDATA[Windows 调整之中文字体]]></title>
             <link>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</link>
@@ -870,160 +919,6 @@ export default App;
 <p>文档： <a href="https://nilesoft.org/docs">https://nilesoft.org/docs</a></p>
 <p>论坛： <a href="https://github.com/moudey/Shell/discussions">https://github.com/moudey/Shell/discussions</a></p>]]></content:encoded>
             <category domain="https://sansui233.com/categories/工具">工具</category>
-        </item>
-        <item>
-            <title><![CDATA[2024 年的总结与分享]]></title>
-            <link>https://sansui233.com/posts/2025-01-05-2024-summary</link>
-            <guid isPermaLink="false">https://sansui233.com/posts/2025-01-05-2024-summary</guid>
-            <pubDate>Sat, 04 Jan 2025 17:21:04 GMT</pubDate>
-            <description><![CDATA[怎么全在写游戏……]]></description>
-            <content:encoded><![CDATA[<p>印象中之前每年其实都有写去年主要干了什么，看了什么作品。但又忘了都写在了哪里。今年想起来还是在这里写吧。</p>
-<p>主要说说看了些什么吧。</p>
-<h2>实用小技术</h2>
-<ol>
-<li>无线 iPad 当作电脑副屏</li>
-</ol>
-<p>某天突然想躺着用手柄玩电脑的游戏，所以 <a href="https://github.com/LizardByte/Sunshine">sunshine</a> + moonlight(iPad) 串流。效果非常不错！</p>
-<ol start="2">
-<li>便携显示屏</li>
-</ol>
-<p>后面，我又嫌无线的码率不稳定，组装了个便携显示屏，变成了躺着用电脑副屏……配件全部拼多多的。</p>
-<ul>
-<li>显示屏，京东方 NV156FHM N69</li>
-<li>驱动版、按键板、软排线</li>
-<li>外壳、音响</li>
-</ul>
-<ol start="3">
-<li>新的代理协议与客户端</li>
-</ol>
-<p>今年对于魔法上网，非常重要的事情就是去年年底 clash-core 删库。不过也正好，促使我看看有没有人设计新的协议。</p>
-<p>协议方面尝试了 hysteria2 和 naive，测试下来已经把 hysteria2 当作主力了。顺便读了下 http2 <a href="https://github.com/abbshr/rfc7540-translation-zh_cn">rfc7540</a> 和 http3 <a href="https://datatracker.ietf.org/doc/html/rfc9114">rfc 9114</a> （但现在又忘了！）</p>
-<p>客户端试了 <a href="https://sing-box.sagernet.org/">singbox</a>，在 ios 上替代了 shadowrocket，性能好非常多。电脑端 GUI 是典型的后端程序配置的思维，很难用，还是用 clash-meta 系列了。</p>
-<h2>单机游戏</h2>
-<ol>
-<li><a href="https://store.steampowered.com/app/240720/Getting_Over_It_with_Bennett_Foddy/">Getting Over it</a> (掘地求升)</li>
-</ol>
-<p>我的天，有生之年我居然打通了这个8年前的破游戏！</p>
-<p>打通的那一瞬间，我感觉觉得自己已经可能面对任何困难无所不能了。但是山顶的聊天室早已空无一人，有一点寂寞。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp" alt="Getting over it"></p>
-<ol start="2">
-<li><a href="https://store.steampowered.com/agecheck/app/1086940/?l=schinese">博德之门3</a></li>
-</ol>
-<p>tga 2023 年度游戏，不好玩。去年买了，今年和 meme 大师与墨墨联机了好几次，还是玩不下去！打架打一局太久了……而且打不好还要 SL……补药啊！（后面没法联机了其实主要是因为我作息太乱了）</p>
-<ol start="3">
-<li><a href="https://store.steampowered.com/app/1426210/_/?l=schinese">双人成行</a></li>
-</ol>
-<p>2021 年度游戏，好玩，这个还是感谢陈 sir 陪我打完了，而且因为他是全成就大师所以我也跟着全成就了。因为我竟然买了两年都没有玩，显得特别可怜……</p>
-<ol start="4">
-<li><a href="https://store.steampowered.com/app/2198150/Tiny_Glade/">Tiny Glade</a></li>
-</ol>
-<p>新出的休闲建筑游戏，最不像游戏的游戏。建筑方式新颖，而且好好看哦！</p>
-<p>玩了后做了个视频，竟然被 HR 联系了……差点当诈骗私信……</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp" alt="Tiny Glade"></p>
-<ol start="5">
-<li><a href="https://www.nintendo.com/hk/switch/animal_crossing_new_horizons/">动物森友会</a></li>
-</ol>
-<p>到今年才打开这个几年前的游戏。建岛是好玩的，画风也可爱，但因为手游也有在刷，对于刷刷刷的都有点疲惫了。</p>
-<ol start="6">
-<li><a href="https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/">Halo</a></li>
-</ol>
-<p>meme 大师带飞的经典 FPS，有剧情，非常好游戏！我只用跟在后面捡各种好玩的枪就好了（不是）</p>
-<ol start="7">
-<li><a href="https://store.steampowered.com/app/620/Portal_2/?l=schinese&#x26;curator_clanid=31468181">传送门2</a></li>
-</ol>
-<p>十几年前的解谜神作，好丸！多人模式也是 meme 大师带飞的。</p>
-<ol start="8">
-<li><a href="https://www.bilibili.com/video/BV1hS411w7tR">Second Eden-理想箱庭物语</a></li>
-</ol>
-<p>这是个新的 minecraft 深度魔改整合包，基于模拟殖民地 mod。我觉得比很多整合包都要好，考虑了流程、循环、引导，有些 mod 加的解谜结构很好玩。但模拟殖民地本身有 bug，加上流程上其实也不是特别完整，只建了一小半。</p>
-<ol start="9">
-<li>零大陆</li>
-</ol>
-<p>这是个超老的 Minecraft1.8 原版 RPG 整合包。真的非常震撼能做到这个程度，流程设计、地图设计上超级完整……可惜循环有问题，卡在一个冒险模式下的银河城地下区域了。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp" alt="零大陆"></p>
-<ol start="10">
-<li>模拟地铁</li>
-</ol>
-<p>休闲小游戏，也是老游戏了，极简地铁规划，最后发现还是开滴滴比较好。内容对得起价格。也因此和喜欢地铁的朋友有聊些城建游戏。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp" alt="模拟地铁"></p>
-<ol start="11">
-<li><a href="https://store.steampowered.com/app/813230/ANIMAL_WELL/?l=schinese">动物井 (Animal Well)</a></li>
-</ol>
-<p>解谜 + 平台跳跃。太好玩了，这才是真正的 2024 年度游戏！！而且只 33 M，性能也超好！是像素美术但是是很现代的赛博梦幻像素美术，好看的！</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp" alt="Animal Well"></p>
-<ol start="12">
-<li><a href="https://store.steampowered.com/app/391540/Undertale/?l=schinese&#x26;curator_clanid=31318556">传说之下 (UnderTale)</a></li>
-</ol>
-<p>经典日式 RPG，脑洞超大角色有意思，剧情很温暖。是Meme 依据本人的游戏时长与偏好定制的 steam 礼物……非常喜欢！</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp" alt="UnderTale"></p>
-<h2>动画&#x26;漫画</h2>
-<ol>
-<li><a href="https://www.bilibili.com/bangumi/media/md21087073">葬送的芙莉莲</a></li>
-</ol>
-<p>中世纪魔法动画，难得味这么正，不算是我非常喜欢的类型但能看下去。而且作画的流畅程度真的……太有钱了！整体比较日常，很温馨。</p>
-<ol start="2">
-<li><a href="https://www.bilibili.com/bangumi/media/md28339713">蓝色禁区 Blue Lock</a></li>
-</ol>
-<p>足球番，我原以为我不喜欢看，最后根本停不下来……动画第一季做得实在太好了，但第二季是 PPT，1 分都不想给……漫画非常棒，不愧2024 年的日本漫画销冠。</p>
-<p>不过我是其实从其中一对 CP 图决定看，结果看完动画觉得这两人麦太多了……不如好好看球！</p>
-<ol start="3">
-<li><a href="https://www.bilibili.com/video/BV1ag4y1W78U">异形舞台 Alien Stage</a></li>
-</ol>
-<p>动画音乐剧，讲的外星人饲养地球人当宠物，看人们在舞台上通过选秀比赛相杀的故事。特点是，一集一个寡妇（夫）……太刀了！</p>
-<h2>电影</h2>
-<ol>
-<li>你想活出怎样的人生</li>
-</ol>
-<p>宫崎骏动画电影，我觉得依旧很好看，很温暖。</p>
-<ol start="2">
-<li>蓦然回首（Look Back）</li>
-</ol>
-<p>藤本树动画电影，讲普通画画人的故事。非常牛美术风格。尽管我不是画画人，也没有很好的画画天赋。但也有一些感受有经历过，日复一日练基础，什么时候都在考虑画画……</p>
-<p>以及藤本树居然开始走治愈系了！</p>
-<ol start="3">
-<li>志愿库 - 存亡之战</li>
-</ol>
-<p>怎么突然出现了国庆战争片……这个真的拍得挺好的，算是近年陈凯歌的不那么扑的了。以及我有朱一龙演技滤镜，在超烂低成本不被任何人看好的改编网剧里，因为演技太好而突然红的，真的没得说。</p>
-<ol start="4">
-<li>名侦探柯南 - 黑铁的鱼影</li>
-</ol>
-<p>和雨疏的年度固定节目，不错的粉丝向主线剧场。真好啊真好十年后还在和她一起看柯南。</p>
-<h2>音乐</h2>
-<p>年度歌手还是 Radwimps，基本老歌。上半年没怎么听</p>
-<p>年底听 4 块钱的直播，才发现日系真是年年有天才。「晚餐歌」真的很厉害。原来不是我不喜欢听歌了，是没关注到好听的歌了，网易云日推越来越不行了，一直推各种时下 OP ED。</p>
-<h2>技能相关</h2>
-<ul>
-<li>
-<p>游戏，给 MC 服务器写了 彩虹帽子 数据包。想来这其实是第一次和游戏有关的编程，经典入口是帧更新 tick()。</p>
-</li>
-<li>
-<p>画画，学了平面设计的课，作业也很肝完了，有一些收获。然后又看了些曼奇的网课，素描关系有提升，就是增加了短调子、空间感、体积感的意识。我之前也不是感受不到，而是没觉得差一点明度就会差很多。这是 Ti - Se 画画相比于 Se - Ti 的劣势，需要有理论后才能画得好……</p>
-</li>
-<li>
-<p>原神里头一回赶上音游的版本，写了几首比较难的谱面，这个非常满意，是我自己都可以反复玩的！</p>
-</li>
-</ul>
-<h2>专业相关</h2>
-<p><del>这随便吧又没人看。</del></p>
-<ul>
-<li>
-<p>笔记主题没怎么更，我也用得越来越少了</p>
-</li>
-<li>
-<p>博客有更新，但忘了！</p>
-</li>
-<li>
-<p>新写了个服务器的监控页。</p>
-</li>
-<li>
-<p>论文挣扎着狂补。</p>
-</li>
-<li>
-<p>有去接触 GPU 相关的，不想只停留在业务 MVC 再 CRUD。但看了发现没需求的话确实用不上。</p>
-</li>
-</ul>
-<p>公司的相关还是不说了……主要是图形学和，久违的 OOP 编程，新的语言 C#，但长得非常通用面向对象，没有太多的入门门槛。不禁感叹外面世界的语言真是五花八门……但要说写界面好用还是声明式的，OOP 写界面特别过程式就，扭曲，痛苦，但无疑性能会更好。</p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/Diary">Diary</category>
         </item>
     </channel>
 </rss>

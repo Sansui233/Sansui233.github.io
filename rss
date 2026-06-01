@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 01 Jun 2026 17:13:38 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 01 Jun 2026 17:40:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -52,10 +52,11 @@
 <p>我不喜欢vscode 左侧边默认给你放一排按钮的设计，只有 vscode 和专业软件可以接受，日常的软件用这种设计我就有点抓狂。一是侧栏的图标不带文字，很多不是通用功能，没有统一的语义解释，经常都不知道是干什么的，就像老年人看手机基本不知道各种图标代表什么一样。二是，为什么日常上个网还要给我一种很专业的在写代码的感觉😭一看就有一堆隐藏的 Panel，我恐 Panel 了</p>]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Word 打印与转 PDF 的图像不糊指南]]></title>
+            <title><![CDATA[draw.io 与 Word 转 PDF 打印时的清晰度问题]]></title>
             <link>https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</link>
             <guid isPermaLink="false">https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</guid>
             <pubDate>Mon, 25 May 2026 09:36:00 GMT</pubDate>
+            <description><![CDATA[Word 的图打出来超糊的说]]></description>
             <content:encoded><![CDATA[<p><strong>最近打印论文发现一个问题</strong>，我的超高清流程图 PNG，打印出来非常糊。</p>
 <p>然后检查了一下 PDF，确实是导出时糊成一坨。</p>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012853.webp" alt="1_padded_padded"></p>

@@ -4,17 +4,37 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 01 Jun 2026 20:33:18 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Jun 2026 12:57:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2022, Sansui</copyright>
         <atom:link href="https://sansui233.com/rss" rel="self" type="application/rss+xml"/>
         <item>
+            <title><![CDATA[个人阅读 RSS 的最佳实践]]></title>
+            <link>https://sansui233.com/posts/2026-06-02-personal-rss-reading-best-practice</link>
+            <guid isPermaLink="false">https://sansui233.com/posts/2026-06-02-personal-rss-reading-best-practice</guid>
+            <pubDate>Tue, 02 Jun 2026 12:50:00 GMT</pubDate>
+            <description><![CDATA[省流：新标签页小组件]]></description>
+            <content:encoded><![CDATA[<p>RSS 在以前一直都有用，也一直依靠 RSS App 去聚合阅读。当时觉得做 RSS 阅读的思路就是自定义杂志，所以放到一个 App 里读很正常。但是时间长了会逐渐意识到问题所在。读 RSS 不存在什么成瘾性，忙的时候很难想起来，忙之后闲下来时也想不起来。只有“啊我想看看大家都在写什么”的时候，才想得起来还有这么一个“杂志”。</p>
+<p>最近换了 Vivaldi 浏览器后，有一段时间了，突然我发现我再也没有漏过 RSS。原因是浏览器的新标签页组件。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/06/202606022013796.webp" alt="Vivaldi 新标签页"></p>
+<p>在打开新网站时，我一直使用 <code>ctrl +T</code> 新建标签页。在这之前，我有尝试过 Chrome 的订阅类插件。最开始使用的掘金插件，当时掘金初创不久，内容还不错。但用了之后发现，新建标签页时，本身就是要准备切换工作了，而掘金的订阅铺满了一整屏，更不想阅读这么多的信息。即便换到了其他的插件，也依然存在着信息过载的问题。</p>
+<p>后来我开始使用订阅服务，几经转换后使用的是 Innoreader。Innoreader 有 Chrome 插件，角标上显示没有阅读的条目。问题是这样也不会点，如果你有红点强迫症，来一篇就点一篇感觉很烦。如果你没有红点强迫症，就更不会点了。</p>
+<p>Innoreader 还会给你发邮件提醒什么东西没有读。但是打开邮箱时，通常也需要处理事件（指接收验证码）。我不会摸鱼摸到邮箱里去。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/06/202606022054681.webp" alt="innoreader 邮件"></p>
+<p>Vivaldi 新标签页组件就很好地解决了这个问题。首先，组件面积不大，信息量保持在人可接收的最佳范围（4篇）。至于为什么是4，参考 <a href="https://www.bilibili.com/video/BV12hz2Y1E3B">【毕导】你有一种连你自己都没意识到的超能力</a>。</p>
+<p>其次，组件内默认点击是进入的原始网页，给人感觉是我去别人家的装修的房子里做客，还能看看评论。这也是因为我本来就在使用浏览器，并不会在 App 之间跳来跳去。相比于 all in one 的方便，在个人阅读的场景下，浏览器原始网页能给人更强的满足感。</p>
+<p>这样一来，我新建标签页时，如果很忙就直接进行原本的事情，RSS 不会打扰到我。如果不忙，我就会看一眼大家都发了什么，有没有什么有兴趣看的内容。</p>
+<p>我认为个人维持阅读 RSS 习惯便应该这样，以少量精简的消息，嵌入到日常一定会使用的软件里，同时不会贴脸打扰到人工作，也不会使用角标进行烦人的提醒。</p>
+<p>这样的软件其实不多了，大部分的工作软件打开后全程工作区，很少有浏览器新标签页这样每天都会用的非工作区场景。而社媒平台的推荐给你绑得死死的。我之前还用过即刻的 RSS 机器人，完全符合刷社媒时顺便刷到自己的订阅，非常好用，但很快因为监管问题下架了。要么就是推特了。但是写博客的人，又不一定会发推特。不如说，除了阮一峰，我没有再找到每篇博客都发推特的个人博主了。</p>]]></content:encoded>
+            <category domain="https://sansui233.com/categories/Diary">Diary</category>
+        </item>
+        <item>
             <title><![CDATA[每日见闻 - 说说]]></title>
             <link>https://sansui233.com/memos</link>
-            <guid isPermaLink="false">https://sansui233.com/memos?id=2026-06-01T17:13:27.000Z</guid>
-            <pubDate>Mon, 01 Jun 2026 17:13:27 GMT</pubDate>
+            <guid isPermaLink="false">https://sansui233.com/memos?id=2026-06-02T12:08:06.000Z</guid>
+            <pubDate>Tue, 02 Jun 2026 12:08:06 GMT</pubDate>
             <content:encoded><![CDATA[<h2>2026-06-02 00:01:45</h2>
 <p>最近设计偏好有更新。一是因为字体，好像把系统换成更纱黑体后，粗字重实在太粗了，我不确定有多少默认字体有这么粗。二是近两年又在流行弱对比轻盈感，信息密度也比前两年偏高了。我看博客也是开始觉得不忍直视了。draw.io 的预设也全部给变细了一遍。</p>
 <p>又因为 claude 流行的关系，现在全是衬线细字的黄底学术风大家也能接受了。</p>
@@ -836,81 +856,6 @@ export default App;
 <li>SteamLess Readme</li>
 </ul>]]></content:encoded>
             <category domain="https://sansui233.com/categories/Diary">Diary</category>
-        </item>
-        <item>
-            <title><![CDATA[Windows11 右键菜单自定义 - NileSoft Shell]]></title>
-            <link>https://sansui233.com/posts/2025-04-19-windows-context-menu</link>
-            <guid isPermaLink="false">https://sansui233.com/posts/2025-04-19-windows-context-menu</guid>
-            <pubDate>Fri, 18 Apr 2025 17:21:04 GMT</pubDate>
-            <description><![CDATA[颜狗就是得样式和功能性全要，怎么了]]></description>
-            <content:encoded><![CDATA[<p>（发现简中圈居然没有人写这个事，写个草稿发别的地方）</p>
-<p>Windows11 右键菜单问题被诟病已有，网上很多还原为 win10 菜单的教程……但 win10 有 win10 的问题，有用的没用的都往里放，常用的不常用的混在一起。有没有一种方法可以兼顾好看，同时有合理的菜单层级呢？</p>
-<p>有的 —— Nilesoft Shell。可以自定义的 Win11 右键菜单。已经用了两年多了很好用（以至于差点忘了有这个软件）。</p>
-<h2>下载并安装</h2>
-<p>下载在官网： <a href="https://nilesoft.org/">https://nilesoft.org/</a></p>
-<p>安装完后，新菜单应该已经生效了，并且会开机自启。这时候可以点点看，如果感觉效果满意就不用再看下去了。</p>
-<p>当然颜狗是不满意的，大部分一级菜单我用不上，我只想保留我常用的，不用的塞到更多选项。如图</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp" alt=""></p>
-<h2>挪动菜单层级</h2>
-<p>如果你是默认安装，<code>C:\Program Files\Nilesoft Shell</code> 应该能看见以下的文件结构</p>
-<pre><code>Nilesoft Shell/
-├── shell.exe
-├── shell.nss
-├── imports/
-│   ├── modify.nss
-│   └── ...
-└── ...
-</code></pre>
-<p>以 <code>.nss</code> 结尾的是配置文件，可以用记事本打开。以下是几个案例：</p>
-<h3>1. 收纳不常用菜单至 “更多选项”</h3>
-<p>例如，收纳所有名称里带有 “QQ” 和 “百度” 的菜单项，在 <code>modify.nss</code> 添加如下：</p>
-<pre><code>modify(mode=mode.multiple find="QQ|百度|网盘" menu=title.more_options)
-</code></pre>
-<p>find 中包含的字符串会被匹配，“|”是或。表示匹配“QQ”或“百度”或“网盘”的任意项都会被挪走。</p>
-<p>这是主要的挪菜单的方式，我实际上挪了一大堆。</p>
-<pre><code>modify(mode=mode.multiple
-	find="收藏夹|打印|共享|PowerRename|Microsoft Defender|Change Attributes|File Locksmith|upic|火绒|百度|QQ|Acrobat|Adobe|OneDrive|在沙盒中运行|PicList|旧版 Windows Media Player"
-	menu=title.more_options)
-</code></pre>
-<h3>2. “创建快捷方式”挪到顶层</h3>
-<p>有人可能看不惯 创建快捷方式 放在了 更多选项 里。要恢复把 <code>modify.nss</code> 中一行注释掉就好。</p>
-<pre><code>modify(mode=mode.multiple
-	where=this.id(
-		id.send_to,
-		id.share,
-		// id.create_shortcut, 这行注释掉
-		id.set_as_desktop_background,
-		id.rotate_left,
-		...
-</code></pre>
-<h3>3. 顶层添加新菜单项 “使用 vscode 打开”</h3>
-<p>在 <code>shell.nss</code> 中，新起一行添加</p>
-<pre><code>item(title='Open with VS Code' image=[\uE272, #22A7F2] cmd='code' args='"@sel.path" &#x26;&#x26; exit' sep='top')
-</code></pre>
-<p>添加的这行可以不在最后，添加的位置决定它在菜单中的位置。我添加在了中间，最后的几个 "import" 之间。</p>
-<p>要是问为什么我不用 vscode 自带的右键菜单……我的 vscode 装得太早了，那时还没有右键菜单关联，现在也懒得再装了就将就用吧……</p>
-<h3>4. 顶层菜单添加新目录</h3>
-<p>你要是在图片上右键，会发现系统自带有“使用 Windows 画图编辑”“使用照片编辑”“向左旋转”“向右旋转”……我的天，哪个天才设计的，你不知道自家照片 App 打开后能编辑也能旋转吗？（我知道这肯定是两波人开发的但还是想吐槽）</p>
-<p>秉持着只挪不删的原则，在“更多选项”前加了个“编辑”目录。以下加在了 <code>shell.nss</code></p>
-<pre><code>menu(mode="multiple" title="编辑" image=image.glyph("\uE0A1"))
-{
-}
-</code></pre>
-<p>然后在 <code>modify.nss</code> 里加了</p>
-<pre><code>modify(mode=mode.multiple
-	find="*编辑|旋转|PDF"
-	menu="编辑")
-</code></pre>
-<p>这样等于说，编辑和旋转相关都被归到了新的“编辑”目录下。加上 PDF 相关操作挪进去。我没有装 WPS，装了 WPS 也可以把 WPS 挪一个目录。</p>
-<h2>生效</h2>
-<p>管理员权限运行安装目录下的 <code>shell.exe</code>，点 Register 生效</p>
-<h2>其他</h2>
-<p>按 shift 后右键菜单，会有一个“Developer” 目录。没错 shift 显示隐藏菜单也可以实现，配置的属性有 <code>vis=key.shift()</code> ，但不是实时变化的所以没有mac 上的好用。除此之外还有喜闻乐见的能配置主题、颜色、图标等……我不管了。</p>
-<h2>参考</h2>
-<p>官网的文档很详细，但是非常面向程序员。不过大部分的需求被人在论坛上问过了，也有人在 issue 里问。不会就去论坛翻一下。看不懂英文开翻译，看不懂文档丢给 AI。</p>
-<p>文档： <a href="https://nilesoft.org/docs">https://nilesoft.org/docs</a></p>
-<p>论坛： <a href="https://github.com/moudey/Shell/discussions">https://github.com/moudey/Shell/discussions</a></p>]]></content:encoded>
-            <category domain="https://sansui233.com/categories/工具">工具</category>
         </item>
     </channel>
 </rss>

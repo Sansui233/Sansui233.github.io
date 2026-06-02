@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 02 Jun 2026 12:57:45 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Jun 2026 21:43:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -35,7 +35,14 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-06-02T12:08:06.000Z</guid>
             <pubDate>Tue, 02 Jun 2026 12:08:06 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-06-02 00:01:45</h2>
+            <content:encoded><![CDATA[<h2>2026-06-03 05:37:13</h2>
+<p>#分享 技术</p>
+<ul>
+<li>斯坦福新的AI课程： <a href="https://cs336.stanford.edu">CS336: Language Modeling from Scratch</a></li>
+</ul>
+<p>一共19节，差不多一学期的强度。又出现了，研究生真正的导师。</p>
+<hr/>
+<h2>2026-06-02 00:01:45</h2>
 <p>最近设计偏好有更新。一是因为字体，好像把系统换成更纱黑体后，粗字重实在太粗了，我不确定有多少默认字体有这么粗。二是近两年又在流行弱对比轻盈感，信息密度也比前两年偏高了。我看博客也是开始觉得不忍直视了。draw.io 的预设也全部给变细了一遍。</p>
 <p>又因为 claude 流行的关系，现在全是衬线细字的黄底学术风大家也能接受了。</p>
 <p>但是中文还是那个问题，衬线体表现不统一，又不能给网页引入网络字体。所以只能在无衬线的方向上走。有时间我又要搞装修。笑死，根本没修完，还在装修 AO3 。</p>
@@ -66,10 +73,7 @@
 <hr/>
 <h2>2026-05-03 13:47:51</h2>
 <p>这以前就是遇到想学的东西就会学。但是最近两年，对所有想学的东西也态度都是，这个东西跟学了有什么用呢，不管你学多少还不是被死命催回家。你了解大模型训练有什么用呢，了解 Agent 开发又有什么用呢，你不了解又有什么损失了。0，完全是 0。学习的反馈机制完全被打破了，以前还觉得自己说又学到了东西，但无数次问你说有什么用后，你说的用途别人说不成立，真的会觉得没用。</p>
-<p>就是这样，你做了东西，没有竞品？用途不成立。有竞品？你又怎么和大公司（有背景或者资金雄厚的任意一方）比？从写论文到学习技能都是这样，最后你只敢说自己写的是练手的玩具，也失去了把东西抠细的动力，马马虎虎草草收场。</p>
-<hr/>
-<h2>2026-04-21 19:56:52</h2>
-<p>我不喜欢vscode 左侧边默认给你放一排按钮的设计，只有 vscode 和专业软件可以接受，日常的软件用这种设计我就有点抓狂。一是侧栏的图标不带文字，很多不是通用功能，没有统一的语义解释，经常都不知道是干什么的，就像老年人看手机基本不知道各种图标代表什么一样。二是，为什么日常上个网还要给我一种很专业的在写代码的感觉😭一看就有一堆隐藏的 Panel，我恐 Panel 了</p>]]></content:encoded>
+<p>就是这样，你做了东西，没有竞品？用途不成立。有竞品？你又怎么和大公司（有背景或者资金雄厚的任意一方）比？从写论文到学习技能都是这样，最后你只敢说自己写的是练手的玩具，也失去了把东西抠细的动力，马马虎虎草草收场。</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[draw.io 与 Word 转 PDF 打印时的清晰度问题]]></title>

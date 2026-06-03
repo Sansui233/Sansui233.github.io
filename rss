@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 02 Jun 2026 21:43:08 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 03 Jun 2026 16:26:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -18,7 +18,7 @@
             <description><![CDATA[省流：新标签页小组件]]></description>
             <content:encoded><![CDATA[<p>RSS 在以前一直都有用，也一直依靠 RSS App 去聚合阅读。当时觉得做 RSS 阅读的思路就是自定义杂志，所以放到一个 App 里读很正常。但是时间长了会逐渐意识到问题所在。读 RSS 不存在什么成瘾性，忙的时候很难想起来，忙之后闲下来时也想不起来。只有“啊我想看看大家都在写什么”的时候，才想得起来还有这么一个“杂志”。</p>
 <p>最近换了 Vivaldi 浏览器后，有一段时间了，突然我发现我再也没有漏过 RSS。原因是浏览器的新标签页组件。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2026/06/202606022013796.webp" alt="Vivaldi 新标签页"></p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/06/202606031844401.webp" alt="Vivaldi 新标签页"></p>
 <p>在打开新网站时，我一直使用 <code>ctrl +T</code> 新建标签页。在这之前，我有尝试过 Chrome 的订阅类插件。最开始使用的掘金插件，当时掘金初创不久，内容还不错。但用了之后发现，新建标签页时，本身就是要准备切换工作了，而掘金的订阅铺满了一整屏，更不想阅读这么多的信息。即便换到了其他的插件，也依然存在着信息过载的问题。</p>
 <p>后来我开始使用订阅服务，几经转换后使用的是 Innoreader。Innoreader 有 Chrome 插件，角标上显示没有阅读的条目。问题是这样也不会点，如果你有红点强迫症，来一篇就点一篇感觉很烦。如果你没有红点强迫症，就更不会点了。</p>
 <p>Innoreader 还会给你发邮件提醒什么东西没有读。但是打开邮箱时，通常也需要处理事件（指接收验证码）。我不会摸鱼摸到邮箱里去。</p>

@@ -16,7 +16,7 @@
 由于显示器和录屏软件的和原视频帧数可能不同步的问题，非常容易造成画面卡顿
 体积远大于原视频，二压后画质失真重
 
-通常来讲，能拿直播时的视频流就别"/><link rel="modulepreload" href="/assets/manifest-3b253e4a.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-Btvdg9aG.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-Cd0kywLM.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
+通常来讲，能拿直播时的视频流就别"/><link rel="modulepreload" href="/assets/manifest-7bcb0395.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-CF15yaS-.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-BLYNCjhP.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
               (function() {
                 var theme = localStorage.getItem("theme");
                 if (theme === "system" || !theme) {
@@ -26,7 +26,7 @@
                 console.debug("theme", theme);
                 document.documentElement.classList.add(theme);
               })();
-            </script><link rel="stylesheet" href="/assets/root-CoNFtWVX.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
+            </script><link rel="stylesheet" href="/assets/root-CvccqxbD.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -69,7 +69,7 @@
 <h2 id="m3u8简介">m3u8简介</h2>
 <p>目前的各大流媒体平台视频（不管是直播还是回放）大多都会把视频切片为很小一段，长度可能10s左右，通常是.ts后缀的文件。而这一堆.ts文件的索引文件为m3u8文件。</p>
 <p>一个通常的m3u8文件是如下格式</p>
-<pre><code class="hljs language-text">#EXTM3U
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">text</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto">#EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:10
 #EXT-X-MEDIA-SEQUENCE:0
@@ -82,7 +82,7 @@ https://website/xxx-00002.ts
 #EXTINF:10.000000,
 #EXT-X-PRIVINF:FILESIZE=2576164
 https://website/xxx-00003.ts
-</code></pre>
+</code></pre></div>
 <p>也就是说，如果我们实时保存流媒体平台的视频，正常情况下，会保存一个.m3u8索引文件，和一堆.ts文件。有了这些文件我们可以直接使用支持m3u8的播放器（如IINA、VLC）进行播放。</p>
 <p>m3u8是 HLS(HTTP Live Stream) HTTP直播流格式的基础。</p>
 <h2 id="保存视频分段与合并为mp4">保存视频分段与合并为MP4</h2>
@@ -110,8 +110,8 @@ https://website/xxx-00003.ts
 <p>（为了看起来更清晰，以上各个文件名我已修改）</p>
 <p>然后修改m3u8文件。我这里使用的编辑器是vs code。</p>
 <p>m3u8文件里的原链接是这样的：</p>
-<pre><code class="hljs language-text">https://valipl-vip.cp31.ott.cibntv.net/67756D6080932713CF4E/0300609724C6163EBF1C35DAC076221D-4673-49D8-A932-70FA-00001.ts?ccode=0502&amp;duration=6237&amp;expire=18000&amp;psid=28ae2c9bf869cf6f9ae28c814098b5fe43346&amp;ups_client_netip=3b4081be&amp;ups_ts=1620641730&amp;ups_userid=300380294&amp;utid=Xd0WGHofZhACAXtwDp2%2BGj22&amp;vid=XNTE0MDg5MTgyOA&amp;sm=1&amp;operate_type=1&amp;dre=u38&amp;si=78&amp;eo=0&amp;dst=1&amp;iv=1&amp;s=cbcad844c5894d209b9f&amp;type=mp4hd3v3&amp;bc=2&amp;hotvt=1&amp;t=d91e686d230165f&amp;cug=1&amp;rid=20000000DC17B06335EBB96917703D4A6B2DA12102000000&amp;vkey=B84707ca23f9e5899f9b0b9d97e4d1851
-</code></pre>
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">text</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto">https://valipl-vip.cp31.ott.cibntv.net/67756D6080932713CF4E/0300609724C6163EBF1C35DAC076221D-4673-49D8-A932-70FA-00001.ts?ccode=0502&amp;duration=6237&amp;expire=18000&amp;psid=28ae2c9bf869cf6f9ae28c814098b5fe43346&amp;ups_client_netip=3b4081be&amp;ups_ts=1620641730&amp;ups_userid=300380294&amp;utid=Xd0WGHofZhACAXtwDp2%2BGj22&amp;vid=XNTE0MDg5MTgyOA&amp;sm=1&amp;operate_type=1&amp;dre=u38&amp;si=78&amp;eo=0&amp;dst=1&amp;iv=1&amp;s=cbcad844c5894d209b9f&amp;type=mp4hd3v3&amp;bc=2&amp;hotvt=1&amp;t=d91e686d230165f&amp;cug=1&amp;rid=20000000DC17B06335EBB96917703D4A6B2DA12102000000&amp;vkey=B84707ca23f9e5899f9b0b9d97e4d1851
+</code></pre></div>
 <p>非常的长。我们首先要做的，是去掉每一行 <code>?</code> 之后的所有字符。使用正则表达式批量替换，在查询里输入<code>\?.*?\n</code>，替换为 <code>\n</code> 。注意要勾选正则表达式的符号。</p>
 <!-- -->
 <p>然后要替换的是<code>https://...</code>内容，替换为本地的文件路径，让最后的剩下文件名指向本地的文件。</p>
@@ -120,8 +120,8 @@ https://website/xxx-00003.ts
 <!-- -->
 <p>此时可以使用支持m3u8的播放器打开m3u8文件，观看是视频能否正常播放。</p>
 <p>能正常播放后，使用ffmpeg合并为mp4，不用转码速度就很快</p>
-<pre><code class="hljs language-shell">ffmpeg -i index.m3u8 -vcodec copy -acodec copy output.mp4
-</code></pre>
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">shell</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto">ffmpeg -i index.m3u8 -vcodec copy -acodec copy output.mp4
+</code></pre></div>
 <p>完成</p>
 <h4 id="缺点">缺点</h4>
 <p>对于回放的完整视频文件，通常会提供m3u8索引文件，但对于直播通常是没有m3u8索引的。这时候依然可以按上述方法下载所有分段，用ffmpeg进行合并。</p>
@@ -163,10 +163,10 @@ https://website/xxx-00003.ts
       console.error(error);
       sessionStorage.removeItem(storageKey2);
     }
-  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-3b253e4a.js";
-import * as route0 from "/assets/root-Btvdg9aG.js";
+  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-7bcb0395.js";
+import * as route0 from "/assets/root-CF15yaS-.js";
 import * as route1 from "/assets/RootLayout-DI_fsXO7.js";
-import * as route2 from "/assets/posts._slug-Cd0kywLM.js";
+import * as route2 from "/assets/posts._slug-BLYNCjhP.js";
   
   window.__reactRouterRouteModules = {"root":route0,"components/RootLayout":route1,"routes/posts.$slug":route2};
 

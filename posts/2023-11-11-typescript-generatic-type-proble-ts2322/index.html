@@ -22,7 +22,7 @@ const f: FuncA = () =&gt; {
 type A  = { a: string }
 type FuncA  = &lt;T extends A&gt;() =&gt; T
 const f: FuncA = () =&gt; {
-  return { a: &quot;ok&quot;"/><link rel="modulepreload" href="/assets/manifest-3b253e4a.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-Btvdg9aG.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-Cd0kywLM.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
+  return { a: &quot;ok&quot;"/><link rel="modulepreload" href="/assets/manifest-7bcb0395.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-CF15yaS-.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-BLYNCjhP.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
               (function() {
                 var theme = localStorage.getItem("theme");
                 if (theme === "system" || !theme) {
@@ -32,7 +32,7 @@ const f: FuncA = () =&gt; {
                 console.debug("theme", theme);
                 document.documentElement.classList.add(theme);
               })();
-            </script><link rel="stylesheet" href="/assets/root-CoNFtWVX.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
+            </script><link rel="stylesheet" href="/assets/root-CvccqxbD.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -64,25 +64,25 @@ const f: FuncA = () =&gt; {
 <p>定义一个函数接口，要求其返回值类型是 type A 的任意超集。</p>
 </blockquote>
 <p>于是我按直觉写下了：</p>
-<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">typescript</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
 <span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
   <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
 }
-</code></pre>
+</code></pre></div>
 <p>人来看非常简单知道是什么意思，就是返回值包含所有 a 的属性，其他属性全是可有可无的。</p>
 <p>这段代码扔给 GPT，它也看不出什么毛病。但事实上，在 return 时报了一个错：</p>
-<pre><code class="hljs language-text">Type &#x27;() =&gt; A&#x27; is not assignable to type &#x27;FuncA&#x27;.
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">text</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto">Type &#x27;() =&gt; A&#x27; is not assignable to type &#x27;FuncA&#x27;.
   Type &#x27;A&#x27; is not assignable to type &#x27;T&#x27;.
     &#x27;A&#x27; is assignable to the constraint of type &#x27;T&#x27;, but &#x27;T&#x27; could be instantiated with a different subtype of constraint &#x27;A&#x27;.ts(2322)
-</code></pre>
+</code></pre></div>
 <p>这个报错非常的不 helpful。因为平时， typescript 可以根据返回值推测出具体函数标注。比如</p>
-<pre><code class="hljs language-ts"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>){
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">ts</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>){
   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;1&quot;</span>
 } <span class="hljs-comment">// 自动推断出函数的具体签名为 () =&gt; string</span>
-</code></pre>
+</code></pre></div>
 <p>那为什么上面的报错例子，不能做这样的推断呢？</p>
-<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">ts</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-keyword">type</span> A  = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> }
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">FuncA</span>  = &lt;T <span class="hljs-keyword">extends</span> A&gt;<span class="hljs-function">() =&gt;</span> T
 <span class="hljs-keyword">const</span> <span class="hljs-attr">f</span>: <span class="hljs-title class_">FuncA</span> = <span class="hljs-function">() =&gt;</span> {
   <span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;ok&quot;</span> } 
@@ -93,7 +93,7 @@ const f: FuncA = () =&gt; {
   [name: string]: any
 }
 */</span>
-</code></pre>
+</code></pre></div>
 <p>也就是说，a 是必选属性，其他属性全是 optional。</p>
 <p>（先不讨论 Object 的 key 可以是 Symbol，只是为了看起来好理解，我只写了 string。要写全这里又要多写一个类型推断。）</p>
 <p>当然这里又引发了另一个问题：你为什么不直接把 type A 定义附加任意可选属性？</p>
@@ -104,7 +104,7 @@ const f: FuncA = () =&gt; {
 <p>如果 f 是上有一个额外的属性 prop，编译器如果推导出了返回值类型成 typeof f。之后你调用 f.prop，静态编译不会报错，但实际上有一个 runtime error，因为你的真实的返回值只是一个 <code>()=&gt;{}</code> ，没有prop 属性。</p>
 </blockquote>
 <p>但个人觉得这里静态编译应该报错，并不是一个 runtime 错误。前面说了，typescript 可以对返回值进行静态的类型的检查。以上面 issue 为例，理想的报错设计是长这样：</p>
-<pre><code class="hljs language-ts"><span class="hljs-keyword">type</span> A = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">ts</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-keyword">type</span> A = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
 <span class="hljs-keyword">type</span> B = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
 
 <span class="hljs-comment">// 类型签名为 &lt;T extends A | B&gt;(value: T) =&gt; T 的实现</span>
@@ -116,7 +116,7 @@ const f: FuncA = () =&gt; {
 f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha&quot;</span>
 
 <span class="hljs-title function_">f1</span>(f) <span class="hljs-comment">// 这里传参报错，因为 typeof f 和 typeof ()=&gt;{} 不一致。本质上就是 ts2322 描述的问题，但不应该在上面报错</span>
-</code></pre>
+</code></pre></div>
 <p>当然上面的例子返回值类型已经定了是 <code>typeof ()=&gt;{}</code>，返回值再标注 T 显得十分多此一举。但是 f1 对只是对这个函数签名的一种实现。完全可以实现对这个函数签名有不同的实现，返回不同的 subtype。</p>
 <blockquote>
 <p>什么是 subtype？T extends A，T 就是 A 的 subtype</p>
@@ -130,7 +130,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 <li>考虑业务场景，其他未知属性不留下会影响到什么吗。99% 的场景是没有必要的，也就是说这个需求就是没意义的。剩下的 1% 我没有遇到/想到。</li>
 <li>根据输入参数的 T 写一个类型推导，手动将返回的类型设置为 a 的具体扩展类型。类似这样</li>
 </ul>
-<pre><code class="hljs language-typescript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Extend</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span>&gt; = {
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">typescript</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Extend</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span>&gt; = {
   [<span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>
 } &amp; {
   [K <span class="hljs-keyword">in</span> keyof T]: T[K]
@@ -143,7 +143,7 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
 } 
 <span class="hljs-title function_">f</span>().<span class="hljs-property">a</span> <span class="hljs-comment">// a is string</span>
 <span class="hljs-title function_">f</span>().<span class="hljs-property">b</span> <span class="hljs-comment">// b is any</span>
-</code></pre>
+</code></pre></div>
 <p>总之，在目前的 typescript 中，<strong>返回值类型不能是泛型</strong>。</p>
 <p>当然这样也失去了扩展的类型检查，等于是用了函数的签名来检查的，和返回值的类型一点关系也没有。</p>
 <p>现在 typescript 的静态检查器其实已经做了一些运行时的功能，比如条件语句判断以排除属性。但是，这些像运行时一样的检查只在静态类型不明确时才起作用。就这个 if，我已经遇到了好几次无法判断的 bug ，清空缓存并重启才恢复。</p>
@@ -169,10 +169,10 @@ f.<span class="hljs-property">prop</span> = <span class="hljs-string">&quot;haha
       console.error(error);
       sessionStorage.removeItem(storageKey2);
     }
-  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-3b253e4a.js";
-import * as route0 from "/assets/root-Btvdg9aG.js";
+  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-7bcb0395.js";
+import * as route0 from "/assets/root-CF15yaS-.js";
 import * as route1 from "/assets/RootLayout-DI_fsXO7.js";
-import * as route2 from "/assets/posts._slug-Cd0kywLM.js";
+import * as route2 from "/assets/posts._slug-BLYNCjhP.js";
   
   window.__reactRouterRouteModules = {"root":route0,"components/RootLayout":route1,"routes/posts.$slug":route2};
 

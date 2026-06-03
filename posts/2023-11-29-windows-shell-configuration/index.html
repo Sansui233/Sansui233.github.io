@@ -16,7 +16,7 @@ msys2 w"/><meta property="og:type" content="article"/><meta property="og:url" co
 一直以来 windows 的命令行方案都很多，个人感觉都有不太好用的点，怎么配置也是仁者见仁智者见智的一个事情。先总结一下常用shell 方案
 
 powershell 官方shell，各种工具库支持最全，缺点自带的命令太长，以至于完全没有日常使用的想法。
-msys2 w"/><link rel="modulepreload" href="/assets/manifest-3b253e4a.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-Btvdg9aG.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-Cd0kywLM.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
+msys2 w"/><link rel="modulepreload" href="/assets/manifest-7bcb0395.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-CF15yaS-.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-BLYNCjhP.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
               (function() {
                 var theme = localStorage.getItem("theme");
                 if (theme === "system" || !theme) {
@@ -26,7 +26,7 @@ msys2 w"/><link rel="modulepreload" href="/assets/manifest-3b253e4a.js"/><link r
                 console.debug("theme", theme);
                 document.documentElement.classList.add(theme);
               })();
-            </script><link rel="stylesheet" href="/assets/root-CoNFtWVX.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
+            </script><link rel="stylesheet" href="/assets/root-CvccqxbD.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -107,7 +107,7 @@ msys2 w"/><link rel="modulepreload" href="/assets/manifest-3b253e4a.js"/><link r
 <p>我的配置文件上传到了 <a href="https://gist.github.com/Sansui233/0451b8f7c354d600c4efa74fc284d39c#file-microsoft-powershell_profile-ps1"><strong>Microsoft.PowerShell_profile.ps1</strong></a>。需要挂代理打开。配置文件包含 <code>ls</code> <code>ln</code> <code>open</code> <code>grep</code> <code>which</code> 等命令模拟。powershell 的缩写默认支持了 <code>mv</code> <code>cat</code> <code>rm</code> 等命令，配合起来日常基本够用。</p>
 <h2 id="终端代理">终端代理</h2>
 <p>我在配置文件中设置了<code>proxy</code>和<code>unproxy</code>函数，以快速设置与取消终端的代理连接。自己改下端口就能用。因为我自己习惯上不开系统代理，都是软件内的 http 连接。</p>
-<pre><code class="hljs language-powershell"># Proxy Togglers
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">powershell</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"># Proxy Togglers
 function proxy {
 	$portInUse = netstat -ano | findstr &quot;LISTENING&quot; | findstr &quot;7890&quot;
 	$portInUse2 = netstat -ano | findstr &quot;LISTENING&quot; | findstr &quot;10808&quot;
@@ -129,7 +129,7 @@ function unproxy {
 	$env:HTTP_PROXY = &quot;&quot;
 	$env:HTTPS_PROXY = &quot;&quot;
 }
-</code></pre>
+</code></pre></div>
 <h2 id="其他常用工具">其他常用工具</h2>
 <ul>
 <li>winget：自带的包管理器，命令行工具都是这个装的。部分用的 scoop，非常少。还有的直接用的官网 setup。</li>
@@ -139,14 +139,14 @@ function unproxy {
 <li>ripgrep：类似 grep 的用法。我在模拟 grep 命令时只是单纯替换成了 findstr，真的 grep 建议用 ripgrep (rg) 替代。nvim 的 telescope 一些插件也会用到。</li>
 </ul>
 <p>安装脚本汇总：</p>
-<pre><code class="hljs language-powershell">winget install neovim
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">powershell</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto">winget install neovim
 git clone --depth=1 https://github.com/sansui233/my-nvim ~\AppData\Local\nvim
 
 winget install gerardog.gsudo
 # z-jump
 winget install zoxide # z-jump, see https://github.com/ajeetdsouza/zoxide
 winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
-</code></pre>
+</code></pre></div>
 <h2 id="zsh">ZSH</h2>
 <p>有关 zsh 相关的配置，我放在了 <a href="https://sansui233.github.io/posts/windows-zsh-conf">Windows 命令行相关配置之 msys2+zsh+zi</a> 。现在完全不用 <code>zsh</code>主要是启动慢解决不了。bash 还偶尔用一下。从速度上说，我体感是</p>
 <ul>
@@ -160,7 +160,7 @@ winget install BurntSushi.ripgrep.MSVC # grep 的完全替代品
 <h3 id="1-conda">1. Conda</h3>
 <p>conda 初始化后，启动脚本会放到 User 级别的 <code>profile.ps1</code> 里，能拖慢3秒启动……</p>
 <p>解决方法：不要用 conda，用 uv。或者写成一个启动函数</p>
-<pre><code class="hljs language-powershell">function Conda-Activate {  
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">powershell</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto">function Conda-Activate {  
 #region conda initialize  
 # !! Contents within this block are managed by &#x27;conda init&#x27; !!  
 If (Test-Path &quot;C:\Users\lingn\scoop\apps\miniconda3\current\Scripts\conda.exe&quot;) {  
@@ -168,7 +168,7 @@ If (Test-Path &quot;C:\Users\lingn\scoop\apps\miniconda3\current\Scripts\conda.e
 }  
 #endregion  
 }
-</code></pre>
+</code></pre></div>
 <h3 id="2-美化的选择">2. 美化的选择</h3>
 <p>我发现 starship 比 oh-my-posh 慢了 200ms……这也是我还是在用 oh-my-posh 的原因。大概是因为 starship 开箱即用很全面。</p>
 <h3 id="3-posh-git">3. posh-git</h3>
@@ -187,10 +187,10 @@ If (Test-Path &quot;C:\Users\lingn\scoop\apps\miniconda3\current\Scripts\conda.e
       console.error(error);
       sessionStorage.removeItem(storageKey2);
     }
-  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-3b253e4a.js";
-import * as route0 from "/assets/root-Btvdg9aG.js";
+  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-7bcb0395.js";
+import * as route0 from "/assets/root-CF15yaS-.js";
 import * as route1 from "/assets/RootLayout-DI_fsXO7.js";
-import * as route2 from "/assets/posts._slug-Cd0kywLM.js";
+import * as route2 from "/assets/posts._slug-BLYNCjhP.js";
   
   window.__reactRouterRouteModules = {"root":route0,"components/RootLayout":route1,"routes/posts.$slug":route2};
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EDE15EB3W8"></script><title>纯函数与算法</title><meta name="description" content="自从接触了纯函数，刷算法题刷得举步维艰。"/><meta name="keywords" content="纯函数, 算法, 算法, 学习"/><meta name="author" content="Sansui"/><meta property="og:title" content="纯函数与算法"/><meta property="og:description" content="自从接触了纯函数，刷算法题刷得举步维艰。"/><meta property="og:type" content="article"/><meta property="og:url" content="https://sansui233.com/posts/pure-function"/><meta property="article:published_time" content="2021-09-24T16:00:00.000Z"/><meta property="article:author" content="Sansui"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="纯函数与算法"/><meta name="twitter:description" content="自从接触了纯函数，刷算法题刷得举步维艰。"/><link rel="modulepreload" href="/assets/manifest-3b253e4a.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-Btvdg9aG.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-Cd0kywLM.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
+<!DOCTYPE html><html lang="zh"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EDE15EB3W8"></script><title>纯函数与算法</title><meta name="description" content="自从接触了纯函数，刷算法题刷得举步维艰。"/><meta name="keywords" content="纯函数, 算法, 算法, 学习"/><meta name="author" content="Sansui"/><meta property="og:title" content="纯函数与算法"/><meta property="og:description" content="自从接触了纯函数，刷算法题刷得举步维艰。"/><meta property="og:type" content="article"/><meta property="og:url" content="https://sansui233.com/posts/pure-function"/><meta property="article:published_time" content="2021-09-24T16:00:00.000Z"/><meta property="article:author" content="Sansui"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="纯函数与算法"/><meta name="twitter:description" content="自从接触了纯函数，刷算法题刷得举步维艰。"/><link rel="modulepreload" href="/assets/manifest-7bcb0395.js"/><link rel="modulepreload" href="/assets/entry.client-DkTTQJrl.js"/><link rel="modulepreload" href="/assets/chunk-JMJ3UQ3L-BVFOw7ai.js"/><link rel="modulepreload" href="/assets/index-HqdIF0eP.js"/><link rel="modulepreload" href="/assets/root-CF15yaS-.js"/><link rel="modulepreload" href="/assets/i18nInstance-DPKwMV5N.js"/><link rel="modulepreload" href="/assets/i18n-C8hHMX00.js"/><link rel="modulepreload" href="/assets/RootLayout-DI_fsXO7.js"/><link rel="modulepreload" href="/assets/throttle-DwQFwEus.js"/><link rel="modulepreload" href="/assets/index-CrbsjhaO.js"/><link rel="modulepreload" href="/assets/use-appstate-wXf1X0hJ.js"/><link rel="modulepreload" href="/assets/posts._slug-BLYNCjhP.js"/><link rel="modulepreload" href="/assets/MDXComponent-rCKWmroV.js"/><link rel="modulepreload" href="/assets/use-date-i18n-CH95KIPY.js"/><link rel="modulepreload" href="/assets/folder-Dg4Z__4I.js"/><script>
               (function() {
                 var theme = localStorage.getItem("theme");
                 if (theme === "system" || !theme) {
@@ -8,7 +8,7 @@
                 console.debug("theme", theme);
                 document.documentElement.classList.add(theme);
               })();
-            </script><link rel="stylesheet" href="/assets/root-CoNFtWVX.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
+            </script><link rel="stylesheet" href="/assets/root-CvccqxbD.css"/><link rel="stylesheet" href="/assets/posts-CMWrxi_F.css"/><script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -45,7 +45,7 @@
 <p>纯函数的意义，在于保证<strong>不会对函数外部的状态有隐式的修改</strong>。这在大型的、遍地都是状态的系统中非常重要。如果不保证纯函数，多个函数内部去修改了同一外部状态，容易出现意想不到的 Bug。</p>
 <h2 id="图的邻接矩阵定义">图的邻接矩阵定义</h2>
 <!-- -->
-<pre><code class="hljs language-ts"><span class="hljs-keyword">let</span> map = {
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">ts</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-keyword">let</span> map = {
   <span class="hljs-attr">point</span>: [<span class="hljs-string">&#x27;V0&#x27;</span>, <span class="hljs-string">&#x27;V1&#x27;</span>, <span class="hljs-string">&#x27;V2&#x27;</span>, <span class="hljs-string">&#x27;V3&#x27;</span>, <span class="hljs-string">&#x27;V4&#x27;</span>, <span class="hljs-string">&#x27;V5&#x27;</span>, <span class="hljs-string">&#x27;V6&#x27;</span>, <span class="hljs-string">&#x27;V7&#x27;</span>],
   <span class="hljs-attr">side</span>: [
     [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
@@ -58,9 +58,9 @@
     [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
   ]
 }
-</code></pre>
+</code></pre></div>
 <h2 id="图深度遍历的非纯函数实现">图深度遍历的非纯函数实现</h2>
-<pre><code class="hljs language-ts"><span class="hljs-comment">// DFS 深度优先遍历，从 第 index 个节点开始. visited 记录已访问的节点，全局共用一个 visited</span>
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">ts</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-comment">// DFS 深度优先遍历，从 第 index 个节点开始. visited 记录已访问的节点，全局共用一个 visited</span>
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">DFStraverse</span>(<span class="hljs-params"><span class="hljs-attr">index</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, visited = [map.point[<span class="hljs-number">0</span>]]</span>) {
   <span class="hljs-keyword">if</span> (visited.<span class="hljs-property">length</span> === map.<span class="hljs-property">point</span>.<span class="hljs-property">length</span>) {
     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(visited.<span class="hljs-title function_">toString</span>())
@@ -74,14 +74,14 @@
     }
   })
 }
-</code></pre>
+</code></pre></div>
 <p>以上代码的问题：</p>
 <ul>
 <li>map 定义在了外部，和别的函数共用</li>
 <li>visited 是全局共用同一个，但却每次都要作为参数传入，逻辑上既不合也没有必要。并且作为函数参数（而不是全局变量），每次都对 visited 作了修改。这里还好，因为要的就是修改后的 visited（实际上是全局的 visited）。但如果题目是一个回溯问题，就需要管理 visited 的状态，在修改了之后，递归出栈时还得改回来。</li>
 </ul>
 <h2 id="图深度遍历的纯函数实现">图深度遍历的纯函数实现</h2>
-<pre><code class="hljs language-ts"><span class="hljs-comment">// DFS 深度优先遍历，从 第 index 个节点开始. visited 记录已访问的节点，全局共用一个 visited</span>
+<div class="border-ui-line-gray-2 my-4 overflow-hidden rounded-lg border"><div class="bg-code-block-bg text-text-gray border-ui-line-gray-2 flex items-center justify-between border-b px-2 py-1 text-sm"><span class="px-2 py-1 font-mono">ts</span><button class="hover:bg-hover-bg flex cursor-pointer items-center gap-1.5 rounded px-2 py-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy" aria-hidden="true" style="margin:0"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Copy</span></button></div><pre class="bg-code-block-bg m-0"><code class="[object Object] max-h-70 overflow-y-auto"><span class="hljs-comment">// DFS 深度优先遍历，从 第 index 个节点开始. visited 记录已访问的节点，全局共用一个 visited</span>
 <span class="hljs-comment">// 纯函数实现</span>
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">DFStraverse</span>(<span class="hljs-params"><span class="hljs-attr">index</span>: <span class="hljs-built_in">number</span>, <span class="hljs-attr">map</span>: { point: <span class="hljs-built_in">string</span>[], side: <span class="hljs-built_in">number</span>[][] }</span>) {
   <span class="hljs-keyword">const</span> visited = [map.<span class="hljs-property">point</span>[index]]
@@ -103,7 +103,7 @@
 
   <span class="hljs-title function_">traverse</span>(index)
 }
-</code></pre>
+</code></pre></div>
 <p>使用闭包，把共用的 visited 固定为状态。内部再定义函数作递归。 map 也作为外层的参数传入，里面不去修改。</p>
 <hr/>
 <p>状态其实在各种算法里挺重要的。不少空间换时间的极限操作都要用到。</p>
@@ -122,10 +122,10 @@
       console.error(error);
       sessionStorage.removeItem(storageKey2);
     }
-  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-3b253e4a.js";
-import * as route0 from "/assets/root-Btvdg9aG.js";
+  })("react-router-scroll-positions", null)</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_optimizeDeps":false,"unstable_subResourceIntegrity":false,"v8_middleware":false,"v8_splitRouteModules":false,"v8_viteEnvironmentApi":false},"routeDiscovery":{"mode":"initial"},"ssr":false,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-7bcb0395.js";
+import * as route0 from "/assets/root-CF15yaS-.js";
 import * as route1 from "/assets/RootLayout-DI_fsXO7.js";
-import * as route2 from "/assets/posts._slug-Cd0kywLM.js";
+import * as route2 from "/assets/posts._slug-BLYNCjhP.js";
   
   window.__reactRouterRouteModules = {"root":route0,"components/RootLayout":route1,"routes/posts.$slug":route2};
 

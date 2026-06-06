@@ -1,0 +1,1 @@
+import{F as a,R as m,t as i}from"./jsx-runtime-CITaFu2t.js";import"./topbar-qTeaAiK2.js";a();var s=m(i(),1),x=(...a)=>a.filter(Boolean).join(" "),n=({className:a,children:m,...i})=>(0,s.jsx)("div",{className:x("mx-auto px-5 pb-12","w-full max-w-full","min-[580px]:max-w-145","min-[780px]:max-w-none min-[780px]:w-175","min-[1080px]:w-200",a),...i,children:m});export{n as t};

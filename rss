@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Wed, 03 Jun 2026 18:20:15 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jun 2026 04:02:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -35,7 +35,10 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-06-02T12:08:06.000Z</guid>
             <pubDate>Tue, 02 Jun 2026 12:08:06 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-06-03 05:37:13</h2>
+            <content:encoded><![CDATA[<h2>2026-06-06 11:48:43</h2>
+<p>嗯，感觉现在博客架构方向是对的， 当手工配置的地方越多，构建性能就越好。最明显的感觉是 Next.js export 要画很多时间在路由分析上，rr-7 因为需要手写 export 的路由，明显比较快……当然还是没法和传统的静态博客系统比，毕竟那是真正的增量构建 html 不是全量的 bundler。但无所谓，哈哈，不要搞这么性能焦虑。</p>
+<hr/>
+<h2>2026-06-03 05:37:13</h2>
 <p>#分享 技术</p>
 <ul>
 <li>斯坦福新的AI课程： <a href="https://cs336.stanford.edu">CS336: Language Modeling from Scratch</a></li>
@@ -69,11 +72,7 @@
 <hr/>
 <h2>2026-05-11 23:34:14</h2>
 <p>被问到为什么，有时候会是默不作声的，因为对方并不需要真的在问你为什么，只是一种施压，想要的结果只是强迫你服从。如果你真的当为什么回答，好好说自己原因，后果只会被骂。只有表示服从才是令人满意的，只有服从才算解决方案。对于这类人就是如此，问为什么从来不是讨论的语义，那么讨论就没有任何意义，要么沉默要么爆发。</p>
-<p>人总之自以为超越其他物种，可我觉得对于很多人并没有差别。语言交流不比肢体交流高贵，语言暴力也和肢体暴力没什么差别。拿着语言干着和肢体一模一样的事情，</p>
-<hr/>
-<h2>2026-05-03 13:47:51</h2>
-<p>这以前就是遇到想学的东西就会学。但是最近两年，对所有想学的东西也态度都是，这个东西跟学了有什么用呢，不管你学多少还不是被死命催回家。你了解大模型训练有什么用呢，了解 Agent 开发又有什么用呢，你不了解又有什么损失了。0，完全是 0。学习的反馈机制完全被打破了，以前还觉得自己说又学到了东西，但无数次问你说有什么用后，你说的用途别人说不成立，真的会觉得没用。</p>
-<p>就是这样，你做了东西，没有竞品？用途不成立。有竞品？你又怎么和大公司（有背景或者资金雄厚的任意一方）比？从写论文到学习技能都是这样，最后你只敢说自己写的是练手的玩具，也失去了把东西抠细的动力，马马虎虎草草收场。</p>]]></content:encoded>
+<p>人总之自以为超越其他物种，可我觉得对于很多人并没有差别。语言交流不比肢体交流高贵，语言暴力也和肢体暴力没什么差别。拿着语言干着和肢体一模一样的事情，</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[draw.io 与 Word 转 PDF 打印时的清晰度问题]]></title>

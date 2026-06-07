@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-06-07T17:29:36.336Z</updated>
+    <updated>2026-06-07T17:31:04.814Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -42,7 +42,7 @@
         <updated>2026-06-02T12:08:06.000Z</updated>
         <content type="html"><![CDATA[<h2>2026-06-08 01:08:59</h2>
 <p>看到<a href="https://superlxh02.github.io/rust-study/%E5%AF%B9%E4%BA%8Erust%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%BB%E7%BB%93%E5%92%8C%E6%80%9D%E8%80%83.html">一个学 Rust 的 C++ 程序员的思考</a>说，对于非 GC 语言的程序员，好像很少考虑一个变量的生命周期的问题。</p>
-<p>现在我觉得确实如此，在 vibe ServerPing 这个应用时，排查 CPU 占用就会开始考虑到这些情况。 CPU 占用基本在 Memory Allocation  和 GC 上。想到 CPU 几乎无占用，得考虑到所有对象的创建与销毁时期，有多少能复用。</p>
+<p>现在我觉得确实如此，在 vibe ServerPing 这个应用时，前期没管这的那的，逻辑正确就行。但后面排查 CPU 占用就会开始考虑到这些情况。 CPU 占用基本在 Memory Allocation  和 GC 上，想到 CPU 几乎无占用，得考虑到所有对象的创建与销毁时期，有多少能复用。</p>
 <p>实在是很难想象 vibe coding 时代一堆人不知道代码实际在做什么只看是否符合需求的软件质量……</p>
 <hr/>
 <h2>2026-06-06 11:48:43</h2>

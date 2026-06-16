@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-06-16T16:09:28.505Z</updated>
+    <updated>2026-06-16T16:21:06.215Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -578,7 +578,7 @@ torchaudio = [
 <h3>uv pip 管理老项目</h3>
 <p>要复用必须满足四个相同：python 版本相同, index-url 相同, torch 版本号相同， torch 后端相同。</p>
 <p>python 版本由 venv 创建时决定。我们需要指定缓存里的 <strong>torch 版本</strong>， <code>--index-url</code> 和 <code>--torch-backend</code>。少一个都不行。</p>
-<pre><code class="language-shell">uv pip install torch==2.8.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 --torch-backend=cu128
+<pre><code class="language-shell">uv pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --torch-backend=cu128
 </code></pre>
 <p>和用 pip 的方式差不多，区别是会硬链接到集中的缓存，不会重复占用十几份 torch。当然。该有的依赖冲突还是会有的。<del>关键是装好后就不要更新了</del></p>]]></content>
         <category label="学习"/>

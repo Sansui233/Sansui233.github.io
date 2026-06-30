@@ -1,1 +1,1 @@
-indoor scene, row of vending machines, hanging signboards, metal tables, plastic chairs, soft diffused light, muted pastel color palette, warm orange and cool purple tones, depth of field, foreground glass reflection, eye level shot
+anon_scene, outdoors, no_humans, chair, scenery, sign, shop, vending_machine, indoor scene, row of vending machines, hanging signboards, metal tables, plastic chairs, soft diffused light, muted pastel color palette, warm orange and cool purple tones, depth of field, foreground glass reflection, eye level shot

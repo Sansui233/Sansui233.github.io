@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 16 Jun 2026 16:21:06 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 30 Jun 2026 06:54:07 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -357,9 +357,8 @@
             <pubDate>Tue, 06 Jan 2026 18:20:00 GMT</pubDate>
             <description><![CDATA[z-index 只是个插件，层叠上下文才是真正的 z 轴]]></description>
             <content:encoded><![CDATA[<blockquote>
-<p>摘要：本文针对前端中多个元素层叠时 z-index 管理混乱的问题，提出一个名为海浪模型的设计模型，以构建复杂 z-index 管理的最佳实践。</p>
+<p>本文针对前端中多个元素层叠时 z-index 管理混乱的问题，提出一个名为海浪模型的设计模型，以构建复杂 z-index 管理的最佳实践。</p>
 </blockquote>
-<p>……好像 AI。但我是人，我纯手打的。</p>
 <h2>基础知识 - 代码的画布</h2>
 <p>层叠上下文是代码逻辑上的画布。一旦一个元素产生了层叠上下文，它内部的所有子元素就被包裹在这个范围里。</p>
 <p><strong>层叠上下文的产生</strong></p>
@@ -379,7 +378,7 @@
 <p>❗注意：层叠上下文的产生，和层内元素关系，是两套规则，两者之间<strong>没有关系，没有关系，没有关系</strong>。因为部分规则相似，很容易给记混了。</p>
 </blockquote>
 <p><strong>层叠内元素关系</strong></p>
-<p>为了好解释，我使用 context-level 说明绝对的上下覆盖关系。</p>
+<p>我使用 context-level 说明层内元素绝对的上下覆盖关系。</p>
 <ul>
 <li>CL-1: 背景和边框（最底层）</li>
 <li>CL-2: 定位元素（如absolute）且负 z-index</li>
@@ -389,14 +388,14 @@
 <li>CL-6: 定位元素（如absolute）且 z-index 没有设定为负，还有 opacity，transform 等。</li>
 <li>CL-7: 定位元素（如absolute）正 z-index（最顶层）</li>
 </ul>
-<p>z-index 在其中的作用相当于是一个算层叠关系的插件。<strong>必须和定位配套使用，否则不生效。</strong></p>
+<p>z-index 在其中的作用相当于是一个算层内关系的插件。<strong>必须和定位配套使用，否则不生效。</strong></p>
 <p>从功能上说，<strong>层叠上下文才是真正面向用户的Z轴</strong>，z-index属性只是这个 z轴的一个插件。</p>
 <h2>视觉画布</h2>
 <p>可以发现，被提升到 <strong>CL-6</strong> 的层，其规则和产生一个层叠上下文高度重合，<strong>就像产生了一个新的画布</strong>。这也是为什么说，容易把 CL-6 层等同于产生层叠上下文的层，但是不是的，<strong>CL-6 是描述自己作为子元素的层级</strong>，而“产生层叠上下文”描述的自己作为父元素的行为。</p>
 <ul>
 <li>opacity 且 z-index: 0。位于 CL-3，产生了层叠上下层文，但是其实层级很低，z-index 是无效的。</li>
-<li>CL6: relative 且 z-index: auto。位于 CL-6，产生不了层叠上下文，其子元素如果有更低的层级，可能会被盖掉。子元素有更高的层级，会盖掉别人。</li>
-<li>CL6: relative 且 z-index: 0。位于 CL-6，产生不层叠上下层文，其子元素层级和当前元素严格一致。</li>
+<li>relative 且 z-index: auto。位于 CL-6，没产生层叠上下文，其子元素如果有更低的层级，可能会被盖掉。子元素有更高的层级，会盖掉别人。</li>
+<li>relative 且 z-index: 0。位于 CL-6，产生了层叠上下层文，其子元素层级和当前元素严格一致。</li>
 </ul>
 <p>理解了这一点，可以记住。在做目录头时，并不是设置了 <code>relative</code> 就万事大吉了，如果你的后面的元素也是 relative，很容易被覆盖。</p>
 <h2>z-index 划分</h2>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anon Scene LoRA Tags</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <p class="eyebrow">Caption Dataset</p>
+      <h1>Anon Scene LoRA Tags</h1>
+      <p id="summary" class="summary">Loading client-data.json...</p>
+    </header>
+
+    <section class="stack" aria-live="polite">
+      <article class="panel" data-section="common">
+        <div class="panel-header">
+          <h2>Caption Frequency</h2>
+          <button class="text-button" type="button" data-open-modal="common">See All</button>
+        </div>
+        <div id="commonPreview" class="tag-grid"></div>
+      </article>
+
+      <article class="panel" data-section="word">
+        <div class="panel-header">
+          <h2>Word Frequency</h2>
+          <button class="text-button" type="button" data-open-modal="word">See All</button>
+        </div>
+        <div id="wordPreview" class="tag-grid"></div>
+      </article>
+
+      <article class="panel" data-section="captions">
+        <div class="panel-header">
+          <h2>Caption Examples</h2>
+          <button class="text-button" type="button" data-open-modal="captions">See All</button>
+        </div>
+        <div id="captionPreview" class="caption-list"></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-surface" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <button id="closeModal" class="icon-button" type="button" aria-label="Close"></button>
+      </header>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">Copied</div>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

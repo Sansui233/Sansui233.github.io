@@ -44,6 +44,10 @@ button {
   font: inherit;
 }
 
+a {
+  color: inherit;
+}
+
 .page-shell {
   width: min(100% - 32px, 700px);
   margin: 0 auto;
@@ -77,6 +81,12 @@ h1 {
 .summary {
   margin-top: 12px;
   color: var(--muted);
+}
+
+.download-link {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .stack {

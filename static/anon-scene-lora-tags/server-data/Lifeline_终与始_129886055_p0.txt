@@ -1,1 +1,1 @@
-anon_scene, 1girl, solo, long_hair, standing, indoors, water, scenery, ruins, ruined clock tower interior, urban ruins, giant rusted clock gears, rubble covered floor, torn hanging fabric, distant ruined city buildings, dusty sunbeams, backlight, warm brown tone, low angle shot, wide shot, depth of field, foreground blur, glowing green particles, small butterflies, 1girl, standing, small silhouette
+anon_scene, 1girl, silhouette, solo, standing, indoor, water, scenery, ruins, urban, building, sun, from_below

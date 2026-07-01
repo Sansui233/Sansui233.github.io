@@ -1,1 +1,1 @@
-anon_scene, solo, standing, outdoors, no_humans, building, scenery, railing, bridge, city, multi-level elevated highways, overpass bridges, concrete bridge piers, cool blue palette, soft diffused light, overcast sky, low angle shot, depth of field
+anon_scene, solo, standing, outdoor, no_humans, building, scenery, railing, bridge, city, overpass, cloudy_sky, from_below

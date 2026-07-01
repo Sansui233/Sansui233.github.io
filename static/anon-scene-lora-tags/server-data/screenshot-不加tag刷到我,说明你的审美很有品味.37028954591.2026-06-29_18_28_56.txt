@@ -1,1 +1,1 @@
-anon_scene, sky, outdoors, day, cloud, blue_sky, no_humans, cloudy_sky, scenery, cloud, deep blue sky, large volumetric cumulus cloud, golden hour rim light, warm golden cloud highlights, cool blue palette, low angle view, tiny crescent moon, scattered wispy clouds
+anon_scene, sky, cloud, blue_sky, no_humans, scenery

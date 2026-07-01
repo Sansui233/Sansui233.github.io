@@ -1,0 +1,1 @@
+anon_scene, sky, outdoor, day, cloud, blue_sky, no_humans, cloudy_sky, grass, scenery

@@ -1,1 +1,1 @@
-anon_scene, solo, long_sleeves, holding, standing, outdoors, day, pants, bag, from_behind, backpack, grass, scenery, snow, 1other, rock, mountain, facing_away, ambiguous_gender, landscape, snow capped peaks, mountain range, alpine valley, valley mist, cool blue tone, soft diffused light, pale sky, wide shot, depth of field, foreground rocky outcrop, 1boy, standing, small silhouette
+anon_scene, solo, holding, standing, outdoor, day, daytime, grass, scenery, snow, 1other, rock, snow  mountain, landscape, valley, sky, 1boy, silhouette

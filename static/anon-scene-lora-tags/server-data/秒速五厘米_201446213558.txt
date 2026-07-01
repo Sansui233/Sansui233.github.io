@@ -1,1 +1,1 @@
-anon_scene, sky, outdoors, day, cloud, blue_sky, petals, no_humans, cloudy_sky, building, scenery, city, cityscape, skyscraper, cityscape, dense urban buildings, skyscraper skyline, bright blue sky, fluffy white clouds, bright daylight, cool blue tone, high angle shot, wide panoramic shot, falling cherry blossom petals, scattered cherry blossom trees
+anon_scene, sky, outdoor, day, cloud, blue_sky, blossom, no_humans, building, scenery, city, cityscape, skyscraper, daytime, from_above, tree

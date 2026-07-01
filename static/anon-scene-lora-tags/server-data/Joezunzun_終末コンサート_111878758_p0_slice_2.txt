@@ -1,0 +1,1 @@
+anon_scene, sky, outdoor, day, cloud, no_humans, cloudy_sky, building, scenery, city, fence, railing, ruins, rooftop, white_theme

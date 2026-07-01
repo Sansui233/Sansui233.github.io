@@ -1,0 +1,1 @@
+anon_scene, sky, outdoor, cloud, no_humans, cloudy_sky, building, scenery, rain, reflection, city, sign, dark, power_lines, utility_pole, road_sign, traffic_light

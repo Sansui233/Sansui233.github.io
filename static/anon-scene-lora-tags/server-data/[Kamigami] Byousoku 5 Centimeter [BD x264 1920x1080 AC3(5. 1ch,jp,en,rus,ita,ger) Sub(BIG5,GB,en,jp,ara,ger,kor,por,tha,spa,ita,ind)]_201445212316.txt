@@ -1,1 +1,1 @@
-anon_scene, 1girl, solo, hat, touhou, sky, outdoors, cloud, from_behind, arknights, building, scenery, sunset, city, sign, fence, cityscape, bridge, wide_shot, skyscraper, train, fog, gradient_sky, city, steel transmission tower, skyscrapers, low-rise urban buildings, utility poles, sunset, warm gradient sky, thick ground mist, soft diffused light, wide shot, foreground metal mesh fence, depth of field
+anon_scene, 1girl, solo, sky, outdoor, cloud, building, scenery, city, sign, fence, cityscape, bridge, skyscraper, train, fog, gradient_sky, utility_pole

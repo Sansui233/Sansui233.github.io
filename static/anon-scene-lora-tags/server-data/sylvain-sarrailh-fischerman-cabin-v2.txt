@@ -1,1 +1,1 @@
-anon_scene, sky, outdoors, day, cloud, artist_name, water, blue_sky, no_humans, bird, ocean, watermark, cloudy_sky, building, scenery, rock, mountain, house, waves, cliff, landscape, seaside rocky cliff, ocean, sea stacks, stilted wooden house, small windmill, wooden walkway, bright daylight, bright blue sky, fluffy white clouds, vibrant blue palette, wide shot, crashing waves, flying seagulls, hanging fishing nets
+anon_scene, sky, outdoor, day, cloud, water, blue_sky, no_humans, bird, ocean, building, scenery, rock, mountain, house, landscape, sea, daytime, fish

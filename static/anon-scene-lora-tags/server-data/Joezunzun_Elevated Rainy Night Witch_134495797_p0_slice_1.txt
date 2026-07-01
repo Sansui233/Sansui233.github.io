@@ -1,0 +1,1 @@
+anon_scene, road, city, cat, sky, outdoor, day, blue_sky, animal, building, scenery, stairs, railing, bridge, power_lines, puddle

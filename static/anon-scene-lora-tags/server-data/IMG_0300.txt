@@ -1,1 +1,1 @@
-anon_scene, day, indoors, no_humans, window, leaf, chair, table, plant, scenery, potted_plant, indoor sunroom, large glass windows, tropical green plants, stone floor, wooden slatted ceiling, structural pillar, soft natural sunlight, dappled shadows, cool green tone, mid shot, eye level, depth of field
+anon_scene, day, daytime, indoor, no_humans, window, leaf, chair, table, plant, scenery, sunlight, shadow

@@ -1,1 +1,1 @@
-anon_scene, 1girl, long_hair, bangs, shirt, school_uniform, monochrome, closed_mouth, jacket, ponytail, upper_body, white_shirt, necktie, solo_focus, collared_shirt, indoors, blurry, from_side, window, profile, depth_of_field, blurry_background, backlighting, blue_theme, hair_tie, train_interior, indoor scene, classroom, large windows, backlight, cool blue tone, soft diffused sunlight, depth of field, background blur, close-up shot, blurred crowd, 1girl, upper body, foreground, blurry
+anon_scene, 1girl, from_side, close_up, indoor, window, classroom, sunlight

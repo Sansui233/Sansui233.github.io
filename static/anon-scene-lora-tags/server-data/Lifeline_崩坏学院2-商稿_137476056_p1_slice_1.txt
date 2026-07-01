@@ -1,0 +1,1 @@
+anon_scene, solo, standing, no_humans, bug, giant eye, giant monster, purple_theme

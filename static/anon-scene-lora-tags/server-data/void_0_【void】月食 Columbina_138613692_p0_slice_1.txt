@@ -1,0 +1,1 @@
+anon_scene, sky, outdoor, cloud, blue_sky, no_humans, bird, animal, cross, building, scenery, fantasy, flag, castle, tower

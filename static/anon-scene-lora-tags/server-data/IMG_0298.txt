@@ -1,1 +1,1 @@
-anon_scene, sky, outdoors, day, blurry, tree, no_humans, sunlight, grass, plant, nature, scenery, stairs, ruins, arch, landscape, dense green forest, railroad tracks, stone arch bridge, stone arched wall, bright sunlight, dappled light, light haze, vibrant green palette, low angle shot, depth of field, foreground blur, scattered wild grass, tiny wildflowers
+anon_scene, sky, outdoor, day, daytime, tree, no_humans, sunlight, grass, plant, nature, scenery, stairs, ruins, landscape, forest, road, fog, from_below, flower

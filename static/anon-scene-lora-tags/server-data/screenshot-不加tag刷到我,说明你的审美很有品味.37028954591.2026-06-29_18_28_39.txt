@@ -1,1 +1,1 @@
-anon_scene, sky, outdoors, day, cloud, tree, blue_sky, no_humans, traditional_media, nature, scenery, forest, tree, giant old broadleaf tree, twisted gnarled branches, lush green foliage, clear blue sky, bright sunlight, backlight, low angle shot
+anon_scene, outdoor, day, sky, tree, branch, nature, scenery, forest, road, sunlight, from_below

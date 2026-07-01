@@ -1,1 +1,1 @@
-anon_scene, indoors, no_humans, chair, bottle, scenery, reflection, clock, stool, wine_bottle, bar, wine cellar, interior, metal wine racks, wine bottles, glowing vortex wall, fragmented cubic wall decor, dark velvet sofa, cool blue palette, dim ambient light, bright backlight, wide shot, symmetrical composition, depth of field, black tiled floor, round coffee table, floor lamp, small side table
+anon_scene, indoor, no_humans, chair, bottle, scenery, reflection, clock, bar, shelf, cubic, sofa, floor, table

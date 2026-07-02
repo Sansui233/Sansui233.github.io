@@ -1,1 +1,1 @@
-anon_scene, flower, outdoor, day, daytime, water, tree, no_humans, grass, plant, nature, scenery, mountain, river, landscape, jungle, forest, waterfall, fog, bird, fish
+anon_scene, flower, outdoors, day, daytime, water, tree, no_humans, grass, plant, nature, scenery, mountain, river, landscape, jungle, forest, waterfall, fog, bird, fish

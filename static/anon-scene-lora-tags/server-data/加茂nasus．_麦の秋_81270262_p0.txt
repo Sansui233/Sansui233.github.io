@@ -1,1 +1,1 @@
-anon_scene, flower, sky, outdoor, day, cloud, tree, blue_sky, no_humans, leaf, sunlight, plant, building, nature, scenery, forest, stairs, fence, architecture, shrine, landscape, daytime
+anon_scene, flower, sky, outdoors, day, cloud, tree, blue_sky, no_humans, leaf, sunlight, plant, building, nature, scenery, forest, stairs, fence, architecture, shrine, landscape, daytime

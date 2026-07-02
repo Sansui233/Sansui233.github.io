@@ -1,1 +1,1 @@
-anon_scene, flower, sky, outdoor, day, daytime, cloud, water, tree, blue_sky, no_humans, grass, plant, nature, scenery, rock, mountain, river, landscape, waterfall, fog, cat, pink tree
+anon_scene, flower, sky, outdoors, day, daytime, cloud, water, tree, blue_sky, no_humans, grass, plant, nature, scenery, rock, mountain, river, landscape, waterfall, fog, cat, pink tree

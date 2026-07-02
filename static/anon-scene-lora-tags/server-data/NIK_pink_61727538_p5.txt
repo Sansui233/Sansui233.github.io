@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, cloud, tree, blue_sky, no_humans, sunlight, plant, building, scenery, stairs, city, railing, road, cityscape, bus, bridge, lamppost, skyscraper, river, urban, street, fog, reflection, from_above
+anon_scene, sky, outdoors, cloud, tree, blue_sky, no_humans, sunlight, plant, building, scenery, stairs, city, railing, road, cityscape, bus, bridge, lamppost, skyscraper, river, urban, street, fog, reflection, from_above

@@ -1,1 +1,1 @@
-anon_scene, outdoor, water, tree, no_humans, bird, animal, cherry_blossoms, building, scenery, fish, stairs, lantern, railing, torii, architecture, bridge, waterfall, statue, shrine, shide
+anon_scene, outdoors, water, tree, no_humans, bird, animal, cherry_blossoms, building, scenery, fish, stairs, lantern, railing, torii, architecture, bridge, waterfall, statue, shrine, shide

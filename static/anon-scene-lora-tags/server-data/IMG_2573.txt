@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, day, water, tree, no_humans, grass, nature, scenery, mountain, lake, landscape, daytime, flower
+anon_scene, sky, outdoors, day, water, tree, no_humans, grass, nature, scenery, mountain, lake, landscape, daytime, flower

@@ -1,1 +1,1 @@
-anon_scene, 1girl, silhouette, standing, sky, outdoor, cloud, water, cloudy_sky, building, scenery, snow, monster, torii, giant, power_lines, statue, utility_pole, cityscape, city, ruins, fog, from_below
+anon_scene, 1girl, silhouette, standing, sky, outdoors, cloud, water, cloudy_sky, building, scenery, snow, monster, torii, giant, power_lines, statue, utility_pole, cityscape, city, ruins, fog, from_below

@@ -1,1 +1,1 @@
-anon_scene, book, no_humans, night, from_above, scenery, clock, cityscape, indoor, building, hourglass, wheels, book
+anon_scene, book, no_humans, night, from_above, scenery, clock, cityscape, indoors, building, hourglass, wheels

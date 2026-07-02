@@ -1,1 +1,1 @@
-anon_scene, realistic, indoor, cup, book, no_humans, window, chair, table, plant, scenery, lantern, clock, bookshelf, lamppost, teapot, vase, car, rug, chandelier, wall,
+anon_scene, realistic, indoors, cup, book, no_humans, window, chair, table, plant, scenery, lantern, clock, bookshelf, lamppost, teapot, vase, car, rug, chandelier, wall

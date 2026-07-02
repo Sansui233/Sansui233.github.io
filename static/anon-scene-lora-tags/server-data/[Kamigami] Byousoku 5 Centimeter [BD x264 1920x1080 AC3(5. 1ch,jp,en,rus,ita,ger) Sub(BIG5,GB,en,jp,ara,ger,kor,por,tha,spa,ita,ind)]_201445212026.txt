@@ -1,1 +1,1 @@
-anon_scene, indoor, no_humans, window, chair, sunlight, bottle, scenery, stairs, door, school, hallway, classroom, wall, floor, day, daytime, trash_can
+anon_scene, indoors, no_humans, window, chair, sunlight, bottle, scenery, stairs, door, school, hallway, classroom, wall, floor, day, daytime, trash_can

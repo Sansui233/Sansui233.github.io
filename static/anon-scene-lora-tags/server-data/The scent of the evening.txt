@@ -1,1 +1,1 @@
-anon_scene, 1boy, standing, flower, sky, outdoor, cloud, water, tree, bird, cloudy_sky, grass, plant, scenery, 1other, rock, mountain, fantasy, landscape, jungle, fog, multiple_people, silhouette
+anon_scene, 1boy, standing, flower, sky, outdoors, cloud, water, tree, bird, cloudy_sky, grass, plant, scenery, 1other, rock, mountain, fantasy, landscape, jungle, fog, multiple_people, silhouette

@@ -1,1 +1,1 @@
-anon_scene, outdoor, no_humans, shadow, from_above, scenery, cable
+anon_scene, outdoors, no_humans, shadow, from_above, scenery, cable

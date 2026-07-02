@@ -1,1 +1,1 @@
-anon_scene, solo, holding, standing, outdoor, day, daytime, grass, scenery, snow, 1other, rock, snow  mountain, landscape, valley, sky, 1boy, silhouette
+anon_scene, solo, holding, standing, outdoors, day, daytime, grass, scenery, snow, 1other, rock, snow  mountain, landscape, valley, sky, 1boy, silhouette

@@ -1,1 +1,1 @@
-anon_scene, sitting, indoor, book, window, shadow, leaf, sunlight, plant, scenery, desk, classroom
+anon_scene, sitting, indoors, book, window, shadow, leaf, sunlight, plant, scenery, desk, classroom

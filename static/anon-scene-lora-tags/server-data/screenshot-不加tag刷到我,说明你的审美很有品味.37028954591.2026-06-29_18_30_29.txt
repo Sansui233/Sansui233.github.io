@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, day, daytime, tree, blue_sky, no_humans, blossom, scenery, architecture, garden, sunlight, from_below
+anon_scene, sky, outdoors, day, daytime, tree, blue_sky, no_humans, blossom, scenery, architecture, garden, sunlight, from_below

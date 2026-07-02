@@ -1,1 +1,1 @@
-anon_scene, concept_art, outdoor, day, daytime, tree, leaf, building, scenery, walking, lantern, city, sign, road, car, bus, lamppost, street, road_sign, urban, skyscraper, sunlight
+anon_scene, concept_art, outdoors, day, daytime, tree, leaf, building, scenery, walking, lantern, city, sign, road, car, bus, lamppost, street, road_sign, urban, skyscraper, sunlight

@@ -1,1 +1,1 @@
-anon_scene, holding, sitting, standing, food, multiple_boys, outdoor, 2boys, tree, fruit, leaf, eating, plant, cat, sunlight, from_below
+anon_scene, holding, sitting, standing, food, multiple_boys, outdoors, 2boys, tree, fruit, leaf, eating, plant, cat, sunlight, from_below

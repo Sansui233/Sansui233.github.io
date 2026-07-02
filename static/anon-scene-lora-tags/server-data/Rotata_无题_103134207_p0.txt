@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, cloud, no_humans, night, building, scenery, motor_vehicle, sign, road, power_lines, lamppost, utility_pole, road_sign, city, landscape, snow, street
+anon_scene, sky, outdoors, cloud, no_humans, night, building, scenery, motor_vehicle, sign, road, power_lines, lamppost, utility_pole, road_sign, city, landscape, snow, street

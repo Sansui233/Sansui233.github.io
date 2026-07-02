@@ -1,1 +1,1 @@
-anon_scene, 1boy, standing,  silhouette, outdoor, 2boys, holding, building, scenery, sunset, city, sign, road_sign, traffic_light, urban, road, from_below, 1girl
+anon_scene, 1boy, standing, silhouette, outdoors, 2boys, holding, building, scenery, sunset, city, sign, road_sign, traffic_light, urban, road, from_below, 1girl

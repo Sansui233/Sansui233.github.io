@@ -1,1 +1,1 @@
-anon_scene, 1girl, solo, standing, sky, outdoor, day, daytime, cloud, dutch_angle, bird, cloudy_sky, building, scenery, motor_vehicle, rain, city, sign, road, car, cityscape, ruins, power_lines, lamppost, street, skyscraper, traffic_light, umbrella, from_below, reflection, flying
+anon_scene, 1girl, solo, standing, sky, outdoors, day, daytime, cloud, dutch_angle, bird, cloudy_sky, building, scenery, motor_vehicle, rain, city, sign, road, car, cityscape, ruins, power_lines, lamppost, street, skyscraper, traffic_light, umbrella, from_below, reflection, flying

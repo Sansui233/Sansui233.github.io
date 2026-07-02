@@ -1,1 +1,1 @@
-anon_scene, 1girl, solo, holding, standing, sky, outdoor, day, cloud, tree, blue_sky, shadow, animal, cat, grass, building, scenery, dog, city, fence, road, bridge, lamppost, cityscape, street, daytime, fog
+anon_scene, 1girl, solo, holding, standing, sky, outdoors, day, cloud, tree, blue_sky, shadow, animal, cat, grass, building, scenery, dog, city, fence, road, bridge, lamppost, cityscape, street, daytime, fog

@@ -1,1 +1,1 @@
-anon_scene, ultra_details, solo, 1boy, holding, sitting, standing, indoor, cup, window, night, chair, table, scenery, reflection, lamppost, candle, floor, restaurant, wall, cloud, from_below, 1girl, silhouette, plaid floor
+anon_scene, ultra_details, solo, 1boy, holding, sitting, standing, indoors, cup, window, night, chair, table, scenery, reflection, lamppost, candle, floor, restaurant, wall, cloud, from_below, 1girl, silhouette, plaid floor

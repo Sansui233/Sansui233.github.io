@@ -1,1 +1,1 @@
-anon_scene, indoor, no_humans, chair, bottle, scenery, reflection, clock, bar, shelf, cubic, sofa, floor, table
+anon_scene, indoors, no_humans, chair, bottle, scenery, reflection, clock, bar, shelf, cubic, sofa, floor, table

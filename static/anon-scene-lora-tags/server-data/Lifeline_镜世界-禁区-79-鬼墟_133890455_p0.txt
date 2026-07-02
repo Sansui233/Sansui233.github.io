@@ -1,1 +1,1 @@
-anon_scene, 1girl, silhouette, solo, standing, sky, outdoor, day, daytime, cloud, water, dutch_angle, cloudy_sky, building, scenery, walking, monster, city, ruins, street, utility_pole, fog, giant monster, from_below
+anon_scene, 1girl, silhouette, solo, standing, sky, outdoors, day, daytime, cloud, water, dutch_angle, cloudy_sky, building, scenery, walking, monster, city, ruins, street, utility_pole, fog, giant monster, from_below

@@ -1,1 +1,1 @@
-anon_scene, flower, outdoor, tree, no_humans, grass, plant, building, nature, scenery, forest, rock, ruins, vines, moss, landscape, jungle, sunlight, fog, cat, mountain
+anon_scene, flower, outdoors, tree, no_humans, grass, plant, building, nature, scenery, forest, rock, ruins, vines, moss, landscape, jungle, sunlight, fog, cat, mountain

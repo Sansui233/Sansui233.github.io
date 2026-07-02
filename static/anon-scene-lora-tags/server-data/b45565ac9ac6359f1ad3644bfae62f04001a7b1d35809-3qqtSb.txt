@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, water, tree, no_humans, building, scenery, sunset, motor_vehicle, watercraft, ship, lake, landscape, beach, sunlight, multiple_people, orange theme, silhouette
+anon_scene, sky, outdoors, water, tree, no_humans, building, scenery, sunset, motor_vehicle, watercraft, ship, lake, landscape, beach, sunlight, multiple_people, orange theme, silhouette

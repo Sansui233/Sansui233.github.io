@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, cloud, water, blue_sky, no_humans, building, scenery, motor_vehicle, city, road, car, cityscape, river, street, skyscraper, ocean, lake, tree, boat
+anon_scene, sky, outdoors, cloud, water, blue_sky, no_humans, building, scenery, motor_vehicle, city, road, car, cityscape, river, street, skyscraper, ocean, lake, tree, boat

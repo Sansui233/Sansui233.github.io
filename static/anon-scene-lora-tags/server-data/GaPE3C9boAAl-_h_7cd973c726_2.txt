@@ -1,1 +1,1 @@
-anon_scene, solo, 1boy, sitting, flower, leaf, architecture, indoor, window, blossom, tree, wall, sunlight
+anon_scene, solo, 1boy, sitting, flower, leaf, architecture, indoors, window, blossom, tree, wall, sunlight

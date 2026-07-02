@@ -1,0 +1,1 @@
+anon_scene, sky, outdoors, cloud, sunlight, building, scenery, car, motor_vehicle, city, sign, road, cityscape, power_lines, lamppost, street, pole, utility_pole, road_sign, traffic, traffic_light, machine, vending_machine

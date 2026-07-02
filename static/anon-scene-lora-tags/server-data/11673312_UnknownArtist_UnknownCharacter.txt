@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, day, cloud, tree, blue_sky, no_humans, window, plant, building, scenery, motor_vehicle, city, sign, road, cityscape, bus, lamppost, street, road_sign, traffic_light, urban, crosswalk, daytime
+anon_scene, sky, outdoors, day, cloud, tree, blue_sky, no_humans, window, plant, building, scenery, motor_vehicle, city, sign, road, cityscape, bus, lamppost, street, road_sign, traffic_light, urban, crosswalk, daytime

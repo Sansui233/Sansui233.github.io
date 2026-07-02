@@ -1,1 +1,1 @@
-anon_scene, solo, flower, indoor, water, cup, book, no_humans, window, leaf, chair, table, bottle, plant, instrument, scenery, fish, mirror, teapot, vase, piano, plants, shelf, bird
+anon_scene, solo, flower, indoors, water, cup, book, no_humans, window, leaf, chair, table, bottle, plant, instrument, scenery, fish, mirror, teapot, vase, piano, plants, shelf, bird

@@ -1,1 +1,1 @@
-anon_scene, food, indoor, cup, no_humans, close_up, floor, can, restaurant, table, sunlight, shadow
+anon_scene, food, indoors, cup, no_humans, close_up, floor, can, restaurant, table, sunlight, shadow

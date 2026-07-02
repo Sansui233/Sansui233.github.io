@@ -1,1 +1,1 @@
-anon_scene, solo, 1boy, sky, outdoor, day, daytime, cloud, bird, cloudy_sky, building, scenery, mountain, animal, castle, landscape, hill, sunlight, shadow, from_above, yellow theme
+anon_scene, solo, 1boy, sky, outdoors, day, daytime, cloud, bird, cloudy_sky, building, scenery, mountain, animal, castle, landscape, hill, sunlight, shadow, from_above, yellow theme

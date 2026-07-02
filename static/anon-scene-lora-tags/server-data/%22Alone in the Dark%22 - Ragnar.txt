@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, mechanic, no_humans, from_above, building, scenery, bridge, tower, fog, megastructure, from_below
+anon_scene, sky, outdoors, mechanic, no_humans, from_above, building, scenery, bridge, tower, fog, megastructure, from_below

@@ -1,1 +1,1 @@
-anon_scene, concept_art, flower, sky, outdoor, day, cloud, water, tree, blue_sky, no_humans, bird, ocean, grass, building, nature, scenery, horizon, house, castle, landscape, floating, hill, sea, daytime, from_above
+anon_scene, concept_art, flower, sky, outdoors, day, cloud, water, tree, blue_sky, no_humans, bird, ocean, grass, building, nature, scenery, horizon, house, castle, landscape, floating, hill, sea, daytime, from_above

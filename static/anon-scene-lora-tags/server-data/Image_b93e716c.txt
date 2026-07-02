@@ -1,1 +1,1 @@
-anon_scene, 1girl, silhouette, solo, sitting, sky, outdoor, cloud, tree, blue_sky, shadow, sunlight, grass, plant, scenery, fence, railing, horizon, road, power_lines, lamppost, utility_pole, railroad_tracks, landscape, street, hill, from_below
+anon_scene, 1girl, silhouette, solo, sitting, sky, outdoors, cloud, tree, blue_sky, shadow, sunlight, grass, plant, scenery, fence, railing, horizon, road, power_lines, lamppost, utility_pole, railroad_tracks, landscape, street, hill, from_below

@@ -1,1 +1,1 @@
-anon_scene, 1girl, multiple_girls, 1boy, 2girls, sitting, standing, multiple_boys, day, 2boys, window, chair, indoor, restaurant, city, daytime, sunlight, shadow
+anon_scene, 1girl, multiple_girls, 1boy, 2girls, sitting, standing, multiple_boys, day, 2boys, window, chair, indoors, restaurant, city, daytime, sunlight, shadow

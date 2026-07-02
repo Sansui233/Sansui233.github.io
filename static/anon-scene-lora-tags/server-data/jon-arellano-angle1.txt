@@ -1,1 +1,1 @@
-anon_scene, outdoor, day, daytime, water, tree, book, no_humans, leaf, sunlight, grass, plant, building, scenery, stairs, rock, fantasy, ruins, statue, moss, landscape, fog, mecha
+anon_scene, outdoors, day, daytime, water, tree, book, no_humans, leaf, sunlight, grass, plant, building, scenery, stairs, rock, fantasy, ruins, statue, moss, landscape, fog, mecha

@@ -1,1 +1,1 @@
-anon_scene, solo, 1boy, silhouette, standing, sky, outdoor, day, daytime, blue_sky, sunlight, scenery, 1other, snow mountain, landscape, desert, fog, 1person
+anon_scene, solo, 1boy, silhouette, standing, sky, outdoors, day, daytime, blue_sky, sunlight, scenery, 1other, snow mountain, landscape, desert, fog, 1person

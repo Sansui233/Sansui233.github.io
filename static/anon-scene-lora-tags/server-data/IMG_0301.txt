@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, tree, no_humans, night, bird, building, scenery, motor_vehicle, city, road, car, lamppost, street, shop, snow, winter,
+anon_scene, sky, outdoors, tree, no_humans, night, bird, building, scenery, motor_vehicle, city, road, car, lamppost, street, shop, snow, winter

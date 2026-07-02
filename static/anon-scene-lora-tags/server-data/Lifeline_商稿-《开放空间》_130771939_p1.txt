@@ -1,1 +1,1 @@
-anon_scene, outdoor, day, daytime, water, tree, no_humans, grass, plant, blossom, building, scenery, stairs, lantern, fence, railing, torii, architecture, statue, shrine, sunlight, torii gate
+anon_scene, outdoors, day, daytime, water, tree, no_humans, grass, plant, blossom, building, scenery, stairs, lantern, fence, railing, torii, architecture, statue, shrine, sunlight, torii gate

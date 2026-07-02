@@ -1,1 +1,1 @@
-anon_scene, outdoor, day, tree, no_humans, sunlight, grass, blossom, nature, scenery, forest, dog, landscape, building, daytime
+anon_scene, outdoors, day, tree, no_humans, sunlight, grass, blossom, nature, scenery, forest, dog, landscape, building, daytime

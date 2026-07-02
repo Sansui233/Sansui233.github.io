@@ -1,1 +1,1 @@
-anon_scene, indoor, book, no_humans, blood, table, scenery, desk, paper, bookshelf, lamp, floor, computer, monitor, poster_(object), silk, spider_web, map, calendar_(object), mouse_(computer)
+anon_scene, indoors, book, no_humans, blood, table, scenery, desk, paper, bookshelf, lamp, floor, computer, monitor, poster_(object), silk, spider_web, map, calendar_(object), mouse_(computer)

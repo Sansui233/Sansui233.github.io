@@ -1,1 +1,1 @@
-anon_scene, indoor, book, no_humans, window, chair, sunlight, scenery, desk, bookshelf, flag, monitor, map, office, wall, shadow
+anon_scene, indoors, book, no_humans, window, chair, sunlight, scenery, desk, bookshelf, flag, monitor, map, office, wall, shadow

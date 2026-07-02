@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, no_humans, scenery, mecha, snow, science_fiction, rock, landscape, hill, sunlight, grass
+anon_scene, sky, outdoors, no_humans, scenery, mecha, snow, science_fiction, rock, landscape, hill, sunlight, grass

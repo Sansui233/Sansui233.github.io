@@ -1,1 +1,1 @@
-anon_scene, solo, 1boy, holding, standing, indoor, fire, reflection, lantern, floor, candle, checkered_floor
+anon_scene, solo, 1boy, holding, standing, indoors, fire, reflection, lantern, floor, candle, checkered_floor

@@ -1,1 +1,1 @@
-anon_scene, outdoor, day, sky, tree, branch, nature, scenery, forest, road, sunlight, from_below
+anon_scene, outdoors, day, sky, tree, branch, nature, scenery, forest, road, sunlight, from_below

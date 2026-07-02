@@ -1,1 +1,1 @@
-anon_scene, 1girl, solo, holding, sitting, indoor, cup, window, table, bottle, scenery, couch, drinking_glass, glass, on_couch
+anon_scene, 1girl, solo, holding, sitting, indoors, cup, window, table, bottle, scenery, couch, drinking_glass, glass, on_couch

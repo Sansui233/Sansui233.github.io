@@ -1,1 +1,1 @@
-anon_scene, solo, 1boy, silhouette, standing, sky, outdoor, day, daytime, cloud, water, blue_sky, ocean, sunlight, scenery, wading, horizon, landscape, rain, from_below
+anon_scene, solo, 1boy, silhouette, standing, sky, outdoors, day, daytime, cloud, water, blue_sky, ocean, sunlight, scenery, wading, horizon, landscape, rain, from_below

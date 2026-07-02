@@ -1,1 +1,1 @@
-anon_scene, 1boy, holding umbrella, outdoor, night, umbrella, building, scenery, motor_vehicle, rain, city, sign, road, car, street, puddle, traffic_light, billboard, snow, fog, from_below, ruins, standing on car, neon lights
+anon_scene, 1boy, holding umbrella, outdoors, night, umbrella, building, scenery, motor_vehicle, rain, city, sign, road, car, street, puddle, traffic_light, billboard, snow, fog, from_below, ruins, standing on car, neon lights

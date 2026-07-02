@@ -1,1 +1,1 @@
-anon_scene, standing, multiple_boys, sky, outdoor, cloud, 2boys, water, tree, cloudy_sky, nature, scenery, rock, mountain, river, landscape, ocean, beach, sea, stars, bird
+anon_scene, standing, multiple_boys, sky, outdoors, cloud, 2boys, water, tree, cloudy_sky, nature, scenery, rock, mountain, river, landscape, ocean, beach, sea, stars

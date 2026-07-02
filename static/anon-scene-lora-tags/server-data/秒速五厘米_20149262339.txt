@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, day, daytime, cloud, tree, blue_sky, no_humans, plant, blossom, building, scenery, stairs, city, sign, fence, road, power_lines, street, utility_pole, road_sign, railroad_tracks, traffic_light, sunlight
+anon_scene, sky, outdoors, day, daytime, cloud, tree, blue_sky, no_humans, plant, blossom, building, scenery, stairs, city, sign, fence, road, power_lines, street, utility_pole, road_sign, railroad_tracks, traffic_light, sunlight

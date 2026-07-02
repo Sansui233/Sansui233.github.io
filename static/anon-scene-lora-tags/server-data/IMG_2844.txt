@@ -1,1 +1,1 @@
-anon_scene, solo, sky, outdoor, day, daytime, cloud, water, no_humans, bird, grass, building, scenery, mountain, robot, tower, landscape, floating, mecha, fog, flower
+anon_scene, solo, sky, outdoors, day, daytime, cloud, water, no_humans, bird, grass, building, scenery, mountain, robot, tower, landscape, floating, mecha, fog, flower

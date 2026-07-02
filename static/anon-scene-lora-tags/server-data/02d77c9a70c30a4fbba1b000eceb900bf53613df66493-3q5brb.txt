@@ -1,1 +1,1 @@
-anon_scene, holding, standing, silhouette, flower, outdoor, day, daytime, tree, window, sunlight, grass, plant, scenery, fantasy, street, shop, vines, shadow, animal
+anon_scene, holding, standing, silhouette, flower, outdoors, day, daytime, tree, window, sunlight, grass, plant, scenery, fantasy, street, shop, vines, shadow, animal

@@ -1,1 +1,1 @@
-anon_scene, silhouette, sky, outdoor, cloud, no_humans, night, scenery, night_sky, floating, landscape, moon, from_below, bird
+anon_scene, silhouette, sky, outdoors, cloud, no_humans, night, scenery, night_sky, floating, landscape, moon, from_below, bird

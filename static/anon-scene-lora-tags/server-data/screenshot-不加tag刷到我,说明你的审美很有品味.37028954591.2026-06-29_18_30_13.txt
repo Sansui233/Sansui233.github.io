@@ -1,1 +1,1 @@
-anon_scene, sky, outdoor, day, daytime, tree, blue_sky,  blossom,  scenery, stairs, architecture, window, wall, sunlight, shadow, chinese courtyard, from_below
+anon_scene, sky, outdoors, day, daytime, tree, blue_sky, blossom, scenery, stairs, architecture, window, wall, sunlight, shadow, chinese courtyard, from_below

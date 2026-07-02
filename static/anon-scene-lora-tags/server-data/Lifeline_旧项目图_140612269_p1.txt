@@ -1,1 +1,1 @@
-anon_scene, indoor, dutch_angle, no_humans, window, scenery, hallway, wall, sign, shadow, chains, exit sign
+anon_scene, indoors, dutch_angle, no_humans, window, scenery, hallway, wall, sign, shadow, chains, exit sign

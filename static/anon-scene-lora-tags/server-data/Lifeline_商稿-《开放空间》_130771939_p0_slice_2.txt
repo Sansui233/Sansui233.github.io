@@ -1,1 +1,1 @@
-anon_scene, indoor, cup, book, no_humans, from_above, table, scenery, pen, gears
+anon_scene, indoors, cup, book, no_humans, from_above, table, scenery, pen, gears

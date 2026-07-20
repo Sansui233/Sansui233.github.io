@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 02 Jul 2026 00:50:11 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 20 Jul 2026 06:30:19 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,13 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-06-10T05:08:59.000Z</guid>
             <pubDate>Wed, 10 Jun 2026 05:08:59 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-06-15 20:46:36</h2>
+            <content:encoded><![CDATA[<h2>2026-07-20 13:48:14</h2>
+<p>我在3月11日发了这个预言，现在一看，嗯，果真如此……可以说比我当时说的还要糟糕，这就是听劝的后果。</p>
+<blockquote>
+<p>我只能把一切当成工作。即便一件事情对我的发展毫无发展与经济价值可言，只是为了满足别人心理安全感（也是为了自己的心理安全感），我还是会花费大量时间去做，但又因为意识到这件事情根本没有任何意义，连经历它本身都是一个可以预见结局的纯折磨，效率就会极其低下。画出令人信服的饼算是一种能力，但人没有那么好糊弄，有人只是为了满足自己的安全感让别人去代偿，从整体收益上说是全负收益。我话就说在这里了，算众多预言中的一个，按照那样的步伐，绝对会一无所有地步入此阶段最糟糕的结局。</p>
+</blockquote>
+<hr/>
+<h2>2026-06-15 20:46:36</h2>
 <p>第一次如此真切地感知到什么叫活着本身就是一种折磨。我真诚地希望不要来到这世上。我不认为苦难是创作的温床，足够的苦难是不会让人有精力去创作的。</p>
 <hr/>
 <h2>2026-06-10 20:08:06</h2>
@@ -40,14 +46,7 @@
 <p>实在是很难想象 vibe coding 时代一堆人不知道代码实际在做什么只看是否符合需求的软件质量……</p>
 <hr/>
 <h2>2026-06-06 11:48:43</h2>
-<p>嗯，感觉现在博客架构方向是对的， 当手工配置的地方越多，构建性能就越好。最明显的感觉是 Next.js export 要画很多时间在路由分析上，rr-7 因为需要手写 export 的路由，明显比较快……当然还是没法和传统的静态博客系统比，毕竟那是真正的增量构建 html 不是全量的 bundler。但无所谓，哈哈，不要搞这么性能焦虑。</p>
-<hr/>
-<h2>2026-06-03 05:37:13</h2>
-<p>#分享 技术</p>
-<ul>
-<li>斯坦福新的AI课程： <a href="https://cs336.stanford.edu">CS336: Language Modeling from Scratch</a></li>
-</ul>
-<p>一共19节，差不多一学期的强度。又出现了，研究生真正的导师。</p>]]></content:encoded>
+<p>嗯，感觉现在博客架构方向是对的， 当手工配置的地方越多，构建性能就越好。最明显的感觉是 Next.js export 要画很多时间在路由分析上，rr-7 因为需要手写 export 的路由，明显比较快……当然还是没法和传统的静态博客系统比，毕竟那是真正的增量构建 html 不是全量的 bundler。但无所谓，哈哈，不要搞这么性能焦虑。</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[个人阅读 RSS 的最佳实践]]></title>

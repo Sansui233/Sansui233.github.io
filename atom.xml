@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-07-20T06:30:19.555Z</updated>
+    <updated>2026-07-22T13:45:19.069Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -19,8 +19,17 @@
         <id>https://sansui233.com/memos?id=2026-06-10T05:08:59.000Z</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2026-06-10T05:08:59.000Z</updated>
-        <content type="html"><![CDATA[<h2>2026-07-20 13:48:14</h2>
-<p>我在3月11日发了这个预言，现在一看，嗯，果真如此……可以说比我当时说的还要糟糕，这就是听劝的后果。</p>
+        <content type="html"><![CDATA[<h2>2026-07-21 23:27:56</h2>
+<p>好混乱的一天，退租搬家/延期、去学校、面试都撞一起了。加上昨晚可能还是5点睡着的。所以吃了（下）午饭直接昏迷了过去……不太可能是晕碳因为我吃的是汉堡。没怎么睡、有运动、精神太绷紧了，然后放松时就会这样。手表只记了我下午有睡觉，晚上不认为我在睡觉。</p>
+<p>好在搬家延期批下来了，不然我可能现在还在想办法把东西拖走。真的好困。前两个周也是平均睡5小时的。再之前答辩时更是直接没睡。</p>
+<p>早上的合同就几个空，翻出旧合同抄，抄错了三次，在地铁上又在重新抄。不愧是每次考数学靠抄错能扣 20 分的人。</p>
+<p>突然在想，rust 和 swift 像在哪里……学 rust 后有接触过一点 swift，当时倒没感觉很像。但反正我看一点就忘吧，没资格说这些。语言学杂了就是这样的，除了博客一直在开发所以 js/ts 记得牢一点能背书手写，而且写的时候有上下文不算凭空记起来，其他的就是学一门扔一门，要用时看笔记 cookbook 把常用实践捡一下，不用又扔了。大脑内存就这么点，全在 swap。</p>
+<p>论简洁程度还是挺喜欢 Go 的，概念上能简就不要繁，典型的就是砍掉了继承全用组合，同种抽象基本就一种写法，一致性很强。Rust 概念是多但确实没什么重复的，有现代的包管理器（自然也有现代的依赖屎山），我觉得还是可以的。</p>
+<p>但相比25岁时，现在对语言、best practice、架构、设计模式没那么多奇怪的执念了，洁癖程度也更轻。理论上用什么都能写，但好的想法难求，随便想写点什么一查都撞了一大堆车，和找论文创新点一样。说工作几年会转产品是有道理的，自己折腾久了都会自动转……</p>
+<p>另外我还是觉得 Logseq （旧版）非常好用啊。理想之一是赚钱然后可以给喜欢的软件充钱。上次买软件时室友说，啊？还要买？嗯，国内的付费意识是确实比较差，对广告接受程度也比较高。如果不是天天用的软件，一个月一杯奶茶钱还算是有点贵的因为同时会订阅很多个，再加上额外的个人服务器和域名的开销……嗯……每个月 300 差不多吧。都还没算用 API 的钱。搞小型大模型训练玩的话天天烧个三十多块太正常了。</p>
+<hr/>
+<h2>2026-07-20 13:48:14</h2>
+<p>我在3月11日发了这个预言，现在一看，嗯，果真如此……可以说比我当时说的还要糟糕。</p>
 <blockquote>
 <p>我只能把一切当成工作。即便一件事情对我的发展毫无发展与经济价值可言，只是为了满足别人心理安全感（也是为了自己的心理安全感），我还是会花费大量时间去做，但又因为意识到这件事情根本没有任何意义，连经历它本身都是一个可以预见结局的纯折磨，效率就会极其低下。画出令人信服的饼算是一种能力，但人没有那么好糊弄，有人只是为了满足自己的安全感让别人去代偿，从整体收益上说是全负收益。我话就说在这里了，算众多预言中的一个，按照那样的步伐，绝对会一无所有地步入此阶段最糟糕的结局。</p>
 </blockquote>
@@ -45,12 +54,9 @@
 <p>最后就是动画曲线的调整了，符合自然的运动规律。总体还是看感觉吧。以及做好精美的动画耗费10倍资源的准备……</p>
 <hr/>
 <h2>2026-06-08 01:08:59</h2>
-<p>看到<a href="https://superlxh02.github.io/rust-study/%E5%AF%B9%E4%BA%8Erust%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%BB%E7%BB%93%E5%92%8C%E6%80%9D%E8%80%83.html">一个学 Rust 的 C++ 程序员的思考</a>说，对于非 GC 语言的程序员，好像很少考虑一个变量的生命周期的问题。</p>
+<p>看到 <a href="https://superlxh02.github.io/rust-study/%E5%AF%B9%E4%BA%8Erust%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%BB%E7%BB%93%E5%92%8C%E6%80%9D%E8%80%83.html">一个学 Rust 的 C++ 程序员的思考</a>说，对于用惯 GC 语言的程序员，好像很少考虑一个变量的生命周期的问题。</p>
 <p>现在我觉得确实如此，在 vibe ServerPing 这个应用时，前期没管这的那的，逻辑正确就行。但后面排查 CPU 占用就会开始考虑到这些情况。 CPU 占用基本在 Memory Allocation  和 GC 上，想到 CPU 几乎无占用，得考虑到所有对象的创建与销毁时期，有多少能复用。</p>
-<p>实在是很难想象 vibe coding 时代一堆人不知道代码实际在做什么只看是否符合需求的软件质量……</p>
-<hr/>
-<h2>2026-06-06 11:48:43</h2>
-<p>嗯，感觉现在博客架构方向是对的， 当手工配置的地方越多，构建性能就越好。最明显的感觉是 Next.js export 要画很多时间在路由分析上，rr-7 因为需要手写 export 的路由，明显比较快……当然还是没法和传统的静态博客系统比，毕竟那是真正的增量构建 html 不是全量的 bundler。但无所谓，哈哈，不要搞这么性能焦虑。</p>]]></content>
+<p>实在是很难想象 vibe coding 时代一堆人不知道代码实际在做什么只看是否符合需求的软件质量……</p>]]></content>
         <published>2026-06-10T05:08:59.000Z</published>
     </entry>
     <entry>
@@ -249,29 +255,29 @@
 <p>使用以 fabric-api 构建的模组。</p>
 <h3>1.1 渲染类</h3>
 <ul>
-<li>Sodium: 渲染优化之神，许多模组的前置</li>
+<li><a href="https://www.mcmod.cn/class/2785.html">Sodium</a>: 渲染优化之神，许多模组的前置</li>
 <li>Sodium-extra: 渲染优化之神的扩展，相应 GUI 为reeses sodium options</li>
 <li>Lithium: 原版机制的算法改进</li>
 <li>Iris: Sodium 加光影</li>
-<li>Custom Entity Models: 自定义实体模型，增强对 optifine 材质包的支持</li>
+<li><a href="https://www.mcmod.cn/class/9909.html">Custom Entity Models</a>: 自定义实体模型，增强对 optifine 材质包的支持（性能不好，能不用就不用）</li>
 <li>Continuity: 无缝纹理，安装后需要启用相应的材质包。对第三方材质包支持一般，主要和 optifine 的格式还是不一样。</li>
 <li>Indium: 许多模组的前置，提供 Fabric Rendering API的支持</li>
 </ul>
 <h3>1.2 功能类</h3>
 <ul>
-<li>modmenu: 显示所有模组和相应的设置页面（如果有的话）设置为 <code>\</code> 开配置</li>
+<li><a href="https://www.mcmod.cn/class/1675.html">modmenu</a>: 显示所有模组和相应的设置页面（如果有的话）设置为 <code>\</code> 开配置</li>
 <li>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</li>
 <li>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）<code>f5</code>以获得更好的摄影视角，zoom 开启类似 optifine 的按 <code>c</code> 视角放大，handrestock 可自动补货手里的工具、方块</li>
 <li>xaero's minimap: 小地图，降肝度必备。需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了网格显示和生物显示。有世界地图和世界地图的 Plus 版本，联动领地声明功能（虽然单人用不太到）</li>
 <li>Carry on：手里没有东西时，<code>shift+右键</code> 搬运箱子，降低装饰的肝度。</li>
-<li>JEI + EMI + 通用拼音搜索: 物品搜索，查看合成配方、查看方块用途，EMI 增加了<strong>查看合成树</strong>，在 JEI 的 <code>r</code> 键可看。切换可合成物品。</li>
-<li>Invertory Profile Next: 高版本的 R 键背包整理（但被我改成 <code>z</code> 键整理，R 键通常是 JEI 查看合成表）。自动补充工具、连续合成、捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品。关掉快破损时替换工具。</li>
+<li>JEI + <a href="https://www.mcmod.cn/class/6630.html">EMI</a> + 通用拼音搜索: 物品搜索，查看合成配方、查看方块用途，EMI 增加了<strong>查看合成树</strong>，在 JEI 的 <code>r</code> 键可看。切换可合成物品。（没更新的话用 <a href="https://www.mcmod.cn/class/1674.html">REI</a>）</li>
+<li><a href="https://www.mcmod.cn/class/4104.html">Invertory Profiles Next</a>: 高版本的 R 键背包整理（但被我改成 <code>z</code> 键整理，R 键通常是 JEI 查看合成表）。自动补充工具、连续合成、捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品。关掉快破损时替换工具。</li>
 <li>imblock: 输入法冲突修复</li>
 <li>Panda's falling tree：砍树时树会倒下，降低砍树的肝度。</li>
-<li>Leawind's Third Person: 更好的第三视角。这算是第一个可以日常使用的第三视角模组，挖方块瞄准都很方便。日常的垂直平滑 0.5 以上，不然爬山能晕死。特点是不绑快捷键。</li>
+<li><a href="https://modrinth.com/mod/leawind-third-person">Leawind's Third Person</a>: 更好的第三视角。这算是第一个可以日常使用的第三视角模组，挖方块瞄准都很方便。日常的垂直平滑 0.5 以上，不然爬山能晕死。特点是不绑快捷键。(作者新出了 <a href="https://modrinth.com/mod/perspective-api/versions">Perspective API</a>)</li>
 <li>better combat: 动作战斗优化，攻速和攻击范围都有反馈了。</li>
-<li>Litematica：投影。辅助红石机械建造，也算是一种降生存建筑的肝度。使用相当简单，一根木棍，control+滚动切换模式，快捷键进菜单。最难的其实是收集足够多的预置模型。但这个模组，要抢 Map 的 M 键……键位需要大改。</li>
-<li>Hey Wiki: 在指向物品时按 h 键查询wiki。在物品越来越多的高版本具有一些引导作用。</li>
+<li><a href="https://modrinth.com/mod/litematica">Litematica</a>：投影。辅助红石机械建造，也算是一种降生存建筑的肝度。使用相当简单，一根木棍，control+滚动切换模式，快捷键进菜单。最难的其实是收集足够多的预置模型。但这个模组，要抢 Map 的 M 键……键位需要大改。</li>
+<li><a href="https://modrinth.com/mod/hey-wiki">Hey Wiki</a>: 在指向物品时按 h 键查询wiki。在物品越来越多的高版本具有一些引导作用。</li>
 </ul>
 <h3>1.3 新物品</h3>
 <ul>

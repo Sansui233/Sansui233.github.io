@@ -1,0 +1,1 @@
+import{M as t,t as a,z as s}from"./jsx-runtime-DsprssOK.js";import{n as e}from"./Timeline-aeW1PQyq.js";var o=s(a(),1);function r({loaderData:t}){return[{title:`Tag - ${t.tag}`},{name:"description",content:`Posts tagged with: ${t.tag}`}]}var n=t(function({loaderData:t}){const{tag:a,posts:s}=t;return(0,o.jsx)(e,{mode:"tag",title:a,posts:s})});export{n as default,r as meta};

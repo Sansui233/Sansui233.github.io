@@ -1,0 +1,1 @@
+import{M as a,t as e,z as r}from"./jsx-runtime-DsprssOK.js";var s=r(e(),1),l=a(function({loaderData:a}){return(0,s.jsx)("div",{className:"flex h-screen flex-col bg-gray-50 p-4",children:a.slug})});export{l as default};

@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Mon, 27 Jul 2026 03:33:24 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 31 Jul 2026 13:55:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,16 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-06-10T05:08:59.000Z</guid>
             <pubDate>Wed, 10 Jun 2026 05:08:59 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-07-21 23:27:56</h2>
+            <content:encoded><![CDATA[<h2>2026-07-31 21:47:36</h2>
+<p>果然是不喜欢 Si 的工作。</p>
+<p>果然是干这个的没有人会愿意说自己是干这个的。</p>
+<p>感谢脑子就是这样没被训练才会退化的。</p>
+<hr/>
+<h2>2026-07-23 18:16:00</h2>
+<p>感觉还是不能放任自己就这么睡下去。我记得好像以前就是定闹钟，然后某个点就突然起来也不知道做什么，但就是硬起。</p>
+<p>谁也不知道你硬起来干什么，但是这样晚上不会老睡觉。收拾屋子收拾了好久，感觉永远收拾不完，收拾了一箱，还能再收一箱。其实全不收也没有关系，就全部扔了，全部重新买，亏个几千块差不多。像空气净化器这种东西真的是运费都更贵，还不如送人呢。</p>
+<hr/>
+<h2>2026-07-21 23:27:56</h2>
 <p>好混乱的一天，退租搬家/延期、去学校、面试都撞一起了。加上昨晚可能还是5点睡着的。所以吃了（下）午饭直接昏迷了过去……不太可能是晕碳因为我吃的是汉堡。没怎么睡、有运动、精神太绷紧了，然后放松时就会这样。手表只记了我下午有睡觉，晚上不认为我在睡觉。</p>
 <p>好在搬家延期批下来了，不然我可能现在还在想办法把东西拖走。真的好困。前两个周也是平均睡5小时的。再之前答辩时更是直接没睡。</p>
 <p>早上的合同就几个空，翻出旧合同抄，抄错了三次，在地铁上又在重新抄。不愧是每次考数学靠抄错能扣 20 分的人。</p>
@@ -34,25 +43,7 @@
 <p>第一次如此真切地感知到什么叫活着本身就是一种折磨。我真诚地希望不要来到这世上。我不认为苦难是创作的温床，足够的苦难是不会让人有精力去创作的。</p>
 <hr/>
 <h2>2026-06-10 20:08:06</h2>
-<p>当我意识到人确实可以在难受时选择打死自己时有点欣慰。哈哈哈，至少真的有办法自杀。实在受不了他们那随时都能选择死掉。这不挺好的。现在听到他们的动静想死就是我唯一的念头，我已经想不到别的了。</p>
-<hr/>
-<h2>2026-06-08 13:08:59</h2>
-<p>#分享</p>
-<ul>
-<li><a href="https://hyperallergic.com/how-liminalism-became-the-defining-aesthetic-of-our-time/">临界主义(后室)如何成为我们这个时代的标志性美学</a></li>
-<li><a href="https://github.com/yui540/css-animations/tree/main/2026-06-08">css 动画案例</a></li>
-</ul>
-<p>感想是复杂动画 = 拼命叠层。</p>
-<ul>
-<li>边缘 clip + 多层按顺序 transform + 多层背景 scale + 粒子点缀</li>
-</ul>
-<p>形状可以用 div + clip-path 画，不一定要 svg 文件。比较有意思的是，形状的变化可以用 boder-radius 和 clip-path 做。</p>
-<p>最后就是动画曲线的调整了，符合自然的运动规律。总体还是看感觉吧。以及做好精美的动画耗费10倍资源的准备……</p>
-<hr/>
-<h2>2026-06-08 01:08:59</h2>
-<p>看到 <a href="https://superlxh02.github.io/rust-study/%E5%AF%B9%E4%BA%8Erust%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%BB%E7%BB%93%E5%92%8C%E6%80%9D%E8%80%83.html">一个学 Rust 的 C++ 程序员的思考</a>说，对于用惯 GC 语言的程序员，好像很少考虑一个变量的生命周期的问题。</p>
-<p>现在我觉得确实如此，在 vibe ServerPing 这个应用时，前期没管这的那的，逻辑正确就行。但后面排查 CPU 占用就会开始考虑到这些情况。 CPU 占用基本在 Memory Allocation  和 GC 上，想到 CPU 几乎无占用，得考虑到所有对象的创建与销毁时期，有多少能复用。</p>
-<p>实在是很难想象 vibe coding 时代一堆人不知道代码实际在做什么只看是否符合需求的软件质量……</p>]]></content:encoded>
+<p>当我意识到人确实可以在难受时选择打死自己时有点欣慰。哈哈哈，至少真的有办法自杀。实在受不了他们那随时都能选择死掉。这不挺好的。现在听到他们的动静想死就是我唯一的念头，我已经想不到别的了。</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[个人阅读 RSS 的最佳实践]]></title>

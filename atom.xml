@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-08-19T14:25:38.524Z</updated>
+    <updated>2026-09-07T15:07:21.141Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -15,11 +15,110 @@
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
     <entry>
+        <title type="html"><![CDATA[用 Obsidian 导出笔记为一本书]]></title>
+        <id>https://sansui233.com/posts/2026-09-07-Obsidian-PDF-Print-B5</id>
+        <link href="https://sansui233.com/posts/2026-09-07-Obsidian-PDF-Print-B5"/>
+        <updated>2026-09-07T12:57:58.000Z</updated>
+        <summary type="html"><![CDATA[排版还是太难了]]></summary>
+        <content type="html"><![CDATA[<p>之前在 Memo 里说想把笔记印出来，以方便无法带手机时看。在 Obsidian 里自己有非常仔细调整过排版自己印了，之后还是送去网上的印刷店打印，可以效果差距非常大。专业的还是太专业了，特此记录。</p>
+<p>此次 PDF 成品可以 <strong><a href="https://img-cf.sansui233.com/books/Excel%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%20Cookbook.pdf">在此下载</a></strong>。</p>
+<h2>一、Obsidian 导出配置</h2>
+<h3>插件</h3>
+<ul>
+<li>Better Export PDF：可预览，可加目录书签</li>
+<li>Code Block Customizer：伟大无需多言！代码块终于像样了，完全换掉了 Obsidian live mode 对于代码块的处理方式。</li>
+<li>Auto Heading：标题自动编号。对于打印来说自动编号是很重要的。不过没有中文数字。</li>
+<li>一个文本编辑器，编辑打印用的 CSS 配置</li>
+</ul>
+<h3>CSS 配置</h3>
+<p>CSS 现在对于打印 (@media print) 的配置比我想得要多得多……</p>
+<ul>
+<li>自动页码，奇偶页码</li>
+<li>页眉页脚</li>
+<li>按大章节分页</li>
+<li>首页占一整页做封面</li>
+<li>防止标题被挤到页尾</li>
+<li>防止图片跨页</li>
+</ul>
+<p>表格的跨页表头还是自动续表的，CSS 还有计数器功能。我惊呆了好吧，原来这么强的吗？已经是符合本次基本的书籍导出的要求了。新的 CSS 还在加印刷相关的内容。</p>
+<p>Typst 更强也好用，但就一般笔记导出成书而言还是 markdown + css 快且广泛。
+<img src="https://img-cf.sansui233.com/imgs/2026/09/202609072304512.webp" alt=""></p>
+<p>上面具体配置我就不细说了，因为本人酷爱装修，样式都是长期累积的结果，印刷用的主题也是在原主题的基础上又叠了一层修修补补，直接放到 <a href="https://gist.github.com/Sansui233/aeb581779e7df8ba22a99f82584338fe#file-pdf-print-css">gist 链接</a>上了。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/09/202609072227229.webp" alt=""></p>
+<h3>软件</h3>
+<p>一定要一个可以读取屏幕 dpi 查看实际大小的软件。Photoshop 是可以的， SummatraPDF 经过设置后也是可以的。其他的我没有试过。</p>
+<p>以 SummatraPDF 为例，在「设置」→「高级选项」中，设置 <code>CustomScreenDPI = 189</code> 。其中 189 是我的屏幕 DPI 。你可以直接查阅屏幕型号，或到 <a href="https://www.shutterstock.com/zh/image-design-tools/dpi-ppi-calculator?dd_referrer=https%3A%2F%2Fwww.google.com%2F">这里</a> 计算。</p>
+<p>然后重启 SummatraPDF， <code>Ctrl+1</code> 就是打印大小了。</p>
+<h2>二、排版</h2>
+<p>对于主题，初期我尝试了使用网页风格无衬线主题 ，效果算是非常非常不行，主要打印出来的字非常大一个，而且粗细对比过强，网页感太重了。</p>
+<p>对于一般的纸张，书籍印刷确实非常不适合使用粗体字（Bold, weight 600)，除非你用铜版纸这类不吸墨的纸。500 的字重比较适合。</p>
+<p>适合印刷的主题是需要重新写的，才有了上面的效果。</p>
+<h3>纸张</h3>
+<p>可以说 <strong>纸张</strong> 和 <strong>纸张大小</strong> 在印刷里的重要程度能占 60%。</p>
+<ul>
+<li>纸张种类：道林纸（双胶纸），本白色。</li>
+<li>纸张大小：B5。</li>
+</ul>
+<p>首先是排除办公复印用的荧光剂 A4 纸。这个纸，即便你裁为 B5 的大小，认真胶装，加上铜版纸封面。但那种挺度、表面质感和刺眼的荧光白，仿佛小学复印店里复印出来的一样（实际上就是）。</p>
+<p>道林纸（双胶纸）是一种比较常见的纸张。值得注意的是，除非你住印厂旁边，街边的复印店是不会准备本白色的双胶纸的，连大学毕业论文打印的地方都是荧光白A4纸。我走完了一条街的广告店，有个女店主很认真介绍了她存放的纸的种类，说对于特种纸要提前给工厂定制，存放也是有要求的。</p>
+<p>如果不想寄印，只能自己买一打回去，带给打印店了。</p>
+<p>至于为什么 B5 大小……真的会觉得 A4 纸像书吗？</p>
+<h3>字号</h3>
+<h6>配置</h6>
+<ul>
+<li>网页： 16px</li>
+<li>Obsidian Better Export 导出缩放：80%</li>
+<li>实际大小：9.6pt</li>
+</ul>
+<p>Chromium 的 PDF 导出以 96dpi 导出，于是 16px 的字体对应的是 12pt。之前买过 Rei 的《印刷排雷手册》，12pt 在正文印刷里已经算是老年人字号了。</p>
+<p>因为我想制作册子，使用的是 B5 大小印刷。在初期，我只是问了 AI 缩放到 85% 是否可行（字体大小10.2pt），AI 说可以，我印出来也觉得凑合。但当我拿到专业印厂的印刷后，才发现 10.2 pt 和 9.6 pt 虽然看起来差不太多，但舒适度差距比想象得大…… 10 pt 还是更适合 A4 尺寸。</p>
+<h3>边距</h3>
+<h6>配置</h6>
+<ul>
+<li>css:</li>
+</ul>
+<pre><code class="language-css">@media print {
+    @page {
+        margin: 12mm 10mm 14mm; /* 正文 80% 缩放不知自带 6mm 边距*/
+    }
+}
+</code></pre>
+<ul>
+<li>实际边距：左 16mm，上 18mm，右 16mm，下 20mm</li>
+</ul>
+<p>我没有搞懂为什么 margin 为 0 还是有自带了边距，有可能是我的原来的傻逼主题干的（并不）。</p>
+<p>实际边距是 GPT 的推荐值，也是我从印厂拿到的胶印书籍里的测量值。</p>
+<h3>行间距与段间距</h3>
+<p>这部分反而是祖宗之法。</p>
+<ul>
+<li>行间距: 1.5倍。</li>
+<li>段间距: 1倍 margin。</li>
+</ul>
+<p>1.5 倍行间距也是考虑到我的笔记有大量的 bullet，没有超过 3 行的长段落，大概比较像教材。小说类的行间距是更稀疏的。</p>
+<h2>装订</h2>
+<p>我对册子要求就是能平摊，能平摊，能平摊。我讨厌不工整的纸，谢谢。</p>
+<p>最开始我使用了固体胶装，牢固是牢固的，但是好像，因为真的干不了所以到处黏纸……后面还是使用了经典的白乳胶放一晚上，非常牢固且照顾手残。</p>
+<p>而印厂因为能打印 B3 的尺寸，小册直接用骑马钉了。</p>
+<h2>印厂的调整</h2>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/09/202609072237670.webp" alt=""></p>
+<p>我发给印厂的 PDF 存在着诸多问题。不标准的字体大小，下边距过窄。但是印厂把各个边距给我裁得相当之标准。骑马钉所在的内侧边距要微大于右侧边距。</p>
+<p>我的上边距是标准的，所以印厂没有变上边距，只是整体缩小给了下边距和左右边距正确的选择，，可以说是非常细致地排版过了。</p>
+<p>最难的灰度网点，AM 胶印的细腻的网点，家用的激光打印机打不出来……真的打不出来。</p>
+<p>整个印刷质量、均匀程度和办公用的激光打印机相比，实在差得太多了。</p>]]></content>
+        <category label="工具"/>
+        <published>2026-09-07T12:57:58.000Z</published>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[每日见闻 - 说说]]></title>
         <id>https://sansui233.com/memos?id=2026-08-16T15:40:41.000Z</id>
         <link href="https://sansui233.com/memos"/>
         <updated>2026-08-16T15:40:41.000Z</updated>
-        <content type="html"><![CDATA[<h2>2026-08-19 22:18:52</h2>
+        <content type="html"><![CDATA[<h2>2026-09-04 02:37:33</h2>
+<p>研究了一下 Obsidian 导出 PDF BOOK。不得不说目前的 HTML 已经很够用了，@media print 里设置分页<code>，Obsidian </code>.print` 类里设置字号，插件 Better Export PDF 可以预览和设置页脚。设置对于没有复杂图文版式的导出完全够用。</p>
+<p>要说常见什么 Markdown 刚需不太行的地方，大概要算自动编号了…… 最后还是靠 AUTO-HEADING 插件。</p>
+<p>然后就是 PDF Viewer 的100% size，至少我下的软件算出来都是错的……普遍比 Actual Size 里。对于高分屏，Summatra PDF 一定要自己设置 DPI。我也很纳闷就真的不能获取到屏幕的 DPI信息吗……</p>
+<hr/>
+<h2>2026-08-19 22:18:52</h2>
 <p>Deepseek v4 pro。拿来处理文件资料编译 Wiki 还是不行。本来自然语言规章制度就够不是人读的了，加上情况非常多。 Deepseek 一是在我明确说明要改条款 A2 时，在 A2 里加入了相关的 A1 条款，然后需求 A2 的适用边界也与当前文档的前文 A1 冲突了，还出现了从没有见过的 A2 条款，实际上和 A2 毫无关系。</p>
 <p>换回 GPT Sol 瞬间理解对了，适用边界非常清楚。</p>
 <hr/>
@@ -41,14 +140,7 @@
 <p>而且如果白天见到我，你将根本想不到，跟晚上像两个人一样。我上一个最坏结局的预见成真了。现在是下一个以5年期预言。如果就这样下去，我会以进精神病院形式破坏掉一切。</p>
 <hr/>
 <h2>2026-08-07 21:48:00</h2>
-<p>真的好力竭每天回来只能躺着不想思考不想动也不想吃饭。我还有很多想学的东西没有学但那不重要了反正都不会有用还很累。明明是开着灯的还是蒙在被子里打字因为只有这样是自由的。</p>
-<hr/>
-<h2>2026-08-03 23:38:33</h2>
-<p>#分享</p>
-<ul>
-<li><a href="https://lucumr.pocoo.org/2026/6/23/the-coming-loop/">The Coming Loop | Armin Ronacher&#x27;s Thoughts and Writings</a></li>
-</ul>
-<p>好有人味文笔表达相当好的文章，感动。</p>]]></content>
+<p>真的好力竭每天回来只能躺着不想思考不想动也不想吃饭。我还有很多想学的东西没有学但那不重要了反正都不会有用还很累。明明是开着灯的还是蒙在被子里打字因为只有这样是自由的。</p>]]></content>
         <published>2026-08-16T15:40:41.000Z</published>
     </entry>
     <entry>
@@ -803,71 +895,5 @@ export default App;
 <p>最重要的还是自己的需求。</p>]]></content>
         <category label="学习"/>
         <published>2025-07-12T04:49:09.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Steam 假入库是怎么做的]]></title>
-        <id>https://sansui233.com/posts/2025-04-22-techs-about-steam-crack</id>
-        <link href="https://sansui233.com/posts/2025-04-22-techs-about-steam-crack"/>
-        <updated>2025-04-21T19:59:00.000Z</updated>
-        <summary type="html"><![CDATA[入库不仅仅是入库]]></summary>
-        <content type="html"><![CDATA[<p>很久以前被淘宝的 Steam 假 CDKey 给坑过，因为价格其实也不便宜，打的正版宣传，其实是盗版，后来感觉太可疑了查了一下确认被坑了。现在突然想起来了解了一下。本文概述是日常语境中的 “Steam假入库”需要的一些步骤，概括起来为五个方面：解锁、下载、入库、DRM、API验证。</p>
-<h2>下载验证</h2>
-<p>steam 的下载鉴权流程是</p>
-<ol>
-<li>查找账号是否有拥有此游戏，有则显示下载按钮</li>
-<li>点击下载后，把游戏软件 Manifest 对应的密钥（DecryptionKey）明文写入一个本地文件 <code>Steam\config\config.vdf</code></li>
-<li>Steam （原版）根据 <code>config.vdf</code>中的信息，发送下载请求至 Steam CDN 进行下载</li>
-</ol>
-<p>“Steam 解锁” “Steam 假入库” 指的是绕过上述机制。具体而言，如果没有购买游戏，可以：</p>
-<ol>
-<li>将按钮变为可下载（至于是伪造请求实现还是逆向 hook 实现，我不知道，都可以，因为甚至不需要变按钮，给个外部的下载按钮也可以）</li>
-<li>点击按钮后，从不知名渠道获取一个正版账号的 Manifest（下载清单）和 Decryption Key（下载密码），写入<code>Steam\config\config.vdf</code></li>
-<li>Steam（原版）根据 <strong><code>config.vdf</code></strong>，发送下载请求至 Steam CDN 进行下载</li>
-</ol>
-<p>Steam 的下载验证可以说是相当简单，明文本地存密码，CDN 无状态的验证，这么多年没有改过流程，给入库工具空间（虽然说前端的事总有办法 Hack 但也是可以让 Hack 成本变高很多的）。不过 Steam 理念本来就是以平台服务留住玩家的，反倒是扩大了其影响力与营收。</p>
-<p>一些名词解释：</p>
-<ul>
-<li>解锁：指对没有购买的游戏，“可以显示下载按钮”。和能不能下载没有关系。</li>
-<li>下载：Steam 根据 <strong><code>Steam\config\config.vdf</code></strong> 的信息下载游戏文件。</li>
-<li>入库：指把下载好的游戏，在当前电脑的 Steam 库中显示。</li>
-</ul>
-<p>以上过程均不涉及对游戏本身的破解，只是对 Steam 下载过程的破解。也就是，破解的是 Steam，不是游戏。</p>
-<h2>运行时验证</h2>
-<p>这里开始才会涉及到游戏破解。</p>
-<p>有的 Steam 游戏下载下来后是不用破解的，直接找到游戏目录，点 exe 可以正常游玩（比如星露谷）。只是无法通过原版 Steam 打开，也就只能离线。</p>
-<p>有的游戏是无法脱离 Steam 直接运行的。这里涉及两层验证：</p>
-<h3>加密算法层</h3>
-<p>这是一层 DRM（数字版权加密保护）。Steam DRM 系统的名称为 SteamStub。SteamStub 的加密有各种的变体，每个游戏使用的不一致。只对 exe 的算法加密，是一个离线的步骤。不涉及 Steam 平台的验证。</p>
-<p>网上有一个开源工具叫 Steamless，可以破除 SteamStub 对游戏的 DRM，称为脱壳。但脱壳本身不处理 Steam 在线验证相关，只进行了脱壳的游戏也是无法正常游戏的。</p>
-<blockquote>
-<p>SteamStub DRM 和 Steamworks API 是两个独立层。Steamless <strong>仅移除 SteamStub 加密外壳</strong>，但游戏代码中与 Steam 平台功能（如成就、云存档、联机）相关的 API 调用（通过 <code>steam_api.dll</code>）仍会保留。</p>
-</blockquote>
-<h3>Steam API 验证</h3>
-<p>游戏还可能调用 Steam api 进行在线通信，如成就、云存档、联机相关的 API 调用。</p>
-<p>这是使用入库工具玩破解游戏可能被红信或封号的根本原因，因为对 API 的调用是发送到 Steam 官方服务器的。在小红书上了解到，有的玩的盗版可以与正版联机，说明 Steam 在联机时并不会验证账号是否拥有该游戏。包括 Steamtools 实现的家庭共享联机，也说明了 Steam 对于是否账号可以进行联机鉴权不足。但只要留有记录就有可能导致被封号，取决于 Steam 什么时候想管理盗版现象。</p>
-<p>反之，如果伪造一个 Steam 的服务器，并且替换游戏中的 Steam 相关的动态链接库，如 <code>steam_api.dll</code> ，游戏里所有对 Steam API 的调用被发送到假服务器上，返回一个假的结果。这种工具也已经有了，项目为 goldberg_emulator，简称 GBE。破解版的游戏通常会内置一个这样的虚拟 Steam 环境。</p>
-<h3>第三方厂商验证</h3>
-<p>很多大厂的游戏有自己的联机服务器和验证机制、不仅走 Steam API 的验证。这种也是可以通过虚拟环境破解，但没人做，除非专门对这个游戏的所有 API 做逆向。难度比逆向通用的 Steam API 高很多。</p>
-<h2>Steamtools 是什么</h2>
-<p>已知 Steamtools 主要是做 <strong>解锁</strong> 和 <strong>入库</strong>。对于会不会破解游戏，网上没有更多的信息。我也不想冒风险尝试使用它。</p>
-<p>根据官网的解释，Steamtools 可以离线运行（不如说破解游戏只能是离线运行），是提供了类似 GBE 的验证环境。有没有对 DRM 脱壳不清楚，但个人倾向于有，很多游戏都有 DRM 的保护，除了 SteamStub，还有其他的 DRM 验证方式，不脱壳玩不了。</p>
-<p>因此个人推测是，Steamtools 是集 <strong>解锁、下载、入库、破解、运行时验证</strong> 为一体的工具集。</p>
-<h2>SteamAutoCrack 是什么</h2>
-<p>只做 DRM 脱壳和 Steam API 验证。项目在 Github 上，破解后的游戏会运行在 GBE 的环境下。这种方式是完全离线运行的单机。</p>
-<h2>风险来源</h2>
-<p>完全脱离 Steam 运行没有风险，只要在线就可能有风险。</p>
-<p>假入库阶段的风险主要来自于入库工具对 Steam 请求拦截的覆盖程度不足。例如 Steam 版本更新了，使得 API 和下载流程有变化，而入库工具没有对其做处理，无法完全欺骗下载流程。网上看到假入库的人可能有囤积癖或者是打算做灰产，一次性入库了几十个游戏，直接导致被 SteamCDN 拉黑。</p>
-<p>运行时的风险也是来自于在线验证，如果是开着 Steam 玩的破解游戏，没有离线时甚至尝试联机，使得游玩信息发送到了 Steam 的服务器（比如不该有的存档、不该有的联机等等）。</p>
-<p>另外，入库工具会侵入式修改 Steam的客户端，直接打开 Steam 可能会有检测文件是否被修改。 Steamtools 提供了三种启动模式，可以随时恢复为原版 Steam 的运行。但淘宝卖的入库工具说不准是什么样的，当年骗我的店家那个用的是早期的 steamtools，使用店家的账号下载游戏后，使用 steamtools 离线运行（本来已经忘记了，努力想想竟然想得起来一点细节）。但现在的店家说不准是什么样的，在 B 站看到说有的是直接修改文件，从此都是盗版Steam 客户端，只能卸载重装。</p>
-<p>没有风险的方式：如果你有方式得到 Steam 正版的游戏文件，然后用 SteamAutoCrack 破解，能直接脱离 steam 运行则没有风险。</p>
-<p>对于更多的人而言，下载木马是最大的风险。</p>
-<h2>参考资料</h2>
-<ul>
-<li>bbs.steamtools论坛</li>
-<li>SteamManifestCache wiki</li>
-<li>SteamLess Readme</li>
-</ul>]]></content>
-        <category label="Diary"/>
-        <published>2025-04-21T19:59:00.000Z</published>
     </entry>
 </feed>

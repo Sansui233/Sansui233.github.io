@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-09-07T15:07:21.141Z</updated>
+    <updated>2026-09-07T15:16:13.384Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -102,8 +102,8 @@
 <h2>印厂的调整</h2>
 <p><img src="https://img-cf.sansui233.com/imgs/2026/09/202609072237670.webp" alt=""></p>
 <p>我发给印厂的 PDF 存在着诸多问题。不标准的字体大小，下边距过窄。但是印厂把各个边距给我裁得相当之标准。骑马钉所在的内侧边距要微大于右侧边距。</p>
-<p>我的上边距是标准的，所以印厂没有变上边距，只是整体缩小给了下边距和左右边距正确的选择，，可以说是非常细致地排版过了。</p>
-<p>最难的灰度网点，AM 胶印的细腻的网点，家用的激光打印机打不出来……真的打不出来。</p>
+<p>我的上边距是标准的，所以印厂没有变上边距，只是整体缩小，给了下边距和左右边距正确的距离，可以说是非常细致地排版过了。</p>
+<p>质量相差最大的最难的算是灰度网点，AM 胶印的细腻的网点，家用的激光打印机打不出来……真的打不出来。</p>
 <p>整个印刷质量、均匀程度和办公用的激光打印机相比，实在差得太多了。</p>]]></content>
         <category label="工具"/>
         <published>2026-09-07T12:57:58.000Z</published>

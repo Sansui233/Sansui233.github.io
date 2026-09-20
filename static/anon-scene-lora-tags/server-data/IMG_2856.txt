@@ -1,0 +1,1 @@
+anon_scene, solo, standing, outdoors, no_humans, building, scenery, railing, bridge, city, overpass, cloudy_sky, from_below

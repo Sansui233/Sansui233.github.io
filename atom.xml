@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-04-17T09:33:03.747Z</updated>
+    <updated>2026-09-20T05:55:14.926Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -14,6 +14,214 @@
     <subtitle>记录学习和生活的个人博客</subtitle>
     <icon>https://sansui233.com/favicon.ico</icon>
     <rights>All rights reserved 2022, Sansui</rights>
+    <entry>
+        <title type="html"><![CDATA[每日见闻 - 说说]]></title>
+        <id>https://sansui233.com/memos?id=2026-09-10T06:11:47.000Z</id>
+        <link href="https://sansui233.com/memos"/>
+        <updated>2026-09-10T06:11:47.000Z</updated>
+        <content type="html"><![CDATA[<h2>2026-09-16 23:43:00</h2>
+<p>刚刚又经历了一次非常难抑制的痛苦，又一次躲进厕所里想跳楼。以前就是属于心情不好，照下镜子就会心情变好。现在看镜子只会觉得镜子里的那位更加可怜了。在巨大的痛苦面前，什么事都会变得微不足道，之后就会给人感觉情绪很稳定。前额叶得不到使用就是这样的，最后突然用在很悲观的事情上。我为什么在这里？我不知道。</p>
+<p>其实我应该很幸运，至少莫名其妙就会有人觉得我很可爱，实际上我只是坐在那里，我身体健康，不胖不瘦，脑子好使。但是我痛苦仍在。很有一大部分来自于我没有写代码，还有很大一部分来自于我没有做设计。所以我活着是在干什么？我为什么在这里？</p>
+<p>我不想做重复工作，我想做可以动脑子的有意义的事情。我也不想下班时间总是在玩那两个游戏。比起使用现成的东西，我更愿意制作一点什么。我讨厌别人喂饭喂到嘴里，不管是物理意义上，还是象征意义上。</p>
+<p>前天科技部开会，给我的反馈是，我好像没有特别急切想要加入科技部的想法。哈哈哈，是要我吹牛吗，还是高谈阔论呢，吹一些无法落地的畅想后，这里的科技部又到底能做什么呢。感觉不如自己随便写点东西算了。我并非不清楚各个部门的职能，说到底，我不喜欢搬砖，我只是喜欢广义上设计而已。所有传统意义上女生的特质都和我无缘，什么温柔体贴耐心，和我真的没有关系，我看起来有耐心唯一理由是，我觉得这个事情是合理的。</p>
+<p>最他妈烦说招女生是因为女生谨慎仔细的了，我真的不懂这和性别有个毛线关系啊？而且在这加班加的要死要活，工资就这么点，实在是没有什么动力。为爱发电吗？大概除了二次元，早就过了纯粹的为爱发电了。也不全是这样，我根本就没有时间做想做的方向，哪里有电可以发呢。</p>
+<p>实在是不想搬动电脑，我拿出了陪伴了 8 年的 MacBookPro 2015。其实到现在也还能用，也就是类似于性能测试开 slow CPU 的程度，慢吞吞，也确实是慢吞吞，但神奇的就是不会觉得它是卡的。至于什么软件版本不再支持什么的，哈哈，反正都是命令行，brew 不再支持了，那就手动管理吧。Mac 也老了，老到拼尽全力也只能跑上 70 度了。</p>
+<p>Obsidian 的 Live Sync 随着时间的推移 Chunk 变多而变得巨慢无比。这次新增设备大概要同步两个小时吧，不知道怎么就有 3 万个 Chunk 了，感觉算法有什么问题，因为我并没有增加多少笔记。我也没有办法 build 这个仓库。</p>
+<p>我把卡维和艾尔海森的 KFC立牌立了起来，像一个赛博供台。实在无法克制的时候，就去问问他们。他们是虚构的、理想化的人物吧，是存在于幻想中最想拥有的状态。</p>
+<hr/>
+<h2>2026-09-10 14:02:33</h2>
+<p>#分享 #工具 用了 <a href="https://sftpgo.com">SFTPGO</a>。windows 25h2 不知道抽什么风，smb  的服务器文件共享连不上了。</p>
+<p>终于把老家 9 年前的路由器换掉了。以前想组 mesh 感想就是面板非常贵，现在的路由器都自带了，虽然各家不兼容就是了……用的是 TPLink 的 7DR3600  Wifi-7 路由器。就看中这个薄薄的一片，没想到还是差点塞不进弱电箱，天线不能弯折，口又是开在正后方的。Easy Mesh 也确实按起来够简单的，只不过当我测出来子路由的公网速度只有 150Mbps 时两眼一黑。但内网速度没问题于是百思不得其解。后面拔线重启了主路由又好了。</p>
+<p>然后我换的路由器时候，所有人都说：你又买路由器了，旧的难道不能用了吗……我特意去京东看了一下订单，特么上一个路由器我是 2017 年买的啊！什么叫又！晚上姐夫来也是这么问的，然后把我那老 Wifi5 路由器捡走了，说我姐房间信号不太好……不是……这路由器回收价都只值两块钱。等下……他们有网线吗？应该是没有的……</p>
+<p>试图 Vibe Coding，我觉得我还是很不适合 Vibe。AI 写得太垃圾了我看了想吐，而且现在向 AGENT 的方向发展，冻不冻就要自己验证。我只能接受 AI 写一个小片段我来 REVIEW 和 DEBUG。</p>
+<hr/>
+<h2>2026-09-09 11:18:56</h2>
+<p>说来我领了一个领导派的工作，大概就是学别的地区的同事做 Excel数据分析。领导也没说要分析什么，我打电话问同事才知道。然后一个周了，我连数据源都没见到……有数据源真的很快，没数据源不行。</p>
+<p>他们用的二十多年前的腾讯系聊天软件（这个软件早在2015年就停止服务了），不上线接不到消息，文件不会自动接收，不及时手动接就保存不了。一开班又被软件全屏了接不到提醒，上班又不能看手机。</p>
+<p>很不一样的就是，Si 为主导的行业学的是流程而不是逻辑（人为规定很多都没法整理出逻辑）。领导说，最好是对方整理的时候，我给打个视频看着一步步做，让我有种 20年前的电脑书籍全是截图，告诉你要点哪里这样。我有点哭笑不得，就一个 Excel 业务在那做加减乘除的，有难成这样吗……而且我目前来说是每天都不能看手机，等我下班别人也下班了……</p>
+<p>打电话的同事说，要处理重复数据，我当时就问了，系统的数据，怎么会有重复数据？她说什么 SUMIF 把 ID 相同的重复算了一遍，所以后面的重复项 CountIf 置 0，我也没懂，但没在现场也问不出个所以然。直到晚上我写 Excel 手册时，写到数据透视表才理解到他们是想做什么，特么他们是不知道数据透视表这个东西，就在原表上 SUM……</p>
+<p>我把数据透视表给父母试了一下，我演示什么，他们就只能做什么，变一下就完全不会了。我能理解，他们只是记住了我说要点哪里，并不知道这样点数据模型发生了什么变化。而我是完全记不住要点哪里，只知道什么按钮能让数据发生变化。但是因为我似乎是第一次知道数据透视表时就明白了数据透视表的概念，所以我完全无法理解他们为什么是在记流程而不是试图去理解数据发生了什么。我这时候也会觉得很头疼……</p>
+<hr/>
+<h2>2026-09-04 02:37:33</h2>
+<p>研究了一下 Obsidian 导出 PDF BOOK。不得不说目前的 HTML 已经很够用了，@media print 里设置分页，<code>Obsidian </code>.print` 类里设置字号，插件 Better Export PDF 可以预览和设置页脚。设置对于没有复杂图文版式的导出完全够用。</p>
+<p>要说常见什么 Markdown 刚需不太行的地方，大概要算自动编号了…… 最后还是靠 AUTO-HEADING 插件。</p>
+<p>然后就是 PDF Viewer 的100% size，至少我下的软件算出来都是错的……普遍比 Actual Size 里。对于高分屏，Summatra PDF 一定要自己设置 DPI。我也很纳闷就真的不能获取到屏幕的 DPI信息吗……</p>
+<hr/>
+<h2>2026-08-19 22:18:52</h2>
+<p>Deepseek v4 pro。拿来处理文件资料编译 Wiki 还是不行。本来自然语言规章制度就够不是人读的了，加上情况非常多。 Deepseek 一是在我明确说明要改条款 A2 时，在 A2 里加入了相关的 A1 条款，然后需求 A2 的适用边界也与当前文档的前文 A1 冲突了，还出现了从没有见过的 A2 条款，实际上和 A2 毫无关系。</p>
+<p>换回 GPT Sol 瞬间理解对了，适用边界非常清楚。</p>
+<hr/>
+<h2>2026-08-17 21:07:33</h2>
+<p>#分享 书 <a href="https://en.algorithmica.org/hpc/">现代硬件算法（英文）</a></p>]]></content>
+        <published>2026-09-10T06:11:47.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[用 Obsidian 导出笔记为一本书]]></title>
+        <id>https://sansui233.com/posts/2026-09-07-Obsidian-PDF-Print-B5</id>
+        <link href="https://sansui233.com/posts/2026-09-07-Obsidian-PDF-Print-B5"/>
+        <updated>2026-09-07T12:57:58.000Z</updated>
+        <summary type="html"><![CDATA[排版还是太难了]]></summary>
+        <content type="html"><![CDATA[<p>之前在 Memo 里说想把笔记印出来，以方便无法带手机时看。在 Obsidian 里自己有非常仔细调整过排版自己印了，之后还是送去网上的印刷店打印，可以效果差距非常大。专业的还是太专业了，特此记录。</p>
+<p>此次 PDF 成品可以 <strong><a href="https://img-cf.sansui233.com/books/Excel%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%20Cookbook.pdf">在此下载</a></strong>。</p>
+<h2>一、Obsidian 导出配置</h2>
+<h3>插件</h3>
+<ul>
+<li>Better Export PDF：可预览，可加目录书签</li>
+<li>Code Block Customizer：伟大无需多言！代码块终于像样了，完全换掉了 Obsidian live mode 对于代码块的处理方式。</li>
+<li>Auto Heading：标题自动编号。对于打印来说自动编号是很重要的。不过没有中文数字。</li>
+<li>一个文本编辑器，编辑打印用的 CSS 配置</li>
+</ul>
+<h3>CSS 配置</h3>
+<p>CSS 现在对于打印 (@media print) 的配置比我想得要多得多……</p>
+<ul>
+<li>自动页码，奇偶页码</li>
+<li>页眉页脚</li>
+<li>按大章节分页</li>
+<li>首页占一整页做封面</li>
+<li>防止标题被挤到页尾</li>
+<li>防止图片跨页</li>
+</ul>
+<p>表格的跨页表头还是自动续表的，CSS 还有计数器功能。我惊呆了好吧，原来这么强的吗？已经是符合本次基本的书籍导出的要求了。新的 CSS 还在加印刷相关的内容。</p>
+<p>Typst 更强也好用，但就一般笔记导出成书而言还是 markdown + css 快且广泛。
+<img src="https://img-cf.sansui233.com/imgs/2026/09/202609072304512.webp" alt=""></p>
+<p>上面具体配置我就不细说了，因为本人酷爱装修，样式都是长期累积的结果，印刷用的主题也是在原主题的基础上又叠了一层修修补补，直接放到 <a href="https://gist.github.com/Sansui233/aeb581779e7df8ba22a99f82584338fe#file-pdf-print-css">gist 链接</a>上了。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/09/202609072227229.webp" alt=""></p>
+<h3>软件</h3>
+<p>一定要一个可以读取屏幕 dpi 查看实际大小的软件。Photoshop 是可以的， SummatraPDF 经过设置后也是可以的。其他的我没有试过。</p>
+<p>以 SummatraPDF 为例，在「设置」→「高级选项」中，设置 <code>CustomScreenDPI = 189</code> 。其中 189 是我的屏幕 DPI 。你可以直接查阅屏幕型号，或到 <a href="https://www.shutterstock.com/zh/image-design-tools/dpi-ppi-calculator?dd_referrer=https%3A%2F%2Fwww.google.com%2F">这里</a> 计算。</p>
+<p>然后重启 SummatraPDF， <code>Ctrl+1</code> 就是打印大小了。</p>
+<h2>二、排版</h2>
+<p>对于主题，初期我尝试了使用网页风格无衬线主题 ，效果算是非常非常不行，主要打印出来的字非常大一个，而且粗细对比过强，网页感太重了。</p>
+<p>对于一般的纸张，书籍印刷确实非常不适合使用粗体字（Bold, weight 600)，除非你用铜版纸这类不吸墨的纸。500 的字重比较适合。</p>
+<p>适合印刷的主题是需要重新写的，才有了上面的效果。</p>
+<h3>纸张</h3>
+<p>可以说 <strong>纸张</strong> 和 <strong>纸张大小</strong> 在印刷里的重要程度能占 60%。</p>
+<ul>
+<li>纸张种类：道林纸（双胶纸），本白色。</li>
+<li>纸张大小：B5。</li>
+</ul>
+<p>首先是排除办公复印用的荧光剂 A4 纸。这个纸，即便你裁为 B5 的大小，认真胶装，加上铜版纸封面。但那种挺度、表面质感和刺眼的荧光白，仿佛小学复印店里复印出来的一样（实际上就是）。</p>
+<p>道林纸（双胶纸）是一种比较常见的纸张。值得注意的是，除非你住印厂旁边，街边的复印店是不会准备本白色的双胶纸的，连大学毕业论文打印的地方都是荧光白A4纸。我走完了一条街的广告店，有个女店主很认真介绍了她存放的纸的种类，说对于特种纸要提前给工厂定制，存放也是有要求的。</p>
+<p>如果不想寄印，只能自己买一打回去，带给打印店了。</p>
+<p>至于为什么 B5 大小……真的会觉得 A4 纸像书吗？</p>
+<h3>字号</h3>
+<h6>配置</h6>
+<ul>
+<li>网页： 16px</li>
+<li>Obsidian Better Export 导出缩放：80%</li>
+<li>实际大小：9.6pt</li>
+</ul>
+<p>Chromium 的 PDF 导出以 96dpi 导出，于是 16px 的字体对应的是 12pt。之前买过 Rei 的《印刷排雷手册》，12pt 在正文印刷里已经算是老年人字号了。</p>
+<p>因为我想制作册子，使用的是 B5 大小印刷。在初期，我只是问了 AI 缩放到 85% 是否可行（字体大小10.2pt），AI 说可以，我印出来也觉得凑合。但当我拿到专业印厂的印刷后，才发现 10.2 pt 和 9.6 pt 虽然看起来差不太多，但舒适度差距比想象得大…… 10 pt 还是更适合 A4 尺寸。</p>
+<h3>边距</h3>
+<h6>配置</h6>
+<ul>
+<li>css:</li>
+</ul>
+<pre><code class="language-css">@media print {
+    @page {
+        margin: 12mm 10mm 14mm; /* 正文 80% 缩放不知自带 6mm 边距*/
+    }
+}
+</code></pre>
+<ul>
+<li>实际边距：左 16mm，上 18mm，右 16mm，下 20mm</li>
+</ul>
+<p>我没有搞懂为什么 margin 为 0 还是有自带了边距，有可能是我的原来的傻逼主题干的（并不）。</p>
+<p>实际边距是 GPT 的推荐值，也是我从印厂拿到的胶印书籍里的测量值。</p>
+<h3>行间距与段间距</h3>
+<p>这部分反而是祖宗之法。</p>
+<ul>
+<li>行间距: 1.5倍。</li>
+<li>段间距: 1倍 margin。</li>
+</ul>
+<p>1.5 倍行间距也是考虑到我的笔记有大量的 bullet，没有超过 3 行的长段落，大概比较像教材。小说类的行间距是更稀疏的。</p>
+<h2>装订</h2>
+<p>我对册子要求就是能平摊，能平摊，能平摊。我讨厌不工整的纸，谢谢。</p>
+<p>最开始我使用了固体胶装，牢固是牢固的，但是好像，因为真的干不了所以到处黏纸……后面还是使用了经典的白乳胶放一晚上，非常牢固且照顾手残。</p>
+<p>而印厂因为能打印 B3 的尺寸，小册直接用骑马钉了。</p>
+<h2>印厂的调整</h2>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/09/202609072237670.webp" alt=""></p>
+<p>我发给印厂的 PDF 存在着诸多问题。不标准的字体大小，下边距过窄。但是印厂把各个边距给我裁得相当之标准。骑马钉所在的内侧边距要微大于右侧边距。</p>
+<p>我的上边距是标准的，所以印厂没有变上边距，只是整体缩小，给了下边距和左右边距正确的距离，可以说是非常细致地排版过了。</p>
+<p>质量相差最大的最难的算是灰度网点，AM 胶印的细腻的网点，家用的激光打印机打不出来……真的打不出来。</p>
+<p>整个印刷质量、均匀程度和办公用的激光打印机相比，实在差得太多了。</p>]]></content>
+        <category label="工具"/>
+        <published>2026-09-07T12:57:58.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[个人阅读 RSS 的最佳实践]]></title>
+        <id>https://sansui233.com/posts/2026-06-02-personal-rss-reading-best-practice</id>
+        <link href="https://sansui233.com/posts/2026-06-02-personal-rss-reading-best-practice"/>
+        <updated>2026-06-02T12:50:00.000Z</updated>
+        <summary type="html"><![CDATA[省流：新标签页小组件]]></summary>
+        <content type="html"><![CDATA[<p>我有订阅 RSS 的习惯。在十年前，我觉得做 RSS 阅读的思路就是自定义杂志，放到一个 App 里读很自然。但是时间长了后，逐渐意识到问题所在。 RSS 不存在什么成瘾性，忙的时候很难想起来，忙之后闲下来时也想不起来。只有“啊我想看看大家都在写什么”的时候，才想得起来还可以看看 RSS。</p>
+<p>最近换了 Vivaldi 浏览器，有一段时间了，突然我发现我再也没有漏过 RSS。原因是浏览器的新标签页组件。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/06/202606031844401.webp" alt="Vivaldi 新标签页"></p>
+<p>在打开新网站时，我一直使用 <code>ctrl +T</code> 新建标签页。在这之前，我有尝试过 Chrome 的订阅类插件。最开始使用的掘金插件，当时掘金初创不久，内容还不错。但实际使用发现，在我新建标签页时，是要准备切换工作了，这时掘金的订阅铺满了一整屏，就不会想阅读这么多的信息。即便换到了其他的插件，也依然存在着信息过载的问题。</p>
+<p>后来我开始使用订阅服务，几经转换后使用的是 Innoreader。Innoreader 有 Chrome 插件，红点显示未读数。但是，我依然不会点，如果有红点强迫症，来一篇就点一篇很烦。如果没有红点强迫症，就更不会点了。</p>
+<p>Innoreader 还会发邮件提醒什么文章没有读。但是打开邮箱时，通常也需要处理事件（指接收验证码）。我不会摸鱼摸到邮箱里去。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/06/202606022054681.webp" alt="innoreader 邮件"></p>
+<p>Vivaldi 新标签页组件就很好地解决了这个问题。首先，组件面积不大，信息量保持在人可接收的最佳范围（4篇）。至于为什么是4，参考 <a href="https://www.bilibili.com/video/BV12hz2Y1E3B">【毕导】你有一种连你自己都没意识到的超能力</a>。</p>
+<p>其次，组件内默认点击是进入的原始网页，给人感觉是我去别人家的装修的房子里做客，还能看看评论。这也是因为我本来就在使用浏览器，并不会在 App 之间跳来跳去。相比于 all in one 的方便，在个人阅读的场景下，浏览器原始网页能给人更强的满足感。</p>
+<p>这样一来，我新建标签页时，如果很忙就直接进行原本的事情，RSS 不会打扰到我。如果不忙，我就会看一眼大家都发了什么，有没有什么有兴趣看的内容。</p>
+<p>我认为个人维持阅读 RSS 习惯便应该这样，以少量精简的消息，嵌入到日常一定会使用的软件里，同时不会贴脸打扰到人工作，也不会使用角标进行烦人的提醒。</p>
+<p>这样的软件其实不多了，大部分的工作软件打开后全程工作区，很少有浏览器新标签页这样每天都会用的非工作区场景。而社媒平台的推荐给你绑得死死的。我之前还用过即刻的 RSS 机器人，完全符合刷社媒时顺便刷到自己的订阅，非常好用，但很快因为监管问题下架了。要么就是推特了。但是写博客的人，又不一定会发推特。不如说，除了阮一峰，我没有再找到每篇博客都发推特的个人博主了。</p>]]></content>
+        <category label="Diary"/>
+        <published>2026-06-02T12:50:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[draw.io 与 Word 转 PDF 打印时的清晰度问题]]></title>
+        <id>https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print</id>
+        <link href="https://sansui233.com/posts/2026-05-25-draw-io-svg-to-word-pdf-print"/>
+        <updated>2026-05-25T09:36:00.000Z</updated>
+        <summary type="html"><![CDATA[Word 的图打出来超糊的说]]></summary>
+        <content type="html"><![CDATA[<p><strong>最近打印论文发现一个问题</strong>，我的超高清流程图 PNG，打印出来非常糊。</p>
+<p>然后检查了一下 PDF，确实是导出时糊成一坨。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012853.webp" alt="1_padded_padded"></p>
+<p>我用后期画图用的都是 draw.io，之前也写过 <a href="/posts/2024-11-12-%E6%8A%8Adrawio%E8%A3%85%E4%BF%AE%E4%B8%BA%E7%AE%80%E5%8D%95%E7%BE%8E%E8%A7%82%E7%9A%84%E7%99%BD%E6%9D%BF%E5%BA%94%E7%94%A8">draw.io 相关设置的文章</a>，研究了一下，大概分为两种情况。</p>
+<h2>使用像素图（PNG）</h2>
+<p>如果使用 PNG 之类的像素图，首先要<strong>确保原图像素足够大</strong>，在 draw.io 中我会导出为 400% 大小。然后在 Word 选项 -> 高级中：</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012855.webp" alt="2_padded_padded"></p>
+<p>可以选择以下两种任意其一</p>
+<ul>
+<li>不压缩文件中的图像</li>
+<li>默认分辨率设置为「高保真」</li>
+</ul>
+<p>之后把糊图全部替换一遍，这样至少设置后图像不会被压缩。</p>
+<p><strong>检查方式</strong>：放大 Word 界面到 250% 后看看图像的清晰度是否可接受。</p>
+<p>但是导出 PDF 或者打印时，像素图始终是以图像像素打印的，带有抗锯齿，没有矢量文字那么清晰。而且<strong>流程图用矢量图无疑是更好的</strong>。</p>
+<h2>使用矢量图（SVG）</h2>
+<p>在使用 draw.io 的 SVG 导出矢量图后，在 Word 中显示不糊了，但是导出为 PDF 发现还是会糊的。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012856.webp" alt="3_padded_padded"></p>
+<p>PDF 中明显依然是把 SVG 转换为了像素图。并且，「dobj」 的上框线也被截断了一半，因为 bounding box 是从线条中间算的，导出时 SVG 必须加点边距来避免这个情况。</p>
+<p>如果想要 Word 能完全按照矢量图处理 SVG，draw.io 导出时需要取消勾选「嵌入字体」和「嵌入图形」。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012857.webp" alt="4_padded_padded"></p>
+<p>但此时渲染更不对了。一是<strong>字体不对</strong>，其次是 <strong>SVG 内的文字默认不换行</strong>。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012858.webp" alt="5_padded_padded"></p>
+<p>这是因为 draw.io 的 SVG 默认面向 HTML 的，Word 对于很多 HTML SVG 的渲染特性是不支持的。如果需要 draw.io 的渲染和 Word 一致：</p>
+<ol>
+<li>在图形框上设置字体，而不是选中文字内部设置字体。</li>
+<li>在导出前需要全选图形，然后在右侧栏的文字选项卡中勾选「转换标签为 SVG」。</li>
+</ol>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012859.webp" alt="6_padded_padded"></p>
+<p>但是就算是这样，你还是有可能会发现英文字体间距（kerning）有问题。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012860.webp" alt="7_padded_padded"></p>
+<p>我看了下<a href="https://www.drawio.com/doc/faq/SVG-export-text-problems">官网的说明</a>，这种情况应该要取消前两项。</p>
+<p><img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012861.webp" alt="8_padded_padded"></p>
+<p>这样最终效果就完全一致，导出为 PDF 打印后，图表内的文字也和正文一样清晰，而且可以被选中。
+<img src="https://img-cf.sansui233.com/imgs/2026/05/202605252012862.webp" alt="9_padded_padded"></p>
+<h2>总结</h2>
+<p>如果用像素图，记得图像够大，让图像不要压缩即可。</p>
+<p>如果用矢量图，需要</p>
+<ul>
+<li>全选图像，「文本」中取消「自动换行」和「格式化文本」。手动换行</li>
+<li>draw.io 导出 SVG 时取消「嵌入字体」和「嵌入图像」，并添加一点边距</li>
+</ul>
+<p>这样 Word 转 SVG 为 PDF 时，文字可以保持矢量状态，而且可以被选中。</p>]]></content>
+        <category label="工具"/>
+        <published>2026-05-25T09:36:00.000Z</published>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Windows 调整之中文字体]]></title>
         <id>https://sansui233.com/posts/2023-09-29-windows-system-chinese-fonts-adjustment</id>
@@ -118,54 +326,6 @@
         <published>2026-03-25T15:33:14.000Z</published>
     </entry>
     <entry>
-        <title type="html"><![CDATA[每日见闻 - 说说]]></title>
-        <id>https://sansui233.com/memos?id=2026-03-21T18:58:54.000Z</id>
-        <link href="https://sansui233.com/memos"/>
-        <updated>2026-03-21T18:58:54.000Z</updated>
-        <content type="html"><![CDATA[<h2>2026-04-17 16:14:00</h2>
-<p>还有 21 小时 45 分钟又要裸考，我要怎么安排。睡 8 小时，剩12小时45分钟。 三顿饭算2小时。剩10小时45分钟，写8小时论文，每50分钟休息15分钟。然后就去裸考。考完出门接待吃饭睡觉。不对，我还要洗头洗澡打扫卫生，至少划去两小时。差不多是满打满算一整天就这么过去了。一天过去什么都干不了。</p>
-<p>啊忘了我还想看浪姐。但不想给芒果开会员，真的气死我了黑幕不要太明显了好吧，全开麦改live，最强的组被闭麦个人排名下滑……只能说芒果选了弹幕最多的打法，每播一期都会替一个输的人感到不甘。怎么输的简直没法理解。</p>
-<hr/>
-<h2>2026-04-17 00:25:47</h2>
-<p>6小时激情写了6000多字小说大纲。如果不是我发现自己太容易去抠了，克制住只写大纲别写对话，我觉得可以写一整天写一两万字。所以到底为什么写小说能这样？写论文就不能呢……</p>
-<hr/>
-<h2>2026-04-15 20:59:16</h2>
-<p>今天把 Mac 整理了一下，把 Hermes 挂上了；这篇博文就是我在 Telegram 上让 Hermes 发的。</p>
-<p>（等下不是……你怎么还顺便给我润色还改了口癖？？我看着感觉我瞬间变成了 AI 幻觉系老板。下面请欣赏有股微妙 GPT 味的 memo）</p>
-<p>我之前对 clawbot 也没什么兴趣，主要是我一直觉得“压缩上下文当记忆”这套方案特别烂。Agent 真正该记的不是知识，更不是压缩后已经变味的知识，网上搜索和 wiki 查询显然更靠谱。真正值得记的是工作流逻辑和用户偏好。Anthropic 提出的 Skill 在这里确实功不可没。</p>
-<p>Hermes 说自己是在“进化”，但我觉得这个词太笼统了。它更符合我对学习的定义：快速形成可靠工作流，并让 agent 快速命中。</p>
-<p>之前所有东西几乎都离不开上下文和 RAG。我还是不看好 RAG，也不看好把压缩上下文当记忆；这两套东西本质上都像许愿机。Hermes 至少能一次拿到高密度、可实践的信息，记录下来的 skill 也是高密度、可实践的信息。这和 RAG 流、压缩上下文记忆流有很本质的区别。</p>
-<p>当然，组织 skill 依旧需要架构能力，也不是想到 skill 套 skill 就能做得很好。目前 skill 调用判断完全依托于 LLM，prompt 的 weight 是不可调的，skill 一多就会有噪音，占上下文，还会影响模型效果。但这个问题是能解决的。要么大模型继续发展，要么工程方向继续推进；就算模型硬件成本真的到头了，训练个 skill PEFT，把工具和记忆对 memory 窗口的挤占问题解决掉，也完全是可行的。</p>
-<p>这是我第一次感觉到 AI 的应用流程开始变可靠了。从成本到架构方式到落地到发展方向，不再全是些许愿不可控的东西了。唯一的问题还是出在大模型那边，稳不下来的许愿池。</p>
-<p>你会发现这些 agent 接 ds 和 glm 效果都不太好，还不如 gpt 5.4 mini。国外的模型已经在向工具调用方向去特化训练了。虽然说数据可以蒸馏，但是一直蒸就会一直造成这种吃屎的赶不上热乎的现象……</p>
-<p>国内也没可能出现搞研究/训练和工程一体化的独角兽公司。硅谷那种环境国内复刻不了，也并不适合国家的体系。即便到民营企业，每家大公司都有研发部门，界限也划得太清了，研发卷研发的产品卷产品的，锤子是锤子螺丝是螺丝。只除了一家，第一次面试的超大包 offer，流动超大、内部废掉的产品超多、重组也超多的那家，确实做出了一些很棒的东西。现在大概已经进不去了，因为五年过去我已经极速腐化了，简历也从不断被捞变成废纸一张了。</p>
-<hr/>
-<h2>2026-04-13 20:25:01</h2>
-<p>#博客 关于全文搜索功能，其实有考虑很多，毕竟我是既要又要的类型</p>
-<p>后端：全静态没有服务器，不能有数据库。这样我就不用搞维护了。索引构建时间不要太长，不然我懒得等 build。</p>
-<p>前端：索引传输体积要小，UI 组件体积要小，网络下载时间才是网页杀手。准确度属于搜得到就行。</p>
-<ul>
-<li>全静态没有服务器 -&gt; 我需要提前构建索引文件。</li>
-<li>索引构建时间不要太长 -&gt; 不要用过于复杂的算法。</li>
-<li>索引传输体积要小 -&gt; 用了复杂的算法全文索引会更大，索引就是空间换时间的。所以不要搞倒排和分词了。</li>
-<li>UI 组件体积要小 -&gt; 不要用特别复杂的匹配算法。这也和索引简易程度相关。</li>
-<li>准确度 -&gt; 关键字对了就行，时效性排序，简单又很可靠。不需要语义近似权重相关性，又不是谷歌。</li>
-</ul>
-<p>所以最佳方案就是传 markdown 全文，把非语义URL、语法标记这种给去掉的全文 ……</p>
-<p>如果写了几万篇怎么办呢？emm，就是给 index 分块，不用一次把数据库搜完，搜个十篇的就行，找不到再搜下一个 index。根本到不了那一天好吧！连载个 40 万字的小说也就 1M 而已，压缩后也就三、四百 K，不要太提前焦虑了，简单的东西反而更实用……</p>
-<p>为啥没用 Flex Search 一类的库？ 他们太复杂了，索引体积也是成倍的，还要一直更新包，动不动给你报依赖的安全问题，算是得不偿失吧。</p>
-<hr/>
-<h2>2026-03-27 23:55:23</h2>
-<p>好了，我觉得还很重要的一点是，早睡，不管多早起，到半夜，由于是因为有事情做才熬到半夜，容易整得人思考人生思考崩溃。</p>
-<hr/>
-<h2>2026-03-27 04:07:00</h2>
-<p>除了 Day One，还真的只有这里让我有记录的欲望了了。 notion 好慢要选分类，也不能马上看昨天和前天的那些黑历史。基本记录到 notion 的东西记完就忘。我还搞了week plan 模版，评价是不如小本本来得方便。社交平台的数据始终不是我的。刚才想说很多话，到了这里就偃旗息鼓了，至少有这个博客永远是你的自己的，也没有登味的人让你干这干那，足够清爽不是吗。要玩就在这里玩好了。</p>
-<p>想法永远不相通。她觉得我是没自信，不，我只是对于要一直待在那种充满老登的环境感到绝望。我想去找人一起玩，让我回家比死了还难受。我讨厌为了老登打扮讨厌敬酒讨厌各种被迫参与的关系讨厌虚伪讨厌裙带关系讨厌一切不能投入的事情讨厌不能写代码或者不能创作，光是想想就觉得要窒息了。“你就是缺乏锻炼”“我把你保护地太好了”我真的听了想吐，我不知道别的，但我听了想吐。我无所谓来这里的人是什么看法，起码我给自己留了个完全衷于自我的地方，我没有当键盘侠没有骂别人，我只想好好学东西用学的东西养活自己，我到底犯了什么事要找个把我讨厌的所有 buff 叠满的工作。</p>
-<p>我现在对完成的任何事情都没有成就感，好像只是在赎罪的一样，把身上的罪孽一件一件先清掉而已。不要提什么考虑自己，罪人是没有未来的，赎罪就可以了，和在牢里度过余生没什么区别。极端吗？可我没去别的地方骂人，顶多是当一个只会拉点屎的可回收生物。可悲吗？可我没真的坐牢，我又有手有脚有学历有技能学东西还快没欠款远没到 35。那你为什么就没有未来了呢？</p>
-<p>也许我该去北医六院看看，开个证明后做长期心理咨询了。但我不记得，我连收拾自己的力气都没有。真没想到想到要面这个试就会整发病。</p>]]></content>
-        <published>2026-03-21T18:58:54.000Z</published>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Minecraft v1.20.1 常用设置]]></title>
         <id>https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20</id>
         <link href="https://sansui233.com/posts/2023-09-26-minecraft-settings-for-v1-20"/>
@@ -185,29 +345,29 @@
 <p>使用以 fabric-api 构建的模组。</p>
 <h3>1.1 渲染类</h3>
 <ul>
-<li>Sodium: 渲染优化之神，许多模组的前置</li>
+<li><a href="https://www.mcmod.cn/class/2785.html">Sodium</a>: 渲染优化之神，许多模组的前置</li>
 <li>Sodium-extra: 渲染优化之神的扩展，相应 GUI 为reeses sodium options</li>
 <li>Lithium: 原版机制的算法改进</li>
 <li>Iris: Sodium 加光影</li>
-<li>Custom Entity Models: 自定义实体模型，增强对 optifine 材质包的支持</li>
+<li><a href="https://www.mcmod.cn/class/9909.html">Custom Entity Models</a>: 自定义实体模型，增强对 optifine 材质包的支持（性能不好，能不用就不用）</li>
 <li>Continuity: 无缝纹理，安装后需要启用相应的材质包。对第三方材质包支持一般，主要和 optifine 的格式还是不一样。</li>
 <li>Indium: 许多模组的前置，提供 Fabric Rendering API的支持</li>
 </ul>
 <h3>1.2 功能类</h3>
 <ul>
-<li>modmenu: 显示所有模组和相应的设置页面（如果有的话）设置为 <code>\</code> 开配置</li>
+<li><a href="https://www.mcmod.cn/class/1675.html">modmenu</a>: 显示所有模组和相应的设置页面（如果有的话）设置为 <code>\</code> 开配置</li>
 <li>carpet: 单人生存必备，可使用命令放置假人以常加载区块刷红石</li>
 <li>tweakeroo: 一系列微调的小功能。主要使用 freecamera（灵魂出窍）<code>f5</code>以获得更好的摄影视角，zoom 开启类似 optifine 的按 <code>c</code> 视角放大，handrestock 可自动补货手里的工具、方块</li>
 <li>xaero's minimap: 小地图，降肝度必备。需要设置一下显示的东西，默认会非常多，我只开启了玩家、时间、坐标。关闭了网格显示和生物显示。有世界地图和世界地图的 Plus 版本，联动领地声明功能（虽然单人用不太到）</li>
 <li>Carry on：手里没有东西时，<code>shift+右键</code> 搬运箱子，降低装饰的肝度。</li>
-<li>JEI + EMI + 通用拼音搜索: 物品搜索，查看合成配方、查看方块用途，EMI 增加了<strong>查看合成树</strong>，在 JEI 的 <code>r</code> 键可看。切换可合成物品。</li>
-<li>Invertory Profile Next: 高版本的 R 键背包整理（但被我改成 <code>z</code> 键整理，R 键通常是 JEI 查看合成表）。自动补充工具、连续合成、捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品。关掉快破损时替换工具。</li>
+<li>JEI + <a href="https://www.mcmod.cn/class/6630.html">EMI</a> + 通用拼音搜索: 物品搜索，查看合成配方、查看方块用途，EMI 增加了<strong>查看合成树</strong>，在 JEI 的 <code>r</code> 键可看。切换可合成物品。（没更新的话用 <a href="https://www.mcmod.cn/class/1674.html">REI</a>）</li>
+<li><a href="https://www.mcmod.cn/class/4104.html">Invertory Profiles Next</a>: 高版本的 R 键背包整理（但被我改成 <code>z</code> 键整理，R 键通常是 JEI 查看合成表）。自动补充工具、连续合成、捡物品时默认扔到背包中，以及在打开箱子时使用滚轮移动物品。关掉快破损时替换工具。</li>
 <li>imblock: 输入法冲突修复</li>
 <li>Panda's falling tree：砍树时树会倒下，降低砍树的肝度。</li>
-<li>Leawind's Third Person: 更好的第三视角。这算是第一个可以日常使用的第三视角模组，挖方块瞄准都很方便。日常的垂直平滑 0.5 以上，不然爬山能晕死。特点是不绑快捷键。</li>
+<li><a href="https://modrinth.com/mod/leawind-third-person">Leawind's Third Person</a>: 更好的第三视角。这算是第一个可以日常使用的第三视角模组，挖方块瞄准都很方便。日常的垂直平滑 0.5 以上，不然爬山能晕死。特点是不绑快捷键。(作者新出了 <a href="https://modrinth.com/mod/perspective-api/versions">Perspective API</a>)</li>
 <li>better combat: 动作战斗优化，攻速和攻击范围都有反馈了。</li>
-<li>Litematica：投影。辅助红石机械建造，也算是一种降生存建筑的肝度。使用相当简单，一根木棍，control+滚动切换模式，快捷键进菜单。最难的其实是收集足够多的预置模型。但这个模组，要抢 Map 的 M 键……键位需要大改。</li>
-<li>Hey Wiki: 在指向物品时按 h 键查询wiki。在物品越来越多的高版本具有一些引导作用。</li>
+<li><a href="https://modrinth.com/mod/litematica">Litematica</a>：投影。辅助红石机械建造，也算是一种降生存建筑的肝度。使用相当简单，一根木棍，control+滚动切换模式，快捷键进菜单。最难的其实是收集足够多的预置模型。但这个模组，要抢 Map 的 M 键……键位需要大改。</li>
+<li><a href="https://modrinth.com/mod/hey-wiki">Hey Wiki</a>: 在指向物品时按 h 键查询wiki。在物品越来越多的高版本具有一些引导作用。</li>
 </ul>
 <h3>1.3 新物品</h3>
 <ul>
@@ -301,9 +461,8 @@
         <updated>2026-01-06T18:20:00.000Z</updated>
         <summary type="html"><![CDATA[z-index 只是个插件，层叠上下文才是真正的 z 轴]]></summary>
         <content type="html"><![CDATA[<blockquote>
-<p>摘要：本文针对前端中多个元素层叠时 z-index 管理混乱的问题，提出一个名为海浪模型的设计模型，以构建复杂 z-index 管理的最佳实践。</p>
+<p>本文针对前端中多个元素层叠时 z-index 管理混乱的问题，提出一个名为海浪模型的设计模型，以构建复杂 z-index 管理的最佳实践。</p>
 </blockquote>
-<p>……好像 AI。但我是人，我纯手打的。</p>
 <h2>基础知识 - 代码的画布</h2>
 <p>层叠上下文是代码逻辑上的画布。一旦一个元素产生了层叠上下文，它内部的所有子元素就被包裹在这个范围里。</p>
 <p><strong>层叠上下文的产生</strong></p>
@@ -323,7 +482,7 @@
 <p>❗注意：层叠上下文的产生，和层内元素关系，是两套规则，两者之间<strong>没有关系，没有关系，没有关系</strong>。因为部分规则相似，很容易给记混了。</p>
 </blockquote>
 <p><strong>层叠内元素关系</strong></p>
-<p>为了好解释，我使用 context-level 说明绝对的上下覆盖关系。</p>
+<p>我使用 context-level 说明层内元素绝对的上下覆盖关系。</p>
 <ul>
 <li>CL-1: 背景和边框（最底层）</li>
 <li>CL-2: 定位元素（如absolute）且负 z-index</li>
@@ -333,14 +492,14 @@
 <li>CL-6: 定位元素（如absolute）且 z-index 没有设定为负，还有 opacity，transform 等。</li>
 <li>CL-7: 定位元素（如absolute）正 z-index（最顶层）</li>
 </ul>
-<p>z-index 在其中的作用相当于是一个算层叠关系的插件。<strong>必须和定位配套使用，否则不生效。</strong></p>
+<p>z-index 在其中的作用相当于是一个算层内关系的插件。<strong>必须和定位配套使用，否则不生效。</strong></p>
 <p>从功能上说，<strong>层叠上下文才是真正面向用户的Z轴</strong>，z-index属性只是这个 z轴的一个插件。</p>
 <h2>视觉画布</h2>
 <p>可以发现，被提升到 <strong>CL-6</strong> 的层，其规则和产生一个层叠上下文高度重合，<strong>就像产生了一个新的画布</strong>。这也是为什么说，容易把 CL-6 层等同于产生层叠上下文的层，但是不是的，<strong>CL-6 是描述自己作为子元素的层级</strong>，而“产生层叠上下文”描述的自己作为父元素的行为。</p>
 <ul>
 <li>opacity 且 z-index: 0。位于 CL-3，产生了层叠上下层文，但是其实层级很低，z-index 是无效的。</li>
-<li>CL6: relative 且 z-index: auto。位于 CL-6，产生不了层叠上下文，其子元素如果有更低的层级，可能会被盖掉。子元素有更高的层级，会盖掉别人。</li>
-<li>CL6: relative 且 z-index: 0。位于 CL-6，产生不层叠上下层文，其子元素层级和当前元素严格一致。</li>
+<li>relative 且 z-index: auto。位于 CL-6，没产生层叠上下文，其子元素如果有更低的层级，可能会被盖掉。子元素有更高的层级，会盖掉别人。</li>
+<li>relative 且 z-index: 0。位于 CL-6，产生了层叠上下层文，其子元素层级和当前元素严格一致。</li>
 </ul>
 <p>理解了这一点，可以记住。在做目录头时，并不是设置了 <code>relative</code> 就万事大吉了，如果你的后面的元素也是 relative，很容易被覆盖。</p>
 <h2>z-index 划分</h2>
@@ -486,12 +645,16 @@ default = true
 name = "pytorch-cu128"
 url = "https://download.pytorch.org/whl/cu128"
 explicit = true
+[[index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
 </code></pre>
 <p>项目级别的 <code>pyproject.toml</code></p>
 <pre><code class="language-toml">dependencies = [
-  "torch>=2.8.0",
-  "torchvision>=0.23.0",
-  "torchaudio>=2.8.0",
+  "torch==2.8.0",
+  "torchvision==0.23.0",
+  "torchaudio==2.8.0",
 ]
 
 [tool.uv.sources]
@@ -507,8 +670,9 @@ torchaudio = [
 </code></pre>
 <p>然后执行 <code>uv sync</code> 安装。</p>
 <h3>uv pip 管理老项目</h3>
-<p>直接指定命令行 的 <code>--index-url</code> 和 <code>--torch-backend</code></p>
-<pre><code class="language-shell">uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126 --torch-backend=cu126
+<p>要复用必须满足四个相同：python 版本相同, index-url 相同, torch 版本号相同， torch 后端相同。</p>
+<p>python 版本由 venv 创建时决定。我们需要指定缓存里的 <strong>torch 版本</strong>， <code>--index-url</code> 和 <code>--torch-backend</code>。少一个都不行。</p>
+<pre><code class="language-shell">uv pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --torch-backend=cu128
 </code></pre>
 <p>和用 pip 的方式差不多，区别是会硬链接到集中的缓存，不会重复占用十几份 torch。当然。该有的依赖冲突还是会有的。<del>关键是装好后就不要更新了</del></p>]]></content>
         <category label="学习"/>
@@ -737,302 +901,5 @@ export default App;
 <p>最重要的还是自己的需求。</p>]]></content>
         <category label="学习"/>
         <published>2025-07-12T04:49:09.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Steam 假入库是怎么做的]]></title>
-        <id>https://sansui233.com/posts/2025-04-22-techs-about-steam-crack</id>
-        <link href="https://sansui233.com/posts/2025-04-22-techs-about-steam-crack"/>
-        <updated>2025-04-21T19:59:00.000Z</updated>
-        <summary type="html"><![CDATA[入库不仅仅是入库]]></summary>
-        <content type="html"><![CDATA[<p>很久以前被淘宝的 Steam 假 CDKey 给坑过，因为价格其实也不便宜，打的正版宣传，其实是盗版，后来感觉太可疑了查了一下确认被坑了。现在突然想起来了解了一下。本文概述是日常语境中的 “Steam假入库”需要的一些步骤，概括起来为五个方面：解锁、下载、入库、DRM、API验证。</p>
-<h2>下载验证</h2>
-<p>steam 的下载鉴权流程是</p>
-<ol>
-<li>查找账号是否有拥有此游戏，有则显示下载按钮</li>
-<li>点击下载后，把游戏软件 Manifest 对应的密钥（DecryptionKey）明文写入一个本地文件 <code>Steam\config\config.vdf</code></li>
-<li>Steam （原版）根据 <code>config.vdf</code>中的信息，发送下载请求至 Steam CDN 进行下载</li>
-</ol>
-<p>“Steam 解锁” “Steam 假入库” 指的是绕过上述机制。具体而言，如果没有购买游戏，可以：</p>
-<ol>
-<li>将按钮变为可下载（至于是伪造请求实现还是逆向 hook 实现，我不知道，都可以，因为甚至不需要变按钮，给个外部的下载按钮也可以）</li>
-<li>点击按钮后，从不知名渠道获取一个正版账号的 Manifest（下载清单）和 Decryption Key（下载密码），写入<code>Steam\config\config.vdf</code></li>
-<li>Steam（原版）根据 <strong><code>config.vdf</code></strong>，发送下载请求至 Steam CDN 进行下载</li>
-</ol>
-<p>Steam 的下载验证可以说是相当简单，明文本地存密码，CDN 无状态的验证，这么多年没有改过流程，给入库工具空间（虽然说前端的事总有办法 Hack 但也是可以让 Hack 成本变高很多的）。不过 Steam 理念本来就是以平台服务留住玩家的，反倒是扩大了其影响力与营收。</p>
-<p>一些名词解释：</p>
-<ul>
-<li>解锁：指对没有购买的游戏，“可以显示下载按钮”。和能不能下载没有关系。</li>
-<li>下载：Steam 根据 <strong><code>Steam\config\config.vdf</code></strong> 的信息下载游戏文件。</li>
-<li>入库：指把下载好的游戏，在当前电脑的 Steam 库中显示。</li>
-</ul>
-<p>以上过程均不涉及对游戏本身的破解，只是对 Steam 下载过程的破解。也就是，破解的是 Steam，不是游戏。</p>
-<h2>运行时验证</h2>
-<p>这里开始才会涉及到游戏破解。</p>
-<p>有的 Steam 游戏下载下来后是不用破解的，直接找到游戏目录，点 exe 可以正常游玩（比如星露谷）。只是无法通过原版 Steam 打开，也就只能离线。</p>
-<p>有的游戏是无法脱离 Steam 直接运行的。这里涉及两层验证：</p>
-<h3>加密算法层</h3>
-<p>这是一层 DRM（数字版权加密保护）。Steam DRM 系统的名称为 SteamStub。SteamStub 的加密有各种的变体，每个游戏使用的不一致。只对 exe 的算法加密，是一个离线的步骤。不涉及 Steam 平台的验证。</p>
-<p>网上有一个开源工具叫 Steamless，可以破除 SteamStub 对游戏的 DRM，称为脱壳。但脱壳本身不处理 Steam 在线验证相关，只进行了脱壳的游戏也是无法正常游戏的。</p>
-<blockquote>
-<p>SteamStub DRM 和 Steamworks API 是两个独立层。Steamless <strong>仅移除 SteamStub 加密外壳</strong>，但游戏代码中与 Steam 平台功能（如成就、云存档、联机）相关的 API 调用（通过 <code>steam_api.dll</code>）仍会保留。</p>
-</blockquote>
-<h3>Steam API 验证</h3>
-<p>游戏还可能调用 Steam api 进行在线通信，如成就、云存档、联机相关的 API 调用。</p>
-<p>这是使用入库工具玩破解游戏可能被红信或封号的根本原因，因为对 API 的调用是发送到 Steam 官方服务器的。在小红书上了解到，有的玩的盗版可以与正版联机，说明 Steam 在联机时并不会验证账号是否拥有该游戏。包括 Steamtools 实现的家庭共享联机，也说明了 Steam 对于是否账号可以进行联机鉴权不足。但只要留有记录就有可能导致被封号，取决于 Steam 什么时候想管理盗版现象。</p>
-<p>反之，如果伪造一个 Steam 的服务器，并且替换游戏中的 Steam 相关的动态链接库，如 <code>steam_api.dll</code> ，游戏里所有对 Steam API 的调用被发送到假服务器上，返回一个假的结果。这种工具也已经有了，项目为 goldberg_emulator，简称 GBE。破解版的游戏通常会内置一个这样的虚拟 Steam 环境。</p>
-<h3>第三方厂商验证</h3>
-<p>很多大厂的游戏有自己的联机服务器和验证机制、不仅走 Steam API 的验证。这种也是可以通过虚拟环境破解，但没人做，除非专门对这个游戏的所有 API 做逆向。难度比逆向通用的 Steam API 高很多。</p>
-<h2>Steamtools 是什么</h2>
-<p>已知 Steamtools 主要是做 <strong>解锁</strong> 和 <strong>入库</strong>。对于会不会破解游戏，网上没有更多的信息。我也不想冒风险尝试使用它。</p>
-<p>根据官网的解释，Steamtools 可以离线运行（不如说破解游戏只能是离线运行），是提供了类似 GBE 的验证环境。有没有对 DRM 脱壳不清楚，但个人倾向于有，很多游戏都有 DRM 的保护，除了 SteamStub，还有其他的 DRM 验证方式，不脱壳玩不了。</p>
-<p>因此个人推测是，Steamtools 是集 <strong>解锁、下载、入库、破解、运行时验证</strong> 为一体的工具集。</p>
-<h2>SteamAutoCrack 是什么</h2>
-<p>只做 DRM 脱壳和 Steam API 验证。项目在 Github 上，破解后的游戏会运行在 GBE 的环境下。这种方式是完全离线运行的单机。</p>
-<h2>风险来源</h2>
-<p>完全脱离 Steam 运行没有风险，只要在线就可能有风险。</p>
-<p>假入库阶段的风险主要来自于入库工具对 Steam 请求拦截的覆盖程度不足。例如 Steam 版本更新了，使得 API 和下载流程有变化，而入库工具没有对其做处理，无法完全欺骗下载流程。网上看到假入库的人可能有囤积癖或者是打算做灰产，一次性入库了几十个游戏，直接导致被 SteamCDN 拉黑。</p>
-<p>运行时的风险也是来自于在线验证，如果是开着 Steam 玩的破解游戏，没有离线时甚至尝试联机，使得游玩信息发送到了 Steam 的服务器（比如不该有的存档、不该有的联机等等）。</p>
-<p>另外，入库工具会侵入式修改 Steam的客户端，直接打开 Steam 可能会有检测文件是否被修改。 Steamtools 提供了三种启动模式，可以随时恢复为原版 Steam 的运行。但淘宝卖的入库工具说不准是什么样的，当年骗我的店家那个用的是早期的 steamtools，使用店家的账号下载游戏后，使用 steamtools 离线运行（本来已经忘记了，努力想想竟然想得起来一点细节）。但现在的店家说不准是什么样的，在 B 站看到说有的是直接修改文件，从此都是盗版Steam 客户端，只能卸载重装。</p>
-<p>没有风险的方式：如果你有方式得到 Steam 正版的游戏文件，然后用 SteamAutoCrack 破解，能直接脱离 steam 运行则没有风险。</p>
-<p>对于更多的人而言，下载木马是最大的风险。</p>
-<h2>参考资料</h2>
-<ul>
-<li>bbs.steamtools论坛</li>
-<li>SteamManifestCache wiki</li>
-<li>SteamLess Readme</li>
-</ul>]]></content>
-        <category label="Diary"/>
-        <published>2025-04-21T19:59:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows11 右键菜单自定义 - NileSoft Shell]]></title>
-        <id>https://sansui233.com/posts/2025-04-19-windows-context-menu</id>
-        <link href="https://sansui233.com/posts/2025-04-19-windows-context-menu"/>
-        <updated>2025-04-18T17:21:04.000Z</updated>
-        <summary type="html"><![CDATA[颜狗就是得样式和功能性全要，怎么了]]></summary>
-        <content type="html"><![CDATA[<p>（发现简中圈居然没有人写这个事，写个草稿发别的地方）</p>
-<p>Windows11 右键菜单问题被诟病已有，网上很多还原为 win10 菜单的教程……但 win10 有 win10 的问题，有用的没用的都往里放，常用的不常用的混在一起。有没有一种方法可以兼顾好看，同时有合理的菜单层级呢？</p>
-<p>有的 —— Nilesoft Shell。可以自定义的 Win11 右键菜单。已经用了两年多了很好用（以至于差点忘了有这个软件）。</p>
-<h2>下载并安装</h2>
-<p>下载在官网： <a href="https://nilesoft.org/">https://nilesoft.org/</a></p>
-<p>安装完后，新菜单应该已经生效了，并且会开机自启。这时候可以点点看，如果感觉效果满意就不用再看下去了。</p>
-<p>当然颜狗是不满意的，大部分一级菜单我用不上，我只想保留我常用的，不用的塞到更多选项。如图</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/04/202504190843358.webp" alt=""></p>
-<h2>挪动菜单层级</h2>
-<p>如果你是默认安装，<code>C:\Program Files\Nilesoft Shell</code> 应该能看见以下的文件结构</p>
-<pre><code>Nilesoft Shell/
-├── shell.exe
-├── shell.nss
-├── imports/
-│   ├── modify.nss
-│   └── ...
-└── ...
-</code></pre>
-<p>以 <code>.nss</code> 结尾的是配置文件，可以用记事本打开。以下是几个案例：</p>
-<h3>1. 收纳不常用菜单至 “更多选项”</h3>
-<p>例如，收纳所有名称里带有 “QQ” 和 “百度” 的菜单项，在 <code>modify.nss</code> 添加如下：</p>
-<pre><code>modify(mode=mode.multiple find="QQ|百度|网盘" menu=title.more_options)
-</code></pre>
-<p>find 中包含的字符串会被匹配，“|”是或。表示匹配“QQ”或“百度”或“网盘”的任意项都会被挪走。</p>
-<p>这是主要的挪菜单的方式，我实际上挪了一大堆。</p>
-<pre><code>modify(mode=mode.multiple
-	find="收藏夹|打印|共享|PowerRename|Microsoft Defender|Change Attributes|File Locksmith|upic|火绒|百度|QQ|Acrobat|Adobe|OneDrive|在沙盒中运行|PicList|旧版 Windows Media Player"
-	menu=title.more_options)
-</code></pre>
-<h3>2. “创建快捷方式”挪到顶层</h3>
-<p>有人可能看不惯 创建快捷方式 放在了 更多选项 里。要恢复把 <code>modify.nss</code> 中一行注释掉就好。</p>
-<pre><code>modify(mode=mode.multiple
-	where=this.id(
-		id.send_to,
-		id.share,
-		// id.create_shortcut, 这行注释掉
-		id.set_as_desktop_background,
-		id.rotate_left,
-		...
-</code></pre>
-<h3>3. 顶层添加新菜单项 “使用 vscode 打开”</h3>
-<p>在 <code>shell.nss</code> 中，新起一行添加</p>
-<pre><code>item(title='Open with VS Code' image=[\uE272, #22A7F2] cmd='code' args='"@sel.path" &#x26;&#x26; exit' sep='top')
-</code></pre>
-<p>添加的这行可以不在最后，添加的位置决定它在菜单中的位置。我添加在了中间，最后的几个 "import" 之间。</p>
-<p>要是问为什么我不用 vscode 自带的右键菜单……我的 vscode 装得太早了，那时还没有右键菜单关联，现在也懒得再装了就将就用吧……</p>
-<h3>4. 顶层菜单添加新目录</h3>
-<p>你要是在图片上右键，会发现系统自带有“使用 Windows 画图编辑”“使用照片编辑”“向左旋转”“向右旋转”……我的天，哪个天才设计的，你不知道自家照片 App 打开后能编辑也能旋转吗？（我知道这肯定是两波人开发的但还是想吐槽）</p>
-<p>秉持着只挪不删的原则，在“更多选项”前加了个“编辑”目录。以下加在了 <code>shell.nss</code></p>
-<pre><code>menu(mode="multiple" title="编辑" image=image.glyph("\uE0A1"))
-{
-}
-</code></pre>
-<p>然后在 <code>modify.nss</code> 里加了</p>
-<pre><code>modify(mode=mode.multiple
-	find="*编辑|旋转|PDF"
-	menu="编辑")
-</code></pre>
-<p>这样等于说，编辑和旋转相关都被归到了新的“编辑”目录下。加上 PDF 相关操作挪进去。我没有装 WPS，装了 WPS 也可以把 WPS 挪一个目录。</p>
-<h2>生效</h2>
-<p>管理员权限运行安装目录下的 <code>shell.exe</code>，点 Register 生效</p>
-<h2>其他</h2>
-<p>按 shift 后右键菜单，会有一个“Developer” 目录。没错 shift 显示隐藏菜单也可以实现，配置的属性有 <code>vis=key.shift()</code> ，但不是实时变化的所以没有mac 上的好用。除此之外还有喜闻乐见的能配置主题、颜色、图标等……我不管了。</p>
-<h2>参考</h2>
-<p>官网的文档很详细，但是非常面向程序员。不过大部分的需求被人在论坛上问过了，也有人在 issue 里问。不会就去论坛翻一下。看不懂英文开翻译，看不懂文档丢给 AI。</p>
-<p>文档： <a href="https://nilesoft.org/docs">https://nilesoft.org/docs</a></p>
-<p>论坛： <a href="https://github.com/moudey/Shell/discussions">https://github.com/moudey/Shell/discussions</a></p>]]></content>
-        <category label="工具"/>
-        <published>2025-04-18T17:21:04.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2024 年的总结与分享]]></title>
-        <id>https://sansui233.com/posts/2025-01-05-2024-summary</id>
-        <link href="https://sansui233.com/posts/2025-01-05-2024-summary"/>
-        <updated>2025-01-04T17:21:04.000Z</updated>
-        <summary type="html"><![CDATA[怎么全在写游戏……]]></summary>
-        <content type="html"><![CDATA[<p>印象中之前每年其实都有写去年主要干了什么，看了什么作品。但又忘了都写在了哪里。今年想起来还是在这里写吧。</p>
-<p>主要说说看了些什么吧。</p>
-<h2>实用小技术</h2>
-<ol>
-<li>无线 iPad 当作电脑副屏</li>
-</ol>
-<p>某天突然想躺着用手柄玩电脑的游戏，所以 <a href="https://github.com/LizardByte/Sunshine">sunshine</a> + moonlight(iPad) 串流。效果非常不错！</p>
-<ol start="2">
-<li>便携显示屏</li>
-</ol>
-<p>后面，我又嫌无线的码率不稳定，组装了个便携显示屏，变成了躺着用电脑副屏……配件全部拼多多的。</p>
-<ul>
-<li>显示屏，京东方 NV156FHM N69</li>
-<li>驱动版、按键板、软排线</li>
-<li>外壳、音响</li>
-</ul>
-<ol start="3">
-<li>新的代理协议与客户端</li>
-</ol>
-<p>今年对于魔法上网，非常重要的事情就是去年年底 clash-core 删库。不过也正好，促使我看看有没有人设计新的协议。</p>
-<p>协议方面尝试了 hysteria2 和 naive，测试下来已经把 hysteria2 当作主力了。顺便读了下 http2 <a href="https://github.com/abbshr/rfc7540-translation-zh_cn">rfc7540</a> 和 http3 <a href="https://datatracker.ietf.org/doc/html/rfc9114">rfc 9114</a> （但现在又忘了！）</p>
-<p>客户端试了 <a href="https://sing-box.sagernet.org/">singbox</a>，在 ios 上替代了 shadowrocket，性能好非常多。电脑端 GUI 是典型的后端程序配置的思维，很难用，还是用 clash-meta 系列了。</p>
-<h2>单机游戏</h2>
-<ol>
-<li><a href="https://store.steampowered.com/app/240720/Getting_Over_It_with_Bennett_Foddy/">Getting Over it</a> (掘地求升)</li>
-</ol>
-<p>我的天，有生之年我居然打通了这个8年前的破游戏！</p>
-<p>打通的那一瞬间，我感觉觉得自己已经可能面对任何困难无所不能了。但是山顶的聊天室早已空无一人，有一点寂寞。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NamiLing/upic/picgo/202401131219995.webp" alt="Getting over it"></p>
-<ol start="2">
-<li><a href="https://store.steampowered.com/agecheck/app/1086940/?l=schinese">博德之门3</a></li>
-</ol>
-<p>tga 2023 年度游戏，不好玩。去年买了，今年和 meme 大师与墨墨联机了好几次，还是玩不下去！打架打一局太久了……而且打不好还要 SL……补药啊！（后面没法联机了其实主要是因为我作息太乱了）</p>
-<ol start="3">
-<li><a href="https://store.steampowered.com/app/1426210/_/?l=schinese">双人成行</a></li>
-</ol>
-<p>2021 年度游戏，好玩，这个还是感谢陈 sir 陪我打完了，而且因为他是全成就大师所以我也跟着全成就了。因为我竟然买了两年都没有玩，显得特别可怜……</p>
-<ol start="4">
-<li><a href="https://store.steampowered.com/app/2198150/Tiny_Glade/">Tiny Glade</a></li>
-</ol>
-<p>新出的休闲建筑游戏，最不像游戏的游戏。建筑方式新颖，而且好好看哦！</p>
-<p>玩了后做了个视频，竟然被 HR 联系了……差点当诈骗私信……</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050253199.webp" alt="Tiny Glade"></p>
-<ol start="5">
-<li><a href="https://www.nintendo.com/hk/switch/animal_crossing_new_horizons/">动物森友会</a></li>
-</ol>
-<p>到今年才打开这个几年前的游戏。建岛是好玩的，画风也可爱，但因为手游也有在刷，对于刷刷刷的都有点疲惫了。</p>
-<ol start="6">
-<li><a href="https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/">Halo</a></li>
-</ol>
-<p>meme 大师带飞的经典 FPS，有剧情，非常好游戏！我只用跟在后面捡各种好玩的枪就好了（不是）</p>
-<ol start="7">
-<li><a href="https://store.steampowered.com/app/620/Portal_2/?l=schinese&#x26;curator_clanid=31468181">传送门2</a></li>
-</ol>
-<p>十几年前的解谜神作，好丸！多人模式也是 meme 大师带飞的。</p>
-<ol start="8">
-<li><a href="https://www.bilibili.com/video/BV1hS411w7tR">Second Eden-理想箱庭物语</a></li>
-</ol>
-<p>这是个新的 minecraft 深度魔改整合包，基于模拟殖民地 mod。我觉得比很多整合包都要好，考虑了流程、循环、引导，有些 mod 加的解谜结构很好玩。但模拟殖民地本身有 bug，加上流程上其实也不是特别完整，只建了一小半。</p>
-<ol start="9">
-<li>零大陆</li>
-</ol>
-<p>这是个超老的 Minecraft1.8 原版 RPG 整合包。真的非常震撼能做到这个程度，流程设计、地图设计上超级完整……可惜循环有问题，卡在一个冒险模式下的银河城地下区域了。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050335032.webp" alt="零大陆"></p>
-<ol start="10">
-<li>模拟地铁</li>
-</ol>
-<p>休闲小游戏，也是老游戏了，极简地铁规划，最后发现还是开滴滴比较好。内容对得起价格。也因此和喜欢地铁的朋友有聊些城建游戏。</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050330486.webp" alt="模拟地铁"></p>
-<ol start="11">
-<li><a href="https://store.steampowered.com/app/813230/ANIMAL_WELL/?l=schinese">动物井 (Animal Well)</a></li>
-</ol>
-<p>解谜 + 平台跳跃。太好玩了，这才是真正的 2024 年度游戏！！而且只 33 M，性能也超好！是像素美术但是是很现代的赛博梦幻像素美术，好看的！</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050325838.webp" alt="Animal Well"></p>
-<ol start="12">
-<li><a href="https://store.steampowered.com/app/391540/Undertale/?l=schinese&#x26;curator_clanid=31318556">传说之下 (UnderTale)</a></li>
-</ol>
-<p>经典日式 RPG，脑洞超大角色有意思，剧情很温暖。是Meme 依据本人的游戏时长与偏好定制的 steam 礼物……非常喜欢！</p>
-<p><img src="https://img-cf.sansui233.com/imgs/2025/01/202501050055049.webp" alt="UnderTale"></p>
-<h2>动画&#x26;漫画</h2>
-<ol>
-<li><a href="https://www.bilibili.com/bangumi/media/md21087073">葬送的芙莉莲</a></li>
-</ol>
-<p>中世纪魔法动画，难得味这么正，不算是我非常喜欢的类型但能看下去。而且作画的流畅程度真的……太有钱了！整体比较日常，很温馨。</p>
-<ol start="2">
-<li><a href="https://www.bilibili.com/bangumi/media/md28339713">蓝色禁区 Blue Lock</a></li>
-</ol>
-<p>足球番，我原以为我不喜欢看，最后根本停不下来……动画第一季做得实在太好了，但第二季是 PPT，1 分都不想给……漫画非常棒，不愧2024 年的日本漫画销冠。</p>
-<p>不过我是其实从其中一对 CP 图决定看，结果看完动画觉得这两人麦太多了……不如好好看球！</p>
-<ol start="3">
-<li><a href="https://www.bilibili.com/video/BV1ag4y1W78U">异形舞台 Alien Stage</a></li>
-</ol>
-<p>动画音乐剧，讲的外星人饲养地球人当宠物，看人们在舞台上通过选秀比赛相杀的故事。特点是，一集一个寡妇（夫）……太刀了！</p>
-<h2>电影</h2>
-<ol>
-<li>你想活出怎样的人生</li>
-</ol>
-<p>宫崎骏动画电影，我觉得依旧很好看，很温暖。</p>
-<ol start="2">
-<li>蓦然回首（Look Back）</li>
-</ol>
-<p>藤本树动画电影，讲普通画画人的故事。非常牛美术风格。尽管我不是画画人，也没有很好的画画天赋。但也有一些感受有经历过，日复一日练基础，什么时候都在考虑画画……</p>
-<p>以及藤本树居然开始走治愈系了！</p>
-<ol start="3">
-<li>志愿库 - 存亡之战</li>
-</ol>
-<p>怎么突然出现了国庆战争片……这个真的拍得挺好的，算是近年陈凯歌的不那么扑的了。以及我有朱一龙演技滤镜，在超烂低成本不被任何人看好的改编网剧里，因为演技太好而突然红的，真的没得说。</p>
-<ol start="4">
-<li>名侦探柯南 - 黑铁的鱼影</li>
-</ol>
-<p>和雨疏的年度固定节目，不错的粉丝向主线剧场。真好啊真好十年后还在和她一起看柯南。</p>
-<h2>音乐</h2>
-<p>年度歌手还是 Radwimps，基本老歌。上半年没怎么听</p>
-<p>年底听 4 块钱的直播，才发现日系真是年年有天才。「晚餐歌」真的很厉害。原来不是我不喜欢听歌了，是没关注到好听的歌了，网易云日推越来越不行了，一直推各种时下 OP ED。</p>
-<h2>技能相关</h2>
-<ul>
-<li>
-<p>游戏，给 MC 服务器写了 彩虹帽子 数据包。想来这其实是第一次和游戏有关的编程，经典入口是帧更新 tick()。</p>
-</li>
-<li>
-<p>画画，学了平面设计的课，作业也很肝完了，有一些收获。然后又看了些曼奇的网课，素描关系有提升，就是增加了短调子、空间感、体积感的意识。我之前也不是感受不到，而是没觉得差一点明度就会差很多。这是 Ti - Se 画画相比于 Se - Ti 的劣势，需要有理论后才能画得好……</p>
-</li>
-<li>
-<p>原神里头一回赶上音游的版本，写了几首比较难的谱面，这个非常满意，是我自己都可以反复玩的！</p>
-</li>
-</ul>
-<h2>专业相关</h2>
-<p><del>这随便吧又没人看。</del></p>
-<ul>
-<li>
-<p>笔记主题没怎么更，我也用得越来越少了</p>
-</li>
-<li>
-<p>博客有更新，但忘了！</p>
-</li>
-<li>
-<p>新写了个服务器的监控页。</p>
-</li>
-<li>
-<p>论文挣扎着狂补。</p>
-</li>
-<li>
-<p>有去接触 GPU 相关的，不想只停留在业务 MVC 再 CRUD。但看了发现没需求的话确实用不上。</p>
-</li>
-</ul>
-<p>公司的相关还是不说了……主要是图形学和，久违的 OOP 编程，新的语言 C#，但长得非常通用面向对象，没有太多的入门门槛。不禁感叹外面世界的语言真是五花八门……但要说写界面好用还是声明式的，OOP 写界面特别过程式就，扭曲，痛苦，但无疑性能会更好。</p>]]></content>
-        <category label="Diary"/>
-        <published>2025-01-04T17:21:04.000Z</published>
     </entry>
 </feed>

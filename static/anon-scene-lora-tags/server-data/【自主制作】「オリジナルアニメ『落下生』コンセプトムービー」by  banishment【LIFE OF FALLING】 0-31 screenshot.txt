@@ -1,0 +1,1 @@
+anon_scene, sky, outdoors, cloud, tree, no_humans, sunlight, building, scenery, city, sign, railing, cityscape, cable, power_lines, pole, utility_pole, road, road_sign, traffic, street, traffic_light

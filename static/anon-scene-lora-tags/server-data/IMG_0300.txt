@@ -1,1 +1,0 @@
-anon_scene, day, daytime, indoors, no_humans, window, leaf, chair, table, plant, scenery, sunlight, shadow

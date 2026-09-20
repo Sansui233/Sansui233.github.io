@@ -1,1 +1,0 @@
-anon_scene, outdoors, no_humans, chair, scenery, sign, shop, vending_machine, indoors, table

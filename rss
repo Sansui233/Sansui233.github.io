@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 13 Oct 2026 16:52:12 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 15 Oct 2026 16:50:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,17 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-10-09T06:11:47.000Z</guid>
             <pubDate>Fri, 09 Oct 2026 06:11:47 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-10-14 00:51:16</h2>
+            <content:encoded><![CDATA[<h2>2026-10-15 21:23:48</h2>
+<ul>
+<li><a href="https://go.dev/blog/http-connection-reuse">更好的 HTTP/1 连接重用 - Go 编程语言</a>
+网络请求时，只是需要一个 HTTP 状态码，并不需要读取 body。但是因为程序员没有及时关闭连接，导致后续发起的连接会重新建立 tcp 通道，而不是复用之前实际没用的连接，拉高了响应时间。body 的网络传输是在 <code>resp.Body.Read()</code> 方法时才开始的。如果不读 Body 建议用完就立刻关掉免得占 TCP 连接数。</li>
+<li><a href="https://x.com/godling_zlm/status/2110070980899176735?s=46&amp;t=xtlLBJWm7VGj2HiP7Ij3rQ">css 复合字体</a>
+针对中西文排版的字体搭配协调性检查。这个好，有时间我也想抠。对于网页最难的其实还是为了响应速度不要引入新字体，然后默认字体的渲染很不可控……</li>
+<li><a href="https://b23.tv/IAkEXbv">朝鲜办「奥运」了？全世界只有三个国家没来-哔哩哔哩</a>
+看了一下午的朝鲜旅游视频……令我惊叹的是视频中那个大爷博主的精神状态，100%的更要，也是100%的赞同。然后为这样的大爷突然离世而感到伤心。<a href="https://b23.tv/KuqSNbJ">评论</a>。</li>
+</ul>
+<hr/>
+<h2>2026-10-14 00:51:16</h2>
 <p>有点想念做海卡的有声书的时候后，主要其实是很喜欢找音乐，一找就是一整天</p>
 <hr/>
 <h2>2026-10-09 02:06</h2>
@@ -51,13 +61,7 @@
 <p>最他妈烦说招女生是因为女生谨慎仔细的了，我真的不懂这和性别有个毛线关系啊？而且在这加班加的要死要活，工资就这么点，实在是没有什么动力。为爱发电吗？大概除了二次元，早就过了纯粹的为爱发电了。也不全是这样，我根本就没有时间做想做的方向，哪里有电可以发呢。</p>
 <p>实在是不想搬动电脑，我拿出了陪伴了 8 年的 MacBookPro 2015。其实到现在也还能用，也就是类似于性能测试开 slow CPU 的程度，慢吞吞，也确实是慢吞吞，但神奇的就是不会觉得它是卡的。至于什么软件版本不再支持什么的，哈哈，反正都是命令行，brew 不再支持了，那就手动管理吧。Mac 也老了，老到拼尽全力也只能跑上 70 度了。</p>
 <p>Obsidian 的 Live Sync 随着时间的推移 Chunk 变多而变得巨慢无比。这次新增设备大概要同步两个小时吧，不知道怎么就有 3 万个 Chunk 了，感觉算法有什么问题，因为我并没有增加多少笔记。我也没有办法 build 这个仓库。</p>
-<p>我把卡维和艾尔海森的 KFC立牌立了起来，像一个赛博供台。实在无法克制的时候，就去问问他们。他们是虚构的、理想化的人物吧，是存在于幻想中最想拥有的状态。</p>
-<hr/>
-<h2>2026-09-10 14:02:33</h2>
-<p>#分享 #工具 用了 <a href="https://sftpgo.com">SFTPGO</a>。windows 25h2 不知道抽什么风，smb  的服务器文件共享连不上了。</p>
-<p>终于把老家 9 年前的路由器换掉了。以前想组 mesh 感想就是面板非常贵，现在的路由器都自带了，虽然各家不兼容就是了……用的是 TPLink 的 7DR3600  Wifi-7 路由器。就看中这个薄薄的一片，没想到还是差点塞不进弱电箱，天线不能弯折，口又是开在正后方的。Easy Mesh 也确实按起来够简单的，只不过当我测出来子路由的公网速度只有 150Mbps 时两眼一黑。但内网速度没问题于是百思不得其解。后面拔线重启了主路由又好了。</p>
-<p>然后我换的路由器时候，所有人都说：你又买路由器了，旧的难道不能用了吗……我特意去京东看了一下订单，特么上一个路由器我是 2017 年买的啊！什么叫又！晚上姐夫来也是这么问的，然后把我那老 Wifi5 路由器捡走了，说我姐房间信号不太好……不是……这路由器回收价都只值两块钱。等下……他们有网线吗？应该是没有的……</p>
-<p>试图 Vibe Coding，我觉得我还是很不适合 Vibe。AI 写得太垃圾了我看了想吐，而且现在向 AGENT 的方向发展，冻不冻就要自己验证。我只能接受 AI 写一个小片段我来 REVIEW 和 DEBUG。</p>]]></content:encoded>
+<p>我把卡维和艾尔海森的 KFC立牌立了起来，像一个赛博供台。实在无法克制的时候，就去问问他们。他们是虚构的、理想化的人物吧，是存在于幻想中最想拥有的状态。</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[用 Obsidian 导出笔记为一本书]]></title>

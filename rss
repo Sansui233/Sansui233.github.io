@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 15 Oct 2026 20:14:01 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 15 Oct 2026 20:14:40 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -16,7 +16,7 @@
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-10-09T06:11:47.000Z</guid>
             <pubDate>Fri, 09 Oct 2026 06:11:47 GMT</pubDate>
             <content:encoded><![CDATA[<h2>2026-10-16 04:09:51</h2>
-<p>FontScape 的渲染问题是 Webview 带来的，人能做的优化我全都过一遍了。如果一屏字体太多还全是 Noto sans 这种，光是 Webview 读取并建立缓存就要好几秒。要丝滑的话最终要走上 WebGPU 的道路（但真的能实现得更好吗，要是我都比 Chrome 快了那拿 Chrome 干什么）。还是有余地的，主要是我就渲染那么几个字，也不需要加载完整的文件，大概是这样吧。</p>
+<p>FontScape 的渲染问题是 Webview 带来的，人能做的优化我全都过一遍了。如果一屏字体太多还全是 Noto sans 这种，光是 Webview 读取并建立缓存就要两秒。要丝滑的话最终要走上 WebGPU 的道路（但真的能实现得更好吗，要是我都比 Chrome 快了那拿 Chrome 干什么）。还是有余地的，主要是我就渲染那么几个字，也不需要加载完整的文件，大概是这样吧。</p>
 <hr/>
 <h2>2026-10-15 21:23:48</h2>
 <ul>

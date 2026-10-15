@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sansui233.com</id>
     <title>Sansui's blog</title>
-    <updated>2026-10-15T20:14:01.406Z</updated>
+    <updated>2026-10-15T20:14:40.521Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sansui</name>
@@ -20,7 +20,7 @@
         <link href="https://sansui233.com/memos"/>
         <updated>2026-10-09T06:11:47.000Z</updated>
         <content type="html"><![CDATA[<h2>2026-10-16 04:09:51</h2>
-<p>FontScape 的渲染问题是 Webview 带来的，人能做的优化我全都过一遍了。如果一屏字体太多还全是 Noto sans 这种，光是 Webview 读取并建立缓存就要好几秒。要丝滑的话最终要走上 WebGPU 的道路（但真的能实现得更好吗，要是我都比 Chrome 快了那拿 Chrome 干什么）。还是有余地的，主要是我就渲染那么几个字，也不需要加载完整的文件，大概是这样吧。</p>
+<p>FontScape 的渲染问题是 Webview 带来的，人能做的优化我全都过一遍了。如果一屏字体太多还全是 Noto sans 这种，光是 Webview 读取并建立缓存就要两秒。要丝滑的话最终要走上 WebGPU 的道路（但真的能实现得更好吗，要是我都比 Chrome 快了那拿 Chrome 干什么）。还是有余地的，主要是我就渲染那么几个字，也不需要加载完整的文件，大概是这样吧。</p>
 <hr/>
 <h2>2026-10-15 21:23:48</h2>
 <ul>

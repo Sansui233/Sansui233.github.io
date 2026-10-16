@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Thu, 15 Oct 2026 20:14:40 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 16 Oct 2026 15:06:18 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,20 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-10-09T06:11:47.000Z</guid>
             <pubDate>Fri, 09 Oct 2026 06:11:47 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-10-16 04:09:51</h2>
+            <content:encoded><![CDATA[<h2>2026-10-16 22:51:19</h2>
+<p>HTML Drag and Drop 原理:</p>
+<ul>
+<li>浏览器对于同一个拖拽中的所有事件，都共享一个 DataTransfer 对象。不同元素的上的同一次 Drag 事件都可以访问到同一个 DataTransfer。通常而言，Drag 元素的 onDragStart 去设置 Data，接收元素的 onDrop 去接收 Data。</li>
+<li>UI 层面上
+<ul>
+<li>预览图：新建一个 ghost div 元素, apppend 到 body。被浏览器捕获后 ghost.remove()。这个图被捕获后会跟随鼠标移动。</li>
+<li>接收元素至少要设置两个 2 个 UI 状态。on drag over 和 on drag leave。
+如果把数据状态和UI 状态一起算，接收元素的 UI 一共可分为四个状态，idle → drag over ↔ drag leave → drop.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2>2026-10-16 04:09:51</h2>
 <p>FontScape 的渲染问题是 Webview 带来的，人能做的优化我全都过一遍了。如果一屏字体太多还全是 Noto sans 这种，光是 Webview 读取并建立缓存就要两秒。要丝滑的话最终要走上 WebGPU 的道路（但真的能实现得更好吗，要是我都比 Chrome 快了那拿 Chrome 干什么）。还是有余地的，主要是我就渲染那么几个字，也不需要加载完整的文件，大概是这样吧。</p>
 <hr/>
 <h2>2026-10-15 21:23:48</h2>
@@ -47,14 +60,7 @@
 <p>Logseq 其实我还是挺喜欢的，但是他们这么多年还是像一个没有测试的团队，发的每一版总给人感觉 Bug 多得有点离谱了，可能 AI 参与后这个问题或许会减轻一点。插件的自由度也相对比较低一些，属于其实大部分都可以搓但要搓好又好像需要造一堆轮子那种 API。</p>
 <p>换笔记软件的主要原因其实是 AI，Obsidian 相对来说 AI 利好得多，原因是 Obsidian Markdown 为标准实践，也有是双链有点额外语法。大纲笔记没有过什么最佳实践，手机不友好，排版困难，怎么用都有点小众，而且导航其实要比带 Floating TOC 的 Markdown 长文困难。要让 AI 编排得合理就更困难了。</p>
 <p>同步用的 Obsidian 的 Live Sync，说好用也好用，说不好用也不好用。也不知道为什么我写这点东西给更新了600 多个 Chunk。</p>
-<p>Listary 现在也完全可以用 Flow Launcher 代替了。最早用时只能搜 App，现在设置 Everything 按路径排序， Quick Switch 加上后，算是完全替代了。只不过 Flow Launcher 门槛高一点，为了搜索不那么乱有前导符的存在。我觉得算是非常没必要的，搜索要前导符就说明还是排序不好。前导符的意义应该是执行命令，有点 Alfred 的味道了。</p>
-<hr/>
-<h2>2026-09-27 12:35:00</h2>
-<p>因为上两周实在是睡得过少，我的耳鸣更加严重了。以前只知道有雪花声，现在知道了，蝉鸣声加雪花声加固定音高是什么感受。</p>
-<p>幸好我天生对噪声抵抗能力比较强，大概也是不得不强，不然的话得从小就没法睡觉。</p>
-<p>国庆已经被他们的安排恶心到了，我不想再讲了。总之，我要干的事一件没有干完，我没有任何可以独处的时间，对于 i 人，这真的是致命的。</p>
-<p>中秋真的是一边在别人家吃饭我一边哭，虽然他们可能看不太出来。今天下午很困，也没睡着，我也在哭。</p>
-<p>照这样，我戒不掉熬夜的。</p>]]></content:encoded>
+<p>Listary 现在也完全可以用 Flow Launcher 代替了。最早用时只能搜 App，现在设置 Everything 按路径排序， Quick Switch 加上后，算是完全替代了。只不过 Flow Launcher 门槛高一点，为了搜索不那么乱有前导符的存在。我觉得算是非常没必要的，搜索要前导符就说明还是排序不好。前导符的意义应该是执行命令，有点 Alfred 的味道了。</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[用 Obsidian 导出笔记为一本书]]></title>

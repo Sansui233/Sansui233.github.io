@@ -22,7 +22,10 @@
   /* page mood changes with the active effect */
   body.fx-spicy { background: radial-gradient(circle at 50% 110%, #ff9f5a, #ff7a4d 40%, #ffd08a); }
   body.fx-chill { background: radial-gradient(circle at 25% 10%, #f2fbff, #b9e4ff 50%, #e3f6ff); }
+  body.fx-monkey { background: radial-gradient(circle at 30% 10%, #fff3b0, #b9e07a 50%, #7cc46a); }
   body.fx-god   { background: radial-gradient(circle at 50% 40%, #fff6b8, #ffd84d 50%, #ffb347); }
+  body.fx-night { background: radial-gradient(circle at 80% 8%, #6b74c9, #2d3470 45%, #171b3d); }
+  body.fx-night h1, body.fx-night .hint { color: #e6e9ff; text-shadow: 2px 2px 0 #171b3d; }
   /* dizzy rainbow: a big layer slid with transform (compositor-only, no per-frame page repaint) */
   body::before {
     content: ''; position: fixed; top: 0; left: 0; width: 400vw; height: 100vh; z-index: -1; pointer-events: none;
@@ -39,6 +42,11 @@
     box-shadow: 0 3px 0 var(--ink); font-size: clamp(12px, 2.2vh, 18px); white-space: nowrap;
   }
   #fx { min-width: 150px; max-width: 92vw; white-space: normal; text-align: center; background: #fff7c9; }
+  /* speed meter: the bar is the base speed (what a night's sleep resets), the number is the current speed */
+  #spd { display: flex; align-items: center; gap: 6px; }
+  #spd .meter { width: 72px; height: 12px; border: 2.5px solid var(--ink); border-radius: 999px; background: #eef3f0; overflow: hidden; }
+  #spd .meter i { display: block; height: 100%; width: 0; border-radius: 999px; transition: width .35s, background-color .35s; }
+  #spdx { min-width: 2.6em; text-align: right; }
   canvas {
     width: min(94vw, calc(100vh - 170px), 640px); aspect-ratio: 1;
     border: 5px solid var(--ink); border-radius: 22px;
@@ -59,13 +67,14 @@
     <div class="pill">Score: <span id="score">0</span></div>
     <div class="pill">Best: <span id="best">0</span></div>
     <div class="pill">Snacks: <span id="snacks">0</span></div>
+    <div class="pill" id="spd" title="Speed: the bar fills as you eat; a moon resets it"><span id="spdlbl">Speed</span><span class="meter"><i id="spdbar"></i></span><span id="spdx">1.0×</span></div>
     <div class="pill" id="fx"><img class="ico" src="assets/face_relieved.png" alt=""> Feeling normal</div>
     <button id="mute" title="Mute / unmute (M)"><img class="ico" src="assets/speaker.png" alt="Sound on"></button>
     <button id="lowfx" title="Reduce effects for slower devices (L)"><img class="ico" src="assets/sparkle.png" alt=""> FX: High</button>
   </div>
   <canvas id="c"></canvas>
   <div class="hint">Arrows / WASD or swipe • Space = pause • M = mute • L = low effects<br>
-    After 50 points <img class="ico" src="assets/rock.png" alt="rock"> rocks start falling (watch for the red warning!) &nbsp;•&nbsp; <img class="ico" src="assets/bomb.png" alt="bomb"> zaps the nearest rock &nbsp;•&nbsp; <img class="ico" src="assets/dynamite.png" alt="super bomb"> SUPER BOMB clears every rock &nbsp;•&nbsp; <img class="ico" src="assets/star.png" alt="star"> = God Mode: smash through anything</div>
+    After 50 points <img class="ico" src="assets/rock.png" alt="rock"> rocks start falling (watch for the red warning!) &nbsp;•&nbsp; <img class="ico" src="assets/bomb.png" alt="bomb"> zaps the nearest rock &nbsp;•&nbsp; <img class="ico" src="assets/dynamite.png" alt="super bomb"> SUPER BOMB clears every rock &nbsp;•&nbsp; <img class="ico" src="assets/shield.png" alt="shield"> blocks one rock hit (stacks to 3) &nbsp;•&nbsp; <img class="ico" src="assets/star.png" alt="star"> = God Mode: smash through anything &nbsp;•&nbsp; <img class="ico" src="assets/banana.png" alt="banana"> = Monkey Mode: paws fling rocks and grab snacks &nbsp;•&nbsp; <img class="ico" src="assets/moon.png" alt="moon"> = Night: Sir Noodle naps and wakes up at starting speed</div>
 
 <script>
 (() => {
@@ -77,6 +86,8 @@
   const STONE_START = 50;      // score at which rocks begin to fall
   const WARN_MS = 900;         // rock warning time before it becomes solid
   const BOMB_MS = 10000, SUPER_MS = 12000;   // how long bombs stay on the board
+  const MAX_SHIELDS = 3;                     // shield charges: each one breaks one rock instead of dying
+  const MAX_LVL = 38;                        // speed level at which the step time hits its 75ms floor
 
   const cv = document.getElementById('c');
   const ctx = cv.getContext('2d');
@@ -86,6 +97,9 @@
   const $best = document.getElementById('best');
   const $snacks = document.getElementById('snacks');
   const $fx = document.getElementById('fx');
+  const $spdbar = document.getElementById('spdbar');
+  const $spdlbl = document.getElementById('spdlbl');
+  const $spdx = document.getElementById('spdx');
   const $mute = document.getElementById('mute');
   const $lowfx = document.getElementById('lowfx');
 
@@ -94,30 +108,37 @@
   // all art is bundled PNG (drawn by tools/art.js, exported by tools/export.mjs) -> identical on every OS
   const ICON_NAMES = ['pizza','donut','burger','banana','strawberry','cupcake','taco','watermelon','cheese','fries',
     'onigiri','croissant','cookie','drumstick','chili','ice','mushroom','star','bomb','dynamite','snow','sparkle','boom',
-    'dizzy','sweat','fire','rock','bow','tophat','cowboy','gradcap','crown','worm','trophy','pause','face_dead'];
+    'dizzy','sweat','fire','rock','shield','bow','tophat','cowboy','gradcap','crown','worm','trophy','pause','face_dead',
+    'monkey','paw','moon','zzz','sun'];
   const ICONS = {};
   const iconHtml = (name) => `<img class="ico" src="assets/${name}.png" alt="">`;
 
-  const FOODS = ['pizza','donut','burger','banana','strawberry','cupcake','taco','watermelon','cheese','fries','onigiri','croissant','cookie','drumstick'];
+  const FOODS = ['pizza','donut','burger','strawberry','cupcake','taco','watermelon','cheese','fries','onigiri','croissant','cookie','drumstick'];
 
   // timed effects
   const EFFECTS = {
     spicy: { emo: 'face_hot',   name: 'SPICY',    ms: 6000, color: '#ff5a2a', banner: 'SPICY MODE', icon: 'fire',  sub: 'zoom zoom • double points' },
     chill: { emo: 'face_cold',  name: 'CHILL',    ms: 6000, color: '#2aa8f0', banner: 'CHILL MODE', icon: 'snow',  sub: 'slow-mo • take it easy' },
     dizzy: { emo: 'face_woozy', name: 'DIZZY',    ms: 5000, color: '#b45cff', banner: 'DIZZY MODE', icon: 'dizzy', sub: 'controls FLIPPED • triple points' },
-    god:   { emo: 'star',       name: 'GOD MODE', ms: 7000, color: '#f5a800', banner: 'GOD MODE',   icon: 'star',  sub: 'unstoppable • smash rocks • x2' }
+    god:   { emo: 'star',       name: 'GOD MODE', ms: 7000, color: '#f5a800', banner: 'GOD MODE',   icon: 'star',  sub: 'unstoppable • smash rocks • x2' },
+    monkey:{ emo: 'monkey',     name: 'MONKEY',   ms: 8000, color: '#b8661f', banner: 'MONKEY MODE', icon: 'banana', sub: 'paws grab snacks • fling rocks' },
+    night: { emo: 'face_sleepy', name: 'SLEEPY', ms: 7000, color: '#5b6cff', banner: 'GOOD NIGHT', icon: 'moon', sub: 'sleepy slow-mo • wakes up at starting speed' }
   };
-  const THEME_ORDER = ['god', 'dizzy', 'spicy', 'chill'];
+  const THEME_ORDER = ['god', 'dizzy', 'monkey', 'night', 'spicy', 'chill'];
+  const fxMap = (v) => Object.fromEntries(Object.keys(EFFECTS).map(k => [k, v]));
   const END_QUOTES = {
     spicy: 'Phew... mouth is cooling down.', chill: 'Thawed out! Back to normal speed.',
-    dizzy: 'The room stopped spinning.', god: 'God mode over. Back to mortal noodle.'
+    dizzy: 'The room stopped spinning.', god: 'God mode over. Back to mortal noodle.',
+    monkey: 'Paws gone. Back to plain noodle.', night: '*yawn* Good morning! Fresh and slow.'
   };
   const GLOWS = {
     normal: '',
     spicy: `0 8px 0 ${INK}, 0 0 34px 10px rgba(255,90,30,.85), 0 18px 30px rgba(91,42,78,.3)`,
     chill: `0 8px 0 ${INK}, 0 0 34px 10px rgba(70,185,255,.9), 0 18px 30px rgba(91,42,78,.3)`,
     dizzy: `0 8px 0 ${INK}, 0 0 34px 10px rgba(200,80,255,.85), 0 18px 30px rgba(91,42,78,.3)`,
-    god:   `0 8px 0 ${INK}, 0 0 40px 14px rgba(255,208,40,.95), 0 18px 30px rgba(91,42,78,.3)`
+    god:   `0 8px 0 ${INK}, 0 0 40px 14px rgba(255,208,40,.95), 0 18px 30px rgba(91,42,78,.3)`,
+    monkey:`0 8px 0 ${INK}, 0 0 34px 10px rgba(140,200,60,.85), 0 18px 30px rgba(91,42,78,.3)`,
+    night: `0 8px 0 ${INK}, 0 0 34px 10px rgba(150,160,255,.75), 0 18px 30px rgba(10,10,40,.5)`
   };
 
   // things lying on the grass
@@ -126,6 +147,9 @@
     chill: { icon: 'ice',      fx: 'chill', text: 'Brain freeze!',            aura: '#4fc3f7' },
     dizzy: { icon: 'mushroom', fx: 'dizzy', text: 'Whoa... the room is spinny', aura: '#ba68c8' },
     star:  { icon: 'star',     fx: 'god',   text: 'I AM INVINCIBLE!!',        aura: '#ffc107' },
+    banana:{ icon: 'banana',   fx: 'monkey', text: 'OOH OOH AH AH!',          aura: '#ffd23d' },
+    moon:  { icon: 'moon',     fx: 'night', text: '*yawn* ...nap time',       aura: '#8f9bff' },
+    shield:{ icon: 'shield',   fx: null,    text: 'Shields up!',              aura: '#4aa8f0' },
     bomb:  { icon: 'bomb',     fx: null,    text: '',                         aura: '#ff3d3d' },
     super: { icon: 'dynamite', fx: null,    text: '',                         aura: '#ffb300' }
   };
@@ -146,8 +170,10 @@
   let food, special, bomb, score, eaten, best = 0;   // bombs get their own slot, separate from power-ups
   let fx, wasActive, clock, shake, bubble, particles, deathMsg, lastFxText = '', theme = 'normal';
   let hatTier = 0;
-  let stones, blasts, rings, zaps, flash, banner, stonesStarted, sinceSuper;
-  const fxAmt = { spicy: 0, chill: 0, dizzy: 0, god: 0 };   // smooth 0..1 fade for visuals
+  let stones, blasts, rings, zaps, flash, banner, stonesStarted, sinceSuper, shields;
+  let flung, grabs;              // monkey mode: rocks flying off the board, items flying from a paw to the mouth
+  let speedLvl, nightFrom;       // speed rises one level per snack; a night's sleep drains it from nightFrom to 0
+  const fxAmt = fxMap(0);        // smooth 0..1 fade for visuals
 
   try { best = parseInt(localStorage.getItem('sirNoodleBest') || '0', 10) || 0; } catch (e) {}
   $best.textContent = best;
@@ -164,11 +190,13 @@
     prev = snake;
     dir = {x:1,y:0}; queue = []; grow = 0;
     score = 0; eaten = 0; hatTier = 0;
-    fx = {spicy:0, chill:0, dizzy:0, god:0};
-    wasActive = {spicy:false, chill:false, dizzy:false, god:false};
+    fx = fxMap(0);
+    wasActive = fxMap(false);
     clock = 0; shake = 0; bubble = null; particles = []; special = null;
     stones = []; blasts = []; rings = []; zaps = []; flash = 0; banner = null; stonesStarted = false;
-    bomb = null; sinceSuper = 0;
+    bomb = null; sinceSuper = 0; shields = 0;
+    flung = []; grabs = [];
+    speedLvl = 0; nightFrom = 0;
     food = null;
     food = spawnItem(true);
     updateHud();
@@ -214,10 +242,17 @@
   }
 
   function pickSpecialKind() {
-    const pool = ['spicy', 'chill', 'dizzy'];
+    const pool = ['spicy', 'chill', 'dizzy', 'banana'];
     if (score >= STONE_START) {
       pool.push('star');
-      if (stones.length >= 5) pool.push('star');
+      if (stones.length >= 3) pool.push('banana');             // monkey paws help clear a crowded board
+      if (shields < MAX_SHIELDS) pool.push('shield');
+      if (stones.length >= 5) { pool.push('star'); if (shields < MAX_SHIELDS) pool.push('shield'); }
+    }
+    if (!isActive('night')) {                                  // the faster it gets, the more likely a moon
+      if (speedLvl >= 15) pool.push('moon');
+      if (speedLvl >= 25) pool.push('moon');
+      if (speedLvl >= 33) pool.push('moon', 'moon');
     }
     return rnd(pool);
   }
@@ -257,10 +292,15 @@
   function isActive(k) { return fx[k] > clock; }
   function multiplier() { return (isActive('spicy') ? 2 : 1) * (isActive('dizzy') ? 3 : 1) * (isActive('god') ? 2 : 1); }
   function interval() {
-    let iv = Math.max(75, 150 - eaten * 2);
+    let iv = Math.max(75, 150 - speedLvl * 2);
     if (isActive('spicy')) iv *= 0.6;
     if (isActive('chill')) iv *= 1.7;
+    if (isActive('night')) iv *= 1.8;
     return iv;
+  }
+  function snack() {                                         // sleeping noodles don't speed up
+    eaten++;
+    if (!isActive('night')) speedLvl = Math.min(MAX_LVL, speedLvl + 1);
   }
   function currentTheme() { for (const k of THEME_ORDER) if (isActive(k)) return k; return 'normal'; }
 
@@ -272,15 +312,31 @@
     for (const k of THEME_ORDER) {
       if (isActive(k)) parts.push(`${iconHtml(EFFECTS[k].emo)} ${EFFECTS[k].name} ${Math.ceil((fx[k] - clock) / 1000)}s`);
     }
+    if (shields > 0) parts.push(`${iconHtml('shield')} SHIELD${shields > 1 ? ' ×' + shields : ''}`);
     const m = multiplier();
     const t = parts.length ? parts.join(' • ') + (m > 1 ? `  (×${m})` : '') : `${iconHtml('face_relieved')} Feeling normal`;
     if (t !== lastFxText) { $fx.innerHTML = t; lastFxText = t; }
+    updateSpeedMeter();
     const th = currentTheme();
     if (th !== theme) {
       theme = th;
       document.body.className = th === 'normal' ? '' : 'fx-' + th;
       cv.style.boxShadow = GLOWS[th];
     }
+  }
+
+  let lastSpd = '';
+  function updateSpeedMeter() {
+    const night = isActive('night') && state !== 'over';
+    const pct = Math.round(speedLvl / MAX_LVL * 100);
+    const x = (150 / interval()).toFixed(1);
+    const key = pct + '|' + x + '|' + night;
+    if (key === lastSpd) return;
+    lastSpd = key;
+    $spdbar.style.width = Math.max(4, pct) + '%';
+    $spdbar.style.backgroundColor = night ? '#7c8cff' : `hsl(${120 - 120 * pct / 100},80%,52%)`;
+    $spdlbl.innerHTML = night ? `${iconHtml('zzz')} Speed` : 'Speed';
+    $spdx.textContent = x + '×';
   }
 
   // ---------- audio ----------
@@ -313,7 +369,13 @@
     thump()  { tone(75, 0.2, 'sine', 0.22, 0.5); },
     smash()  { tone(220, 0.14, 'square', 0.1, 0.4); tone(140, 0.18, 'sawtooth', 0.08, 0.5, 0.03); },
     boom()   { tone(90, 0.6, 'sawtooth', 0.26, 0.3); tone(60, 0.7, 'square', 0.2, 0.3, 0.02); tone(1300, 0.18, 'square', 0.06, 0.2); },
-    end()    { tone(500, 0.18, 'triangle', 0.08, 0.6); }
+    end()    { tone(500, 0.18, 'triangle', 0.08, 0.6); },
+    shieldUp()    { [440, 554, 659, 880].forEach((f, i) => tone(f, 0.12, 'sine', 0.12, 1.02, i * 0.05)); },
+    monkey() { [0, 0.16].forEach(d => { tone(420, 0.12, 'triangle', 0.13, 1.7, d); tone(700, 0.14, 'triangle', 0.1, 0.7, d + 0.07); }); },
+    fling()  { tone(260, 0.28, 'sawtooth', 0.06, 3.2); tone(140, 0.1, 'square', 0.08, 0.6); },
+    shieldBreak() { tone(1200, 0.25, 'triangle', 0.1, 0.35); tone(700, 0.3, 'square', 0.06, 0.4, 0.03); },
+    lullaby(){ [784, 659, 523, 392].forEach((f, i) => tone(f, 0.32, 'sine', 0.11, 1, i * 0.16)); },
+    morning(){ [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.12, 'triangle', 0.1, 1.05, i * 0.07)); tone(1568, 0.08, 'sine', 0.06, 1.3, 0.34); tone(1760, 0.08, 'sine', 0.06, 1.3, 0.44); }
   };
 
   // ---------- particles ----------
@@ -341,6 +403,9 @@
     if (a.dizzy > 0.05 && Math.random() < 0.4 * a.dizzy * f)
       particles.push({ x: Math.random() * SIZE, y: Math.random() * SIZE, vx: (Math.random() - .5) * 60, vy: -60, g: 120,
         life: 1300, max: 1300, size: 3 + Math.random() * 3, color: `hsl(${Math.floor(Math.random() * 360)},95%,60%)`, rot: Math.random() * 6 });
+    if (a.monkey > 0.05 && Math.random() < 0.2 * a.monkey * f)
+      particles.push({ x: Math.random() * SIZE, y: -10, vx: (Math.random() - .5) * 50, vy: 40 + Math.random() * 30, g: 0,
+        life: 4500, max: 4500, size: 5 + Math.random() * 3, color: rnd(['#5cb83c','#8fd14f','#3f9a35']), rot: Math.random() * 6 });
     if (a.god > 0.05 && Math.random() < 0.6 * a.god * f)
       particles.push({ x: Math.random() * SIZE, y: Math.random() * SIZE, vx: 0, vy: -15, g: 0,
         life: 1100, max: 1100, size: 3.5, icon: 'sparkle', rot: 0 });
@@ -354,8 +419,8 @@
   function die(msg) {
     prev = snake; state = 'over'; shake = 450;
     deathMsg = msg || rnd(DEATH_QUOTES);
-    fx = {spicy:0, chill:0, dizzy:0, god:0};
-    wasActive = {spicy:false, chill:false, dizzy:false, god:false};
+    fx = fxMap(0);
+    wasActive = fxMap(false);
     sfx.die();
     const h = snake[0];
     burst((h.x + .5) * CELL, (h.y + .5) * CELL, 26, ['#ff6b9d','#ffd166','#fff','#9be15d'], 200);
@@ -375,6 +440,17 @@
     banner = { text: e.banner, icon: e.icon, sub: e.sub, color: e.color, ms: 1700, total: 1700 };
   }
 
+  // the night is over: back to the starting speed
+  function wakeUp() {
+    speedLvl = 0;
+    const h = snake[0], px = (h.x + .5) * CELL, py = (h.y + .5) * CELL;
+    burst(px, py, 18, ['#ffd23d', '#ffb84d', '#fff6b8', '#fff'], 170);
+    rings.push({ x: px, y: py, ms: 600, total: 600, maxR: 2.2 * CELL });
+    banner = { text: 'GOOD MORNING', icon: 'sun', sub: 'speed reset • back to a gentle wiggle', color: '#f59a00', ms: 1900, total: 1900 };
+    sfx.morning();
+    updateHud();
+  }
+
   function smashStone(st) {
     stones = stones.filter(s => s !== st);
     const px = (st.x + .5) * CELL, py = (st.y + .5) * CELL;
@@ -383,6 +459,19 @@
     score += 5 * multiplier();
     sfx.smash(); shake = Math.max(shake, 90);
     say('CRUNCH!', 700);
+  }
+
+  // a shield charge pops and the rock goes with it
+  function breakShield(st) {
+    shields--;
+    smashStone(st);
+    const px = (st.x + .5) * CELL, py = (st.y + .5) * CELL;
+    burst(px, py, 16, ['#4aa8f0', '#9fd8ff', '#ffffff'], 210);
+    rings.push({ x: px, y: py, ms: 500, total: 500, maxR: 1.8 * CELL });
+    shake = Math.max(shake, 200);
+    sfx.shieldBreak();
+    say(shields ? `Shield saved you! (${shields} left)` : 'Shield saved you! (last one)', 1500);
+    updateHud();
   }
 
   function blowUpStone(st, parts) {
@@ -442,7 +531,8 @@
     // rocks
     const rock = stoneAt(nh.x, nh.y);
     if (rock) {
-      if (god) smashStone(rock);
+      if (god) smashStone(rock);                             // god mode never spends a shield
+      else if (shields > 0) breakShield(rock);
       else { die(rnd(STONE_DEATH)); return; }
     }
 
@@ -455,10 +545,43 @@
     snake = [nh, ...old];
     if (willGrow) grow--; else snake.pop();
 
+    consume(nh.x, nh.y);
+    if (isActive('monkey')) for (const c of pawCells()) {
+      const st = stoneAt(c.x, c.y);
+      if (st) fling(st, c.s); else consume(c.x, c.y, true);
+    }
+  }
+
+  // the two cells beside the head, s = -1 (left) / 1 (right) of the travel direction
+  function pawCells() {
+    const h = snake[0];
+    return [-1, 1].map(s => ({ x: mod(h.x - dir.y * s), y: mod(h.y + dir.x * s), s }));
+  }
+
+  // a paw throws a rock off the board
+  function fling(st, s) {
+    stones = stones.filter(r => r !== st);
+    const px = (st.x + .5) * CELL, py = (st.y + .5) * CELL;
+    const ox = -dir.y * s, oy = dir.x * s;                   // outward from the head
+    flung.push({ x: px, y: py, vx: ox * 700 + dir.x * 120, vy: oy * 700 + dir.y * 120 - 260, rot: 0, ms: 900 });
+    burst(px, py, 8, ROCK_COLORS, 140);
+    score += 20 * multiplier();
+    sfx.fling(); shake = Math.max(shake, 80);
+    say(rnd(['YEET!', 'Outta here!', 'Monkey see, monkey throw!', 'Catch!']), 900);
+    updateHud();
+  }
+
+  function consume(x, y, viaPaw) {
+    const it = [food, bomb, special].find(o => o && o.x === x && o.y === y);
+    if (viaPaw && it) {
+      const px = (x + .5) * CELL, py = (y + .5) * CELL;
+      grabs.push({ icon: it.kind ? PICKUPS[it.kind].icon : it.icon, x: px, y: py, ms: 260, total: 260 });
+      burst(px, py, 5, ['#f3cf9c', '#9a5f2c', '#fff'], 90);
+    }
     // normal snack
-    if (food && nh.x === food.x && nh.y === food.y) {
+    if (food && x === food.x && y === food.y) {
       const px = (food.x + .5) * CELL, py = (food.y + .5) * CELL;
-      score += 10 * multiplier(); eaten++; grow += 1;
+      score += 10 * multiplier(); snack(); grow += 1;
       burst(px, py, 14, ['#ff6b9d','#ffd166','#6ee7b7','#7dd3fc','#c4b5fd']);
       if (eaten % 5 === 0) {
         sfx.burp();
@@ -476,23 +599,36 @@
       updateHud();
     }
     // bombs
-    else if (bomb && nh.x === bomb.x && nh.y === bomb.y) {
+    else if (bomb && x === bomb.x && y === bomb.y) {
       const kind = bomb.kind;
       bomb = null;
-      grow += 1; eaten++;
-      if (kind === 'super') superDetonate(nh.x, nh.y); else detonate(nh.x, nh.y);
+      grow += 1; snack();
+      if (kind === 'super') superDetonate(x, y); else detonate(x, y);
+      updateHud();
+    }
+    // shield: a stored charge, not a timed effect
+    else if (special && special.kind === 'shield' && x === special.x && y === special.y) {
+      const px = (special.x + .5) * CELL, py = (special.y + .5) * CELL;
+      special = null;
+      shields = Math.min(MAX_SHIELDS, shields + 1);
+      score += 30 * multiplier(); snack(); grow += 1;
+      burst(px, py, 20, ['#4aa8f0', '#9fd8ff', '#ffc83d', '#fff'], 170);
+      rings.push({ x: px, y: py, ms: 450, total: 450, maxR: 1.4 * CELL });
+      say(shields > 1 ? `Shields up! (${shields} charges)` : PICKUPS.shield.text, 1600);
+      sfx.shieldUp();
       updateHud();
     }
     // power-ups
-    else if (special && nh.x === special.x && nh.y === special.y) {
+    else if (special && x === special.x && y === special.y) {
       const kind = special.kind, def = PICKUPS[kind];
       const px = (special.x + .5) * CELL, py = (special.y + .5) * CELL;
       special = null;
+      if (kind === 'moon') nightFrom = speedLvl;
       startEffect(def.fx);
-      score += (kind === 'star' ? 50 : 30) * multiplier(); eaten++; grow += 2;
-      burst(px, py, 26, kind === 'star' ? ['#ffd54a','#fff','#ffb300'] : ['#ff4d4d','#ffa94d','#ffe066','#fff'], 190);
+      score += (kind === 'star' ? 50 : 30) * multiplier(); snack(); grow += 2;
+      burst(px, py, 26, kind === 'star' ? ['#ffd54a','#fff','#ffb300'] : kind === 'moon' ? ['#fff6b8','#c9d0ff','#8f9bff','#fff'] : ['#ff4d4d','#ffa94d','#ffe066','#fff'], 190);
       say(def.text, 1800);
-      if (kind === 'star') sfx.star(); else sfx.special();
+      if (kind === 'star') sfx.star(); else if (kind === 'banana') sfx.monkey(); else if (kind === 'moon') sfx.lullaby(); else sfx.special();
       shake = Math.max(shake, 150);
       updateHud();
     }
@@ -611,12 +747,12 @@
     ctx.rotate(-rot); ctx.translate(-x, -y);
   }
   function circle(x, y, r) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); }
-  function wrapDraw(x, y, fn) {
+  function wrapDraw(x, y, fn, m = 1.2) {     // m: how far (in cells) the drawing reaches past its centre
     fn(x, y);
-    if (x < 1.2) fn(x + N, y);
-    if (x > N - 1.2) fn(x - N, y);
-    if (y < 1.2) fn(x, y + N);
-    if (y > N - 1.2) fn(x, y - N);
+    if (x < m) fn(x + N, y);
+    if (x > N - m) fn(x - N, y);
+    if (y < m) fn(x, y + N);
+    if (y > N - m) fn(x, y - N);
   }
 
   // ---------- drawing: grass with effect moods ----------
@@ -638,6 +774,16 @@
       const t = hslToRgb(x * 24 + y * 24 + time * 0.14, .85, odd ? .72 : .8);
       c = mix(c, t, a.dizzy);
     }
+    if (a.monkey > 0.01) {                       // jungle: deeper green with drifting leaf shade
+      const sp = 14 * Math.sin(x * 1.7 + y * 2.3 + time / 900);
+      const t = odd ? [128, 200, 92] : [150, 216, 108];
+      c = mix(c, [t[0] + sp, t[1] + sp, t[2]], a.monkey);
+    }
+    if (a.night > 0.01) {                        // dark blue night with a pool of moonlight around the head
+      const glow = Math.exp(-Math.hypot(wd(head.x, x), wd(head.y, y)) / 3.5) * 0.45;
+      const t = odd ? [58, 80, 132] : [68, 92, 146];
+      c = mix(c, mix(t, [150, 170, 215], glow), a.night);
+    }
     if (a.god > 0.01) {
       const dx = wd(head.x, x), dy = wd(head.y, y);
       const ray = 24 * Math.sin(Math.atan2(dy, dx) * 7 + time / 260) * Math.exp(-Math.hypot(dx, dy) / 9);
@@ -655,7 +801,7 @@
   let grassStatic = false;
   function drawGrass(time) {
     const a = fxAmt;
-    const plain = a.spicy <= 0.01 && a.chill <= 0.01 && a.dizzy <= 0.01 && a.god <= 0.01;
+    const plain = Object.values(a).every(v => v <= 0.01);
     if (!plain || !grassStatic) {
       const d = grassImg.data;
       for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
@@ -668,6 +814,7 @@
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(grassCv, 0, 0, SIZE, SIZE);
     ctx.imageSmoothingEnabled = true;
+    if (a.night > 0.01) drawNightSky(time, a.night);   // cheap and it's what tells you it's night, so kept in low FX
     if (lowFx) return;                          // skip the animated overlays below
     if (a.spicy > 0.01) {                       // rising heat shimmer
       ctx.fillStyle = `rgba(255,110,30,${0.1 * a.spicy})`;
@@ -704,6 +851,18 @@
     }
   }
 
+  function drawNightSky(time, al) {
+    ctx.fillStyle = '#fff6c8';
+    for (let i = 0; i < 30; i++) {                           // twinkling stars at fixed spots
+      const sx = (i * 151 + 37) % SIZE, sy = (i * 97 + 11) % SIZE;
+      ctx.globalAlpha = al * (0.35 + 0.65 * Math.abs(Math.sin(time / 700 + i * 2.3)));
+      circle(sx, sy, 1.4 + (i % 3) * 0.6); ctx.fill();
+    }
+    ctx.globalAlpha = al;
+    icon('moon', SIZE - 54, 54 + Math.sin(time / 900) * 3, 56, -0.1);
+    ctx.globalAlpha = 1;
+  }
+
   // vignettes are pre-rendered at low res (smooth gradients upscale cleanly) and faded with globalAlpha
   const VIG_PX = 128, vigCache = new Map();
   function vignette(r, g, b, al) {
@@ -731,6 +890,8 @@
     vignette(120, 205, 255, a.chill * 0.45);
     const dz = hslToRgb(Math.round(time / 60) * 10, .9, .6);   // hue in 10° steps -> 36 cached sprites max
     vignette(dz[0], dz[1], dz[2], a.dizzy * 0.4);
+    vignette(60, 140, 30, a.monkey * 0.3);
+    vignette(15, 18, 55, a.night * 0.55);
     vignette(255, 205, 40, a.god * (0.4 + 0.1 * Math.sin(time / 120)));
   }
 
@@ -875,6 +1036,7 @@
     let h, s = 85, l = 68;
     if (isActive('god')) { h = (time * 0.35 + j * 14) % 360; s = 95; l = 62; }
     else if (isActive('dizzy')) h = (280 + j * 12 + time * 0.15) % 360;
+    else if (isActive('night')) { h = 255 + (j * 4) % 40; s = 60; l = 74; }
     else if (isActive('spicy')) h = 8 + (j * 3) % 40;
     else if (isActive('chill')) h = 185 + (j * 4) % 40;
     else h = (335 - j * 7 + 720) % 360;
@@ -909,7 +1071,7 @@
       ctx.fillStyle = 'rgba(255,255,255,.28)'; circle(c.cx - c.r * .25, c.cy - c.r * .3, c.r * .42); ctx.fill();
     }
     const hp = pos[0];
-    wrapDraw(hp.x, hp.y, (x, y) => drawFace((x + .5) * CELL, (y + .5) * CELL, hp, time));
+    wrapDraw(hp.x, hp.y, (x, y) => drawFace((x + .5) * CELL, (y + .5) * CELL, hp, time), isActive('monkey') ? 2.2 : 1.2);   // monkey paws reach a cell further
     return hp;
   }
 
@@ -935,6 +1097,16 @@
     const dead = state === 'over';
 
     if (isActive('god')) drawGodAura(px, py, time);
+    else if (shields > 0 && !dead) {                         // shield bubble, one extra ring per charge
+      const pulse = 0.5 + 0.5 * Math.sin(time / 260);
+      ctx.fillStyle = `rgba(120,200,255,${0.16 + 0.06 * pulse})`;
+      circle(px, py, 25); ctx.fill();
+      ctx.lineWidth = 2.5;
+      for (let i = 0; i < shields; i++) {
+        ctx.strokeStyle = `rgba(74,168,240,${0.85 - i * 0.2})`;
+        circle(px, py, 25 + i * 4.5); ctx.stroke();
+      }
+    }
 
     // dizzy: orbiting stars
     if (isActive('dizzy')) {
@@ -945,6 +1117,8 @@
     }
     // chill: little frost puffs
     if (!lowFx && isActive('chill') && Math.random() < 0.15) burst(px, py, 1, ['#e0f7ff', '#9fdcff'], 50);
+
+    if (isActive('monkey') && !dead) drawMonkey(px, py, d, p, time);
 
     // blush
     ctx.fillStyle = 'rgba(255,90,140,.45)';
@@ -972,6 +1146,12 @@
         const ly = fdy / fl * 2.4 + Math.cos(time / 110 + s) * wob;
         ctx.fillStyle = INK; circle(ex + lx, ey + ly, 3.1); ctx.fill();
         ctx.fillStyle = '#fff'; circle(ex + lx - 1, ey + ly - 1, 1); ctx.fill();
+        if (isActive('night')) {                             // heavy eyelids, slowly drooping and lifting
+          const lid = 0.15 + 0.12 * Math.sin(time / 600);
+          ctx.fillStyle = bodyColor(0, time);
+          ctx.beginPath(); ctx.arc(ex, ey, 6.6, Math.PI * (1 - lid), Math.PI * (2 + lid)); ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = INK; ctx.lineWidth = 2; ctx.stroke();
+        }
       }
     }
 
@@ -995,6 +1175,33 @@
       ctx.fillStyle = '#000';
       icon(HATS[hatTier], px + 1, py - 17 + Math.sin(time / 260) * 1.2, 24, -0.2);
     }
+  }
+
+  // fur, ears, muzzle and two paws in the cells beside the head (the eyes and mouth are drawn on top)
+  function drawMonkey(px, py, d, p, time) {
+    const blink = fx.monkey - clock < 1500 && Math.floor(time / 110) % 2;   // about to end
+    for (const s of [-1, 1]) {
+      const sw = Math.sin(time / 130 + s * 1.6) * 3;                       // paws swing like walking
+      const hx = px + p.x * s * CELL + d.x * sw, hy = py + p.y * s * CELL + d.y * sw;
+      if (!blink) {
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = INK; ctx.lineWidth = 9;
+        ctx.beginPath(); ctx.moveTo(px + p.x * s * 12, py + p.y * s * 12); ctx.lineTo(hx, hy); ctx.stroke();
+        ctx.strokeStyle = '#9a5f2c'; ctx.lineWidth = 4.5; ctx.stroke();
+        icon('paw', hx, hy, 20, Math.atan2(p.y * s, p.x * s) + Math.PI / 2);
+      }
+      const ex = px + p.x * s * 14 - d.x * 3, ey = py + p.y * s * 14 - d.y * 3;  // ears
+      ctx.fillStyle = '#9a5f2c'; ctx.strokeStyle = INK; ctx.lineWidth = 2.4;
+      circle(ex, ey, 6); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#f3cf9c'; circle(ex, ey, 3); ctx.fill();
+    }
+    ctx.fillStyle = '#9a5f2c'; ctx.strokeStyle = INK; ctx.lineWidth = 2.6;
+    circle(px, py, 15.5); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#f3cf9c';
+    for (const s of [-1, 1]) { circle(px + d.x * 4 + p.x * s * 7, py + d.y * 4 + p.y * s * 7, 8); ctx.fill(); }
+    ctx.beginPath(); ctx.ellipse(px + d.x * 10, py + d.y * 10, 6, 9, Math.atan2(d.y, d.x), 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = INK;
+    for (const s of [-1, 1]) { circle(px + d.x * 13 + p.x * s * 2.5, py + d.y * 13 + p.y * s * 2.5, 1.3); ctx.fill(); }
   }
 
   // ---------- drawing: overlays ----------
@@ -1048,6 +1255,14 @@
       ctx.fillStyle = `rgba(255,${200 + 55 * (1 - k) | 0},120,${k * 0.95})`;
       rr(b.x * CELL + 1, b.y * CELL + 1, CELL - 2, CELL - 2, 8); ctx.fill();
       icon('boom', (b.x + .5) * CELL, (b.y + .5) * CELL, 14 + 22 * (1 - k));
+    }
+    for (const f of flung) icon('rock', f.x, f.y, 24 * (1 + (900 - f.ms) / 900), f.rot);
+    if (grabs.length) {                                      // paw -> mouth
+      const h = snake[0], hx = (h.x + .5) * CELL, hy = (h.y + .5) * CELL;
+      for (const g of grabs) {
+        const k = 1 - g.ms / g.total;
+        icon(g.icon, g.x + (hx - g.x) * k, g.y + (hy - g.y) * k, 22 * (1 - 0.5 * k));
+      }
     }
     for (const r of rings) {
       const k = 1 - r.ms / r.total, rad = r.maxR * (1 - Math.pow(1 - k, 3));
@@ -1146,8 +1361,8 @@
   // When nothing is moving (pause, or title / game over once the effects have settled) the scene is
   // drawn once and the loop stops completely until input wakes it -> 0% CPU while idle.
   function settled() {
-    return !particles.length && !blasts.length && !rings.length && !zaps.length && !banner && !bubble &&
-      flash <= 0 && shake <= 0 && fxAmt.spicy === 0 && fxAmt.chill === 0 && fxAmt.dizzy === 0 && fxAmt.god === 0;
+    return !particles.length && !blasts.length && !rings.length && !zaps.length && !flung.length && !grabs.length &&
+      !banner && !bubble && flash <= 0 && shake <= 0 && Object.values(fxAmt).every(v => v === 0);
   }
   function wake() {
     if (!sleeping) return;
@@ -1188,11 +1403,22 @@
       if (state === 'play') {
         if (special && special.until < clock) special = null;
         if (bomb && bomb.until < clock) bomb = null;
+        // asleep: the speed level drains to 0 over the night, so the meter visibly empties
+        if (isActive('night')) speedLvl = nightFrom * (fx.night - clock) / EFFECTS.night.ms;
         // effect just ended?
         for (const k of THEME_ORDER) {
           const a = isActive(k);
-          if (wasActive[k] && !a) { say(END_QUOTES[k], 1800); sfx.end(); }
+          if (wasActive[k] && !a) {
+            say(END_QUOTES[k], 1800);
+            if (k === 'night') wakeUp(); else sfx.end();
+          }
           wasActive[k] = a;
+        }
+        // sleepy Zzz drifting up from the head
+        if (isActive('night') && Math.random() < 0.018 * dt / 16.7) {
+          const h = snake[0];
+          particles.push({ x: (h.x + .5) * CELL + 10, y: (h.y + .5) * CELL - 14, vx: 10 + Math.random() * 12, vy: -38, g: 0,
+            life: 1800, max: 1800, size: 8 + Math.random() * 2, icon: 'zzz', rot: -0.15, still: true });
         }
         // flames while spicy
         if (isActive('spicy') && Math.random() < (lowFx ? 0.15 : 0.6)) {
@@ -1213,7 +1439,7 @@
     for (const p of particles) {
       p.x += p.vx * dt / 1000; p.y += p.vy * dt / 1000;
       p.vy += (p.g === undefined ? 260 : p.g) * dt / 1000;
-      p.life -= dt; p.rot += dt / 200;
+      p.life -= dt; if (!p.still) p.rot += dt / 200;
       if (p.life > 0) particles[alive++] = p;
     }
     particles.length = alive;
@@ -1223,6 +1449,10 @@
     rings = rings.filter(r => r.ms > 0);
     for (const z of zaps) z.ms -= dt;
     zaps = zaps.filter(z => z.ms > 0);
+    for (const f of flung) { f.x += f.vx * dt / 1000; f.y += f.vy * dt / 1000; f.vy += 600 * dt / 1000; f.rot += dt / 60; f.ms -= dt; }
+    flung = flung.filter(f => f.ms > 0);
+    for (const g of grabs) g.ms -= dt;
+    grabs = grabs.filter(g => g.ms > 0);
     if (bubble && state !== 'pause') { bubble.ms -= dt; if (bubble.ms <= 0) bubble = null; }
     if (banner && state !== 'pause') { banner.ms -= dt; if (banner.ms <= 0) banner = null; }
     if (shake > 0) shake -= dt;

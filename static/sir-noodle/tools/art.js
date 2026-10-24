@@ -247,6 +247,25 @@ ART.dynamite = g => {
   star(g, 58, 11, 10, 4, 8); paint(g, '#ffe066', 3);
 };
 
+ART.shield = g => {
+  const body = (s) => {
+    g.beginPath(); g.moveTo(50, 50 - 42 * s);
+    g.bezierCurveTo(50 + 22 * s, 50 - 32 * s, 50 + 36 * s, 50 - 36 * s, 50 + 40 * s, 50 - 34 * s);
+    g.bezierCurveTo(50 + 42 * s, 50 + 6 * s, 50 + 30 * s, 50 + 30 * s, 50, 50 + 44 * s);
+    g.bezierCurveTo(50 - 30 * s, 50 + 30 * s, 50 - 42 * s, 50 + 6 * s, 50 - 40 * s, 50 - 34 * s);
+    g.bezierCurveTo(50 - 36 * s, 50 - 36 * s, 50 - 22 * s, 50 - 32 * s, 50, 50 - 42 * s);
+    g.closePath();
+  };
+  body(1); paint(g, '#ffc83d');                               // gold rim
+  body(0.78); paint(g, '#4aa8f0', 3.5);                       // blue face
+  g.save(); body(0.78); g.clip();
+  g.fillStyle = '#7cc4f7'; g.fillRect(0, 0, 50, 100);          // lighter left half
+  g.restore();
+  body(0.78); ink(g, 3.5); g.stroke();
+  star(g, 50, 48, 16, 7); paint(g, '#fff3a0', 3);
+  shine(g, 34, 26, 3.5, 9, 0.35, 0.6);
+};
+
 // ---------- effects ----------
 function snowPath(g, cx, cy, r) {
   g.beginPath();
@@ -411,6 +430,73 @@ ART.face_relieved = g => {
   for (const x of [35, 65]) { g.beginPath(); g.arc(x, 44, 8, Math.PI * 0.15, Math.PI * 0.85); g.stroke(); }
   g.beginPath(); g.arc(50, 60, 13, Math.PI * 0.2, Math.PI * 0.8); g.stroke();
   blush(g);
+};
+
+ART.face_sleepy = g => {
+  face(g, '#ffd23d');
+  ink(g, 4.5);
+  for (const x of [35, 63]) { g.beginPath(); g.arc(x, 42, 8, Math.PI * 0.15, Math.PI * 0.85); g.stroke(); }
+  ell(g, 50, 68, 6, 7); g.fillStyle = INK; g.fill();
+  blush(g);
+  zLetter(g, 80, 22, 13);
+};
+
+// ---------- night time ----------
+function zLetter(g, x, y, s) {
+  g.beginPath(); g.moveTo(x - s / 2, y - s / 2); g.lineTo(x + s / 2, y - s / 2); g.lineTo(x - s / 2, y + s / 2); g.lineTo(x + s / 2, y + s / 2);
+  stroke2(g, s * 0.28, '#e6f0ff');
+}
+
+// crescent moon with a sleepy face: a full disc with a second disc cut out of it
+ART.moon = g => {
+  const ox = 44, oy = 54, orr = 40, ix = 70, iy = 40, ir = 32;
+  circ(g, ox, oy, orr); paint(g, '#ffe680');
+  g.save(); g.globalCompositeOperation = 'destination-out'; circ(g, ix, iy, ir + LW / 2); g.fill(); g.restore();
+  g.save(); circ(g, ox, oy, orr); g.clip(); circ(g, ix, iy, ir); ink(g); g.stroke(); g.restore();
+  g.beginPath(); g.arc(25, 56, 6, Math.PI * 0.15, Math.PI * 0.85); ink(g, 4); g.stroke();
+  g.beginPath(); g.arc(34, 72, 6, Math.PI * 0.1, Math.PI * 0.7); ink(g, 3.5); g.stroke();
+  g.fillStyle = 'rgba(255,90,140,.45)'; ell(g, 20, 68, 5, 3); g.fill();
+  shine(g, 22, 36, 8, 4, -1.0, 0.6);
+  star(g, 80, 78, 11, 5); paint(g, '#fff6b8', 3.5);
+  star(g, 88, 16, 7, 3); paint(g, '#fff6b8', 3);
+};
+
+ART.zzz = g => {
+  zLetter(g, 30, 70, 30); zLetter(g, 60, 44, 22); zLetter(g, 80, 22, 15);
+};
+
+ART.sun = g => {
+  for (let i = 0; i < 10; i++) {
+    const a = i * Math.PI / 5;
+    g.beginPath(); g.moveTo(50 + Math.cos(a) * 32, 50 + Math.sin(a) * 32); g.lineTo(50 + Math.cos(a) * 45, 50 + Math.sin(a) * 45);
+    stroke2(g, 5, '#ffb84d');
+  }
+  circ(g, 50, 50, 26); paint(g, '#ffd23d');
+  for (const x of [41, 59]) { g.beginPath(); g.arc(x, 48, 5, Math.PI * 1.15, Math.PI * 1.85); ink(g, 3.5); g.stroke(); }
+  g.beginPath(); g.arc(50, 54, 9, Math.PI * 0.2, Math.PI * 0.8); ink(g, 3.5); g.stroke();
+  shine(g, 40, 36, 6, 3);
+};
+
+// ---------- monkey mode ----------
+ART.monkey = g => {
+  for (const x of [15, 85]) { circ(g, x, 50, 13); paint(g, '#9a5f2c'); circ(g, x, 50, 6.5); g.fillStyle = '#f3cf9c'; g.fill(); }
+  circ(g, 50, 50, 36); paint(g, '#9a5f2c');
+  g.beginPath(); g.arc(37, 45, 14, 0, Math.PI * 2); g.arc(63, 45, 14, 0, Math.PI * 2); g.fillStyle = '#f3cf9c'; g.fill();
+  ell(g, 50, 66, 23, 15); paint(g, '#f3cf9c', 3.5);
+  circ(g, 37, 45, 7); paint(g, '#fff', 3); dot(g, 39, 46, 3.5);
+  circ(g, 63, 45, 7); paint(g, '#fff', 3); dot(g, 61, 46, 3.5);
+  dot(g, 45, 61, 2.3); dot(g, 55, 61, 2.3);
+  g.beginPath(); g.arc(50, 66, 11, Math.PI * 0.2, Math.PI * 0.8); ink(g, 4); g.stroke();
+  shine(g, 34, 22, 9, 4.5);
+};
+
+// pointing up; the game rotates it to face outward from the head
+ART.paw = g => {
+  for (const [x, y] of [[30, 30], [43, 22], [57, 22], [70, 30]]) { ell(g, x, y, 8, 11); paint(g, '#9a5f2c', 4); }
+  ell(g, 50, 56, 27, 25); paint(g, '#9a5f2c');
+  ell(g, 50, 60, 15, 13); g.fillStyle = '#f3cf9c'; g.fill();
+  for (const [x, y] of [[30, 27], [43, 19], [57, 19], [70, 27]]) { g.fillStyle = '#f3cf9c'; ell(g, x, y, 3.5, 4.5); g.fill(); }
+  shine(g, 38, 44, 6, 3.5);
 };
 
 function speakerBody(g) {

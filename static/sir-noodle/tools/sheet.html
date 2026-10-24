@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sir Noodle Art Sheet</title>
+<style>
+  body { margin: 0; padding: 16px; background: #bdf0a6; font: 13px system-ui, sans-serif; color: #5b2a4e; }
+  #grid { display: grid; grid-template-columns: repeat(auto-fill, 132px); gap: 10px; }
+  figure { margin: 0; text-align: center; }
+  canvas { display: block; width: 128px; height: 128px; background: repeating-conic-gradient(#c9f2b4 0 25%, #b3e89a 0 50%) 0 0 / 16px 16px; border-radius: 10px; }
+  .small canvas { width: 32px; height: 32px; display: inline-block; margin: 2px; }
+</style>
+</head>
+<body>
+<div id="grid"></div>
+<p>Same art at game size (32px):</p>
+<div id="small" class="small"></div>
+<script src="art.js"></script>
+<script>
+  // Renders one icon into a size x size canvas.
+  function renderIcon(name, size) {
+    const c = document.createElement('canvas'); c.width = c.height = size;
+    const g = c.getContext('2d'); g.scale(size / 100, size / 100);
+    ART[name](g);
+    return c;
+  }
+  // Used by export.mjs: { name: base64 PNG }
+  window.exportAll = (size) => {
+    const out = {};
+    for (const name of Object.keys(ART)) out[name] = renderIcon(name, size).toDataURL('image/png').split(',')[1];
+    return out;
+  };
+  for (const name of Object.keys(ART)) {
+    const f = document.createElement('figure');
+    f.appendChild(renderIcon(name, 256));
+    const cap = document.createElement('figcaption'); cap.textContent = name; f.appendChild(cap);
+    document.getElementById('grid').appendChild(f);
+    document.getElementById('small').appendChild(renderIcon(name, 64));
+  }
+</script>
+</body>
+</html>

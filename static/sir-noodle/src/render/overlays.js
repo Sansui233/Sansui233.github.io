@@ -5,8 +5,9 @@ function drawBubble(hp) {
   if (!bubble) return;
   const alpha = Math.min(1, bubble.ms / 300);
   ctx.save(); ctx.globalAlpha = alpha;
-  ctx.font = `600 15px ${TEXT_FONT}`;
-  const w = ctx.measureText(bubble.text).width + 26, h = 30;
+  const fs = Math.max(15, minTextPx);
+  ctx.font = `600 ${fs}px ${TEXT_FONT}`;
+  const w = ctx.measureText(bubble.text).width + 26, h = 15 + fs;
   const px = (hp.x + .5) * CELL, py = (hp.y + .5) * CELL;
   let bx = Math.max(w / 2 + 6, Math.min(SIZE - w / 2 - 6, px));
   let by = py - 50, below = false;
@@ -90,7 +91,7 @@ function drawPops() {
     const k = 1 - p.ms / p.total;                                         // 0 -> 1
     const sc = k < .14 ? .3 + 1.05 * k / .14 : k < .28 ? 1.35 - .35 * (k - .14) / .14 : 1;   // pop, settle
     const side = p.x > SIZE - 80 ? -1 : 1;                                // stay on the board
-    const size = p.big ? 26 : 18, label = '×' + p.n;
+    const size = Math.max(p.big ? 26 : 18, minTextPx), label = '×' + p.n;
     ctx.font = `600 ${size}px ${TEXT_FONT}`;
     const w = ctx.measureText(label).width, gw = size + 3 + w;           // snack bag + gap + text
     ctx.save();

@@ -3,15 +3,38 @@
   font-family: 'Fredoka'; font-style: normal; font-weight: 400 700; font-display: block;
   src: url(../assets/fonts/fredoka-latin.woff2) format('woff2');
 }
-:root { --ink: #5b2a4e; }
+/* Chinese: Fredoka has no CJK glyphs, so they come from the system's UI font (nothing to bundle).
+   Kept light: bold text (600) gets a medium cut where there is one, never a heavy bold
+   (YaHei has no medium, so Windows stays regular): PingFang SC (Apple), Microsoft YaHei UI (Windows),
+   Noto Sans CJK / Source Han Sans (Android, Linux). */
+@font-face {
+  font-family: 'Noodle CJK'; font-weight: 100 500;
+  src: local('PingFangSC-Regular'), local('Microsoft YaHei UI'), local('MicrosoftYaHeiUI'),
+       local('Noto Sans CJK SC'), local('NotoSansCJKsc-Regular'), local('Source Han Sans SC'), local('SourceHanSansSC-Regular');
+  unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+@font-face {
+  font-family: 'Noodle CJK'; font-weight: 600 900;
+  src: local('PingFangSC-Medium'), local('Microsoft YaHei UI'), local('MicrosoftYaHeiUI'),
+       local('Noto Sans CJK SC Medium'), local('NotoSansCJKsc-Medium'), local('Source Han Sans SC Medium'), local('SourceHanSansSC-Medium');
+  unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+:root {
+  --ink: #5b2a4e;
+  /* window fit (fitWindow() in src/main.js, debounced on resize): --ui is 1 on roomy windows, down to .75 on
+     small ones, and scales the page around the board; --chrome is the height that page takes (measured) */
+  --ui: 1; --chrome: 150px; --hud-k: .15;   /* --hud-k: header height / board width (measured too) */
+  --min-font: 10px;   /* no text anywhere gets smaller than this (canvas text too: minTextPx) */
+  --font: "Fredoka", "Noodle CJK", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+}
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body { height: 100dvh; }
 body {
-  display: flex; flex-direction: column; align-items: center; justify-content: safe center; gap: 12px;
-  padding: 18px 0;   /* breathing room so the board frame is never cut by the window edge */
+  display: flex; flex-direction: column; align-items: center; justify-content: safe center; gap: calc(12px * var(--ui));
+  padding: calc(18px * var(--ui)) 0;   /* breathing room so the board frame is never cut by the window edge */
   background: radial-gradient(circle at 20% 10%, #ffe3f1, #ffd2b8 45%, #c9f0ff);
-  font-family: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  font-family: var(--font);
   color: var(--ink); user-select: none; -webkit-user-select: none; overflow: hidden;
 }
 /* page mood changes with the active effect */
@@ -32,8 +55,9 @@ body.fx-dizzy::before { opacity: 1; animation: dz 3s ease infinite; }
 /* the board: HUD header (css/hud.css) glued on top of the stage; the canvas fills the stage and the UI
    screens (css/ui.css) sit on top of it. The whole board glows with the active effect (GLOWS). */
 #board {
-  /* the header is ~15% of the board width, so the board is (window - page padding - hint - gaps) / 1.15 tall */
-  width: min(94vw, calc((100dvh - 150px) / 1.15), 640px); container-type: inline-size;
+  /* the header is ~15% of the board width (more on tiny boards, where its text stops shrinking),
+     so the board is (window - page padding - hint - gaps) / (1 + header share) wide */
+  width: min(94vw, calc((100dvh - var(--chrome)) / (1 + var(--hud-k))), 640px); container-type: inline-size;
   border-radius: 22px; box-shadow: 0 8px 0 var(--ink), 0 18px 30px rgba(91,42,78,.3); transition: box-shadow .25s;
 }
 #stage { position: relative; width: 100%; aspect-ratio: 1; container-type: inline-size; }
@@ -42,10 +66,13 @@ canvas {
   border: 5px solid var(--ink); border-radius: 0 0 22px 22px;
   background: #bdf0a6; touch-action: none; cursor: pointer;
 }
-.hint { font-size: 13px; opacity: .85; text-align: center; padding: 0 10px; max-width: 680px; }
+.hint { font-size: max(var(--min-font), calc(13px * var(--ui))); opacity: .85; text-align: center; padding: 0 10px; max-width: 680px; }
 body.fx-night .hint { color: #e6e9ff; text-shadow: 2px 2px 0 #171b3d; }
+/* short windows (landscape phones): the board needs every pixel, the controls hint goes */
+@media (max-height: 520px) { .hint { display: none; } }
 body.low-fx::before { display: none; }
 body.idle::before { animation-play-state: paused; }     /* nothing animates while the game sleeps */
 /* Fredoka is chunky: bold text is 600, never heavier (the bundled font tops out at 700 anyway) */
 b, strong, h1, h2, h3, th { font-weight: 600; }
+small { font-size: max(var(--min-font), .83em); }   /* the browser default (smaller) has no floor */
 .ico { height: 1.3em; width: 1.3em; vertical-align: -0.3em; }

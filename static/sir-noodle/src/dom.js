@@ -2,6 +2,7 @@
 'use strict';
 
 const $board = document.getElementById('board');     // header + stage; carries the effect glow
+const $hud = document.getElementById('hud');
 const cv = document.getElementById('c');
 const ctx = cv.getContext('2d');
 let dpr = 1;
@@ -15,6 +16,7 @@ const $spdlbl = document.getElementById('spdlbl');
 const $spdx = document.getElementById('spdx');
 const $mute = document.getElementById('mute');
 const $lowfx = document.getElementById('lowfx');
+const $lang = document.getElementById('lang');
 const $trophies = document.getElementById('trophies');
 const $trophyCount = document.getElementById('trophy-count');
 const $profileBtn = document.getElementById('profile');

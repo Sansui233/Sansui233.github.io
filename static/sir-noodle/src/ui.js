@@ -33,17 +33,16 @@ function hideScreen(el) {
 function syncScreens() {
   const p = save.profile;
   if (state === 'title') {
-    $titlePlayer.innerHTML = `${avatarHtml(p.avatar, 'sm')}<small>Playing as</small> ${esc(p.name)} <span class="edit">change</span>`;
-    $titleSub.innerHTML = `<span class="chip">${iconHtml('crown')} Best ${fmtNum(best)}</span>` +
-      `<span class="chip">${iconHtml('star')} ${unlockedCount()}/${ACHIEVEMENTS.length} achievements</span>`;
+    $titlePlayer.innerHTML = `${avatarHtml(p.avatar, 'sm')}<small>${tr('playingAs')}</small> ${esc(shownName(p.name))} <span class="edit">${tr('change')}</span>`;
+    $titleSub.innerHTML = `<span class="chip">${iconHtml('crown')} ${tr('bestChip', fmtNum(best))}</span>` +
+      `<span class="chip">${iconHtml('star')} ${tr('achChip', unlockedCount(), ACHIEVEMENTS.length)}</span>`;
     showScreen($scrTitle);
   } else hideScreen($scrTitle);
   if (state === 'pause') {
     $pauseAvatar.src = `assets/${p.avatar}.png`;
-    $pauseWho.textContent = rnd([`${p.name} is munching a snack.`, `${p.name} went to get more napkins.`,
-      `${p.name} is catching their breath.`, `Hold my noodle, ${p.name} will be right back.`]);
-    $pauseSub.innerHTML = statChip('coin', 'Score', fmtNum(score)) + statChip('snackbag', 'Snacks', fmtNum(eaten)) +
-      statChip('clock', 'Time', fmtTime(clock));
+    $pauseWho.textContent = rnd(tr('pauseLines', shownName(p.name)));
+    $pauseSub.innerHTML = statChip('coin', tr('score'), fmtNum(score)) + statChip('snackbag', tr('snacks'), fmtNum(eaten)) +
+      statChip('clock', tr('time'), fmtTime(clock));
     showScreen($scrPause);
   } else hideScreen($scrPause);
   if (state !== 'over') { cancelOver(); hideScreen($scrOver); }
@@ -51,7 +50,7 @@ function syncScreens() {
 
 // ---------- formatting ----------
 const fmtTime = (ms) => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
-const fmtDate = (ts) => new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+const fmtDate = (ts) => new Date(ts).toLocaleDateString(tr('locale'), { month: 'short', day: 'numeric' });
 const fmtNum = (v) => v.toLocaleString('en-US');
 const baseSpeed = (lvl) => (150 / Math.max(75, 150 - lvl * 2)).toFixed(1) + '×';   // speed without effects
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);   // names go into innerHTML
@@ -86,43 +85,43 @@ function showGameOver(rep) {
   const counts = [];                                   // [ms, element index, value, formatter]
   const d = (ms) => `style="--d:${ms}ms"`;
 
-  let h = `<div class="over-head pop" ${d(next())}><span class="over-avatar" title="${esc(save.profile.name)}">${avatarHtml(save.profile.avatar)}<img class="stars" src="assets/dizzy.png" alt=""></span><h2>GAME OVER</h2></div>
+  let h = `<div class="over-head pop" ${d(next())}><span class="over-avatar" title="${esc(shownName(save.profile.name))}">${avatarHtml(save.profile.avatar)}<img class="stars" src="assets/dizzy.png" alt=""></span><h2>${tr('gameOver')}</h2></div>
     <p class="quote pop" ${d(next())}>${deathMsg}</p>
     <div class="stats">`;
-  const stats = [['Score', 'coin', score, fmtNum, 'big'], ['Snacks', 'snackbag', eaten, fmtNum], ['Length', 'worm', r.length, fmtNum], ['Time', 'clock', clock, fmtTime]];
+  const stats = [[tr('score'), 'coin', score, fmtNum, 'big'], [tr('snacks'), 'snackbag', eaten, fmtNum], [tr('length'), 'worm', r.length, fmtNum], [tr('time'), 'clock', clock, fmtTime]];
   stats.forEach(([label, icon, v, fmt, cls], i) => {
     const ms = next();
     counts.push([ms, i, v, fmt]); sounds.push([ms, 'pop']);
     h += `<div class="stat pop ${cls || ''}" ${d(ms)}>${iconHtml(icon)}<span><small>${label}</small><b data-count>${fmt(0)}</b></span></div>`;
   });
   h += `</div><div class="chips pop" ${d(next())}>
-    ${r.rocks ? `<span class="chip">${iconHtml('rock')} ${r.rocks} rock${r.rocks === 1 ? '' : 's'} destroyed</span>` : ''}
-    <span class="chip">${iconHtml('fire')} top speed ${baseSpeed(r.maxSpeed)}</span>
-    ${r.hat ? `<span class="chip">${iconHtml(HATS[r.hat])} best hat</span>` : ''}
-    ${r.saves ? `<span class="chip">${iconHtml('shield')} ${r.saves} shield save${r.saves > 1 ? 's' : ''}</span>` : ''}
+    ${r.rocks ? `<span class="chip">${iconHtml('rock')} ${tr('rocksDestroyed', r.rocks)}</span>` : ''}
+    <span class="chip">${iconHtml('fire')} ${tr('topSpeed', baseSpeed(r.maxSpeed))}</span>
+    ${r.hat ? `<span class="chip">${iconHtml(HATS[r.hat])} ${tr('bestHat')}</span>` : ''}
+    ${r.saves ? `<span class="chip">${iconHtml('shield')} ${tr('shieldSaves', r.saves)}</span>` : ''}
   </div>`;
 
   // ribbon: how this run did against the board
   let rib, ribCls = '';
-  if (rep.newBest) { rib = `${iconHtml('trophy')} NEW HIGH SCORE! ${iconHtml('trophy')}`; ribCls = 'best'; }
-  else if (rep.rank >= 0 && rep.rank <= 2) rib = `#${rep.rank + 1} on the podium!`;
-  else if (rep.rank > 2) rib = `Rank #${rep.rank + 1} in your top ${RANK_SIZE}`;
-  else if (!score) rib = 'No points this time... snacks are tasty, promise!';
-  else rib = `${fmtNum(save.ranking[save.ranking.length - 1].score - score + 1)} more points to make the top ${RANK_SIZE}`;
+  if (rep.newBest) { rib = `${iconHtml('trophy')} ${tr('newHigh')} ${iconHtml('trophy')}`; ribCls = 'best'; }
+  else if (rep.rank >= 0 && rep.rank <= 2) rib = tr('podium', rep.rank + 1);
+  else if (rep.rank > 2) rib = tr('rankTop', rep.rank + 1, RANK_SIZE);
+  else if (!score) rib = tr('noPoints');
+  else rib = tr('morePoints', fmtNum(save.ranking[save.ranking.length - 1].score - score + 1), RANK_SIZE);
   const ribAt = next(150);
   sounds.push([ribAt, rep.newBest ? 'fanfare' : 'pop']);
   h += `<div class="ribbon stamp ${ribCls}" ${d(ribAt)}>${rib}</div>`;
 
   // top 3 podium, drawn 2nd / 1st / 3rd; places rise 3rd, 2nd, 1st
-  h += `<div class="label pop" ${d(next(120))}>Top 3</div><div class="podium">`;
+  h += `<div class="label pop" ${d(next(120))}>${tr('top3')}</div><div class="podium">`;
   const riseAt = [next(200), next(110), next(110)];    // for places 3, 2, 1 -> stored by place index below
   const placeAt = [riseAt[2], riseAt[1], riseAt[0]];
   for (const i of [1, 0, 2]) {
     const e = top[i], me = e && e === rep.entry;
     sounds.push([placeAt[i], 'pop']);
     h += `<div class="place p${i + 1}${me ? ' me' : ''}">
-      <div class="who pop" ${d(placeAt[i] + 200)} ${e ? `title="${esc(e.name)}, ${fmtDate(e.date)}"` : ''}>${i === 0 ? `<span class="crown">${iconHtml('crown')}</span>` : ''}
-        ${e ? avatarHtml(e.avatar) : ''}<b>${e ? fmtNum(e.score) : '—'}</b><small>${e ? (me ? 'YOU!' : esc(e.name)) : 'empty'}</small></div>
+      <div class="who pop" ${d(placeAt[i] + 200)} ${e ? `title="${esc(shownName(e.name))}, ${fmtDate(e.date)}"` : ''}>${i === 0 ? `<span class="crown">${iconHtml('crown')}</span>` : ''}
+        ${e ? avatarHtml(e.avatar) : ''}<b>${e ? fmtNum(e.score) : '—'}</b><small>${e ? (me ? tr('you') : esc(shownName(e.name))) : tr('empty')}</small></div>
       <div class="step rise" ${d(placeAt[i])}><span>${i + 1}</span></div>
     </div>`;
   }
@@ -130,20 +129,20 @@ function showGameOver(rep) {
 
   // what this run unlocked (rarest first), or the next goal to chase
   if (rep.unlocked.length) {
-    h += `<div class="label pop" ${d(next(160))}>Unlocked this run</div><div class="badges">`;
+    h += `<div class="label pop" ${d(next(160))}>${tr('unlockedRun')}</div><div class="badges">`;
     const shown = [...rep.unlocked].sort((a, b) => TIER_RANK[b.tier] - TIER_RANK[a.tier]).slice(0, 6);
     shown.forEach((a, i) => {
       const ms = next(i ? 110 : 90);
       sounds.push([ms, i ? 'pop' : tierSfx(a.tier)]);
       h += `<span class="badge pop r-${a.tier}" ${d(ms)} title="${TIERS[a.tier].name}: ${a.desc}">${emblem(a)}${a.name}</span>`;
     });
-    if (rep.unlocked.length > shown.length) h += `<span class="badge more pop" ${d(next())}>+${rep.unlocked.length - shown.length} more</span>`;
+    if (rep.unlocked.length > shown.length) h += `<span class="badge more pop" ${d(next())}>${tr('more', rep.unlocked.length - shown.length)}</span>`;
     h += `</div>`;
   } else {
     const g = nextGoal();
     if (g) {
       const p = achProgress(g);
-      h += `<div class="label pop" ${d(next(160))}>Next goal</div>
+      h += `<div class="label pop" ${d(next(160))}>${tr('nextGoal')}</div>
         <div class="goal pop r-${g.tier}" ${d(next())}>${emblem(g)}<div><b>${g.name}</b><small>${g.desc}</small>
         ${bar(p, g.goal)}</div><span class="num">${fmtNum(p)}/${fmtNum(g.goal)}</span></div>`;
     }
@@ -152,7 +151,7 @@ function showGameOver(rep) {
   // Records lives on the title card and the HUD (and T), so the dialog keeps a single clear action.
   // The button arrives with the card, so Replay is usable as soon as the dialog has landed
   h += `<div class="actions pop" ${d(ACT_AT)}>
-      <button class="btn primary" data-act="replay" disabled>Replay <kbd>Space</kbd></button>
+      <button class="btn primary" data-act="replay" disabled>${tr('replay')} <kbd>Space</kbd></button>
     </div>`;
   $overCard.innerHTML = h;
 
@@ -210,26 +209,26 @@ function renderRecords() {
   let h = '';
   if (recTab === 'rank') {
     const L = save.life;
-    h += `<div class="life pop"><span class="chip">${iconHtml('worm')} ${fmtNum(L.games)} game${L.games === 1 ? '' : 's'}</span>
-      <span class="chip">${iconHtml('pizza')} ${fmtNum(L.snacks)} snacks eaten</span>
-      <span class="chip">${iconHtml('trophy')} best ${fmtNum(best)}</span></div>`;
+    h += `<div class="life pop"><span class="chip">${iconHtml('worm')} ${tr('games', L.games, fmtNum(L.games))}</span>
+      <span class="chip">${iconHtml('pizza')} ${tr('snacksEaten', fmtNum(L.snacks))}</span>
+      <span class="chip">${iconHtml('trophy')} ${tr('best', fmtNum(best))}</span></div>`;
     if (!save.ranking.length) {
-      h += `<div class="empty pop" ${d(120)}>${iconHtml('worm')}<b>No runs yet.</b><small>Go eat something! Your top ${RANK_SIZE} runs land here.</small></div>`;
+      h += `<div class="empty pop" ${d(120)}>${iconHtml('worm')}<b>${tr('noRuns')}</b><small>${tr('noRunsSub', RANK_SIZE)}</small></div>`;
     } else {
-      h += `<table class="rank"><thead><tr><th>#</th><th>Player</th><th>Score</th><th>Snacks</th><th>Time</th><th>Date</th></tr></thead><tbody>`;
+      h += `<table class="rank"><thead><tr><th>#</th><th>${tr('player')}</th><th>${tr('score')}</th><th>${tr('snacks')}</th><th>${tr('time')}</th><th>${tr('date')}</th></tr></thead><tbody>`;
       save.ranking.forEach((e, i) => {
         h += `<tr class="slide${e === lastEntry ? ' me' : ''}" ${d(60 + i * 45)}>
-          <td><span class="medal m${i + 1}">${i + 1}</span></td><td class="pl">${avatarHtml(e.avatar, 'sm')} ${esc(e.name)}</td>
-          <td class="sc">${fmtNum(e.score)}${e === lastEntry ? ' <em>new</em>' : ''}</td>
+          <td><span class="medal m${i + 1}">${i + 1}</span></td><td class="pl">${avatarHtml(e.avatar, 'sm')} ${esc(shownName(e.name))}</td>
+          <td class="sc">${fmtNum(e.score)}${e === lastEntry ? ` <em>${tr('newTag')}</em>` : ''}</td>
           <td>${fmtNum(e.snacks)}</td><td>${fmtTime(e.time)}</td><td>${fmtDate(e.date)}</td></tr>`;
       });
       h += `</tbody></table>`;
     }
-    h += `<div class="rec-foot"><button class="btn small danger" data-act="wipe">Reset records</button></div>`;
+    h += `<div class="rec-foot"><button class="btn small danger" data-act="wipe">${tr('wipe')}</button></div>`;
   } else {
     // summary, then one section per tier (common -> legendary), each with its own look
     const n = unlockedCount(), byTier = (k) => ACHIEVEMENTS.filter(a => a.tier === k);
-    h += `<div class="ach-sum pop"><b>${n} / ${ACHIEVEMENTS.length}</b> unlocked ${bar(n, ACHIEVEMENTS.length)}
+    h += `<div class="ach-sum pop"><b>${n} / ${ACHIEVEMENTS.length}</b> ${tr('unlocked')} ${bar(n, ACHIEVEMENTS.length)}
       <div class="chips">${Object.keys(TIERS).map(k => `<span class="chip tier-chip r-${k}">${TIERS[k].name}
         ${byTier(k).filter(a => save.unlocked[a.id]).length}/${byTier(k).length}</span>`).join('')}</div></div>`;
     let i = 0;
@@ -239,7 +238,7 @@ function renderRecords() {
         const got = save.unlocked[a.id], p = achProgress(a);
         h += `<div class="ach pop r-${a.tier} ${got ? 'got' : 'locked'}" ${d(60 + ++i * 22)}>${emblem(a)}<div>
           <b>${a.name}</b><small>${a.desc}</small>
-          ${got ? `<small class="when">Unlocked ${fmtDate(got)}</small>`
+          ${got ? `<small class="when">${tr('unlockedOn', fmtDate(got))}</small>`
                 : a.goal > 1 ? `<span class="prog">${bar(p, a.goal, 'sm')}<small>${fmtNum(p)}/${fmtNum(a.goal)}</small></span>` : ''}
         </div></div>`;
       }
@@ -251,7 +250,7 @@ function renderRecords() {
 }
 
 function wipeRecords(btn) {
-  if (!wipeArmed) { wipeArmed = true; btn.textContent = 'Really? Click again to erase everything'; btn.classList.add('armed'); return; }
+  if (!wipeArmed) { wipeArmed = true; btn.textContent = tr('wipeSure'); btn.classList.add('armed'); return; }
   wipeSave();
   best = 0;
   try { localStorage.removeItem('sirNoodleBest'); } catch (e) {}
@@ -318,7 +317,7 @@ function nextToast() {
   toastBusy = true;
   const el = document.createElement('div');
   el.className = 'toast r-' + a.tier;
-  const kind = a.tier === 'common' ? 'Achievement unlocked!' : `${TIERS[a.tier].name} achievement!`;
+  const kind = a.tier === 'common' ? tr('toast') : tr('toastTier', TIERS[a.tier].name);
   el.innerHTML = `${emblem(a)}<div><small>${kind}</small><b>${a.name}</b></div>`;
   $toasts.appendChild(el);
   sfx[tierSfx(a.tier)]();                    // sound and celebration play when its toast shows, not when queued

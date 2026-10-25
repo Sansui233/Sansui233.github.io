@@ -16,6 +16,25 @@ function wake() {
   requestAnimationFrame(frame);
 }
 applyLowFx();
+applyMute();
+
+// Window fit: small windows shrink the page around the board (hint, padding) to 75%, the board takes the room
+// that frees up, and canvas text keeps a 10px floor on screen. Runs once settled after a resize, not per event.
+let minTextPx = 0;                         // smallest canvas font size, in board units (the canvas is SIZE wide)
+function fitWindow() {
+  const root = document.documentElement.style;
+  const ui = Math.max(.75, Math.min(1, innerWidth / 760, innerHeight / 860));
+  root.setProperty('--ui', ui.toFixed(3));
+  const hint = document.querySelector('.hint').offsetHeight;
+  root.setProperty('--chrome', Math.ceil(hint + 12 * ui + 36 * ui + 14) + 'px');   // hint + gap + padding + board shadow
+  for (let i = 0; i < 2; i++) {             // the header share depends on the board width: settle it in two passes
+    root.setProperty('--hud-k', ($hud.offsetHeight / $board.offsetWidth).toFixed(4));
+  }
+  minTextPx = 10 * SIZE / Math.max(1, cv.getBoundingClientRect().width);
+  wake();                                  // redraw canvas text at the new floor
+}
+let fitTimer = 0;
+window.addEventListener('resize', () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitWindow, 150); });
 reset();
 
 function frame(now) {
@@ -123,4 +142,4 @@ const loadIcon = (name) => new Promise((ok) => {
   ICONS[name] = img;
 });
 const fontReady = document.fonts ? document.fonts.load(`700 20px "Fredoka"`).catch(() => {}) : Promise.resolve();
-Promise.all([...ICON_NAMES.map(loadIcon), fontReady]).then(() => { updateProfile(); syncScreens(); requestAnimationFrame(frame); });
+Promise.all([...ICON_NAMES.map(loadIcon), fontReady]).then(() => { fitWindow(); updateProfile(); syncScreens(); requestAnimationFrame(frame); });

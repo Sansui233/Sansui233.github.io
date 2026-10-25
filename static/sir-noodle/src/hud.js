@@ -13,14 +13,14 @@ function setNum(el, v) {
 function updateHud() {
   setNum($score, score); setNum($best, best); setNum($snacks, eaten);
   const got = String(unlockedCount());
-  if ($trophyCount.textContent !== got) { $trophyCount.textContent = got; $trophies.title = `Records: ranking and achievements, ${got}/${ACHIEVEMENTS.length} unlocked (T)`; }
+  if ($trophyCount.textContent !== got) { $trophyCount.textContent = got; $trophies.title = tr('records', got, ACHIEVEMENTS.length); }
   const parts = [];
   for (const k of THEME_ORDER) {
     if (isActive(k)) parts.push(`${iconHtml(EFFECTS[k].emo)} ${EFFECTS[k].name} ${Math.ceil((fx[k] - clock) / 1000)}s`);
   }
-  if (shields > 0) parts.push(`${iconHtml('shield')} SHIELD${shields > 1 ? ' ×' + shields : ''}`);
+  if (shields > 0) parts.push(`${iconHtml('shield')} ${tr('shield')}${shields > 1 ? ' ×' + shields : ''}`);
   const m = multiplier();
-  const t = parts.length ? parts.join(' • ') + (m > 1 ? `  (×${m})` : '') : `${iconHtml('face_relieved')} Feeling normal`;
+  const t = parts.length ? parts.join(' • ') + (m > 1 ? `  (×${m})` : '') : `${iconHtml('face_relieved')} ${tr('normal')}`;
   if (t !== lastFxText) { $fx.innerHTML = t; lastFxText = t; }
   updateSpeedMeter();
   const th = currentTheme();
@@ -35,8 +35,8 @@ function updateHud() {
 function updateProfile() {
   const p = save.profile;
   $hudAvatar.src = `assets/${p.avatar}.png`;
-  $hudName.textContent = p.name;
-  $profileBtn.title = `${p.name}: click to change your name and avatar`;
+  $hudName.textContent = shownName(p.name);
+  $profileBtn.title = tr('profile', shownName(p.name));
 }
 
 let lastSpd = '';
@@ -49,6 +49,6 @@ function updateSpeedMeter() {
   lastSpd = key;
   $spdbar.style.width = Math.max(4, pct) + '%';
   $spdbar.style.backgroundColor = night ? '#7c8cff' : `hsl(${120 - 120 * pct / 100},80%,52%)`;
-  $spdlbl.innerHTML = night ? `${iconHtml('zzz')} Speed` : 'Speed';
+  $spdlbl.innerHTML = night ? `${iconHtml('zzz')} ${tr('speed')}` : tr('speed');
   $spdx.textContent = x + '×';
 }

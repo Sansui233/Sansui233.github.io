@@ -2,6 +2,7 @@
 'use strict';
 
 let AC = null, muted = false;
+try { muted = localStorage.getItem('sirNoodleMuted') === '1'; } catch (e) {}
 function audio() {
   if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} }
   if (AC && AC.state === 'suspended') AC.resume();

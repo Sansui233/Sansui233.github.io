@@ -61,7 +61,7 @@ function maybeSpawnStone() {
     if (!isFree(x, y)) continue;
     if (Math.max(Math.abs(wd(h.x, x)), Math.abs(wd(h.y, y))) <= 3) continue;   // not right in front of the head
     stones.push({ x, y, t0: clock, solid: false, seed: Math.random() });
-    if (!stonesStarted) { stonesStarted = true; say('Uh-oh... rocks are falling!', 2400); shake = 200; }
+    if (!stonesStarted) { stonesStarted = true; say(tr('rocksFalling'), 2400); shake = 200; }
     return;
   }
 }
@@ -135,7 +135,7 @@ function wakeUp() {
   const h = snake[0], px = (h.x + .5) * CELL, py = (h.y + .5) * CELL;
   burst(px, py, 18, ['#ffd23d', '#ffb84d', '#fff6b8', '#fff'], 170);
   rings.push({ x: px, y: py, ms: 600, total: 600, maxR: 2.2 * CELL });
-  banner = { text: 'GOOD MORNING', icon: 'sun', sub: 'speed reset • back to a gentle wiggle', color: '#f59a00', ms: 1900, total: 1900 };
+  banner = { text: tr('morning'), icon: 'sun', sub: tr('morningSub'), color: '#f59a00', ms: 1900, total: 1900 };
   sfx.morning();
   updateHud();
 }
@@ -148,7 +148,7 @@ function smashStone(st) {
   burst(px, py, 4, ['#fff'], 120, 'boom');
   score += 5 * multiplier();
   sfx.smash(); shake = Math.max(shake, 90);
-  say('CRUNCH!', 700);
+  say(tr('crunch'), 700);
 }
 
 // a shield charge pops and the rock goes with it
@@ -160,7 +160,7 @@ function breakShield(st) {
   rings.push({ x: px, y: py, ms: 500, total: 500, maxR: 1.8 * CELL });
   shake = Math.max(shake, 200);
   sfx.shieldBreak();
-  say(shields ? `Shield saved you! (${shields} left)` : 'Shield saved you! (last one)', 1500);
+  say(tr('shieldSaved', shields), 1500);
   updateHud();
 }
 
@@ -184,13 +184,13 @@ function detonate(cx, cy) {
   burst(px, py, 14, ['#ff4d4d','#ffa94d','#ffe066','#fff'], 200);
   shake = Math.max(shake, 220);
   sfx.boom();
-  if (!target) { score += 15 * multiplier(); say('BOOM! ...nothing to blow up. Oops.', 1700); return; }
+  if (!target) { score += 15 * multiplier(); say(tr('bombMiss'), 1700); return; }
   stones = stones.filter(s => s !== target);
   blowUpStone(target, 12);
   // aim the zap along the shortest (wrap-around) path
   zaps.push({ x1: px, y1: py, x2: px + wd(cx, target.x) * CELL, y2: py + wd(cy, target.y) * CELL, ms: 380, total: 380 });
   score += 40 * multiplier();
-  say(rnd(['Pew! One rock down.', 'Bullseye!', 'Rock? What rock?', 'Gravel delivered.']), 1500);
+  say(rnd(tr('bombHit')), 1500);
 }
 
 // 🧨 super bomb: every rock on the board is gone
@@ -210,8 +210,8 @@ function superDetonate(cx, cy) {
   flash = 1.3; shake = 650;
   score += (50 + 20 * n) * multiplier();
   sfx.boom(); sfx.star();
-  banner = { text: 'SUPER BOMB', icon: 'dynamite', sub: n ? `${n} rock${n > 1 ? 's' : ''} turned to gravel` : 'nothing left to blow up', color: '#ff5a2a', ms: 1700, total: 1700 };
-  say(n > 0 ? 'KA-BOOOOM! Squeaky clean!' : 'KA-BOOM! ...for nothing?', 1900);
+  banner = { text: tr('superBomb'), icon: 'dynamite', sub: tr('superSub', n), color: '#ff5a2a', ms: 1700, total: 1700 };
+  say(tr('superSay', n), 1900);
 }
 
 function step() {
@@ -261,7 +261,7 @@ function fling(st, s) {
   burst(px, py, 8, ROCK_COLORS, 140);
   score += 20 * multiplier();
   sfx.fling(); shake = Math.max(shake, 80);
-  say(rnd(['YEET!', 'Outta here!', 'Monkey see, monkey throw!', 'Catch!']), 900);
+  say(rnd(tr('fling')), 900);
   updateHud();
 }
 
@@ -279,8 +279,8 @@ function consume(x, y, viaPaw) {
     burst(px, py, 14, ['#ff6b9d','#ffd166','#6ee7b7','#7dd3fc','#c4b5fd']);
     if (eaten % 5 === 0) {
       sfx.burp();
-      if (hatTier < HATS.length - 1) { hatTier++; say('*BUUURP* ...ooh, a new hat!', 1900); }
-      else say('*BUUURP* Pardon me!', 1700);
+      if (hatTier < HATS.length - 1) { hatTier++; say(tr('newHat'), 1900); }
+      else say(tr('burp'), 1700);
     } else {
       sfx.eat();
       if (!bubble || bubble.ms < 500) say(rnd(EAT_QUOTES));
@@ -308,7 +308,7 @@ function consume(x, y, viaPaw) {
     score += 30 * multiplier(); snack(); grow += 1;
     burst(px, py, 20, ['#4aa8f0', '#9fd8ff', '#ffc83d', '#fff'], 170);
     rings.push({ x: px, y: py, ms: 450, total: 450, maxR: 1.4 * CELL });
-    say(shields > 1 ? `Shields up! (${shields} charges)` : PICKUPS.shield.text, 1600);
+    say(shields > 1 ? tr('shieldsUp', shields) : PICKUPS.shield.text, 1600);
     sfx.shieldUp();
     updateHud();
   }

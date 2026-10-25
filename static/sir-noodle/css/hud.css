@@ -5,7 +5,7 @@
    Rule: only things you can click get a border.
    Sizes are em off a font size that follows the board width (cqw), so it fits from phone to desktop. */
 #hud {
-  font-size: clamp(11px, 2.5cqw, 16px);
+  font-size: clamp(var(--min-font), 2.5cqw, 16px);
   background: linear-gradient(#fffaf3, #ffeaf2);
   border: 5px solid var(--ink); border-bottom: 0; border-radius: 22px 22px 0 0;
   padding: .5em .6em .45em;
@@ -14,7 +14,7 @@
 
 /* ---------- buttons ---------- */
 #hud button {
-  font: 600 1em "Fredoka", system-ui, sans-serif; color: var(--ink); cursor: pointer;
+  font: 600 1em var(--font); color: var(--ink); cursor: pointer;
   background: #fff; border: 3px solid var(--ink); box-shadow: 0 .22em 0 var(--ink);
   transition: transform .08s, box-shadow .08s, background .15s;
 }
@@ -27,8 +27,8 @@
   padding: .15em .8em .15em .15em; border-radius: 999px;
 }
 .hud-profile .who { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; min-width: 0; }
-.hud-profile small { font-size: .62em; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
-.hud-profile b { max-width: 8.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .95em; }
+.hud-profile small { font-size: max(var(--min-font), .62em); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
+.hud-profile b { max-width: 8.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: max(var(--min-font), .95em); }
 
 .hud-btns { display: flex; gap: .4em; flex: none; }
 .round {
@@ -39,7 +39,7 @@
 #trophies { background: #fff3c4; }
 .num-badge {
   position: absolute; top: -.45em; right: -.55em; min-width: 1.5em; padding: 0 .3em;
-  font-size: .68em; font-weight: 600; line-height: 1.45em; color: #fff; text-align: center;
+  font-size: max(var(--min-font), .68em); font-weight: 600; line-height: 1.45em; color: #fff; text-align: center;
   background: #e0457b; border-radius: 999px; box-shadow: 0 0 0 2px #fff;
 }
 
@@ -55,14 +55,14 @@
 .counter { display: flex; align-items: center; gap: .25em; min-width: 0; }
 .counter .ico { width: 1.5em; height: 1.5em; vertical-align: 0; flex: none; }
 .counter b { font-size: 1.15em; font-weight: 600; font-variant-numeric: tabular-nums; }
-.counter.best b { font-size: .95em; opacity: .75; }
+.counter.best b { font-size: max(var(--min-font), .95em); opacity: .75; }
 /* a number went up */
 .counter.bump { animation: bump .34s cubic-bezier(.3, 1.8, .5, 1); }
 @keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.25) rotate(-4deg); } 100% { transform: scale(1); } }
 
 .hud-status {
   display: flex; align-items: center; gap: .6em; margin-top: .8em; padding: .2em .6em;
-  font-size: .82em; font-weight: 600; border-radius: .7em;
+  font-size: max(var(--min-font), .82em); font-weight: 600; border-radius: .7em;
   background: rgba(91, 42, 78, .07);
 }
 /* speed meter: the bar is the base speed (what a night's sleep resets), the number is the current speed */
@@ -87,4 +87,8 @@
   .counter .ico { width: 1.3em; height: 1.3em; }
   .counter b { font-size: 1em; }
   .counter.best { display: none; }   /* best is on the title card and in Records; the live numbers matter more here */
+}
+@container (max-width: 300px) {
+  .hud-profile { padding: .15em; }
+  .hud-profile .who { display: none; }   /* tiny boards: the avatar alone stands for the profile */
 }

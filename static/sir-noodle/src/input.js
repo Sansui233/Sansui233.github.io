@@ -17,11 +17,16 @@ function primary() {
   else if (state === 'pause') setState('play');
   wake();
 }
-function toggleMute() { muted = !muted; $mute.innerHTML = iconHtml(muted ? 'speaker_off' : 'speaker'); if (!muted) audio(); }
+function applyMute() { $mute.innerHTML = iconHtml(muted ? 'speaker_off' : 'speaker'); }
+function toggleMute() {
+  muted = !muted;
+  try { localStorage.setItem('sirNoodleMuted', muted ? '1' : '0'); } catch (e) {}
+  applyMute(); if (!muted) audio();
+}
 
 function applyLowFx() {
   $lowfx.innerHTML = iconHtml(lowFx ? 'feather' : 'sparkle');
-  $lowfx.title = lowFx ? 'Effects: low (L to switch back to high)' : 'Effects: high (L to switch to low for slower devices)';
+  $lowfx.title = tr(lowFx ? 'fxLow' : 'fxHigh');
   document.body.classList.toggle('low-fx', lowFx);
   dpr = lowFx ? 1 : Math.min(window.devicePixelRatio || 1, 2);
   cv.width = cv.height = SIZE * dpr;                       // resizing also resets the context state
@@ -69,16 +74,30 @@ $mute.addEventListener('click', (e) => { toggleMute(); e.currentTarget.blur(); }
 $lowfx.addEventListener('click', (e) => { toggleLowFx(); e.currentTarget.blur(); });
 $trophies.addEventListener('click', (e) => { audio(); openRecords(); e.currentTarget.blur(); });
 $profileBtn.addEventListener('click', (e) => { audio(); openProfile(); e.currentTarget.blur(); });
+$lang.addEventListener('click', (e) => { toggleLang(); e.currentTarget.blur(); });
 window.addEventListener('blur', () => { if (state === 'play') setState('pause'); });
 
 // touch / swipe / click on the canvas (title, pause and game over have their own screens on top)
-let tx = 0, ty = 0;
+// While playing, the turn fires mid-swipe as soon as the finger has travelled SWIPE_PX, and the origin
+// moves to that point so one continuous drag can chain turns (an L-shaped drag = two turns).
+const SWIPE_PX = 14;
+let tx = 0, ty = 0, swiped = false;
 cv.addEventListener('touchstart', (e) => {
-  const t = e.changedTouches[0]; tx = t.clientX; ty = t.clientY; e.preventDefault();
+  const t = e.changedTouches[0]; tx = t.clientX; ty = t.clientY; swiped = false; e.preventDefault();
+}, { passive: false });
+cv.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  if (state !== 'play') return;
+  const t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty;
+  if (Math.abs(dx) < SWIPE_PX && Math.abs(dy) < SWIPE_PX) return;
+  if (Math.abs(dx) > Math.abs(dy)) turn(dx > 0 ? 1 : -1, 0); else turn(0, dy > 0 ? 1 : -1);
+  tx = t.clientX; ty = t.clientY; swiped = true;
+  wake();
 }, { passive: false });
 cv.addEventListener('touchend', (e) => {
   const t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty;
   e.preventDefault();
+  if (swiped) return;                                        // already turned during the move
   if (Math.abs(dx) < 24 && Math.abs(dy) < 24) { primary(); return; }
   if (state === 'title') start();
   else if (state === 'pause') setState('play');

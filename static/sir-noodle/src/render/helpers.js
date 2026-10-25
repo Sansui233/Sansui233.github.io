@@ -11,6 +11,7 @@ function rr(x, y, w, h, r) {
   ctx.closePath();
 }
 function text(s, x, y, size, color, weight = '600', outline = true) {
+  size = Math.max(size, minTextPx);
   ctx.font = `${weight} ${size}px ${TEXT_FONT}`;
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   if (outline) { ctx.lineWidth = 5; ctx.strokeStyle = '#fff'; ctx.lineJoin = 'round'; ctx.strokeText(s, x, y); }

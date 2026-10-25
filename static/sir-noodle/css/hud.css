@@ -14,7 +14,7 @@
 
 /* ---------- buttons ---------- */
 #hud button {
-  font: 700 1em "Fredoka", system-ui, sans-serif; color: var(--ink); cursor: pointer;
+  font: 600 1em "Fredoka", system-ui, sans-serif; color: var(--ink); cursor: pointer;
   background: #fff; border: 3px solid var(--ink); box-shadow: 0 .22em 0 var(--ink);
   transition: transform .08s, box-shadow .08s, background .15s;
 }
@@ -27,8 +27,8 @@
   padding: .15em .8em .15em .15em; border-radius: 999px;
 }
 .hud-profile .who { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; min-width: 0; }
-.hud-profile small { font-size: .62em; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
-.hud-profile b { max-width: 7.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .95em; }
+.hud-profile small { font-size: .62em; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
+.hud-profile b { max-width: 8.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .95em; }
 
 .hud-btns { display: flex; gap: .4em; flex: none; }
 .round {
@@ -39,7 +39,7 @@
 #trophies { background: #fff3c4; }
 .num-badge {
   position: absolute; top: -.45em; right: -.55em; min-width: 1.5em; padding: 0 .3em;
-  font-size: .68em; font-weight: 800; line-height: 1.45em; color: #fff; text-align: center;
+  font-size: .68em; font-weight: 600; line-height: 1.45em; color: #fff; text-align: center;
   background: #e0457b; border-radius: 999px; box-shadow: 0 0 0 2px #fff;
 }
 
@@ -54,7 +54,7 @@
 .counters { flex: 1; display: flex; justify-content: center; gap: .9em; min-width: 0; }
 .counter { display: flex; align-items: center; gap: .25em; min-width: 0; }
 .counter .ico { width: 1.5em; height: 1.5em; vertical-align: 0; flex: none; }
-.counter b { font-size: 1.15em; font-weight: 800; font-variant-numeric: tabular-nums; }
+.counter b { font-size: 1.15em; font-weight: 600; font-variant-numeric: tabular-nums; }
 .counter.best b { font-size: .95em; opacity: .75; }
 /* a number went up */
 .counter.bump { animation: bump .34s cubic-bezier(.3, 1.8, .5, 1); }
@@ -62,7 +62,7 @@
 
 .hud-status {
   display: flex; align-items: center; gap: .6em; margin-top: .8em; padding: .2em .6em;
-  font-size: .82em; font-weight: 700; border-radius: .7em;
+  font-size: .82em; font-weight: 600; border-radius: .7em;
   background: rgba(91, 42, 78, .07);
 }
 /* speed meter: the bar is the base speed (what a night's sleep resets), the number is the current speed */
@@ -75,10 +75,10 @@
 /* small boards: drop the "Player" label and shorten the name (it is always shown) */
 @container (max-width: 520px) {
   .hud-profile small { display: none; }
-  .hud-profile b { max-width: 5em; }
+  .hud-profile b { max-width: 6.2em; }
 }
 @container (max-width: 420px) {
-  .hud-profile b { max-width: 5.2em; }
+  .hud-profile b { max-width: 5.6em; }
   .counters { gap: .45em; }
 }
 @container (max-width: 370px) {

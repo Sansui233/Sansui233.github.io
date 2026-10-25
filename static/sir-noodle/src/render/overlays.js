@@ -5,7 +5,7 @@ function drawBubble(hp) {
   if (!bubble) return;
   const alpha = Math.min(1, bubble.ms / 300);
   ctx.save(); ctx.globalAlpha = alpha;
-  ctx.font = `800 15px ${TEXT_FONT}`;
+  ctx.font = `600 15px ${TEXT_FONT}`;
   const w = ctx.measureText(bubble.text).width + 26, h = 30;
   const px = (hp.x + .5) * CELL, py = (hp.y + .5) * CELL;
   let bx = Math.max(w / 2 + 6, Math.min(SIZE - w / 2 - 6, px));
@@ -75,12 +75,12 @@ function drawBanner() {
   const sc = p < 0.12 ? 0.4 + 0.8 * (p / 0.12) : 1.2 - 0.2 * Math.min(1, (p - 0.12) / 0.2);
   ctx.save(); ctx.globalAlpha = banner.ms < 350 ? banner.ms / 350 : 1;
   ctx.translate(SIZE / 2, 96); ctx.scale(sc, sc);
-  text(banner.text, 0, 0, 34, banner.color, '900');
+  text(banner.text, 0, 0, 34, banner.color, '600');
   if (banner.icon) {
     const w = ctx.measureText(banner.text).width / 2 + 26;
     icon(banner.icon, -w, 0, 32, -0.15); icon(banner.icon, w, 0, 32, 0.15);
   }
-  text(banner.sub, 0, 32, 16, INK, '800');
+  text(banner.sub, 0, 32, 16, INK, '600');
   ctx.restore();
 }
 
@@ -91,14 +91,14 @@ function drawPops() {
     const sc = k < .14 ? .3 + 1.05 * k / .14 : k < .28 ? 1.35 - .35 * (k - .14) / .14 : 1;   // pop, settle
     const side = p.x > SIZE - 80 ? -1 : 1;                                // stay on the board
     const size = p.big ? 26 : 18, label = '×' + p.n;
-    ctx.font = `900 ${size}px ${TEXT_FONT}`;
+    ctx.font = `600 ${size}px ${TEXT_FONT}`;
     const w = ctx.measureText(label).width, gw = size + 3 + w;           // snack bag + gap + text
     ctx.save();
     ctx.globalAlpha = k > .72 ? (1 - k) / .28 : 1;
     ctx.translate(p.x + side * (gw / 2 + 18), Math.max(size, p.y - 8 - 28 * k));
     ctx.rotate(-.1 * side); ctx.scale(sc, sc);
     icon('snackbag', -gw / 2 + size / 2, 0, size);
-    text(label, -gw / 2 + size + 3 + w / 2, 1, size, p.big ? '#f59a00' : '#e0457b', '900');
+    text(label, -gw / 2 + size + 3 + w / 2, 1, size, p.big ? '#f59a00' : '#e0457b', '600');
     ctx.restore();
   }
 }

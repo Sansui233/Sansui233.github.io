@@ -10,7 +10,7 @@ function rr(x, y, w, h, r) {
   ctx.arcTo(x, y, x + w, y, r);
   ctx.closePath();
 }
-function text(s, x, y, size, color, weight = '800', outline = true) {
+function text(s, x, y, size, color, weight = '600', outline = true) {
   ctx.font = `${weight} ${size}px ${TEXT_FONT}`;
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   if (outline) { ctx.lineWidth = 5; ctx.strokeStyle = '#fff'; ctx.lineJoin = 'round'; ctx.strokeText(s, x, y); }

@@ -4,7 +4,7 @@
 function isFree(x, y) {
   if (snake.some(s => s.x === x && s.y === y)) return false;
   if (food && food.x === x && food.y === y) return false;
-  if (special && special.x === x && special.y === y) return false;
+  if (specials.some(s => s.x === x && s.y === y)) return false;
   if (bomb && bomb.x === x && bomb.y === y) return false;
   if (stones.some(s => s.x === x && s.y === y)) return false;
   return true;
@@ -20,34 +20,75 @@ function spawnItem(isFood, kind) {
   return null;
 }
 
-function pickSpecialKind() {
-  const pool = ['spicy', 'chill', 'dizzy', 'banana'];
+// Weighted pick of one power-up kind, skipping `exclude` (kinds already offered in this roll).
+function pickSpecialKind(exclude = []) {
+  const w = { spicy: 1, chill: 0.3 + 1.2 * speedLvl / MAX_LVL, dizzy: 1, banana: 1 };   // ice: rare at the start, grows with speed
+  const add = (k, n = 1) => { w[k] = (w[k] || 0) + n; };
+  const canShield = shields < MAX_SHIELDS;
   if (score >= STONE_START) {
-    pool.push('star');
-    if (stones.length >= 3) pool.push('banana');             // monkey paws help clear a crowded board
-    if (shields < MAX_SHIELDS) pool.push('shield');
-    if (stones.length >= 5) { pool.push('star'); if (shields < MAX_SHIELDS) pool.push('shield'); }
+    add('star');
+    if (stones.length >= 3) add('banana');                   // monkey paws help clear a crowded board
+    if (canShield) add('shield');
+    if (stones.length >= 5) { add('star'); if (canShield) add('shield'); }
   }
+  // the faster it gets, the more help: shields first, then stars
+  if (speedLvl >= 15 && canShield) add('shield');
+  if (speedLvl >= 25) { add('star'); if (canShield) add('shield'); }
+  if (speedLvl >= 33) add('star', 2);
   if (!isActive('night')) {                                  // the faster it gets, the more likely a moon
-    if (speedLvl >= 15) pool.push('moon');
-    if (speedLvl >= 25) pool.push('moon');
-    if (speedLvl >= 33) pool.push('moon', 'moon');
+    if (speedLvl >= 15) add('moon');
+    if (speedLvl >= 25) add('moon');
+    if (speedLvl >= 33) add('moon', 2);
   }
-  return rnd(pool);
+  if (w.shield && shields === MAX_SHIELDS - 1) w.shield *= 0.4;   // one short of full: shields show up less
+  for (const k of exclude) delete w[k];
+  const kinds = Object.keys(w);
+  let r = Math.random() * kinds.reduce((s, k) => s + w[k], 0);
+  for (const k of kinds) if ((r -= w[k]) < 0) return k;
+  return kinds[kinds.length - 1] || null;
 }
 
-// Rolled on every snack. Tuned with a Monte Carlo sim (150 snacks, item caught ~35%/snack):
-// rocks hover around 5-7 instead of piling up to the cap of 16; ~19 bombs and ~5 super bombs per 150 snacks.
+// 0..1: how hard the board is right now. Speed counts most, then length (a typical run ends near 150), then rocks.
+function difficulty() {
+  return 0.45 * Math.min(1, speedLvl / MAX_LVL)
+    + 0.35 * Math.min(1, (snake.length - 3) / 147)
+    + 0.20 * Math.min(1, stones.length / SUPER_SURE);
+}
+
+// A power-up roll: one item, or on a hard board a choice of 2 (rarely 3) different ones.
+// Eating one makes the others vanish (consume()), so it's a pick, not a pile of effects.
+function spawnSpecials() {
+  const d = difficulty();
+  const n = Math.random() < CHOICE3_MAX * d ? 3 : Math.random() < CHOICE2_MAX * d ? 2 : 1;
+  const kinds = [];
+  for (let i = 0; i < n; i++) { const k = pickSpecialKind(kinds); if (k) kinds.push(k); }
+  specials = [];
+  for (const k of kinds) { const it = spawnItem(false, k); if (it) specials.push(it); }
+  if (specials.length > 1) say(tr('pickOne'), 1400);
+}
+
+// Rolled on every snack. Rocks hover around 5-7 instead of piling up to the cap of 16.
+// A typical run ends near length 150, so the length term is tuned to matter by then.
 function maybeSpawnBomb() {
   sinceSuper++;
   const r = stones.length;
   if (bomb || r === 0) return;
+  if (r >= SUPER_SURE) { bomb = spawnItem(false, 'super'); return; }      // a packed board always gets one
   if (Math.random() >= Math.min(0.5, 0.10 + 0.04 * r)) return;              // more rocks -> more bombs
-  const pSuper = r < 6 ? 0 : Math.min(0.45,                               // super needs a real crowd of rocks
-    0.02 * (r - 5)                                                        // grows with rock count
-    + 0.002 * Math.max(0, snake.length - 30)                              // grows with snake length
+  const pSuper = r < 6 ? 0 : Math.min(0.6,                                // super needs a real crowd of rocks
+    0.04 * (r - 5)                                                        // grows with rock count
+    + 0.003 * Math.max(0, snake.length - 30)                              // grows with snake length (+0.36 at 150)
     + 0.003 * sinceSuper);                                                // and with time since the last super
   bomb = spawnItem(false, Math.random() < pSuper ? 'super' : 'bomb');
+}
+
+// At max speed a moon shows up within MOON_PITY snacks (it replaces any other special),
+// so a run can't stay at full speed for long unless the player keeps passing moons by.
+function moonPity() {
+  if (speedLvl < MAX_LVL || isActive('night') || specials.some(s => s.kind === 'moon')) { maxRun = 0; return; }
+  if (++maxRun < MOON_PITY) return;
+  const moon = spawnItem(false, 'moon');
+  if (moon) { specials = [moon]; maxRun = 0; }
 }
 
 function maybeSpawnStone() {
@@ -266,7 +307,7 @@ function fling(st, s) {
 }
 
 function consume(x, y, viaPaw) {
-  const it = [food, bomb, special].find(o => o && o.x === x && o.y === y);
+  const it = [food, bomb, ...specials].find(o => o && o.x === x && o.y === y);
   if (viaPaw && it) {
     const px = (x + .5) * CELL, py = (y + .5) * CELL;
     grabs.push({ icon: it.kind ? PICKUPS[it.kind].icon : it.icon, x: px, y: py, ms: 260, total: 260 });
@@ -289,7 +330,8 @@ function consume(x, y, viaPaw) {
     food = spawnItem(true);
     maybeSpawnStone();
     maybeSpawnBomb();
-    if (!special && Math.random() < (score >= STONE_START ? 0.4 : 0.25)) special = spawnItem(false, pickSpecialKind());
+    if (!specials.length && Math.random() < (score >= STONE_START ? 0.4 : 0.25)) spawnSpecials();
+    moonPity();
     updateHud();
   }
   // bombs
@@ -300,10 +342,19 @@ function consume(x, y, viaPaw) {
     if (kind === 'super') superDetonate(x, y); else detonate(x, y);
     updateHud();
   }
+  else {
+    const sp = specials.find(s => s.x === x && s.y === y);
+    if (!sp) return;
+    for (const o of specials) if (o !== sp) burst((o.x + .5) * CELL, (o.y + .5) * CELL, 8, ['#fff', PICKUPS[o.kind].aura], 110);   // the ones not picked vanish
+    specials = [];
+    eatSpecial(sp);
+  }
+}
+
+function eatSpecial(it) {
+  const px = (it.x + .5) * CELL, py = (it.y + .5) * CELL;
   // shield: a stored charge, not a timed effect
-  else if (special && special.kind === 'shield' && x === special.x && y === special.y) {
-    const px = (special.x + .5) * CELL, py = (special.y + .5) * CELL;
-    special = null;
+  if (it.kind === 'shield') {
     shields = Math.min(MAX_SHIELDS, shields + 1);
     score += 30 * multiplier(); snack(); grow += 1;
     burst(px, py, 20, ['#4aa8f0', '#9fd8ff', '#ffc83d', '#fff'], 170);
@@ -313,10 +364,8 @@ function consume(x, y, viaPaw) {
     updateHud();
   }
   // power-ups
-  else if (special && x === special.x && y === special.y) {
-    const kind = special.kind, def = PICKUPS[kind];
-    const px = (special.x + .5) * CELL, py = (special.y + .5) * CELL;
-    special = null;
+  else {
+    const kind = it.kind, def = PICKUPS[kind];
     if (kind === 'moon') nightFrom = speedLvl;
     startEffect(def.fx);
     score += (kind === 'star' ? 50 : 30) * multiplier(); snack(); grow += 2;

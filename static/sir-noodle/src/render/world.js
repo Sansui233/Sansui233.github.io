@@ -243,7 +243,7 @@ function drawAura(kind, px, py, time) {
 }
 
 function drawPickups(time) {
-  for (const it of [food, special, bomb]) {
+  for (const it of [food, ...specials, bomb]) {
     if (!it) continue;
     const sp = !!it.kind;
     if (sp && it.until - clock < 2000 && Math.floor(time / 120) % 2) continue;   // blink before vanishing

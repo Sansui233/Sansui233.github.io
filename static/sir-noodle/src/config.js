@@ -1,7 +1,7 @@
 // Constants and game data: board size, timed effects, pickups, quotes, art names.
 'use strict';
 
-const VERSION = '2.2.0';      // release version (tools/release.mjs, git tag v<VERSION>, CHANGELOG.md)
+const VERSION = '2.3.0';      // release version (tools/release.mjs, git tag v<VERSION>, CHANGELOG.md)
 const N = 20, CELL = 30, SIZE = N * CELL;
 const INK = '#5b2a4e';
 const STONE_START = 50;      // score at which rocks begin to fall
@@ -9,6 +9,9 @@ const WARN_MS = 900;         // rock warning time before it becomes solid
 const BOMB_MS = 10000, SUPER_MS = 12000;   // how long bombs stay on the board
 const MAX_SHIELDS = 3;                     // shield charges: each one breaks one rock instead of dying
 const MAX_LVL = 38;                        // speed level at which the step time hits its 75ms floor
+const MOON_PITY = 7;                       // at max speed a moon is guaranteed within this many snacks
+const SUPER_SURE = 12;                     // rocks on the board at which the next bomb is always a super bomb
+const CHOICE2_MAX = 0.5, CHOICE3_MAX = 0.05;   // chance a power-up roll offers 2 / 3 items, at difficulty 1
 
 const TEXT_FONT = '"Fredoka","Noodle CJK","PingFang SC","Microsoft YaHei UI","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif';   // canvas: same stack as --font (css/style.css)
 

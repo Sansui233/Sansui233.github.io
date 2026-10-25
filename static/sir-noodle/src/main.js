@@ -66,7 +66,7 @@ function frame(now) {
     while (acc >= iv && state === 'play') { acc -= iv; step(); iv = interval(); }
 
     if (state === 'play') {
-      if (special && special.until < clock) special = null;
+      if (specials.length && specials[0].until < clock) specials = [];   // a roll's items share one timer
       if (bomb && bomb.until < clock) bomb = null;
       // asleep: the speed level drains to 0 over the night, so the meter visibly empties
       if (isActive('night')) speedLvl = nightFrom * (fx.night - clock) / EFFECTS.night.ms;

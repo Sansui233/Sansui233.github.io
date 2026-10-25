@@ -1,0 +1,49 @@
+/* bundled font so text looks the same on every OS (SIL OFL, see assets/fonts/OFL.txt) */
+@font-face {
+  font-family: 'Fredoka'; font-style: normal; font-weight: 400 700; font-display: block;
+  src: url(assets/fonts/fredoka-latin.woff2) format('woff2');
+}
+:root { --ink: #5b2a4e; }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { height: 100dvh; }
+body {
+  display: flex; flex-direction: column; align-items: center; justify-content: safe center; gap: 12px;
+  padding: 18px 0;   /* breathing room so the board frame is never cut by the window edge */
+  background: radial-gradient(circle at 20% 10%, #ffe3f1, #ffd2b8 45%, #c9f0ff);
+  font-family: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  color: var(--ink); user-select: none; -webkit-user-select: none; overflow: hidden;
+}
+/* page mood changes with the active effect */
+body.fx-spicy { background: radial-gradient(circle at 50% 110%, #ff9f5a, #ff7a4d 40%, #ffd08a); }
+body.fx-chill { background: radial-gradient(circle at 25% 10%, #f2fbff, #b9e4ff 50%, #e3f6ff); }
+body.fx-monkey { background: radial-gradient(circle at 30% 10%, #fff3b0, #b9e07a 50%, #7cc46a); }
+body.fx-god   { background: radial-gradient(circle at 50% 40%, #fff6b8, #ffd84d 50%, #ffb347); }
+body.fx-night { background: radial-gradient(circle at 80% 8%, #6b74c9, #2d3470 45%, #171b3d); }
+/* dizzy rainbow: a big layer slid with transform (compositor-only, no per-frame page repaint) */
+body::before {
+  content: ''; position: fixed; top: 0; left: 0; width: 400vw; height: 100vh; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg,#ffb3f0,#b3e0ff,#d6ffb3,#ffe0b3,#ffb3f0);
+  opacity: 0; transition: opacity .3s; will-change: transform;
+}
+body.fx-dizzy::before { opacity: 1; animation: dz 3s ease infinite; }
+@keyframes dz { 0% {transform: translateX(0)} 50% {transform: translateX(-300vw)} 100% {transform: translateX(0)} }
+
+/* the board: HUD header (css/hud.css) glued on top of the stage; the canvas fills the stage and the UI
+   screens (css/ui.css) sit on top of it. The whole board glows with the active effect (GLOWS). */
+#board {
+  /* the header is ~15% of the board width, so the board is (window - page padding - hint - gaps) / 1.15 tall */
+  width: min(94vw, calc((100dvh - 150px) / 1.15), 640px); container-type: inline-size;
+  border-radius: 22px; box-shadow: 0 8px 0 var(--ink), 0 18px 30px rgba(91,42,78,.3); transition: box-shadow .25s;
+}
+#stage { position: relative; width: 100%; aspect-ratio: 1; container-type: inline-size; }
+canvas {
+  display: block; width: 100%; height: 100%;
+  border: 5px solid var(--ink); border-radius: 0 0 22px 22px;
+  background: #bdf0a6; touch-action: none; cursor: pointer;
+}
+.hint { font-size: 13px; opacity: .85; text-align: center; padding: 0 10px; max-width: 680px; }
+body.fx-night .hint { color: #e6e9ff; text-shadow: 2px 2px 0 #171b3d; }
+body.low-fx::before { display: none; }
+body.idle::before { animation-play-state: paused; }     /* nothing animates while the game sleeps */
+.ico { height: 1.3em; width: 1.3em; vertical-align: -0.3em; }

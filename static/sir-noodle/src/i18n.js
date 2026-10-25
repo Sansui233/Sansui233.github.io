@@ -61,7 +61,18 @@ const STR = {
     noRuns: 'No runs yet.', noRunsSub: (size) => `Go eat something! Your top ${size} runs land here.`,
     newTag: 'new', wipe: 'Reset records', wipeSure: 'Really? Click again to erase everything',
     unlocked: 'unlocked', unlockedOn: (d) => `Unlocked ${d}`,
-    toast: 'Achievement unlocked!', toastTier: (tier) => `${tier} achievement!`
+    toast: 'Achievement unlocked!', toastTier: (tier) => `${tier} achievement!`,
+    // game over: peek and share (share.js)
+    peekTip: 'Hide the results to see the board (for a screenshot)', shareTip: 'Share this run',
+    shareT: 'Share your run', copyImg: 'Copy image', saveImg: 'Save image', copyText: 'Copy text',
+    copied: 'Copied!', copyFailed: 'Could not copy', saved: 'Saved!',
+    socialTip: 'Opens a new tab with your text and link; attach the saved image there',
+    net_x: 'X', net_weibo: 'Weibo', net_facebook: 'Facebook',
+    drawing: 'Drawing your snapshot…',
+    shareImgTitle: "Sir Noodle's Snack Quest",
+    shareText: (o) => `${o.best ? 'New personal best! ' : ''}I just scored ${o.score} points in Sir Noodle's Snack Quest. ` +
+      `My noodle ate ${o.snacks} snacks and grew ${o.length} segments long in ${o.time}, then ` +
+      `${o.death === 'rock' ? 'got bonked by a rock' : 'bit its own tail'}. Can you beat that?`
   },
   zh: {
     langBtn: '中', langTitle: '语言：中文（点击切换到 English）',
@@ -101,7 +112,17 @@ const STR = {
     noRuns: '还没有记录。', noRunsSub: (size) => `快去吃点东西！你最好的 ${size} 局会出现在这里。`,
     newTag: '新', wipe: '重置记录', wipeSure: '真的吗？再点一次清除所有记录',
     unlocked: '已解锁', unlockedOn: (d) => `${d} 解锁`,
-    toast: '解锁成就！', toastTier: (tier) => `${tier}成就！`
+    toast: '解锁成就！', toastTier: (tier) => `${tier}成就！`,
+    peekTip: '隐藏结算，看看棋盘（方便截图）', shareTip: '分享这一局',
+    shareT: '分享这一局', copyImg: '复制图片', saveImg: '保存图片', copyText: '复制文字',
+    copied: '已复制！', copyFailed: '复制失败', saved: '已保存！',
+    socialTip: '在新标签页打开，带上文字和链接；图片请保存后自己添加',
+    net_x: 'X', net_weibo: '微博', net_facebook: 'Facebook',
+    drawing: '正在画你的截图…',
+    shareImgTitle: '面条爵士的零食大冒险',
+    shareText: (o) => `${o.best ? '刷新个人纪录！' : ''}我在《面条爵士的零食大冒险》里拿到了 ${o.score} 分！` +
+      `我的面条吃了 ${o.snacks} 份零食，用 ${o.time} 长到了 ${o.length} 节，最后` +
+      `${o.death === 'rock' ? '被石头砸中了' : '咬到了自己的尾巴'}。你能超过我吗？`
   }
 };
 const tr = (k, ...a) => { const v = STR[lang][k] ?? STR.en[k]; return typeof v === 'function' ? v(...a) : v; };
@@ -124,6 +145,7 @@ const UI_ZH = {
   profile: '资料', whoPlays: '谁在玩？', anon: '匿名', yourName: '你的名字',
   randomTip: '随机一个搞笑的名字', random: '随机名字',
   save: '保存 <kbd>Enter</kbd>', cancel: '取消 <kbd>Esc</kbd>',
+  peekBack: '显示结算', share: '分享', ghTip: 'GitHub 上的源代码',
   hint: `方向键 / WASD 或滑动 • 空格 = 暂停 • T = 记录和成就 • M = 静音 • L = 低特效 • 空格 / 回车 = 再来一局<br>
     50 分后 <img class="ico" src="assets/rock.png" alt="石头"> 石头开始掉落（注意红色警告！） &nbsp;•&nbsp; <img class="ico" src="assets/bomb.png" alt="炸弹"> 炸掉最近的石头 &nbsp;•&nbsp; <img class="ico" src="assets/dynamite.png" alt="超级炸弹"> 超级炸弹清除所有石头 &nbsp;•&nbsp; <img class="ico" src="assets/shield.png" alt="护盾"> 挡下一次石头（最多叠 3 层） &nbsp;•&nbsp; <img class="ico" src="assets/star.png" alt="星星"> = 无敌模式：横冲直撞 &nbsp;•&nbsp; <img class="ico" src="assets/banana.png" alt="香蕉"> = 猴子模式：猴爪扔石头、抓零食 &nbsp;•&nbsp; <img class="ico" src="assets/moon.png" alt="月亮"> = 夜晚：面条爵士打个盹，醒来回到初始速度`
 };

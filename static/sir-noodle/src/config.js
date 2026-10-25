@@ -1,7 +1,7 @@
 // Constants and game data: board size, timed effects, pickups, quotes, art names.
 'use strict';
 
-const VERSION = '2.1.1';      // release version (tools/release.mjs, git tag v<VERSION>, CHANGELOG.md)
+const VERSION = '2.2.0';      // release version (tools/release.mjs, git tag v<VERSION>, CHANGELOG.md)
 const N = 20, CELL = 30, SIZE = N * CELL;
 const INK = '#5b2a4e';
 const STONE_START = 50;      // score at which rocks begin to fall

@@ -77,7 +77,8 @@ function cancelOver() { overTimers.forEach(clearTimeout); overTimers = []; overR
 // numbers count up, the podium rises, unlocked badges pop. Replay unlocks only after the last part.
 function showGameOver(rep) {
   cancelOver();
-  lastEntry = rep.entry;
+  lastEntry = rep.entry; lastRep = rep;
+  $scrOver.classList.remove('peek');
   const r = rep.run, top = save.ranking.slice(0, 3);
   let t = 160;                                         // timeline in ms from the moment the card starts dropping
   const next = (dt = STEP) => (t += dt);
@@ -85,7 +86,12 @@ function showGameOver(rep) {
   const counts = [];                                   // [ms, element index, value, formatter]
   const d = (ms) => `style="--d:${ms}ms"`;
 
-  let h = `<div class="over-head pop" ${d(next())}><span class="over-avatar" title="${esc(shownName(save.profile.name))}">${avatarHtml(save.profile.avatar)}<img class="stars" src="assets/dizzy.png" alt=""></span><h2>${tr('gameOver')}</h2></div>
+  // corner tools arrive with the buttons: hide the card to see the board, share the run (share.js)
+  let h = `<div class="over-tools pop" ${d(ACT_AT)}>
+      <button class="btn icon" data-act="peek" title="${tr('peekTip')}" aria-label="${tr('peekTip')}">${iconHtml('eye')}</button>
+      <button class="btn icon" data-act="share" title="${tr('shareTip')}" aria-label="${tr('shareTip')}">${iconHtml('share')}</button>
+    </div>
+    <div class="over-head pop" ${d(next())}><span class="over-avatar" title="${esc(shownName(save.profile.name))}">${avatarHtml(save.profile.avatar)}<img class="stars" src="assets/dizzy.png" alt=""></span><h2>${tr('gameOver')}</h2></div>
     <p class="quote pop" ${d(next())}>${deathMsg}</p>
     <div class="stats">`;
   const stats = [[tr('score'), 'coin', score, fmtNum, 'big'], [tr('snacks'), 'snackbag', eaten, fmtNum], [tr('length'), 'worm', r.length, fmtNum], [tr('time'), 'clock', clock, fmtTime]];
@@ -334,6 +340,7 @@ function onScreenClick(e) {
   if (b) b.blur();
   const act = b && b.dataset.act, tab = b && b.dataset.tab;
   audio();
+  if (e.currentTarget === $scrOver && peeking()) return setPeek(false);   // peeking: any click brings the card back
   if (tab) return switchTab(tab);
   if (act === 'play') { start(); wake(); return; }
   if (act === 'resume') { setState('play'); wake(); return; }
@@ -345,12 +352,17 @@ function onScreenClick(e) {
   if (act === 'pf-random') return randomName();
   if (act === 'pf-save') return saveProfile();
   if (act === 'pf-cancel') { closeProfile(); sfx.click(); return; }
+  if (act === 'peek') return setPeek(true);
+  if (act === 'share') return openShare();
+  if (act === 'share-close') return closeShare();
+  if (act && act.startsWith('share-')) return shareAction(act, b);
   if (b && b.dataset.av) return pickAvatar(b.dataset.av);
-  if (b || e.target.closest('input')) return;
+  if (b || e.target.closest('input, textarea')) return;
   // a click on the backdrop or card: title starts, pause resumes, records closes (backdrop only)
   if (e.currentTarget === $scrTitle) { start(); wake(); }
   else if (e.currentTarget === $scrPause) { setState('play'); wake(); }
   else if (e.currentTarget === $scrRecords && e.target === $scrRecords) closeRecords();
   else if (e.currentTarget === $scrProfile && e.target === $scrProfile) closeProfile();
+  else if (e.currentTarget === $scrShare && e.target === $scrShare) closeShare();
 }
-for (const el of [$scrTitle, $scrPause, $scrOver, $scrRecords, $scrProfile]) el.addEventListener('click', onScreenClick);
+for (const el of [$scrTitle, $scrPause, $scrOver, $scrRecords, $scrProfile, $scrShare]) el.addEventListener('click', onScreenClick);

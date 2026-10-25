@@ -69,6 +69,8 @@
 
       <div class="screen" id="scr-over" hidden>
         <div class="card over-card" id="over-card" role="dialog" aria-label="Game over" data-i18n-aria="gameOver"></div>
+        <!-- peek: the card slides away for a screenshot; this (or any click / key) brings it back -->
+        <button class="peek-back" data-act="unpeek"><img class="ico" src="assets/eye.png" alt=""> <span data-i18n="peekBack">Show results</span></button>
       </div>
 
       <div class="screen modal" id="scr-records" hidden>
@@ -100,11 +102,19 @@
         </div>
       </div>
 
+      <div class="screen modal" id="scr-share" hidden>
+        <div class="card share-card" id="share-card" role="dialog" aria-label="Share" data-i18n-aria="share"></div>
+      </div>
+
       <div id="toasts" aria-live="polite"></div>
     </div>
   </main>
   <div class="hint" data-i18n="hint">Arrows / WASD or swipe • Space = pause • T = records &amp; achievements • M = mute • L = low effects • Space / Enter = replay<br>
     After 50 points <img class="ico" src="assets/rock.png" alt="rock"> rocks start falling (watch for the red warning!) &nbsp;•&nbsp; <img class="ico" src="assets/bomb.png" alt="bomb"> zaps the nearest rock &nbsp;•&nbsp; <img class="ico" src="assets/dynamite.png" alt="super bomb"> SUPER BOMB clears every rock &nbsp;•&nbsp; <img class="ico" src="assets/shield.png" alt="shield"> blocks one rock hit (stacks to 3) &nbsp;•&nbsp; <img class="ico" src="assets/star.png" alt="star"> = God Mode: smash through anything &nbsp;•&nbsp; <img class="ico" src="assets/banana.png" alt="banana"> = Monkey Mode: paws fling rocks and grab snacks &nbsp;•&nbsp; <img class="ico" src="assets/moon.png" alt="moon"> = Night: Sir Noodle naps and wakes up at starting speed</div>
+
+  <!-- source link: top-right corner on wide windows, a small pill under the hint otherwise (css/style.css) -->
+  <a class="gh-link" id="gh-link" href="https://github.com/Sansui233/sir-noodle-snack-quest" target="_blank" rel="noopener"
+     title="Source code on GitHub" data-i18n-title="ghTip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
 
   <!-- Classic scripts (not modules) so the game still runs from file:// with no server.
        They share one global scope and must load in this order; main.js boots the game. -->
@@ -120,6 +130,7 @@
   <script src="src/i18n.js"></script>
   <script src="src/game.js"></script>
   <script src="src/ui.js"></script>
+  <script src="src/share.js"></script>
   <script src="src/input.js"></script>
   <script src="src/render/helpers.js"></script>
   <script src="src/render/world.js"></script>

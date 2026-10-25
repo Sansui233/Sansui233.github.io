@@ -70,6 +70,21 @@ canvas {
 body.fx-night .hint { color: #e6e9ff; text-shadow: 2px 2px 0 #171b3d; }
 /* short windows (landscape phones): the board needs every pixel, the controls hint goes */
 @media (max-height: 520px) { .hint { display: none; } }
+
+/* GitHub link: raised like the HUD buttons. In the page flow (under the hint) on narrow windows, where the
+   board fills the width; pinned to the top-right corner once there is room beside the board. */
+.gh-link {
+  display: inline-flex; align-items: center; gap: .4em; flex: none; padding: .25em .8em .25em .55em;
+  font: 600 max(var(--min-font), calc(13px * var(--ui))) var(--font); color: var(--ink); text-decoration: none;
+  background: #fff; border: 3px solid var(--ink); border-radius: 999px; box-shadow: 0 .22em 0 var(--ink);
+  transition: transform .08s, box-shadow .08s, background .15s;
+}
+.gh-link svg { width: 1.35em; height: 1.35em; fill: var(--ink); }
+.gh-link:hover { transform: translateY(-2px); box-shadow: 0 calc(.22em + 2px) 0 var(--ink); background: #fff6fa; }
+.gh-link:active { transform: translateY(.18em); box-shadow: 0 .04em 0 var(--ink); }
+.gh-link:focus-visible { outline: 3px solid #ff7aa2; outline-offset: 2px; }
+@media (min-width: 820px) { .gh-link { position: fixed; top: 14px; right: 16px; font-size: 14px; } }
+@media (max-width: 819px) and (max-height: 520px) { .gh-link { display: none; } }
 body.low-fx::before { display: none; }
 body.idle::before { animation-play-state: paused; }     /* nothing animates while the game sleeps */
 /* Fredoka is chunky: bold text is 600, never heavier (the bundled font tops out at 700 anyway) */

@@ -26,7 +26,8 @@ function fitWindow() {
   const ui = Math.max(.75, Math.min(1, innerWidth / 760, innerHeight / 860));
   root.setProperty('--ui', ui.toFixed(3));
   const hint = document.querySelector('.hint').offsetHeight;
-  root.setProperty('--chrome', Math.ceil(hint + 12 * ui + 36 * ui + 14) + 'px');   // hint + gap + padding + board shadow
+  const gh = document.getElementById('gh-link'), ghH = getComputedStyle(gh).position === 'fixed' ? 0 : gh.offsetHeight;
+  root.setProperty('--chrome', Math.ceil(hint + 12 * ui + 36 * ui + 14 + (ghH && ghH + 12 * ui)) + 'px');   // hint + gaps + padding + board shadow
   for (let i = 0; i < 2; i++) {             // the header share depends on the board width: settle it in two passes
     root.setProperty('--hud-k', ($hud.offsetHeight / $board.offsetWidth).toFixed(4));
   }

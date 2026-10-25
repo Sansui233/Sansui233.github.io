@@ -47,6 +47,7 @@ const KEYMAP = {
 window.addEventListener('keydown', (e) => {
   const k = e.key;
   if (profileOpen()) { profileKey(e); return; }               // typing a name: every key belongs to the input
+  if (shareOpen()) { shareKey(e); return; }                   // same for the share text
   // Enter/Space are handled here only; a focused button must not also "click" on them
   if (k === ' ' || k === 'Enter') e.preventDefault();
   if (e.repeat && (k === ' ' || k === 'Enter')) return;      // a held key must not skip through the game over
@@ -55,6 +56,10 @@ window.addEventListener('keydown', (e) => {
   if (k === 'l' || k === 'L') { toggleLowFx(); return; }
   if (k === 't' || k === 'T') { audio(); openRecords(); return; }
   if (state === 'over') {                                     // Space / Enter restart, once the dialog has landed
+    if (peeking()) {                                          // peeking: a key brings the card back, never replays
+      if (!['Shift', 'Control', 'Alt', 'Meta'].includes(k)) { e.preventDefault(); setPeek(false); }
+      return;
+    }
     if (k === ' ' || k === 'Enter') replay();
     else if (KEYMAP[k]) e.preventDefault();
     return;

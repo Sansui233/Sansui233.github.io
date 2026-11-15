@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Sun, 15 Nov 2026 08:22:35 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Nov 2026 09:14:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,13 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-10-21T19:57:00.000Z</guid>
             <pubDate>Wed, 21 Oct 2026 19:57:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-11-03 14:54:09</h2>
+            <content:encoded><![CDATA[<h2>2026-11-15 17:14:07</h2>
+<p><a href="https://www.bilibili.com/video/BV1wWxq6kENb"> だってさ - syudou</a> 歌词里加了什么好难受……</p>
+<p>最近就是在狂过几个游戏的剧情。原神的还可以，崩铁的文案离人越来越远了，币战还可以但是太杀时间了，千星奇遇依旧是一坨，不乏有个别作者非常厉害有游戏性的巧思，但换皮缝合缝不好的占了绝大多数。然后燕云，冬天了终于可以玩了（CPU 不会到90度了），但是下了一晚上……</p>
+<p>但还是觉得打游戏好浪费时间……只论像在解题一样的游戏性，没有带来更多的感受、创造与思考，打了后就觉得我干嘛给策划打工……上班又上得很混乱，本来想干什么的心情连坐牢5天就会消失不见了。听到 だってさ 的歌词，瞬间被深深触动了……演我……然后我手边……一个乐器也没有了……还是不能没有乐器，我又想买键盘和声卡，真的是狂买键盘，然后等又搬家又送人吗……</p>
+<p>还是只有画画算了，真真没有成本的换脑子活动。</p>
+<hr/>
+<h2>2026-11-03 14:54:09</h2>
 <p>X Premium 越来越像 88vip 了……</p>
 <hr/>
 <h2>2026-11-02 01:04:33 </h2>
@@ -40,20 +46,7 @@
 <p>各家不断蒸馏后，把存在于用户对话中思维链也学去，实际上除了对 AI 这么于是出现了怪味，输出也变得越来越长……</p>
 <p>到了 GPT5.4，怪味最浓郁的时期，暴力用词以至于不少人都要加去怪味的 prompt，“不要使用xxx，不要xxx”，再加上 skill harness 的发展，各种验收限制都出现在了超长的上下文里。比如“不要把文档当作事实”。此时代码能力变强，也让输出格式变得过于整齐划一（见3），缺乏人类思维的灵活性。</p>
 <p>然后，GPT 5.5 防御力就开始无敌强……各种验收边界。验收边界本身没有问题，但是不分大小过于频繁了。就改个样式改个翻译也要验收，人验收更快的东西非要代码验收。</p>
-<p>确实应该发展一下反蒸馏……至少训练集LLM做一次去怪味清洗吧！不要再思维链外泄又吃来吃去了，受不了惹！</p>
-<hr/>
-<h2>2026-10-16 22:51:19</h2>
-<p>HTML Drag and Drop 原理:</p>
-<ul>
-<li>浏览器对于同一个拖拽中的所有事件，都共享一个 DataTransfer 对象。不同元素的上的同一次 Drag 事件都可以访问到同一个 DataTransfer。通常而言，Drag 元素的 onDragStart 去设置 Data，接收元素的 onDrop 去接收 Data。</li>
-<li>UI 层面上
-<ul>
-<li>预览图：新建一个 ghost div 元素, apppend 到 body。被浏览器捕获后 ghost.remove()。这个图被捕获后会跟随鼠标移动。</li>
-<li>接收元素至少要设置两个 2 个 UI 状态。on drag over 和 on drag leave。
-如果把数据状态和UI 状态一起算，接收元素的 UI 一共可分为四个状态，idle → drag over ↔ drag leave → drop.</li>
-</ul>
-</li>
-</ul>]]></content:encoded>
+<p>确实应该发展一下反蒸馏……至少训练集LLM做一次去怪味清洗吧！不要再思维链外泄又吃来吃去了，受不了惹！</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[用 Obsidian 导出笔记为一本书]]></title>

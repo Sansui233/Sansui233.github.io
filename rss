@@ -4,7 +4,7 @@
         <title>Sansui's blog</title>
         <link>https://sansui233.com</link>
         <description>记录学习和生活的个人博客</description>
-        <lastBuildDate>Tue, 27 Oct 2026 14:21:06 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Nov 2026 08:22:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,7 +15,13 @@
             <link>https://sansui233.com/memos</link>
             <guid isPermaLink="false">https://sansui233.com/memos?id=2026-10-21T19:57:00.000Z</guid>
             <pubDate>Wed, 21 Oct 2026 19:57:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>2026-10-27 22:20:09</h2>
+            <content:encoded><![CDATA[<h2>2026-11-03 14:54:09</h2>
+<p>X Premium 越来越像 88vip 了……</p>
+<hr/>
+<h2>2026-11-02 01:04:33 </h2>
+<p><a href="https://github.com/19y/ShaiWin">ShaiWin</a> 本来看着也是有意思而已，后面才发现，实用性在于，给最小化窗口加了一个可以单手按的快捷键……</p>
+<hr/>
+<h2>2026-10-27 22:20:09</h2>
 <p>心情很糟糕，但是再糟糕也没有动力写下去了。</p>
 <hr/>
 <h2>2026-10-23 20:33:13</h2>
@@ -47,19 +53,6 @@
 如果把数据状态和UI 状态一起算，接收元素的 UI 一共可分为四个状态，idle → drag over ↔ drag leave → drop.</li>
 </ul>
 </li>
-</ul>
-<hr/>
-<h2>2026-10-16 04:09:51</h2>
-<p>FontScape 的渲染问题是 Webview 带来的，人能做的优化我全都过一遍了。如果一屏字体太多还全是 Noto sans 这种，光是 Webview 读取并建立缓存就要两秒。要丝滑的话最终要走上 WebGPU 的道路（但真的能实现得更好吗，要是我都比 Chrome 快了那拿 Chrome 干什么）。还是有余地的，主要是我就渲染那么几个字，也不需要加载完整的文件，大概是这样吧。</p>
-<hr/>
-<h2>2026-10-15 21:23:48</h2>
-<ul>
-<li><a href="https://go.dev/blog/http-connection-reuse">更好的 HTTP/1 连接重用 - Go 编程语言</a>
-网络请求时，只是需要一个 HTTP 状态码，并不需要读取 body。但是因为程序员没有及时关闭连接，导致后续发起的连接会重新建立 tcp 通道，而不是复用之前实际没用的连接，拉高了响应时间。body 的网络传输是在 <code>resp.Body.Read()</code> 方法时才开始的。如果不读 Body 建议用完就立刻关掉免得占 TCP 连接数。</li>
-<li><a href="https://x.com/godling_zlm/status/2110070980899176735?s=46&amp;t=xtlLBJWm7VGj2HiP7Ij3rQ">css 复合字体</a>
-针对中西文排版的字体搭配协调性检查。这个好，有时间我也想抠。对于网页最难的其实还是为了响应速度不要引入新字体，然后默认字体的渲染很不可控……</li>
-<li><a href="https://b23.tv/IAkEXbv">朝鲜办「奥运」了？全世界只有三个国家没来-哔哩哔哩</a>
-看了一下午的朝鲜旅游视频……令我惊叹的是视频中那个大爷博主的精神状态，100%的更要，也是100%的赞同。然后为这样的大爷突然离世而感到伤心。<a href="https://b23.tv/KuqSNbJ">评论</a>。</li>
 </ul>]]></content:encoded>
         </item>
         <item>
